@@ -34,7 +34,7 @@
     "trailingComma": "es5"
   },
   "name": "react-bricks-ui",
-  "author": "f2@f2.net",
+  "author": "Matteo Frana <info@reactbricks.com>",
   "module": "dist/react-bricks-ui.esm.js",
   "size-limit": [
     {
