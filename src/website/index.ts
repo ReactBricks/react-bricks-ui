@@ -11,7 +11,7 @@ import Customer from './Customers/Customer'
 import Faqs from './Faqs'
 import Faq from './Faqs/Faq'
 import CallToAction from './CallToAction'
-import Map from './Map'
+//import Map from './Map'
 import BigFeature from './BigFeature'
 import NewsletterSubscribe from './NewsletterSubscribe'
 
@@ -28,7 +28,7 @@ export {
   Faqs,
   Faq,
   CallToAction,
-  Map,
+  //Map,
   BigFeature,
   NewsletterSubscribe,
 }
@@ -46,7 +46,7 @@ const allBricks = [
   Faqs,
   Faq,
   CallToAction,
-  Map,
+  //Map,
   BigFeature,
   NewsletterSubscribe,
 ]
