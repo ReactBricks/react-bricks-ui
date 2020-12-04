@@ -7214,10 +7214,10 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-bricks@2.0.0-beta.12:
-  version "2.0.0-beta.12"
-  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-2.0.0-beta.12.tgz#ae1d9185f6df8b26393f06ade6329f3f3abbd2da"
-  integrity sha512-jcBv3rckD2qt77cjXPcfYYJedanqjpuNrlOxNeMvqhZGVvgVpAfsw3p4No5X/uLAwXnwi5UnTOO5ZHcab46jJg==
+react-bricks@2.0.0-beta.13:
+  version "2.0.0-beta.13"
+  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-2.0.0-beta.13.tgz#ccfedf221455e5f65ea5b24a06ccac4bc85fddc2"
+  integrity sha512-JmU5h6jasbnTn1u8QlK9aeOEzWLgvj7nh4+6NU4eNEvWku5xe0wmwu4M5Mj1K6MZSxDRCgi0vVRe+52bD0LXiA==
   dependencies:
     "@tippyjs/react" "^4.2.0"
     axios "^0.20.0"
