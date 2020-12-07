@@ -68,6 +68,7 @@
     "email-validator": "^2.0.4",
     "jsonp": "^0.2.1",
     "leaflet": "^1.7.1",
+    "react-icons": "^4.1.0",
     "react-leaflet": "^3.0.2"
   }
 }

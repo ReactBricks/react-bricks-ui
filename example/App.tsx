@@ -62,7 +62,6 @@ const App = () => {
         {/* <Playground path="/playground" />
         <AppSettings path="/app-settings" />
         <Viewer path="/page/:slug" /> */}
-
       </Router>
     </ReactBricks>
   )
