@@ -186,21 +186,26 @@ TextImage.schema = {
   label: 'Text Image',
   getDefaultProps: () => ({
     bg: {
-      color: "#fff",
-      className: "bg-white dark:bg-gray-900"
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
     },
-    borderTop: "none",
-    borderBottom: "none",
-    width: "lg",
-    title: Plain.deserialize("We built hundreds of apps"),
-    text: Plain.deserialize("We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun."),
+    borderTop: 'none',
+    borderBottom: 'none',
+    width: 'lg',
+    title: Plain.deserialize('We built hundreds of apps'),
+    text: Plain.deserialize(
+      'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.'
+    ),
     imageSource: {
-      src: "https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png",
-      placeholderSrc: "https://images.reactbricks.com/placeholder/7a358d12-e668-46e4-ab81-b90431006182.png",
-      srcSet: "https://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1600.png 1600w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1200.png 1200w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-400.png 400w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-200.png 200w",
-      alt: "Dashboard",
-      seoName: "dashboard"
-    }
+      src:
+        'https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png',
+      placeholderSrc:
+        'https://images.reactbricks.com/placeholder/7a358d12-e668-46e4-ab81-b90431006182.png',
+      srcSet:
+        'https://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1600.png 1600w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1200.png 1200w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-400.png 400w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-200.png 200w',
+      alt: 'Dashboard',
+      seoName: 'dashboard',
+    },
   }),
   repeaterItems: [
     {

@@ -107,23 +107,30 @@ Testimonial.schema = {
   name: blockNames.Testimonial,
   label: 'Testimonial',
   getDefaultProps: () => ({
-    quote: Plain.deserialize("F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied."),
-    authorName: Plain.deserialize("Matteo Frana"),
-    authorJobTitle: Plain.deserialize("Founder @ React Bricks"),
+    quote: Plain.deserialize(
+      'F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied.'
+    ),
+    authorName: Plain.deserialize('Matteo Frana'),
+    authorJobTitle: Plain.deserialize('Founder @ React Bricks'),
     avatarImage: {
-      src: "https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg",
-      placeholderSrc: "https://images.reactbricks.com/placeholder/4a14877f-223a-4988-8279-6d2940885ce4.jpg",
-      srcSet: "https://images.reactbricks.com/src_set/4a14877f-223a-4988-8279-6d2940885ce4-400.jpg 400w,\nhttps://images.reactbricks.com/src_set/4a14877f-223a-4988-8279-6d2940885ce4-200.jpg 200w",
-      alt: "Matteo",
-      seoName: "matteo"
+      src:
+        'https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
+      placeholderSrc:
+        'https://images.reactbricks.com/placeholder/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
+      srcSet:
+        'https://images.reactbricks.com/src_set/4a14877f-223a-4988-8279-6d2940885ce4-400.jpg 400w,\nhttps://images.reactbricks.com/src_set/4a14877f-223a-4988-8279-6d2940885ce4-200.jpg 200w',
+      alt: 'Matteo',
+      seoName: 'matteo',
     },
     logoImage: {
-      src: "https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg",
-      placeholderSrc: "https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg",
-      srcSet: "",
-      alt: "React Bricks",
-      seoName: "react-bricks"
-    }
+      src:
+        'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
+      placeholderSrc:
+        'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
+      srcSet: '',
+      alt: 'React Bricks',
+      seoName: 'react-bricks',
+    },
   }),
 }
 

@@ -72,21 +72,25 @@ BigFeature.schema = {
   label: 'Feature callout',
   getDefaultProps: () => ({
     bg: {
-      color: "#fff",
-      className: "bg-white dark:bg-gray-900"
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
     },
-    borderTop: "boxed",
-    borderBottom: "none",
-    width: "sm",
-    title: Plain.deserialize("Easy like Wix, but your own."),
-    text: Plain.deserialize("A great user experience for Content creators, React components for Developers."),
+    borderTop: 'boxed',
+    borderBottom: 'none',
+    width: 'sm',
+    title: Plain.deserialize('Easy like Wix, but your own.'),
+    text: Plain.deserialize(
+      'A great user experience for Content creators, React components for Developers.'
+    ),
     imageSource: {
-      src: "https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg",
-      placeholderSrc: "https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg",
-      srcSet: "",
-      alt: "Content creators",
-      seoName: "content-creators"
-    }
+      src:
+        'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
+      placeholderSrc:
+        'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
+      srcSet: '',
+      alt: 'Content creators',
+      seoName: 'content-creators',
+    },
   }),
   sideEditProps: [
     {
