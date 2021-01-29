@@ -58,17 +58,20 @@ CallToAction.schema = {
   name: blockNames.CallToAction,
   label: 'Call to action',
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
+    bg: {
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
+    },
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',
     text: Plain.deserialize(
-      'Storybook is quick to install and it’s easy to get started.'
+      'React Bricks is great for developers and marketing.'
     ),
     buttons: [
       {
         text: 'Get started',
-        variant: 'secondary',
+        variant: 'azure',
       },
     ],
   }),

@@ -94,7 +94,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           <Repeater
             propName="buttons"
             renderWrapper={items => (
-              <div className="flex justify-center items-center flex-col xs:flex-row mt-6">
+              <div className="flex justify-center items-center flex-col sm:flex-row mt-6">
                 {items}
               </div>
             )}
@@ -109,13 +109,41 @@ HeroUnit.schema = {
   name: blockNames.HeroUnit,
   label: 'Hero Unit',
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
+    bg: {
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
+    },
     size: 'large',
     textGradient: 'none',
     title: Plain.deserialize('We develop beautiful web applications'),
     text: Plain.deserialize(
       "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations."
     ),
+    badge: [
+      {
+        text: Plain.deserialize('high tech'),
+        color: {
+          color: '#90cdf4',
+          className: 'text-blue-400 dark:text-blue-300',
+        },
+      },
+    ],
+    buttons: [
+      {
+        text: 'Get Started',
+        href: '',
+        isTargetBlank: false,
+        variant: 'azure',
+        type: 'solid',
+      },
+      {
+        text: 'Learn more',
+        href: '',
+        isTargetBlank: false,
+        variant: 'azure',
+        type: 'outline',
+      },
+    ],
   }),
   repeaterItems: [
     {

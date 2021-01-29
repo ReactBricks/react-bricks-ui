@@ -36,7 +36,6 @@ const Section: React.FC<SectionProps> = ({
   children,
 }) => {
   const bgColor = bg.className
-
   return (
     <section className={classNames(bgColor, className, 'overflow-hidden')}>
       {borderTop !== 'none' && <HR boxed={borderTop === 'boxed'} />}

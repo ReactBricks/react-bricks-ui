@@ -21,14 +21,13 @@ export type BgColorName =
   | 'dark'
 
 export type GradientName = 'none' | 'ocean' | 'violet' | 'sun'
-
-export type BadgeColorName = 'gray' | 'primary' | 'green' | 'blue'
+export type BadgeColorName = 'gray' | 'pink' | 'green' | 'blue'
 
 export type BulletColorName =
-  | 'primary'
-  | 'primaryLight'
-  | 'secondary'
-  | 'secondaryLight'
+  | 'pink'
+  | 'pinkLight'
+  | 'azure'
+  | 'azureLight'
   | 'green'
   | 'greenLight'
 
@@ -75,19 +74,22 @@ export const bgColors: BgColors = {
   },
   lightBlue: {
     label: 'Light Blue',
-    value: { color: '#ebf8ff', className: 'bg-blue-100 dark:bg-gray-800' },
+    value: { color: '#ebf8ff', className: 'bg-azure-100 dark:bg-gray-800' },
   },
   orange: {
     label: 'Orange',
-    value: { color: '#feebc8', className: 'bg-orange-200 dark:bg-gray-800' },
+    value: { color: '#feebc8', className: 'bg-orange-100 dark:bg-gray-800' },
   },
   green: {
     label: 'Green',
-    value: { color: '#c6f6d5', className: 'bg-green-200 dark:bg-gray-800' },
+    value: { color: '#c6f6d5', className: 'bg-green-100 dark:bg-gray-800' },
   },
   darkBlue: {
     label: 'Dark Blue',
-    value: { color: '#2a4365', className: 'bg-blue-900 dark:bg-gray-800 dark' },
+    value: {
+      color: '#2a4365',
+      className: 'bg-azure-900 dark:bg-gray-800 dark',
+    },
   },
   dark: {
     label: 'Dark',
@@ -100,11 +102,11 @@ export const badgeColors: BadgeColors = {
     label: 'Gray',
     value: { color: '#cbd5e0', className: 'text-gray-500 dark:text-gray-400' },
   },
-  primary: {
-    label: 'Primary',
+  pink: {
+    label: 'pink',
     value: {
       color: '#fbb6ce',
-      className: 'text-primary-400 dark:text-primary-300',
+      className: 'text-pink-400 dark:text-pink-300',
     },
   },
   green: {
@@ -121,38 +123,37 @@ export const badgeColors: BadgeColors = {
 }
 
 export const bulletColors: BulletColors = {
-  primary: {
-    label: 'Primary',
+  pink: {
+    label: 'pink',
     value: {
       color: '#f65a8e',
-      className: 'bg-primary-500 text-white',
-      className2: 'text-primary-500',
+      className: 'bg-pink-500 text-white',
+      className2: 'text-pink-500',
     },
   },
-  primaryLight: {
-    label: 'Primary light',
+  pinkLight: {
+    label: 'pink light',
     value: {
       color: '#ffebef',
-      className:
-        'bg-primary-100 text-primary-500 dark:bg-primary-500 dark:text-white',
-      className2: 'text-primary-500',
+      className: 'bg-pink-100 text-pink-500 dark:bg-pink-500 dark:text-white',
+      className2: 'text-pink-500',
     },
   },
-  secondary: {
-    label: 'Secondary',
+  azure: {
+    label: 'azure',
     value: {
       color: '#1ea7fd',
-      className: 'bg-secondary-500 text-white',
-      className2: 'text-secondary-500',
+      className: 'bg-azure-500 text-white',
+      className2: 'text-azure-500',
     },
   },
-  secondaryLight: {
-    label: 'Secondary light',
+  azureLight: {
+    label: 'azure light',
     value: {
       color: 'hsl(200, 100%, 96%)',
       className:
-        'bg-secondary-100 text-secondary-500 dark:bg-secondary-500 dark:text-white',
-      className2: 'text-secondary-500',
+        'bg-azure-100 text-azure-500 dark:bg-azure-500 dark:text-white',
+      className2: 'text-azure-500',
     },
   },
   green: {

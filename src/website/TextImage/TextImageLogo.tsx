@@ -24,9 +24,9 @@ TextImageLogo.schema = {
   getDefaultProps: () => ({
     imageSource: {
       src:
-        'https://images.reactbricks.com/original/027efa10-a736-11ea-92c8-1984ec6322b2.svg',
+        'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       placeholderSrc:
-        'https://images.reactbricks.com/original/027efa10-a736-11ea-92c8-1984ec6322b2.svg',
+        'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       srcSet: '',
     },
   }),

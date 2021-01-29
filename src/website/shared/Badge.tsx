@@ -40,6 +40,7 @@ const Badge: types.Brick<BadgeProps> = ({
 Badge.schema = {
   name: blockNames.Badge,
   label: 'Badge',
+  hideFromAddMenu: true,
   getDefaultProps: () => ({
     text: Plain.deserialize('Special'),
     color: badgeColors.gray.value,
@@ -54,7 +55,7 @@ Badge.schema = {
         display: types.OptionsDisplay.Color,
         options: [
           badgeColors.gray,
-          badgeColors.primary,
+          badgeColors.pink,
           badgeColors.blue,
           badgeColors.green,
         ],
