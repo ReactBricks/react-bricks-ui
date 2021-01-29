@@ -34,7 +34,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
       <Container
         size="sm"
         className={classNames(
-          'pt-12 pb-20 flex flex-col justify-between',
+          'pt-12 pb-20 flex flex-col justify-between ',
           small ? 'items-start' : 'items-center'
         )}
       >
@@ -42,8 +42,8 @@ const Testimonial: types.Brick<TestimonialProps> = ({
           renderBlock={(props: any) => (
             <div
               className={classNames(
-                'flex-1 leading-relaxed text-center mb-6 text-gray-700 dark:text-gray-200',
-                small ? 'text-md textt-left' : 'text-xl text-center'
+                'flex-1 leading-relaxed text-center mb-6 text-gray-700 dark:text-gray-200 max-w-lg',
+                small ? 'text-md text-left' : 'text-xl text-center'
               )}
             >
               “{props.children}”
