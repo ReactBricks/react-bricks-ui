@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { RichText, Plain, Image, Repeater, Link, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
-import { textColors, bgColors, bulletColors } from '../colors'
+import { textColors, bgColors } from '../colors'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
 
