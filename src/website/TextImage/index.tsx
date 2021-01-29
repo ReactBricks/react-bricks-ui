@@ -37,7 +37,7 @@ const TextImage: types.Brick<TextImageProps> = ({
   mobileIcon = false,
   hasShadow = false,
   isRounded = false,
-  bulletsVariant = bulletColors.primaryLight.value,
+  // bulletsVariant = bulletColors.pinkLight.value,
 }) => {
   const titleColor = textColors.gray900
   const highlightColor = textColors.purple500
@@ -137,7 +137,6 @@ const TextImage: types.Brick<TextImageProps> = ({
           <Repeater
             propName="bulletListItems"
             itemProps={{
-              variant: bulletsVariant,
               className: 'lg:w-2/5 text-lg',
             }}
             renderWrapper={(items: any) => (
@@ -149,7 +148,7 @@ const TextImage: types.Brick<TextImageProps> = ({
           <Repeater
             propName="buttons"
             renderWrapper={(items: any) => (
-              <div className="flex items-center flex-col xs:flex-row">
+              <div className="flex items-center flex-col sm:flex-row mt-4">
                 {items}
               </div>
             )}
@@ -186,7 +185,10 @@ TextImage.schema = {
   name: blockNames.TextImage,
   label: 'Text Image',
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
+    bg: {
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
+    },
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',
@@ -196,11 +198,13 @@ TextImage.schema = {
     ),
     imageSource: {
       src:
-        'https://images.reactbricks.com/original/15b57eb0-a736-11ea-92c8-1984ec6322b2.jpg',
+        'https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png',
       placeholderSrc:
-        'https://images.reactbricks.com/placeholder/15b57eb0-a736-11ea-92c8-1984ec6322b2.jpg',
+        'https://images.reactbricks.com/placeholder/7a358d12-e668-46e4-ab81-b90431006182.png',
       srcSet:
-        'https://images.reactbricks.com/src_set/15b57eb0-a736-11ea-92c8-1984ec6322b2-1200.jpg 1200w,\nhttps://images.reactbricks.com/src_set/15b57eb0-a736-11ea-92c8-1984ec6322b2-400.jpg 400w,\nhttps://images.reactbricks.com/src_set/15b57eb0-a736-11ea-92c8-1984ec6322b2-200.jpg 200w',
+        'https://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1600.png 1600w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1200.png 1200w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-400.png 400w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-200.png 200w',
+      alt: 'Dashboard',
+      seoName: 'dashboard',
     },
   }),
   repeaterItems: [
@@ -308,11 +312,13 @@ TextImage.schema = {
           name: 'heroTitle',
           label: 'Hero-size Title',
           type: types.SideEditPropType.Boolean,
+          shouldRefreshText: true,
         },
         {
           name: 'mobileTextCenter',
           label: 'Text centered on mobile',
           type: types.SideEditPropType.Boolean,
+          shouldRefreshText: true,
         },
       ],
     },
@@ -358,28 +364,6 @@ TextImage.schema = {
           label: 'Image rounded corners',
           type: types.SideEditPropType.Boolean,
           show: props => !props.multiple,
-        },
-      ],
-    },
-    {
-      groupName: 'Features bullets',
-      props: [
-        {
-          name: 'bulletsVariant',
-          label: 'Features bullet color',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Color,
-            options: [
-              bulletColors.primary,
-              bulletColors.primaryLight,
-              bulletColors.secondary,
-              bulletColors.secondaryLight,
-              bulletColors.green,
-              bulletColors.greenLight,
-            ],
-          },
-          show: props => props.bulletListItems?.length > 0,
         },
       ],
     },

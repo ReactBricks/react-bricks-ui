@@ -11,13 +11,13 @@ interface ContainerProps {
 const getWidthClass = (size: Size) => {
   switch (size) {
     case 'lg': {
-      return 'sm:mx-sm xl:mx-md xxl:mx-lg'
+      return 'sm:w-11/12 xl:w-3/4 2xl:w-2/3'
     }
     case 'md': {
-      return 'sm:mx-sm lg:mx-md xl:mx-lg xxl:mx-xl'
+      return 'sm:w-11/12 lg:w-3/4 xl:w-2/3 2xl:w-7/12'
     }
     case 'sm': {
-      return 'sm:mx-lg lg:mx-xl'
+      return 'sm:w-2/3 lg:w-7/12'
     }
     case 'full': {
       return ''

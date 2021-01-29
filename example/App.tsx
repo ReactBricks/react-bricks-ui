@@ -4,15 +4,15 @@ import { Router, Link, navigate } from '@reach/router'
 import classNames from 'classnames'
 
 import { ReactBricks } from 'react-bricks'
-import { website } from '../dist'
+import { website } from '../src'
 
 import Login from './Login'
 import Editor from './Editor'
-// import Playground from './Playground'
+import Playground from './Playground'
 // import AppSettings from './AppSettings'
 // import Viewer from './Viewer'
 
-import 'tailwindcss/tailwind.css'
+import './style.css'
 
 const App = () => {
   const colorModeLs = localStorage.getItem('color-mode')
@@ -59,6 +59,7 @@ const App = () => {
         <Login path="/" />
 
         <Editor path="/editor" />
+        <Playground path="/playground" />
         {/* <Playground path="/playground" />
         <AppSettings path="/app-settings" />
         <Viewer path="/page/:slug" /> */}

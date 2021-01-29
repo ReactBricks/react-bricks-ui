@@ -30,7 +30,7 @@ const BigFeature: types.Brick<BigFeatureProps> = ({
         )}
       >
         <div className="sm:mr-10 mb-4 sm:mb-0 w-32">
-          <Image propName="image" alt="image" />
+          <Image propName="imageSource" alt="image" />
         </div>
         <div className="flex-1">
           <Text
@@ -71,14 +71,26 @@ BigFeature.schema = {
   name: blockNames.BigFeature,
   label: 'Feature callout',
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
+    bg: {
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
+    },
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',
-    title: Plain.deserialize('Code review, but for UI'),
+    title: Plain.deserialize('Easy like Wix, but your own.'),
     text: Plain.deserialize(
-      'Chromatic generates a visual changeset for your pull requests. It compares components between your branch and the base branch so reviewers can easily find out what UI changed.'
+      'A great user experience for Content creators, React components for Developers.'
     ),
+    imageSource: {
+      src:
+        'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
+      placeholderSrc:
+        'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
+      srcSet: '',
+      alt: 'Content creators',
+      seoName: 'content-creators',
+    },
   }),
   sideEditProps: [
     {

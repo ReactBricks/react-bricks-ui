@@ -6,13 +6,13 @@ import { bulletColors } from '../colors'
 import blockNames from '../blockNames'
 
 export interface BulletListItemProps {
-  variant: { color: string; className: string; className2: string }
+  color: { color: string; className: string; className2: string }
   className: string
   attributes: string
 }
 
 const BulletListItem: types.Brick<BulletListItemProps> = ({
-  variant = bulletColors.primaryLight.value,
+  color = bulletColors.pinkLight.value,
   className,
   ...rest
 }) => {
@@ -27,7 +27,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
       <div
         className={classNames(
           'flex justify-center items-center w-5 h-5 rounded-full mr-4 text-sm',
-          variant.className
+          color.className
         )}
         style={{ minWidth: '1.25rem' }}
       >
@@ -37,7 +37,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
         propName="text"
         renderBlock={(props: any) => (
           <span
-            className={classNames('dark:text-gray-100', variant.className2)}
+            className={classNames('dark:text-gray-100', color.className2)}
             {...props.attributes}
           >
             {props.children}
@@ -54,9 +54,29 @@ BulletListItem.schema = {
   label: 'List item',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    variant: bulletColors.primaryLight.value,
+    color: bulletColors.pinkLight.value,
     text: Plain.deserialize('New item'),
   }),
+  sideEditProps: [
+    {
+      name: 'color',
+      label: 'Color',
+      type: types.SideEditPropType.Select,
+      shouldRefreshText: true,
+      selectOptions: {
+        display: types.OptionsDisplay.Color,
+        options: [
+          bulletColors.pink,
+          bulletColors.pinkLight,
+          bulletColors.azure,
+          bulletColors.azureLight,
+          bulletColors.green,
+          bulletColors.greenLight,
+        ],
+      },
+      // show: props => props.bulletListItems?.length > 0,
+    },
+  ],
 }
 
 export default BulletListItem

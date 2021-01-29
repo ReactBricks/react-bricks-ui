@@ -7,7 +7,7 @@ export interface ButtonProps {
   text: string
   href: string
   isTargetBlank: boolean
-  variant?: 'primary' | 'secondary'
+  variant?: 'pink' | 'azure'
   type?: 'solid' | 'outline'
   padding: 'normal' | 'small'
   className?: string
@@ -17,7 +17,7 @@ const Button: types.Brick<ButtonProps> = ({
   text,
   href,
   isTargetBlank = false,
-  variant = 'primary',
+  variant = 'pink',
   type = 'solid',
   padding = 'normal',
   className,
@@ -35,20 +35,20 @@ const Button: types.Brick<ButtonProps> = ({
         'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150',
         padding === 'normal' ? 'px-8' : 'px-5',
         {
-          'bg-primary-500 text-white hover:bg-primary-600 hover:text-white':
-            variant === 'primary' && type === 'solid',
+          'bg-pink-500 text-white hover:bg-pink-600 hover:text-white':
+            variant === 'pink' && type === 'solid',
         },
         {
-          'bg-secondary-500 text-white hover:bg-secondary-600 hover:text-white':
-            variant === 'secondary' && type === 'solid',
+          'bg-azure-500 text-white hover:bg-azure-600 hover:text-white':
+            variant === 'azure' && type === 'solid',
         },
         {
-          'border border-primary-600 text-primary-600 hover:text-primary-600 dark:border-primary-500 dark:text-primary-500':
-            variant === 'primary' && type === 'outline',
+          'border border-pink-600 text-pink-600 hover:text-pink-600 dark:border-pink-500 dark:text-pink-500':
+            variant === 'pink' && type === 'outline',
         },
         {
-          'border border-secondary-600 text-secondary-600 hover:text-secondary-600 dark:border-secondary-500 dark:text-secondary-500':
-            variant === 'secondary' && type === 'outline',
+          'border border-azure-600 text-azure-600 hover:text-azure-600 dark:border-azure-500 dark:text-azure-500':
+            variant === 'azure' && type === 'outline',
         },
         className
       )}
@@ -62,11 +62,12 @@ const Button: types.Brick<ButtonProps> = ({
 Button.schema = {
   name: blockNames.Button,
   label: 'Button',
+  hideFromAddMenu: true,
   getDefaultProps: () => ({
     text: 'Click me',
     href: '',
     isTargetBlank: false,
-    variant: 'primary',
+    variant: 'azure',
     type: 'solid',
   }),
   sideEditProps: [
@@ -82,8 +83,8 @@ Button.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'primary', label: 'Primary' },
-          { value: 'secondary', label: 'Secondary' },
+          { value: 'azure', label: 'Azure' },
+          { value: 'pink', label: 'Pink' },
         ],
       },
     },

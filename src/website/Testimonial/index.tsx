@@ -110,22 +110,26 @@ Testimonial.schema = {
     quote: Plain.deserialize(
       'F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied.'
     ),
-    authorName: Plain.deserialize('John Doe'),
-    authorJobTitle: Plain.deserialize('CEO at Acme Inc.'),
+    authorName: Plain.deserialize('Matteo Frana'),
+    authorJobTitle: Plain.deserialize('Founder @ React Bricks'),
     avatarImage: {
       src:
-        'https://images.reactbricks.com/original/e0eb5df0-a738-11ea-92c8-1984ec6322b2.jpg',
+        'https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
       placeholderSrc:
-        'https://images.reactbricks.com/placeholder/e0eb5df0-a738-11ea-92c8-1984ec6322b2.jpg',
+        'https://images.reactbricks.com/placeholder/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
       srcSet:
-        'https://images.reactbricks.com/src_set/e0eb5df0-a738-11ea-92c8-1984ec6322b2-200.jpg 200w',
+        'https://images.reactbricks.com/src_set/4a14877f-223a-4988-8279-6d2940885ce4-400.jpg 400w,\nhttps://images.reactbricks.com/src_set/4a14877f-223a-4988-8279-6d2940885ce4-200.jpg 200w',
+      alt: 'Matteo',
+      seoName: 'matteo',
     },
     logoImage: {
       src:
-        'https://images.reactbricks.com/original/ec7f3bf0-a738-11ea-92c8-1984ec6322b2.svg',
+        'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
       placeholderSrc:
-        'https://images.reactbricks.com/original/ec7f3bf0-a738-11ea-92c8-1984ec6322b2.svg',
+        'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
       srcSet: '',
+      alt: 'React Bricks',
+      seoName: 'react-bricks',
     },
   }),
 }

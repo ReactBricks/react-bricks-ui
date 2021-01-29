@@ -18,7 +18,7 @@ const Customer: types.Brick<CustomerProps> = ({
       <Image
         propName="image"
         alt="customer"
-        imageClassName="w-32 h-10"
+        imageClassName="w-32 h-16"
         imageStyle={grayscale ? { filter: 'opacity(0.5) grayscale(100%)' } : {}}
       />
     </div>
@@ -32,9 +32,9 @@ Customer.schema = {
   getDefaultProps: () => ({
     image: {
       src:
-        'https://images.reactbricks.com/original/027efa10-a736-11ea-92c8-1984ec6322b2.svg',
+        'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       placeholderSrc:
-        'https://images.reactbricks.com/original/027efa10-a736-11ea-92c8-1984ec6322b2.svg',
+        'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       srcSet: '',
     },
   }),

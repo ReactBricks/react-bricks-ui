@@ -125,7 +125,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
         />
         <form className="flex" onSubmit={handleSubmit}>
           <input
-            className="bg-white focus:outline-none border-t-2 border-l-2 border-b-2 border-transparent focus:border-secondary-500 rounded-l-lg py-2 px-4 appearance-none leading-normal"
+            className="bg-white focus:outline-none border-t-2 border-l-2 border-b-2 border-transparent focus:border-azure-500 rounded-l-lg py-2 px-4 appearance-none leading-normal"
             type="text"
             placeholder="jane@example.com"
             value={email}
@@ -134,7 +134,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
           <button
             type="submit"
             disabled={status.status === 'SENDING'}
-            className="bg-secondary-500 px-8 rounded-r-lg text-white font-bold py-2"
+            className="bg-azure-500 px-8 rounded-r-lg text-white font-bold py-2"
             // style={{ backgroundColor: '#2f9ff4' }}
           >
             {buttonText}
