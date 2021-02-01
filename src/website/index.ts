@@ -14,6 +14,9 @@ import CallToAction from './CallToAction'
 //import Map from './Map'
 import BigFeature from './BigFeature'
 import NewsletterSubscribe from './NewsletterSubscribe'
+import Team from './Team'
+import TeamItem from './Team/TeamItem'
+import Features from './Features'
 
 export {
   Badge,
@@ -31,6 +34,9 @@ export {
   //Map,
   BigFeature,
   NewsletterSubscribe,
+  Team,
+  TeamItem,
+  Features,
 }
 
 const allBricks = [
@@ -49,6 +55,9 @@ const allBricks = [
   //Map,
   BigFeature,
   NewsletterSubscribe,
+  Team,
+  TeamItem,
+  Features,
 ]
 
 export default allBricks
