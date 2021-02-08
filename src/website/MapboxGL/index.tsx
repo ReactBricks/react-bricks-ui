@@ -1,21 +1,14 @@
-import * as React from 'react'
-import { useState, useEffect, useContext, useRef } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { Map as LeafletMap, TileLayer as LeafletTileLayer } from 'leaflet'
-import { types, ReactBricksContext } from 'react-bricks'
+import React, { useEffect, useRef } from 'react'
+import mapboxgl from 'mapbox-gl'
+import { types } from 'react-bricks'
 
-import { bgColors } from '../colors'
+import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
-import blockNames from '../blockNames'
+import { bgColors } from '../colors'
 
-const ACCESS_TOKEN =
-  'pk.eyJ1IjoiZjJuZXQiLCJhIjoiY2tmNzlyYTUyMDBidzJybXFkdnFzODIzNCJ9.lqbSkfReUUCBy0nmAUC-LA'
-
-const TILES = {
-  mapbox: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}@2x?access_token=${ACCESS_TOKEN}`,
-  mapboxDark: `https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}@2x?access_token=${ACCESS_TOKEN}`,
-}
+mapboxgl.accessToken =
+  'pk.eyJ1IjoiZ2lvYm5zIiwiYSI6ImNrajAwaXlpZDA2Z2Qyc2xnNWUwZWxzcTUifQ.MFKZhEkGma_UkTrOZVkEaQ'
 
 export interface MapProps {
   bg?: { color: string; className: string }
@@ -27,76 +20,45 @@ export interface MapProps {
   lat: number
   lng: number
   zoom?: number // Range
-  scrollWheelZoom?: boolean
   height?: number // Range
-  text?: string
-  showMarker?: boolean
 }
 
 const Map: types.Brick<MapProps> = ({
-  bg = bgColors.white.value,
-  borderTop = 'none',
-  borderBottom = 'none',
-  width = 'full',
-  lat,
-  lng,
+  width,
+  borderTop,
+  bg,
+  borderBottom,
+  lat = 45.9,
+  lng = 9.5,
   zoom = 12,
-  scrollWheelZoom = false,
-  height = 350,
-  text,
-  showMarker = true,
 }) => {
-  const tileLayerRef = useRef<React.RefObject<LeafletTileLayer> | null>(null)
-
-  const { isDarkColorMode } = useContext(ReactBricksContext)
-
-  const [map, setMap] = useState<LeafletMap | null>(null)
-
+  const mapRef = useRef(null)
+  console.log({ mapRef })
+  // const iframe = document.getElementById('rb-admin-frame')
+  // const element = iframe.contentWindow..document.getElementById()
   useEffect(() => {
-    if (map) {
-      map.setView([lat, lng], zoom)
-      //tileLayerRef.current?.current?.redraw()
-      tileLayerRef.current?.current?.setUrl(
-        isDarkColorMode ? TILES.mapboxDark : TILES.mapbox
-      )
-    }
-  }, [lat, lng, zoom, scrollWheelZoom, isDarkColorMode])
+    // console.log(mapRef.current, 'useeffect2')
+    // setTimeout(() => {
+    //   new mapboxgl.Map({
+    //     container: 'root',
+    //     style: 'mapbox://styles/giobns/ckkp83cnr0vqg18mrv6denz1w',
+    //     center: [lng, lat],
+    //     zoom: zoom,
+    //   })
+    // }, 5000)
+  }, [])
 
   return (
     <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
       <Container size={width}>
-        {lat && lng && zoom && (
-          <MapContainer
-            center={[lat, lng]}
-            zoom={zoom}
-            style={{ width: '100%', height }}
-            scrollWheelZoom={scrollWheelZoom}
-            whenCreated={setMap}
-          >
-            <TileLayer
-              //@ts-ignore ?!?
-              ref={tileLayerRef}
-              //attribution='&amp;copy <a href="https://mapbox.com">MapBox</a>'
-              url={isDarkColorMode ? TILES.mapboxDark : TILES.mapbox}
-              //tileSize={512}
-              //zoomOffset={-1}
-            />
-            {showMarker && (
-              <Marker position={[lat, lng]}>
-                {text && (
-                  <Popup>
-                    <span className="font-bold">{text}</span>
-                  </Popup>
-                )}
-              </Marker>
-            )}
-          </MapContainer>
-        )}
+        <div ref={mapRef} id="map" className=" bg-red-500 w-20 h-20" />
+        {lat}
+        {lng}
+        {zoom}
       </Container>
     </Section>
   )
 }
-
 Map.schema = {
   name: blockNames.Map,
   label: 'Map',
@@ -108,12 +70,8 @@ Map.schema = {
     lat: 45.6782509,
     lng: 9.5669407,
     zoom: 14,
-    scrollWheelZoom: false,
     height: 350,
-    text: 'Home',
-    showMarker: true,
   }),
-
   sideEditProps: [
     {
       groupName: 'Layout',
@@ -194,28 +152,12 @@ Map.schema = {
           },
         },
         {
-          name: 'scrollWheelZoom',
-          label: 'Allow zoom on scroll',
-          type: types.SideEditPropType.Boolean,
-        },
-        {
           name: 'height',
           label: 'Height',
           type: types.SideEditPropType.Number,
-        },
-        {
-          name: 'showMarker',
-          label: 'Show marker',
-          type: types.SideEditPropType.Boolean,
-        },
-        {
-          name: 'text',
-          label: 'Marker text',
-          type: types.SideEditPropType.Text,
         },
       ],
     },
   ],
 }
-
 export default Map
