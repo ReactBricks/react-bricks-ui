@@ -5,6 +5,7 @@ enum blockNames {
   ImageBrick = 'image',
   Quote = 'quote',
   SocialEmbed = 'social-embed',
+  CodeBlock = 'code-block',
 }
 
 export default blockNames

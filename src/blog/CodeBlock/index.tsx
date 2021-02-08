@@ -5,8 +5,14 @@ import * as prism from 'prismjs'
 
 import 'prism-theme-night-owl'
 import PrismCode from './PrismCode'
+import Container from '../layout/Container'
+import blockNames from '../blockNames'
 
-const CodeBlock: types.Brick = () => {
+export interface CodeBlockProps {
+  language: string
+}
+
+const CodeBlock: types.Brick<CodeBlockProps> = ({ language }) => {
   const [value, onChange, isReadOnly] = useVisualEdit('code')
 
   if (isReadOnly) {
@@ -14,29 +20,48 @@ const CodeBlock: types.Brick = () => {
   }
 
   return (
-    <pre className="language-js">
-      <code className="language-js">
-        <Editor
-          value={value}
-          onValueChange={onChange}
-          highlight={code =>
-            prism.highlight(code, prism.languages.javascript, 'js')
-          }
-          padding={10}
-        />
-      </code>
-    </pre>
+    <Container>
+      <pre className={`language-${language}`}>
+        <code className={`language-${language}`}>
+          <Editor
+            value={value}
+            onValueChange={onChange}
+            highlight={code =>
+              prism.highlight(code, prism.languages[language], language)
+            }
+            padding={10}
+          />
+        </code>
+      </pre>
+    </Container>
   )
 }
 
 CodeBlock.schema = {
-  name: 'code-block',
+  name: blockNames.CodeBlock,
   label: 'Code Block',
-  getDefaultProps: () => {
-    return {
-      code: 'let a = 1',
-    }
-  },
+  getDefaultProps: () => ({
+    code: 'let a = 1',
+    language: 'javascript',
+  }),
+  sideEditProps: [
+    {
+      name: 'language',
+      label: 'Language',
+      type: types.SideEditPropType.Select,
+      selectOptions: {
+        display: types.OptionsDisplay.Radio,
+        options: [
+          { value: 'javascript', label: 'Javascript' },
+          { value: 'css', label: 'CSS' },
+          { value: 'typescript', label: 'Typescript' },
+          { value: 'bash', label: 'Bash' },
+          { value: 'jsx', label: 'ReactJSX' },
+          { value: 'tsx', label: 'ReactTSX' },
+        ],
+      },
+    },
+  ],
 }
 
 export default CodeBlock
