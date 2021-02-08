@@ -22,7 +22,7 @@ const PrismCode: React.FC<PrismCodeProps> = ({ code, plugins, language }) => {
   }, [])
 
   return (
-    <pre className={!plugins ? '' : plugins.join(' ')}>
+    <pre className={`rounded-lg ${!plugins ? '' : plugins.join(' ')}`}>
       <code ref={codeRef} className={`language-${language}`}>
         {code.trim()}
       </code>
