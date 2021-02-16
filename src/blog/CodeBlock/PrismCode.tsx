@@ -5,9 +5,15 @@ interface PrismCodeProps {
   code: string
   plugins: string[]
   language: string
+  dataLine?: string
 }
 
-const PrismCode: React.FC<PrismCodeProps> = ({ code, plugins, language }) => {
+const PrismCode: React.FC<PrismCodeProps> = ({
+  code,
+  plugins,
+  language,
+  dataLine,
+}) => {
   const codeRef = React.useRef(null)
 
   const highlight = () => {
@@ -17,12 +23,17 @@ const PrismCode: React.FC<PrismCodeProps> = ({ code, plugins, language }) => {
   }
 
   React.useEffect(() => {
-    console.log('highlight')
+    console.log('highlight', dataLine)
     highlight()
   }, [])
 
+  const dataLineObj = dataLine ? { 'data-line': dataLine } : {}
+
   return (
-    <pre className={`rounded-lg ${!plugins ? '' : plugins.join(' ')}`}>
+    <pre
+      className={`rounded-lg ${!plugins ? '' : plugins.join(' ')}`}
+      {...dataLineObj}
+    >
       <code ref={codeRef} className={`language-${language}`}>
         {code.trim()}
       </code>
