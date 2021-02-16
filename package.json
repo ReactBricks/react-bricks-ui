@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-bricks": "2.0.0-beta.13"
+    "react-bricks": "2.0.0-beta.22"
   },
   "husky": {
     "hooks": {
@@ -52,11 +52,13 @@
     "@types/classnames": "^2.2.11",
     "@types/jsonp": "^0.2.0",
     "@types/leaflet": "^1.5.19",
+    "@types/prismjs": "^1.16.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "babel-plugin-prismjs": "^2.0.1",
     "husky": "^4.3.0",
     "react": "^17.0.1",
-    "react-bricks": "2.0.0-beta.13",
+    "react-bricks": "2.0.0-beta.22",
     "react-dom": "^17.0.1",
     "size-limit": "^4.8.0",
     "tsdx": "^0.14.1",
@@ -68,7 +70,11 @@
     "email-validator": "^2.0.4",
     "jsonp": "^0.2.1",
     "leaflet": "^1.7.1",
+    "mapbox-gl": "^2.1.0",
+    "prism-theme-night-owl": "^1.4.0",
+    "prismjs": "^1.23.0",
     "react-icons": "^4.1.0",
-    "react-leaflet": "^3.0.2"
+    "react-leaflet": "^3.0.2",
+    "react-simple-code-editor": "^0.11.0"
   }
 }

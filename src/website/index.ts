@@ -11,9 +11,13 @@ import Customer from './Customers/Customer'
 import Faqs from './Faqs'
 import Faq from './Faqs/Faq'
 import CallToAction from './CallToAction'
-//import Map from './Map'
+// import Map from './MapboxGL'
 import BigFeature from './BigFeature'
 import NewsletterSubscribe from './NewsletterSubscribe'
+import Team from './Team'
+import TeamItem from './Team/TeamItem'
+import Features from './Features'
+import FeatureItem from './Features/FeatureItem'
 
 export {
   Badge,
@@ -28,9 +32,13 @@ export {
   Faqs,
   Faq,
   CallToAction,
-  //Map,
+  // Map,
   BigFeature,
   NewsletterSubscribe,
+  Team,
+  TeamItem,
+  Features,
+  FeatureItem,
 }
 
 const allBricks = [
@@ -46,9 +54,13 @@ const allBricks = [
   Faqs,
   Faq,
   CallToAction,
-  //Map,
+  // Map,
   BigFeature,
   NewsletterSubscribe,
+  Team,
+  TeamItem,
+  Features,
+  FeatureItem,
 ]
 
 export default allBricks

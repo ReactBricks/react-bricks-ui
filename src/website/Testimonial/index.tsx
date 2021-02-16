@@ -14,7 +14,9 @@ export interface TestimonialProps {
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
   small?: boolean
+  bg?: { color: string; className: string }
   borderTop?: Border
+  borderBottom?: Border
 }
 
 const Testimonial: types.Brick<TestimonialProps> = ({
@@ -23,14 +25,12 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   avatarImage,
   logoImage,
   small = false,
-  borderTop = 'boxed',
+  bg = bgColors.white.value,
+  borderTop = 'full',
+  borderBottom = 'none',
 }) => {
   return (
-    <Section
-      bg={bgColors.white.value}
-      borderTop={borderTop}
-      borderBottom="none"
-    >
+    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
         size="sm"
         className={classNames(
@@ -72,7 +72,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
               <FiUser />
             </div>
           )}
-          <div className="ml-3">
+          <div className="ml-3 dark:text-gray-200">
             <Text
               renderBlock={(props: any) => (
                 <div className="text-sm font-bold">{props.children}</div>
@@ -132,6 +132,61 @@ Testimonial.schema = {
       seoName: 'react-bricks',
     },
   }),
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      props: [
+        {
+          name: 'bg',
+          label: 'Background',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Color,
+            options: [bgColors.white, bgColors.light, bgColors.gray],
+          },
+        },
+        {
+          name: 'borderTop',
+          label: 'Border Top',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Select,
+            options: [
+              { value: 'none', label: 'None' },
+              { value: 'full', label: 'Full-width' },
+              { value: 'boxed', label: 'Boxed' },
+            ],
+          },
+        },
+        {
+          name: 'borderBottom',
+          label: 'Border Bottom',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Select,
+            options: [
+              { value: 'none', label: 'None' },
+              { value: 'full', label: 'Full-width' },
+              { value: 'boxed', label: 'Boxed' },
+            ],
+          },
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Select,
+            options: [
+              { value: 'sm', label: 'Small' },
+              { value: 'md', label: 'Medium' },
+              { value: 'lg', label: 'Large' },
+            ],
+          },
+        },
+      ],
+    },
+  ],
 }
 
 export default Testimonial

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 export type Size = 'lg' | 'md' | 'sm' | 'full'
 
-interface ContainerProps {
+export interface ContainerProps {
   size?: Size
   className?: string
 }

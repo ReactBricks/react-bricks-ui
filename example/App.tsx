@@ -4,7 +4,7 @@ import { Router, Link, navigate } from '@reach/router'
 import classNames from 'classnames'
 
 import { ReactBricks } from 'react-bricks'
-import { website } from '../src'
+import bricks from '../src'
 
 import Login from './Login'
 import Editor from './Editor'
@@ -22,14 +22,19 @@ const App = () => {
     setColorMode(newColorMode)
     localStorage.setItem('color-mode', newColorMode)
   }
-
   return (
     <ReactBricks
       appId="94c386c7-bde1-49b6-a619-491e3a380702"
       apiKey="51913450-614b-48e4-9f59-6ce79db58981"
       // appId="a7992cf0-b516-4c2c-977a-699d391e7b5a"
       // apiKey="b503b3c5-d873-4e95-a86e-63194caf30e6"
-      bricks={website}
+      bricks={bricks}
+      pageTypes={[
+        {
+          name: 'page',
+          pluralName: 'page',
+        },
+      ]}
       contentClassName={classNames(
         'font-content antialiased bg-white',
         colorMode,
