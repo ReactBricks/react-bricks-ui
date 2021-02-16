@@ -2,18 +2,29 @@ import React from 'react'
 import { Image, types } from 'react-bricks'
 import Container from '../layout/Container'
 import blockNames from '../blockNames'
+import { bgColors } from '../../website/colors'
+import Section from '../layout/Section'
 
-const ImageBrick: types.Brick = () => {
+interface ImageBrickProps {
+  bg?: { color: string; className: string }
+}
+
+const ImageBrick: types.Brick<ImageBrickProps> = ({
+  bg = bgColors.white.value,
+}) => {
   return (
-    <Container className="mt-8">
-      <Image propName="fullImage" alt="" />
-    </Container>
+    <Section bg={bg}>
+      <Container>
+        <Image propName="fullImage" alt="" />
+      </Container>
+    </Section>
   )
 }
 ImageBrick.schema = {
   name: blockNames.ImageBrick,
   label: 'Image',
   getDefaultProps: () => ({
+    bg: bgColors.white.value,
     fullImage: {
       src:
         'https://images.reactbricks.com/original/ba31648e-fac4-4ea1-bfd3-caa6ccd7282c.jpeg',

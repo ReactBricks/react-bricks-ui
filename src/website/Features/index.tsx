@@ -49,11 +49,8 @@ Features.schema = {
   label: 'Features',
   getDefaultProps: () => ({
     bg: {
-      label: 'White',
-      value: {
-        color: '#fff',
-        className: 'bg-white dark:bg-gray-900',
-      },
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
     },
     borderTop: 'none',
     borderBottom: 'none',

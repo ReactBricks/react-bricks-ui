@@ -35,13 +35,12 @@ module.exports = {
       },
       fontFamily: {
         content: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+        blog: ['Merriweather', ...defaultTheme.fontFamily.serif],
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-  ],
+  plugins: [require('@tailwindcss/aspect-ratio')],
 }

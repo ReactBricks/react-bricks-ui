@@ -2,13 +2,15 @@ import * as React from 'react'
 import { types, useVisualEdit } from 'react-bricks'
 import Editor from 'react-simple-code-editor'
 import * as prism from 'prismjs'
-
 import 'prism-theme-night-owl'
+
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import PrismCode from './PrismCode'
 import Container from '../layout/Container'
 import blockNames from '../blockNames'
+import { bgColors } from '../../website/colors'
+import Section from '../layout/Section'
 
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-bash')
@@ -17,17 +19,18 @@ require('prismjs/components/prism-tsx')
 require('prismjs/plugins/line-numbers/prism-line-numbers.js')
 require('prismjs/plugins/show-language/prism-show-language.js')
 require('prismjs/plugins/line-highlight/prism-line-highlight.js')
-
 export interface CodeBlockProps {
   language: string
   dataline?: string
   showLineNumbers: boolean
+  bg?: { color: string; className: string }
 }
 
 const CodeBlock: types.Brick<CodeBlockProps> = ({
   language = 'javascript',
   dataline = '',
   showLineNumbers = false,
+  bg = bgColors.white.value,
 }) => {
   const [value, onChange, isReadOnly] = useVisualEdit('code')
 
@@ -39,32 +42,52 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
   console.log(dataline)
   if (isReadOnly) {
     return (
-      <Container>
-        <PrismCode
-          code={value}
-          language={language}
-          plugins={plugins}
-          dataLine={dataline}
-        />
-      </Container>
+      <Section bg={bg}>
+        <Container>
+          <style>{`
+        .dark pre {
+          background-color: #1f2937;
+        }
+        .line-highlight {
+          background: rgba(255,255,255,0.2);
+        }
+        .line-highlight:before {
+          content: ''
+        }
+      `}</style>
+          <PrismCode
+            code={value}
+            language={language}
+            plugins={plugins}
+            dataLine={dataline}
+          />
+        </Container>
+      </Section>
     )
   }
 
   return (
-    <Container>
-      <pre className={`rounded-lg language-${language}`}>
-        <code className={`language-${language}`}>
-          <Editor
-            value={value}
-            onValueChange={onChange}
-            highlight={code =>
-              prism.highlight(code, prism.languages[language], `${language}`)
-            }
-            padding={10}
-          />
-        </code>
-      </pre>
-    </Container>
+    <Section bg={bg}>
+      <style>{`
+        .dark pre {
+          background-color: #1f2937;
+        }
+      `}</style>
+      <Container>
+        <pre className={`rounded-lg language-${language}`}>
+          <code className={`language-${language}`}>
+            <Editor
+              value={value}
+              onValueChange={onChange}
+              highlight={code =>
+                prism.highlight(code, prism.languages[language], `${language}`)
+              }
+              padding={10}
+            />
+          </code>
+        </pre>
+      </Container>
+    </Section>
   )
 }
 
@@ -72,6 +95,7 @@ CodeBlock.schema = {
   name: blockNames.CodeBlock,
   label: 'Code Block',
   getDefaultProps: () => ({
+    bg: bgColors.white.value,
     code:
       "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
     language: 'javascript',

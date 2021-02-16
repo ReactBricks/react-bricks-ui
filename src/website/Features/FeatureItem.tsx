@@ -41,7 +41,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         containerClassName="my-auto md:mb-5"
       />
 
-      <div className="flex-1 ite">
+      <div className="flex-1">
         <Text
           propName="title"
           placeholder="title..."
@@ -49,8 +49,8 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
             <h3
               className={
                 screenLayout === 'base'
-                  ? 'text-lg md:text-xl md:leading-5 leading-5 text-gray-700 font-extrabold mb-2'
-                  : ' text-lg leading-5 text-gray-700 font-extrabold mb-2'
+                  ? 'text-lg md:text-xl md:leading-5 leading-5 text-gray-700 dark:text-gray-300 font-extrabold mb-2'
+                  : ' text-lg leading-5 text-gray-700 dark:text-gray-400 font-extrabold mb-2'
               }
             >
               {props.children}
@@ -61,7 +61,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
           propName="text"
           placeholder="text..."
           renderBlock={(props: any) => (
-            <p className="text-gray-500 font-normal leading-6">
+            <p className="text-gray-500 dark:text-gray-200 font-normal leading-6">
               {props.children}
             </p>
           )}

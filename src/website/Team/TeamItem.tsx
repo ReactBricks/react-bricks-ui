@@ -17,7 +17,7 @@ const TeamItem: types.Brick<TeamItemProps> = ({
   ...rest
 }) => {
   return (
-    <div className="sm:w-1/3 w-1/2 mb-3" {...rest}>
+    <div className="flex flex-col sm:w-1/3 w-1/2 mb-3" {...rest}>
       <Image
         propName="picture"
         alt="team-item"
@@ -26,7 +26,7 @@ const TeamItem: types.Brick<TeamItemProps> = ({
         containerClassName="w-24 h-24 mb-6 flex justify-center items-center bg-white rounded-full shadow-xl mx-auto"
         imageClassName="w-24 h-24 rounded-full"
       />
-      <div className="text-center">
+      <div className="text-center dark:text-gray-200 text-gray-500">
         <Text
           renderBlock={(props: any) => (
             <div className="text-sm font-bold">{props.children}</div>
@@ -44,33 +44,39 @@ const TeamItem: types.Brick<TeamItemProps> = ({
       </div>
 
       {(twitter || linkedin || github) && (
-        <div className=" space-x-3 mt-2 ">
+        <div className="flex flex-row justify-center space-x-2 mt-2 dark:text-azure-300 text-azure-400 ">
           {twitter && (
-            <a
-              href={`https://twitter.com/${twitter}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiTwitter />
-            </a>
+            <div>
+              <a
+                href={`https://twitter.com/${twitter}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiTwitter />
+              </a>
+            </div>
           )}
           {linkedin && (
-            <a
-              href={`https://linkedin.com/${linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiLinkedin />
-            </a>
+            <div>
+              <a
+                href={`https://linkedin.com/${linkedin}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiLinkedin />
+              </a>
+            </div>
           )}
           {github && (
-            <a
-              href={`https://github.com/${github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiGithub />
-            </a>
+            <div>
+              <a
+                href={`https://github.com/${github}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiGithub />
+              </a>
+            </div>
           )}
         </div>
       )}

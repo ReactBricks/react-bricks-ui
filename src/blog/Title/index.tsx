@@ -5,70 +5,83 @@ import classNames from 'classnames'
 
 import Container from '../layout/Container'
 import blockNames from '../blockNames'
+import Section from '../layout/Section'
+import { bgColors } from '../../website/colors'
 
 export interface TitleProps {
   size?: 'medium' | 'large'
+  bg?: { color: string; className: string }
 }
 
-const Title: types.Brick<TitleProps> = ({ size = 'large' }) => {
+const Title: types.Brick<TitleProps> = ({
+  bg = bgColors.white.value,
+  size = 'large',
+}) => {
   return (
-    <Container>
-      <div
-        className={classNames(
-          'text-3xl',
-          { 'sm:text-5xl': size === 'large' },
-          { 'sm:text-4xl': size === 'medium' }
-        )}
-      >
-        <Text
-          propName="title"
-          renderBlock={prop => {
-            return (
-              <h1
-                className={classNames(
-                  'text-left font-normal text-gray-700 tracking-tight'
-                )}
-                style={{ lineHeight: '60px' }}
-              >
-                {prop.children}
-              </h1>
-            )
-          }}
-          placeholder="Type a title..."
-        />
-      </div>
-      <div className="flex justify-between mt-4">
-        <div className="flex">
-          <Image
-            propName="authorImage"
-            alt=""
-            imageClassName={classNames('rounded-full', 'w-12', 'mr-2')}
+    <Section bg={bg}>
+      <Container>
+        <div
+          className={classNames(
+            'text-3xl',
+            { 'sm:text-5xl': size === 'large' },
+            { 'sm:text-4xl': size === 'medium' }
+          )}
+        >
+          <Text
+            propName="title"
+            renderBlock={prop => {
+              return (
+                <h1
+                  className={classNames(
+                    'text-left font-normal text-gray-900 dark:text-gray-100 tracking-tight'
+                  )}
+                  style={{ lineHeight: '60px' }}
+                >
+                  {prop.children}
+                </h1>
+              )
+            }}
+            placeholder="Type a title..."
           />
-          <div className="flex flex-col">
-            <Text
-              propName="author"
-              renderBlock={prop => {
-                return <div className="text-gray-400">{prop.children}</div>
-              }}
-              placeholder="Type an author..."
+        </div>
+        <div className="flex justify-between mt-4">
+          <div className="flex">
+            <Image
+              propName="authorImage"
+              alt=""
+              imageClassName={classNames('rounded-full', 'w-12', 'mr-2')}
             />
-            <div className="flex text-gray-400">
-              <div>data</div>
-              <div>minuti da leggere</div>
+            <div className="flex flex-col">
+              <Text
+                propName="author"
+                renderBlock={prop => {
+                  return (
+                    <div className="text-gray-400 dark:text-gray-200">
+                      {prop.children}
+                    </div>
+                  )
+                }}
+                placeholder="Type an author..."
+              />
+              <div className="flex text-gray-400 dark:text-gray-200">
+                <div>data</div>
+                <div>minuti da leggere</div>
+              </div>
             </div>
           </div>
-        </div>
-        {/* <button className=" items-end">
+          {/* <button className=" items-end">
           <FiTwitter className=" w-7 h-7 text-gray-400 items-end" />
         </button> */}
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </Section>
   )
 }
 Title.schema = {
   name: blockNames.Title,
   label: 'Blog title',
   getDefaultProps: () => ({
+    bg: bgColors.white.value,
     title: Plain.deserialize(
       'Open Sourcing the Netflix Domain Graph Service Framework: GraphQL for Spring Boot'
     ),
