@@ -63,10 +63,10 @@ const Title: types.Brick<TitleProps> = ({
                 }}
                 placeholder="Type an author..."
               />
-              <div className="flex text-gray-400 dark:text-gray-200">
+              {/* <div className="flex text-gray-400 dark:text-gray-200">
                 <div>data</div>
                 <div>minuti da leggere</div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* <button className=" items-end">

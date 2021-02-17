@@ -34,9 +34,12 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
 }) => {
   const [value, onChange, isReadOnly] = useVisualEdit('code')
 
-  const plugins = ['line-highlight']
+  const plugins = []
   if (showLineNumbers) {
     plugins.push('line-numbers')
+  }
+  if (dataline !== '') {
+    plugins.push('line-highlight')
   }
 
   console.log(dataline)
@@ -52,7 +55,7 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
           background: rgba(255,255,255,0.2);
         }
         .line-highlight:before {
-          content: ''
+          content: '';
         }
       `}</style>
           <PrismCode
