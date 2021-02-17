@@ -2,15 +2,13 @@ import * as React from 'react'
 import { types, useVisualEdit } from 'react-bricks'
 import Editor from 'react-simple-code-editor'
 import * as prism from 'prismjs'
-import 'prism-theme-night-owl'
 
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import PrismCode from './PrismCode'
 import Container from '../layout/Container'
 import blockNames from '../blockNames'
 import { bgColors } from '../../website/colors'
 import Section from '../layout/Section'
+import Styles from './Styles'
 
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-bash')
@@ -46,6 +44,7 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
   if (isReadOnly) {
     return (
       <Section bg={bg}>
+        <Styles />
         <Container>
           <style>{`
         .dark pre {
@@ -71,6 +70,7 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
 
   return (
     <Section bg={bg}>
+      <Styles />
       <style>{`
         .dark pre {
           background-color: #1f2937;
