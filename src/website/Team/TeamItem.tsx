@@ -17,7 +17,7 @@ const TeamItem: types.Brick<TeamItemProps> = ({
   ...rest
 }) => {
   return (
-    <div className="flex flex-col sm:w-1/3 w-1/2 mb-3" {...rest}>
+    <div className="flex flex-col sm:w-1/3 w-1/2 p-6" {...rest}>
       <Image
         propName="picture"
         alt="team-item"
@@ -113,6 +113,7 @@ TeamItem.schema = {
   sideEditProps: [
     {
       groupName: 'Social Media',
+      defaultOpen: true,
       props: [
         {
           name: 'twitter',

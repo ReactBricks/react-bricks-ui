@@ -4,21 +4,30 @@ import { Plain, Repeater, types } from 'react-bricks'
 import classNames from 'classnames'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
-import Container, { Size } from '../layout/Container'
+import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 import { layoutType } from './FeatureItem'
 
 export interface FeaturesProps {
   bg?: { color: string; className: string }
-  width?: Size
+  // width?: Size
   borderTop?: Border
   borderBottom?: Border
   screenLayout: layoutType
 }
+const getRepeaterWidht = (screenLayout: layoutType) => {
+  switch (screenLayout) {
+    case 'base':
+      return 'max-w-3xl'
+    case 'small':
+      return 'max-w-2xl'
+    case 'small-3cols':
+      return 'md:w-full max-w-5xl grid md:grid-cols-3 md:space-x-16'
+  }
+}
 
 const Features: types.Brick<FeaturesProps> = ({
   bg = bgColors.white.value,
-  width = 'lg',
   borderTop = 'none',
   borderBottom = 'none',
   screenLayout = 'base',
@@ -26,15 +35,20 @@ const Features: types.Brick<FeaturesProps> = ({
   return (
     <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
       <Container
-        size={width}
+        size={'lg'}
         className={classNames(
-          'py-12 flex flex-wrap justify-center items-center'
+          'py-12 flex flex-wrap justify-center items-center '
         )}
       >
         <Repeater
           propName="feature-item"
           renderWrapper={items => (
-            <div className="flex flex-wrap max-w-3xl justify-between">
+            <div
+              className={classNames(
+                'flex flex-wrap  justify-between mx-auto px-6 md:px-0',
+                getRepeaterWidht(screenLayout)
+              )}
+            >
               {items}
             </div>
           )}
@@ -54,7 +68,6 @@ Features.schema = {
     },
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'lg',
     screenLayout: 'base',
     'feature-item': [
       {

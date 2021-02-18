@@ -3,7 +3,7 @@ import Paragraph from './Paragraph'
 import VideoBrick from './VideoBrick'
 import ImageBrick from './ImageBrick'
 import Quote from './Quote'
-// import SocialEmbed from './SocialEmbed'
+import SocialEmbed from './SocialEmbed'
 // import CodeBlock from './CodeBlock'
 
 export {
@@ -12,7 +12,7 @@ export {
   VideoBrick,
   ImageBrick,
   Quote,
-  // SocialEmbed
+  SocialEmbed,
   // CodeBlock,
 }
 
@@ -22,7 +22,7 @@ const bricks: any[] = [
   VideoBrick,
   ImageBrick,
   Quote,
-  // SocialEmbed,
+  SocialEmbed,
   // CodeBlock,
 ]
 
