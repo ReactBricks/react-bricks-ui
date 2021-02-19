@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Image, types, Text, Plain, RichText } from 'react-bricks'
+import { Image, types, Text, RichText } from 'react-bricks'
 import classNames from 'classnames'
 import blockNames from '../blockNames'
 
@@ -23,7 +23,7 @@ const screen = (screenLayout: layoutType) => {
     case 'base':
       return 'md:w-80'
     case 'small':
-      return 'md:w-72 -mx-2'
+      return 'md:w-72 md:-mx-2'
     case 'small-3cols':
       return ''
     default:
@@ -72,13 +72,12 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
 }
 FeatureItem.schema = {
   name: blockNames.FeatureItem,
-  label: 'Feature items',
+  label: 'Feature',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    title: Plain.deserialize('Front-end development'),
-    text: Plain.deserialize(
-      'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.'
-    ),
+    title: 'Front-end development',
+    text:
+      'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
     screenLayout: 'base',
     image: {
       src:

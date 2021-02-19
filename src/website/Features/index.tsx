@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Plain, Repeater, types } from 'react-bricks'
+import { Repeater, types } from 'react-bricks'
 
 import classNames from 'classnames'
 import blockNames from '../blockNames'
@@ -10,7 +10,6 @@ import { layoutType } from './FeatureItem'
 
 export interface FeaturesProps {
   bg?: { color: string; className: string }
-  // width?: Size
   borderTop?: Border
   borderBottom?: Border
   screenLayout: layoutType
@@ -71,10 +70,9 @@ Features.schema = {
     screenLayout: 'base',
     'feature-item': [
       {
-        title: Plain.deserialize('Front-end development'),
-        text: Plain.deserialize(
-          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.'
-        ),
+        title: 'Front-end development',
+        text:
+          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
         screenLayout: 'base',
         image: {
           src:
@@ -85,10 +83,9 @@ Features.schema = {
         },
       },
       {
-        title: Plain.deserialize('Request feedback'),
-        text: Plain.deserialize(
-          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.'
-        ),
+        title: 'Request feedback',
+        text:
+          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
         screenLayout: 'base',
         image: {
           src:
@@ -99,10 +96,9 @@ Features.schema = {
         },
       },
       {
-        title: Plain.deserialize('Front-end development'),
-        text: Plain.deserialize(
-          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.'
-        ),
+        title: 'Front-end development',
+        text:
+          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
         screenLayout: 'base',
         image: {
           src:
@@ -124,15 +120,6 @@ Features.schema = {
     },
   ],
   sideEditProps: [
-    {
-      name: 'bg',
-      label: 'Background',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Color,
-        options: [bgColors.white, bgColors.light, bgColors.gray],
-      },
-    },
     {
       name: 'borderTop',
       label: 'Border Top',
@@ -160,28 +147,15 @@ Features.schema = {
       },
     },
     {
-      name: 'width',
-      label: 'Width',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'sm', label: 'Small' },
-          { value: 'md', label: 'Medium' },
-          { value: 'lg', label: 'Large' },
-        ],
-      },
-    },
-    {
       name: 'screenLayout',
       label: 'Screen Layout',
       type: types.SideEditPropType.Select,
       selectOptions: {
         display: types.OptionsDisplay.Select,
         options: [
-          { value: 'base', label: 'Base' },
-          { value: 'small', label: 'Small' },
-          { value: 'small-3cols', label: 'Small with 3 columns' },
+          { value: 'base', label: 'Two columns' },
+          { value: 'small', label: 'Small two columns' },
+          { value: 'small-3cols', label: 'Three columns' },
         ],
       },
     },
