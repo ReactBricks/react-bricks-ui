@@ -21,7 +21,7 @@ const getRepeaterWidht = (screenLayout: layoutType) => {
     case 'small':
       return 'max-w-2xl'
     case 'small-3cols':
-      return 'md:w-full max-w-5xl grid md:grid-cols-3 md:space-x-16'
+      return 'md:w-full max-w-5xl md:-mx-8'
   }
 }
 
@@ -36,7 +36,7 @@ const Features: types.Brick<FeaturesProps> = ({
       <Container
         size={'lg'}
         className={classNames(
-          'py-12 flex flex-wrap justify-center items-center '
+          'py-12 flex flex-wrap justify-center items-center'
         )}
       >
         <Repeater
@@ -48,7 +48,11 @@ const Features: types.Brick<FeaturesProps> = ({
                 getRepeaterWidht(screenLayout)
               )}
             >
-              {items}
+              {screenLayout === 'small-3cols' ? (
+                <div className="grid md:grid-cols-3">{items}</div>
+              ) : (
+                items
+              )}
             </div>
           )}
           itemProps={{ screenLayout: screenLayout }}
@@ -114,7 +118,7 @@ Features.schema = {
     {
       name: 'feature-item',
       itemType: blockNames.FeatureItem,
-      itemLabel: 'FeatureItem',
+      itemLabel: 'Feature',
       min: 0,
       max: 4,
     },

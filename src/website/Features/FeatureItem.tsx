@@ -16,6 +16,7 @@ const getFontSize = (screenLayout: layoutType) => {
 
 export interface FeatureItemProps {
   screenLayout: layoutType
+  isTextCenter: boolean
 }
 
 const screen = (screenLayout: layoutType) => {
@@ -25,17 +26,24 @@ const screen = (screenLayout: layoutType) => {
     case 'small':
       return 'md:w-72 md:-mx-2'
     case 'small-3cols':
-      return ''
+      return 'md:px-8'
     default:
       return 'w-64'
   }
 }
 const FeatureItem: types.Brick<FeatureItemProps> = ({
   screenLayout,
+  isTextCenter = false,
   ...rest
 }) => {
   return (
-    <div className={`flex md:flex-col ${screen(screenLayout)} mb-16`} {...rest}>
+    <div
+      className={classNames(
+        `flex md:flex-col ${screen(screenLayout)} mb-16`,
+        isTextCenter && 'text-center items-center'
+      )}
+      {...rest}
+    >
       <Image
         propName="image"
         alt="feature"
@@ -75,6 +83,7 @@ FeatureItem.schema = {
   label: 'Feature',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
+    isTextCenter: false,
     title: 'Front-end development',
     text:
       'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
@@ -87,6 +96,13 @@ FeatureItem.schema = {
       srcSet: '',
     },
   }),
+  sideEditProps: [
+    {
+      name: 'isTextCenter',
+      label: 'center feature',
+      type: types.SideEditPropType.Boolean,
+    },
+  ],
 }
 
 export default FeatureItem
