@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Text, RichText, Image, Plain, types } from 'react-bricks'
+import { Text, RichText, Image, types } from 'react-bricks'
 
 import { bgColors, textColors } from '../colors'
 import Section, { Border } from '../layout/Section'
@@ -78,10 +78,9 @@ BigFeature.schema = {
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',
-    title: Plain.deserialize('Easy like Wix, but your own.'),
-    text: Plain.deserialize(
-      'A great user experience for Content creators, React components for Developers.'
-    ),
+    title: 'Easy like Wix, but your own.',
+    text:
+      'A great user experience for Content creators, React components for Developers.',
     imageSource: {
       src:
         'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',

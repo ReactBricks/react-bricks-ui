@@ -2,7 +2,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { badgeColors } from '../colors'
 
-import { Plain, Text, types } from 'react-bricks'
+import { Text, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
 export interface BadgeProps {
@@ -42,7 +42,7 @@ Badge.schema = {
   label: 'Badge',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    text: Plain.deserialize('Special'),
+    text: 'Special',
     color: badgeColors.gray.value,
   }),
   sideEditProps: [

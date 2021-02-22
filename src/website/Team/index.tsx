@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Plain, Repeater, types } from 'react-bricks'
+import { Repeater, types } from 'react-bricks'
 
 import classNames from 'classnames'
 import Container, { Size } from '../layout/Container'
@@ -48,8 +48,8 @@ Team.schema = {
     width: 'lg',
     teamItem: [
       {
-        memberName: Plain.deserialize('Matteo Frana'),
-        duty: Plain.deserialize('Frontend Designer'),
+        memberName: 'Matteo Frana',
+        duty: 'Frontend Designer',
         picture: {
           src:
             'https://images.reactbricks.com/original/8a568f5b-98e4-46d5-96eb-b9cd01ab5c67.jpg',
@@ -61,11 +61,11 @@ Team.schema = {
         twitter: '',
         github: '',
         linkedin: '',
-        role: Plain.deserialize('Frontend Designer'),
+        role: 'Frontend Designer',
       },
       {
-        memberName: Plain.deserialize('Dario Ronzoni'),
-        role: Plain.deserialize('Backend Designer'),
+        memberName: 'Dario Ronzoni',
+        role: 'Backend Designer',
         twitter: '',
         github: '',
         linkedin: '',
@@ -79,8 +79,8 @@ Team.schema = {
         },
       },
       {
-        memberName: Plain.deserialize('Cecilia Panicali'),
-        role: Plain.deserialize('Frontend Designer'),
+        memberName: 'Cecilia Panicali',
+        role: 'Frontend Designer',
         twitter: '',
         github: '',
         linkedin: '',
@@ -94,8 +94,8 @@ Team.schema = {
         },
       },
       {
-        memberName: Plain.deserialize('Roberta Ferrari'),
-        role: Plain.deserialize('Marketing'),
+        memberName: 'Roberta Ferrari',
+        role: 'Marketing',
         twitter: '',
         github: '',
         linkedin: '',
@@ -109,8 +109,8 @@ Team.schema = {
         },
       },
       {
-        memberName: Plain.deserialize('Matteo Frana'),
-        role: Plain.deserialize('Frontend Designer'),
+        memberName: 'Matteo Frana',
+        role: 'Frontend Designer',
         twitter: '',
         github: '',
         linkedin: '',

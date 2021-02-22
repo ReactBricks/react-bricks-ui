@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { RichText, Repeater, Plain, types } from 'react-bricks'
+import { RichText, Repeater, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
 import { bgColors, textColors } from '../colors'
@@ -65,9 +65,7 @@ CallToAction.schema = {
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',
-    text: Plain.deserialize(
-      'React Bricks is great for developers and marketing.'
-    ),
+    text: 'React Bricks is great for developers and marketing.',
     buttons: [
       {
         text: 'Get started',

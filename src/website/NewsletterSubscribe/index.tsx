@@ -3,7 +3,7 @@ import jsonp from 'jsonp'
 import { validate } from 'email-validator'
 import classNames from 'classnames'
 
-import { Text, Plain, types } from 'react-bricks'
+import { Text, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
 enum NewsletterProvider {
@@ -157,8 +157,8 @@ NewsletterSubscribe.schema = {
   name: blockNames.NewsletterSubscribe,
   label: 'Newsletter Subscribe',
   getDefaultProps: () => ({
-    title: Plain.deserialize('Want to receive updates from us?'),
-    description: Plain.deserialize('Leave your e-mail'),
+    title: 'Want to receive updates from us?',
+    description: 'Leave your e-mail',
     provider: NewsletterProvider.MailChimp,
     buttonText: 'Keep me updated',
     resultOkText: `Thank you, we'll keep in touch with you!`,

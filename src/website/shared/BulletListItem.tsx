@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { FiCheck } from 'react-icons/fi'
-import { Plain, Text, types } from 'react-bricks'
+import { Text, types } from 'react-bricks'
 import { bulletColors } from '../colors'
 import blockNames from '../blockNames'
 
@@ -55,7 +55,7 @@ BulletListItem.schema = {
   hideFromAddMenu: true,
   getDefaultProps: () => ({
     color: bulletColors.pinkLight.value,
-    text: Plain.deserialize('New item'),
+    text: 'New item',
   }),
   sideEditProps: [
     {

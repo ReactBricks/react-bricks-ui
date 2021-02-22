@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Image, types, Text, Plain } from 'react-bricks'
+import { Image, types, Text } from 'react-bricks'
 import { FiTwitter, FiLinkedin, FiGithub } from 'react-icons/fi'
 
 import blockNames from '../blockNames'
@@ -96,8 +96,8 @@ TeamItem.schema = {
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',
-    memberName: Plain.deserialize('Matteo Frana'),
-    role: Plain.deserialize('Frontend Designer'),
+    memberName: 'Matteo Frana',
+    role: 'Frontend Designer',
     twitter: '',
     github: '',
     linkedin: '',

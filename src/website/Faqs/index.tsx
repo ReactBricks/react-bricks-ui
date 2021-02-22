@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Repeater, Plain, types } from 'react-bricks'
+import { Repeater, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
 import { bgColors } from '../colors'
@@ -41,10 +41,9 @@ Faq.schema = {
     width: 'sm',
     faqs: [
       {
-        question: Plain.deserialize('Why you should change your CMS today?'),
-        answer: Plain.deserialize(
-          'Because you want to have top user experience and top developer experience.'
-        ),
+        question: 'Why you should change your CMS today?',
+        answer:
+          'Because you want to have top user experience and top developer experience.',
       },
     ],
   }),

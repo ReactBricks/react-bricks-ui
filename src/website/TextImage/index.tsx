@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { RichText, Plain, Image, Repeater, Link, types } from 'react-bricks'
+import { RichText, Image, Repeater, Link, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
 import { textColors, bgColors } from '../colors'
@@ -192,10 +192,9 @@ TextImage.schema = {
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',
-    title: Plain.deserialize('We built hundreds of apps'),
-    text: Plain.deserialize(
-      'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.'
-    ),
+    title: 'We built hundreds of apps',
+    text:
+      'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.',
     imageSource: {
       src:
         'https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png',

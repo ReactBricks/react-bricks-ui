@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Text, RichText, Plain, types } from 'react-bricks'
+import { Text, RichText, types } from 'react-bricks'
 import { textColors } from '../colors'
 import blockNames from '../blockNames'
 
@@ -38,10 +38,9 @@ FaqQuestion.schema = {
   label: 'Question',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    question: Plain.deserialize('Why you should change your CMS today?'),
-    answer: Plain.deserialize(
-      'Because you want to have top user experience and top developer experience.'
-    ),
+    question: 'Why you should change your CMS today?',
+    answer:
+      'Because you want to have top user experience and top developer experience.',
   }),
 }
 

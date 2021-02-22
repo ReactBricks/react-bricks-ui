@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Plain, RichText, Repeater, types } from 'react-bricks'
+import { RichText, Repeater, types } from 'react-bricks'
 import blockNames from '../blockNames'
 
 import { textColors, bgColors, GradientName, gradients } from '../colors'
@@ -115,13 +115,12 @@ HeroUnit.schema = {
     },
     size: 'large',
     textGradient: 'none',
-    title: Plain.deserialize('We develop beautiful web applications'),
-    text: Plain.deserialize(
-      "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations."
-    ),
+    title: 'We develop beautiful web applications',
+    text:
+      "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     badge: [
       {
-        text: Plain.deserialize('high tech'),
+        text: 'high tech',
         color: {
           color: '#90cdf4',
           className: 'text-blue-400 dark:text-blue-300',

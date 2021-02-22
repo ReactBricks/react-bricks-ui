@@ -1,5 +1,5 @@
 import React from 'react'
-import { Plain, Text, types } from 'react-bricks'
+import { Text, types } from 'react-bricks'
 import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
@@ -34,9 +34,7 @@ Quote.schema = {
   label: 'Quote',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
-    quote: Plain.deserialize(
-      `Sometimes life is going to hit you in the head with a ReactBrick. Don't lose faith. - Steve Jobs`
-    ),
+    quote: `Sometimes life is going to hit you in the head with a ReactBrick. Don't lose faith. - Steve Jobs`,
   }),
 }
 

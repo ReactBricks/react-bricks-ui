@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { Text, Image, Plain, types } from 'react-bricks'
+import { Text, Image, types } from 'react-bricks'
 
 import Section, { Border } from '../layout/Section'
 import Container from '../layout/Container'
@@ -55,7 +55,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
         <div className="flex items-center">
           {avatarImage ? (
             <Image
-              alt={Plain.serialize(authorName)}
+              alt={authorName}
               propName="avatarImage"
               imageClassName={classNames(
                 'rounded-full',
@@ -91,7 +91,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
           {logoImage && (
             <div className="ml-5 pl-5 border-l border-gray-300">
               <Image
-                alt={Plain.serialize(authorJobTitle)}
+                alt={authorJobTitle}
                 propName="logoImage"
                 imageClassName="h-6"
               />
@@ -107,11 +107,10 @@ Testimonial.schema = {
   name: blockNames.Testimonial,
   label: 'Testimonial',
   getDefaultProps: () => ({
-    quote: Plain.deserialize(
-      'F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied.'
-    ),
-    authorName: Plain.deserialize('Matteo Frana'),
-    authorJobTitle: Plain.deserialize('Founder @ React Bricks'),
+    quote:
+      'F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied.',
+    authorName: 'Matteo Frana',
+    authorJobTitle: 'Founder @ React Bricks',
     avatarImage: {
       src:
         'https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg',

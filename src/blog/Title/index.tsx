@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Plain, Text, types } from 'react-bricks'
+import { Image, Text, types } from 'react-bricks'
 import classNames from 'classnames'
 // import { FiTwitter } from 'react-icons/fi'
 
@@ -82,10 +82,9 @@ Title.schema = {
   label: 'Blog title',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
-    title: Plain.deserialize(
-      'Open Sourcing the Netflix Domain Graph Service Framework: GraphQL for Spring Boot'
-    ),
-    author: Plain.deserialize('Matteo Frana'),
+    title:
+      'Open Sourcing the Netflix Domain Graph Service Framework: GraphQL for Spring Boot',
+    author: 'Matteo Frana',
     authorImage: {
       src:
         'https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
