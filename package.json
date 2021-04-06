@@ -15,7 +15,7 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "install-peers && tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
@@ -57,7 +57,8 @@
     "@types/react-dom": "^17.0.0",
     "babel-plugin-prismjs": "^2.0.1",
     "husky": "^4.3.0",
-    "react": "^17.0.1",
+    "install-peers-cli": "^2.2.0",
+    "react": ">=16",
     "react-dom": "^17.0.1",
     "size-limit": "^4.8.0",
     "tsdx": "^0.14.1",
@@ -72,6 +73,7 @@
     "mapbox-gl": "^2.1.0",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.23.0",
+    "react-bricks": "^2.0.0",
     "react-icons": "^4.1.0",
     "react-leaflet": "^3.0.2",
     "react-simple-code-editor": "^0.11.0"
