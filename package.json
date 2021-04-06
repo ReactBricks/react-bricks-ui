@@ -73,7 +73,6 @@
     "mapbox-gl": "^2.1.0",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.23.0",
-    "react-bricks": "^2.0.0",
     "react-icons": "^4.1.0",
     "react-leaflet": "^3.0.2",
     "react-simple-code-editor": "^0.11.0"
