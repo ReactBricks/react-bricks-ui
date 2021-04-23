@@ -184,6 +184,9 @@ const TextImage: types.Brick<TextImageProps> = ({
 TextImage.schema = {
   name: blockNames.TextImage,
   label: 'Text Image',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

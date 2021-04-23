@@ -1,14 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import mapboxgl from 'mapbox-gl'
+import React from 'react'
 import { types } from 'react-bricks'
+import { Map, Marker } from 'pigeon-maps'
 
 import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
 import { bgColors } from '../colors'
-
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiZ2lvYm5zIiwiYSI6ImNrajAwaXlpZDA2Z2Qyc2xnNWUwZWxzcTUifQ.MFKZhEkGma_UkTrOZVkEaQ'
 
 export interface MapProps {
   bg?: { color: string; className: string }
@@ -19,49 +16,50 @@ export interface MapProps {
 
   lat: number
   lng: number
-  zoom?: number // Range
-  height?: number // Range
+}
+const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
+const MAP_ID = 'streets'
+
+const mapTilerProvider = (x: any, y: any, z: any, dpr: any) => {
+  return `https://api.maptiler.com/maps/${MAP_ID}/256/${z}/${x}/${y}${
+    dpr >= 2 ? '@2x' : ''
+  }.png?key=${MAPTILER_ACCESS_TOKEN}`
 }
 
-const Map: types.Brick<MapProps> = ({
+export const MapBrick: types.Brick<MapProps> = ({
   width,
   borderTop,
   bg,
   borderBottom,
   lat = 45.9,
   lng = 9.5,
-  zoom = 12,
+  ...rest
 }) => {
-  const mapRef = useRef(null)
-  console.log({ mapRef })
-  // const iframe = document.getElementById('rb-admin-frame')
-  // const element = iframe.contentWindow..document.getElementById()
-  useEffect(() => {
-    // console.log(mapRef.current, 'useeffect2')
-    // setTimeout(() => {
-    //   new mapboxgl.Map({
-    //     container: 'root',
-    //     style: 'mapbox://styles/giobns/ckkp83cnr0vqg18mrv6denz1w',
-    //     center: [lng, lat],
-    //     zoom: zoom,
-    //   })
-    // }, 5000)
-  }, [])
-
   return (
     <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
       <Container size={width}>
-        <div ref={mapRef} id="map" className=" bg-red-500 w-20 h-20" />
-        {lat}
-        {lng}
-        {zoom}
+        <Map
+          center={[lat, lng]}
+          height={350}
+          metaWheelZoom
+          zoom={10}
+          provider={mapTilerProvider}
+          dprs={[1, 2]}
+          {...rest}
+        >
+          <Marker anchor={[lat, lng]} />
+        </Map>
       </Container>
     </Section>
   )
 }
-Map.schema = {
+
+MapBrick.schema = {
   name: blockNames.Map,
   label: 'Map',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     borderTop: 'none',
@@ -69,8 +67,6 @@ Map.schema = {
     width: 'full',
     lat: 45.6782509,
     lng: 9.5669407,
-    zoom: 14,
-    height: 350,
   }),
   sideEditProps: [
     {
@@ -141,23 +137,8 @@ Map.schema = {
           label: 'Longitude',
           type: types.SideEditPropType.Number,
         },
-        {
-          name: 'zoom',
-          label: 'Zoom',
-          type: types.SideEditPropType.Range,
-          rangeOptions: {
-            min: 5,
-            max: 16,
-            step: 1,
-          },
-        },
-        {
-          name: 'height',
-          label: 'Height',
-          type: types.SideEditPropType.Number,
-        },
       ],
     },
   ],
 }
-export default Map
+export default MapBrick

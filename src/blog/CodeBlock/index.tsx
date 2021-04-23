@@ -97,6 +97,9 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
 CodeBlock.schema = {
   name: blockNames.CodeBlock,
   label: 'Code Block',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/CodeBlock/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     code:

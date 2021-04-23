@@ -108,6 +108,9 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
 HeroUnit.schema = {
   name: blockNames.HeroUnit,
   label: 'Hero Unit',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/NewsletterSubscribe/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

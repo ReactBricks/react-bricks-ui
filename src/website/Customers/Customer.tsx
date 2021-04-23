@@ -36,6 +36,9 @@ Customer.schema = {
   name: blockNames.Customer,
   label: 'Customer',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customer.tsx',
   getDefaultProps: () => ({
     image: {
       src:

@@ -23,6 +23,9 @@ const ImageBrick: types.Brick<ImageBrickProps> = ({
 ImageBrick.schema = {
   name: blockNames.ImageBrick,
   label: 'Image',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/ImageBrick/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     fullImage: {

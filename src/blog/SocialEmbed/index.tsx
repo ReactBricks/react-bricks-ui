@@ -93,6 +93,9 @@ const SocialEmbed: types.Brick<SocialEmbedProps> = ({
 SocialEmbed.schema = {
   name: blockNames.SocialEmbed,
   label: 'Twitter Embed',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/SocialEmbed/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

@@ -82,6 +82,9 @@ FeatureItem.schema = {
   name: blockNames.FeatureItem,
   label: 'Feature',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/FeatureItem.tsx',
   getDefaultProps: () => ({
     isTextCenter: false,
     title: 'Front-end development',

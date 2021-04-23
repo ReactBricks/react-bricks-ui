@@ -80,6 +80,9 @@ const Title: types.Brick<TitleProps> = ({
 Title.schema = {
   name: blockNames.Title,
   label: 'Blog title',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Title/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     title:

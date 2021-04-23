@@ -7,6 +7,7 @@ export interface ButtonProps {
   text: string
   href: string
   isTargetBlank: boolean
+  isBigButton: boolean
   variant?: 'pink' | 'azure'
   type?: 'solid' | 'outline'
   padding: 'normal' | 'small'
@@ -17,9 +18,10 @@ const Button: types.Brick<ButtonProps> = ({
   text,
   href,
   isTargetBlank = false,
+  isBigButton = false,
   variant = 'pink',
   type = 'solid',
-  padding = 'normal',
+  padding = 'normale',
   className,
   ...rest
 }) => {
@@ -34,6 +36,7 @@ const Button: types.Brick<ButtonProps> = ({
       className={classNames(
         'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150',
         padding === 'normal' ? 'px-8' : 'px-5',
+        isBigButton && ' w-3/5 text-center rounded-sm',
         {
           'bg-pink-500 text-white hover:bg-pink-600 hover:text-white':
             variant === 'pink' && type === 'solid',
@@ -63,6 +66,9 @@ Button.schema = {
   name: blockNames.Button,
   label: 'Button',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Button.tsx',
   getDefaultProps: () => ({
     text: 'Click me',
     href: '',
@@ -75,6 +81,11 @@ Button.schema = {
       name: 'text',
       label: 'Button text',
       type: types.SideEditPropType.Text,
+    },
+    {
+      name: 'isBigButton',
+      label: 'Size button big?',
+      type: types.SideEditPropType.Boolean,
     },
     {
       name: 'variant',

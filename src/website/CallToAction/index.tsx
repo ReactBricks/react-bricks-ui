@@ -57,6 +57,9 @@ const CallToAction: types.Brick<CallToActionProps> = ({
 CallToAction.schema = {
   name: blockNames.CallToAction,
   label: 'Call to action',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

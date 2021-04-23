@@ -64,6 +64,9 @@ const Features: types.Brick<FeaturesProps> = ({
 Features.schema = {
   name: blockNames.Features,
   label: 'Features',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

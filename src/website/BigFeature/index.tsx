@@ -70,6 +70,9 @@ const BigFeature: types.Brick<BigFeatureProps> = ({
 BigFeature.schema = {
   name: blockNames.BigFeature,
   label: 'Feature callout',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/BigFeature/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

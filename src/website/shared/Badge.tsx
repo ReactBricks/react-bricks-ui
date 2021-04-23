@@ -41,6 +41,9 @@ Badge.schema = {
   name: blockNames.Badge,
   label: 'Badge',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Badge.tsx',
   getDefaultProps: () => ({
     text: 'Special',
     color: badgeColors.gray.value,

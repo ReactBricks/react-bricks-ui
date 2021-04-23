@@ -32,6 +32,9 @@ const Quote: types.Brick<QuoteProps> = ({ bg = bgColors.white.value }) => {
 Quote.schema = {
   name: blockNames.Quote,
   label: 'Quote',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Quote/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     quote: `Sometimes life is going to hit you in the head with a ReactBrick. Don't lose faith. - Steve Jobs`,

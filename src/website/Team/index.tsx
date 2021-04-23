@@ -38,6 +38,9 @@ const Team: types.Brick<TeamProps> = ({
 Team.schema = {
   name: blockNames.Team,
   label: 'Team',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

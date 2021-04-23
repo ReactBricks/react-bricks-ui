@@ -29,6 +29,9 @@ const VideoBrick: types.Brick<VideoBrickProps> = ({
 VideoBrick.schema = {
   name: blockNames.VideoBrick,
   label: 'Embed Video',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/VideoBrick/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     url: '1BjgwtG92CI',

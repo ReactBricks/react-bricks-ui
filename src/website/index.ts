@@ -12,6 +12,7 @@ import Faqs from './Faqs'
 import Faq from './Faqs/Faq'
 import CallToAction from './CallToAction'
 // import Map from './MapboxGL'
+import Map from './Map'
 import BigFeature from './BigFeature'
 import NewsletterSubscribe from './NewsletterSubscribe'
 import Team from './Team'
@@ -32,7 +33,7 @@ export {
   Faqs,
   Faq,
   CallToAction,
-  // Map,
+  Map,
   BigFeature,
   NewsletterSubscribe,
   Team,
@@ -54,7 +55,7 @@ const allBricks = [
   Faqs,
   Faq,
   CallToAction,
-  // Map,
+  Map,
   BigFeature,
   NewsletterSubscribe,
   Team,

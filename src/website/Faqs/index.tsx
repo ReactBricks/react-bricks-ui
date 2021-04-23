@@ -34,6 +34,9 @@ const Faq: types.Brick<FaqProps> = ({
 Faq.schema = {
   name: blockNames.Faqs,
   label: 'Faq',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faqs/index.tsx',
   getDefaultProps: () => ({
     bg: bgColors.white.value,
     borderTop: 'full',

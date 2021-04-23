@@ -41,6 +41,9 @@ const Customers: types.Brick<CustomersProps> = ({
 Customers.schema = {
   name: blockNames.Customers,
   label: 'Customers',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
