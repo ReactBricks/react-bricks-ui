@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "react": ">=17",
-    "react-bricks": "^2.3.3"
+    "react-bricks": "^2.3.16"
   },
   "husky": {
     "hooks": {
