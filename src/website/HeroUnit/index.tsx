@@ -110,7 +110,7 @@ HeroUnit.schema = {
   label: 'Hero Unit',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/NewsletterSubscribe/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/HeroUnit/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
