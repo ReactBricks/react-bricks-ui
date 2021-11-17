@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Repeater, types } from 'react-bricks'
+import { Repeater, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 
 import { bgColors } from '../colors'

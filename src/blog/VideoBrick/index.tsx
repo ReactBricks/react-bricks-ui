@@ -1,5 +1,5 @@
 import React from 'react'
-import { types } from 'react-bricks'
+import { types } from 'react-bricks/frontend'
 import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'

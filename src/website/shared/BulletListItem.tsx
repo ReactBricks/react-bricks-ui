@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { FiCheck } from 'react-icons/fi'
-import { Text, types } from 'react-bricks'
+import { Text, types } from 'react-bricks/frontend'
 import { bulletColors } from '../colors'
 import blockNames from '../blockNames'
 

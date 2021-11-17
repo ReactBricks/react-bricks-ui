@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { types, useVisualEdit } from 'react-bricks'
+import { types, useVisualEdit } from 'react-bricks/frontend'
 import Editor from 'react-simple-code-editor'
 import * as prism from 'prismjs'
 

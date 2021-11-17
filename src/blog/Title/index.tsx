@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Text, types } from 'react-bricks'
+import { Image, Text, types } from 'react-bricks/frontend'
 import classNames from 'classnames'
 // import { FiTwitter } from 'react-icons/fi'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Repeater, types } from 'react-bricks'
+import { Repeater, types } from 'react-bricks/frontend'
 
 import classNames from 'classnames'
 import blockNames from '../blockNames'

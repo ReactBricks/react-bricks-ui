@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Image, ReactBricksContext, types } from 'react-bricks'
+import { Image, ReactBricksContext, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 
 export interface CustomerProps {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useEffect, useRef, useState, useContext } from 'react'
-import { types, ReactBricksContext } from 'react-bricks'
+import { types, ReactBricksContext } from 'react-bricks/frontend'
 import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 

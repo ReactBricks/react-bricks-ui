@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Image, types, Text, RichText } from 'react-bricks'
+import { Image, types, Text, RichText } from 'react-bricks/frontend'
 import classNames from 'classnames'
 import blockNames from '../blockNames'
 

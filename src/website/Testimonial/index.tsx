@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { Text, Image, types } from 'react-bricks'
+import { Text, Image, types } from 'react-bricks/frontend'
 
 import Section, { Border } from '../layout/Section'
 import Container from '../layout/Container'

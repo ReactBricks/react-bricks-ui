@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
-import { Text, RichText, Image, types } from 'react-bricks'
+import { Text, RichText, Image, types } from 'react-bricks/frontend'
 
 import { bgColors, textColors } from '../colors'
 import Section, { Border } from '../layout/Section'

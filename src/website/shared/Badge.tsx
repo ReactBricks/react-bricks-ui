@@ -2,7 +2,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { badgeColors } from '../colors'
 
-import { Text, types } from 'react-bricks'
+import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 
 export interface BadgeProps {

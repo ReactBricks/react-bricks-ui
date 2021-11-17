@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { Link, types } from 'react-bricks'
+import { Link, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 
 export interface ButtonProps {

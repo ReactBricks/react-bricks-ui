@@ -1,5 +1,5 @@
 import React from 'react'
-import { types } from 'react-bricks'
+import { types } from 'react-bricks/frontend'
 import { Map, Marker } from 'pigeon-maps'
 
 import blockNames from '../blockNames'

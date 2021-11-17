@@ -1,5 +1,5 @@
 import React from 'react'
-import { RichText, Text, types } from 'react-bricks'
+import { RichText, Text, types } from 'react-bricks/frontend'
 import { bgColors } from '../../website/colors'
 
 import blockNames from '../blockNames'
