@@ -34,12 +34,13 @@ const FaqQuestion: types.Brick = () => {
 }
 
 FaqQuestion.schema = {
+  category: 'ReactBricks-UI',
   name: blockNames.Faq,
   label: 'Question',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faqs/Faq.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq.tsx',
   getDefaultProps: () => ({
     question: 'Why you should change your CMS today?',
     answer:

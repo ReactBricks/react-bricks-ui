@@ -7,6 +7,7 @@ import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface CallToActionProps {
   bg?: { color: string; className: string }
@@ -59,22 +60,27 @@ CallToAction.schema = {
   label: 'Call to action',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
+      color: "#fff",
+      className: "bg-white dark:bg-gray-900"
     },
-    borderTop: 'boxed',
-    borderBottom: 'none',
-    width: 'sm',
-    text: 'React Bricks is great for developers and marketing.',
+    borderTop: "boxed",
+    borderBottom: "none",
+    width: "sm",
+    text: "React Bricks is great for developers and marketing.",
     buttons: [
       {
-        text: 'Get started',
-        variant: 'azure',
-      },
-    ],
+        text: "Get started",
+        variant: "pink",
+        type: "solid",
+        href: "",
+        isTargetBlank: false,
+        isBigButton: false
+      }
+    ]
   }),
   repeaterItems: [
     {
@@ -86,58 +92,7 @@ CallToAction.schema = {
     },
   ],
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      props: [
-        {
-          name: 'bg',
-          label: 'Background',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Color,
-            options: [bgColors.white, bgColors.light, bgColors.gray],
-          },
-        },
-        {
-          name: 'borderTop',
-          label: 'Border Top',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'borderBottom',
-          label: 'Border Bottom',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'width',
-          label: 'Width',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'sm', label: 'Small' },
-              { value: 'md', label: 'Medium' },
-            ],
-          },
-        },
-      ],
-    },
+    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
   ],
 }
 

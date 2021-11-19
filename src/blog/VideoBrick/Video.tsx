@@ -5,13 +5,13 @@ import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
 
-export interface VideoBrickProps {
+export interface VideoProps {
   url: string
   social: string
   bg?: { color: string; className: string }
 }
 
-const VideoBrick: types.Brick<VideoBrickProps> = ({
+const Video: types.Brick<VideoProps> = ({
   bg = bgColors.white.value,
   social,
   url,
@@ -26,8 +26,10 @@ const VideoBrick: types.Brick<VideoBrickProps> = ({
     </Section>
   )
 }
-VideoBrick.schema = {
-  name: blockNames.VideoBrick,
+Video.schema = {
+  category: 'ReactBricks-UI',
+
+  name: blockNames.Video,
   label: 'Embed Video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -57,4 +59,4 @@ VideoBrick.schema = {
     },
   ],
 }
-export default VideoBrick
+export default Video

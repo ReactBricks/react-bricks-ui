@@ -5,11 +5,11 @@ import blockNames from '../blockNames'
 import { bgColors } from '../../website/colors'
 import Section from '../layout/Section'
 
-interface ImageBrickProps {
+interface BlogImageProps {
   bg?: { color: string; className: string }
 }
 
-const ImageBrick: types.Brick<ImageBrickProps> = ({
+const BlogImage: types.Brick<BlogImageProps> = ({
   bg = bgColors.white.value,
 }) => {
   return (
@@ -20,8 +20,9 @@ const ImageBrick: types.Brick<ImageBrickProps> = ({
     </Section>
   )
 }
-ImageBrick.schema = {
-  name: blockNames.ImageBrick,
+BlogImage.schema = {
+  category: 'ReactBricks-UI',
+  name: blockNames.BlogImage,
   label: 'Image',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -38,4 +39,4 @@ ImageBrick.schema = {
     },
   }),
 }
-export default ImageBrick
+export default BlogImage

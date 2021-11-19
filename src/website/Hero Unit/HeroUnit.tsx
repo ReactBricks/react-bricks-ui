@@ -7,6 +7,7 @@ import blockNames from '../blockNames'
 import { textColors, bgColors, GradientName, gradients } from '../colors'
 import Section, { Border } from '../layout/Section'
 import Container from '../layout/Container'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface HeroUnitProps {
   bg?: { color: string; className: string }
@@ -110,7 +111,8 @@ HeroUnit.schema = {
   label: 'Hero Unit',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/HeroUnit/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/HeroUnit.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
@@ -164,55 +166,18 @@ HeroUnit.schema = {
     },
   ],
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      props: [
-        {
-          name: 'bg',
-          label: 'Background',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Color,
-            options: [
-              bgColors.white,
-              bgColors.light,
-              bgColors.gray,
-              bgColors.lightBlue,
-              bgColors.orange,
-              bgColors.green,
-              bgColors.darkBlue,
-              bgColors.dark,
-            ],
-          },
-        },
-        {
-          name: 'borderTop',
-          label: 'Border Top',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'borderBottom',
-          label: 'Border Bottom',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
+    LayoutProp({
+      colors: [
+        bgColors.white,
+        bgColors.light,
+        bgColors.gray,
+        bgColors.lightBlue,
+        bgColors.orange,
+        bgColors.green,
+        bgColors.darkBlue,
+        bgColors.dark,
       ],
-    },
+    }),
     {
       groupName: 'Title',
       defaultOpen: true,

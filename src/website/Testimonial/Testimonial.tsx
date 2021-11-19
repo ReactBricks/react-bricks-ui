@@ -7,6 +7,7 @@ import Container from '../layout/Container'
 import { bgColors } from '../colors'
 import { FiUser } from 'react-icons/fi'
 import blockNames from '../blockNames'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface TestimonialProps {
   authorName: string
@@ -108,7 +109,8 @@ Testimonial.schema = {
   label: 'Testimonial',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     quote:
       'F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied.',
@@ -135,59 +137,7 @@ Testimonial.schema = {
     },
   }),
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      props: [
-        {
-          name: 'bg',
-          label: 'Background',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Color,
-            options: [bgColors.white, bgColors.light, bgColors.gray],
-          },
-        },
-        {
-          name: 'borderTop',
-          label: 'Border Top',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'borderBottom',
-          label: 'Border Bottom',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'width',
-          label: 'Width',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'sm', label: 'Small' },
-              { value: 'md', label: 'Medium' },
-              { value: 'lg', label: 'Large' },
-            ],
-          },
-        },
-      ],
-    },
+    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
   ],
 }
 

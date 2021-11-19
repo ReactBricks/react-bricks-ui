@@ -7,6 +7,7 @@ import { bgColors } from '../colors'
 import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 import { layoutType } from './FeatureItem'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface FeaturesProps {
   bg?: { color: string; className: string }
@@ -66,7 +67,8 @@ Features.schema = {
   label: 'Features',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
@@ -127,32 +129,7 @@ Features.schema = {
     },
   ],
   sideEditProps: [
-    {
-      name: 'borderTop',
-      label: 'Border Top',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'none', label: 'None' },
-          { value: 'full', label: 'Full-width' },
-          { value: 'boxed', label: 'Boxed' },
-        ],
-      },
-    },
-    {
-      name: 'borderBottom',
-      label: 'Border Bottom',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'none', label: 'None' },
-          { value: 'full', label: 'Full-width' },
-          { value: 'boxed', label: 'Boxed' },
-        ],
-      },
-    },
+    LayoutProp(),
     {
       name: 'screenLayout',
       label: 'Screen Layout',

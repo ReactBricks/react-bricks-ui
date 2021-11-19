@@ -1,9 +1,9 @@
-import Title from './Title'
-import Paragraph from './Paragraph'
-import VideoBrick from './VideoBrick'
-import ImageBrick from './ImageBrick'
-import Quote from './Quote'
-import SocialEmbed from './SocialEmbed'
+import Title from './BlogTitle/Title'
+import Paragraph from './Paragraph/Paragraph'
+import VideoBrick from './VideoBrick/Video'
+import ImageBrick from './BlogImage/BlogImage'
+import Quote from './Quote/Quote'
+import SocialEmbed from './SocialEmbed/SocialEmbed'
 // import CodeBlock from './CodeBlock'
 
 export {

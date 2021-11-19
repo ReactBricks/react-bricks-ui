@@ -38,7 +38,8 @@ Customer.schema = {
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customer.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customer.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     image: {
       src:
@@ -46,6 +47,8 @@ Customer.schema = {
       placeholderSrc:
         'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       srcSet: '',
+      alt: 'React Bricks Icon',
+      seoName: 'react-bricks-icon',
     },
   }),
 }

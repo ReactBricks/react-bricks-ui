@@ -76,6 +76,7 @@ const Paragraph: types.Brick<ParagraphProps> = ({
   )
 }
 Paragraph.schema = {
+  category: 'ReactBricks-UI',
   name: blockNames.Paragraph,
   label: 'Paragraph',
   getDefaultProps: () => ({

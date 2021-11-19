@@ -1,14 +1,14 @@
+import * as prism from 'prismjs'
 import * as React from 'react'
 import { types, useVisualEdit } from 'react-bricks/frontend'
 import Editor from 'react-simple-code-editor'
-import * as prism from 'prismjs'
-
-import PrismCode from './PrismCode'
-import Container from '../layout/Container'
-import blockNames from '../blockNames'
 import { bgColors } from '../../website/colors'
+import blockNames from '../blockNames'
+import Container from '../layout/Container'
 import Section from '../layout/Section'
+import PrismCode from './PrismCode'
 import Styles from './Styles'
+
 
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-bash')
@@ -17,14 +17,14 @@ require('prismjs/components/prism-tsx')
 require('prismjs/plugins/line-numbers/prism-line-numbers.js')
 require('prismjs/plugins/show-language/prism-show-language.js')
 require('prismjs/plugins/line-highlight/prism-line-highlight.js')
-export interface CodeBlockProps {
+export interface CodeBrickProps {
   language: string
   dataline?: string
   showLineNumbers: boolean
   bg?: { color: string; className: string }
 }
 
-const CodeBlock: types.Brick<CodeBlockProps> = ({
+const CodeBrick: types.Brick<CodeBrickProps> = ({
   language = 'javascript',
   dataline = '',
   showLineNumbers = false,
@@ -94,7 +94,9 @@ const CodeBlock: types.Brick<CodeBlockProps> = ({
   )
 }
 
-CodeBlock.schema = {
+CodeBrick.schema = {
+  category: 'ReactBricks-UI',
+
   name: blockNames.CodeBlock,
   label: 'Code Block',
   playgroundLinkLabel: 'View source code on Github',
@@ -141,4 +143,4 @@ CodeBlock.schema = {
   ],
 }
 
-export default CodeBlock
+export default CodeBrick

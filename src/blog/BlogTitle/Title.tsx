@@ -78,6 +78,8 @@ const Title: types.Brick<TitleProps> = ({
   )
 }
 Title.schema = {
+  category: 'ReactBricks-UI',
+
   name: blockNames.Title,
   label: 'Blog title',
   playgroundLinkLabel: 'View source code on Github',

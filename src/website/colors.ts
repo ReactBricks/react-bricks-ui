@@ -132,7 +132,7 @@ export const bulletColors: BulletColors = {
     },
   },
   pinkLight: {
-    label: 'pink light',
+    label: 'Light pink',
     value: {
       color: '#ffebef',
       className: 'bg-pink-100 text-pink-500 dark:bg-pink-500 dark:text-white',
@@ -140,7 +140,7 @@ export const bulletColors: BulletColors = {
     },
   },
   azure: {
-    label: 'azure',
+    label: 'Azure',
     value: {
       color: '#1ea7fd',
       className: 'bg-azure-500 text-white',
@@ -148,7 +148,7 @@ export const bulletColors: BulletColors = {
     },
   },
   azureLight: {
-    label: 'azure light',
+    label: 'Light blue',
     value: {
       color: 'hsl(200, 100%, 96%)',
       className:

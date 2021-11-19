@@ -158,7 +158,8 @@ NewsletterSubscribe.schema = {
   label: 'Newsletter Subscribe',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/NewsletterSubscribe/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/NewsletterSubscribe.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     title: 'Want to receive updates from us?',
     description: 'Leave your e-mail',

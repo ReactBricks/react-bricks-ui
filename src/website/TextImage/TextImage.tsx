@@ -1,12 +1,11 @@
-import * as React from 'react'
 import classNames from 'classnames'
-
-import { RichText, Image, Repeater, Link, types } from 'react-bricks/frontend'
+import * as React from 'react'
+import { Image, Link, Repeater, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
-
-import { textColors, bgColors } from '../colors'
-import Section, { Border } from '../layout/Section'
+import { bgColors, textColors } from '../colors'
 import Container, { Size } from '../layout/Container'
+import Section, { Border } from '../layout/Section'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface TextImageProps {
   bg?: { color: string; className: string }
@@ -177,6 +176,7 @@ const TextImage: types.Brick<TextImageProps> = ({
           </div>
         )}
       </Container>
+      {console.log()}
     </Section>
   )
 }
@@ -186,7 +186,8 @@ TextImage.schema = {
   label: 'Text Image',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
@@ -196,6 +197,8 @@ TextImage.schema = {
     borderBottom: 'none',
     width: 'lg',
     title: 'We built hundreds of apps',
+    heroTitle: false,
+    mobileTextCenter: false,
     text:
       'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.',
     imageSource: {
@@ -208,104 +211,22 @@ TextImage.schema = {
       alt: 'Dashboard',
       seoName: 'dashboard',
     },
+    imageSide: 'right',
+    multiple: false,
+    mobileImageTop: false,
+    mobileIcon: false,
+    hasShadow: false,
+    isRounded: false,
   }),
-  repeaterItems: [
-    {
-      name: 'badge',
-      itemType: blockNames.Badge,
-      itemLabel: 'Badge',
-      // addItemText: 'Add badge',
-      // removeItemText: 'Remove badge',
-      min: 0,
-      max: 1,
-    },
-    {
-      name: 'bulletListItems',
-      itemType: blockNames.BulletListItem,
-      itemLabel: 'Feature',
-      // addItemText: 'Add feature',
-      // removeItemText: 'Remove feature',
-      min: 0,
-      max: 4,
-    },
-    {
-      name: 'buttons',
-      itemType: blockNames.Button,
-      itemLabel: 'Button',
-      // addItemText: 'Add button',
-      // removeItemText: 'Remove button',
-      min: 0,
-      max: 1,
-    },
-    {
-      name: 'logos',
-      itemType: blockNames.TextImageLogo,
-      itemLabel: 'Logo',
-      // addItemText: 'Add logo',
-      // removeItemText: 'Remove logo',
-      min: 0,
-      max: 6,
-    },
-  ],
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      props: [
-        {
-          name: 'bg',
-          label: 'Background',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Color,
-            options: [
-              bgColors.white,
-              bgColors.light,
-              bgColors.gray,
-              bgColors.darkBlue,
-            ],
-          },
-        },
-        {
-          name: 'borderTop',
-          label: 'Border Top',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'borderBottom',
-          label: 'Border Bottom',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'width',
-          label: 'Width',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'sm', label: 'Small' },
-              { value: 'md', label: 'Medium' },
-              { value: 'lg', label: 'Large' },
-            ],
-          },
-        },
+    LayoutProp({
+      colors: [
+        bgColors.white,
+        bgColors.light,
+        bgColors.gray,
+        bgColors.darkBlue,
       ],
-    },
+    }),
     {
       groupName: 'Text',
       defaultOpen: true,
@@ -368,6 +289,36 @@ TextImage.schema = {
           show: props => !props.multiple,
         },
       ],
+    },
+  ],
+  repeaterItems: [
+    {
+      name: 'badge',
+      itemType: blockNames.Badge,
+      itemLabel: 'Badge',
+      min: 0,
+      max: 1,
+    },
+    {
+      name: 'bulletListItems',
+      itemType: blockNames.BulletListItem,
+      itemLabel: 'Feature',
+      min: 0,
+      max: 4,
+    },
+    {
+      name: 'buttons',
+      itemType: blockNames.Button,
+      itemLabel: 'Button',
+      min: 0,
+      max: 1,
+    },
+    {
+      name: 'logos',
+      itemType: blockNames.TextImageLogo,
+      itemLabel: 'Logo',
+      min: 0,
+      max: 6,
     },
   ],
 }

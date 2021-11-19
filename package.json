@@ -23,11 +23,6 @@
     "react": ">=17",
     "react-bricks": "^3.1.1-beta.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": false,
@@ -55,7 +50,6 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "babel-plugin-prismjs": "^2.1.0",
-    "husky": "^7.0.2",
     "install-peers-cli": "^2.2.0",
     "react": ">=17",
     "react-dom": "^17.0.2",

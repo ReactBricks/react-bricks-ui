@@ -6,6 +6,7 @@ import Container, { Size } from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 import { bgColors } from '../colors'
 import blockNames from '../blockNames'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface TeamProps {
   bg?: { color: string; className: string }
@@ -40,7 +41,8 @@ Team.schema = {
   label: 'Team',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
@@ -138,54 +140,7 @@ Team.schema = {
     },
   ],
   sideEditProps: [
-    {
-      name: 'bg',
-      label: 'Background',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Color,
-        options: [bgColors.white, bgColors.light, bgColors.gray],
-      },
-    },
-    {
-      name: 'borderTop',
-      label: 'Border Top',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'none', label: 'None' },
-          { value: 'full', label: 'Full-width' },
-          { value: 'boxed', label: 'Boxed' },
-        ],
-      },
-    },
-    {
-      name: 'borderBottom',
-      label: 'Border Bottom',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'none', label: 'None' },
-          { value: 'full', label: 'Full-width' },
-          { value: 'boxed', label: 'Boxed' },
-        ],
-      },
-    },
-    {
-      name: 'width',
-      label: 'Width',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'sm', label: 'Small' },
-          { value: 'md', label: 'Medium' },
-          { value: 'lg', label: 'Large' },
-        ],
-      },
-    },
+    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
   ],
 }
 export default Team

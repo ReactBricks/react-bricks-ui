@@ -6,6 +6,7 @@ import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
 import { bgColors } from '../colors'
+import { LayoutProp } from '../LayoutSideProps'
 
 export interface MapProps {
   bg?: { color: string; className: string }
@@ -59,70 +60,21 @@ MapBrick.schema = {
   label: 'Map',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
+    bg: {
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
+    },
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'full',
+    width: 'sm',
     lat: 45.6782509,
     lng: 9.5669407,
   }),
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      props: [
-        {
-          name: 'bg',
-          label: 'Background',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Color,
-            options: [bgColors.white, bgColors.light, bgColors.gray],
-          },
-        },
-        {
-          name: 'borderTop',
-          label: 'Border Top',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'borderBottom',
-          label: 'Border Bottom',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'none', label: 'None' },
-              { value: 'full', label: 'Full-width' },
-              { value: 'boxed', label: 'Boxed' },
-            ],
-          },
-        },
-        {
-          name: 'width',
-          label: 'Width',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'full', label: 'Full-width' },
-              { value: 'lg', label: 'Boxed Large' },
-              { value: 'md', label: 'Boxed Medium' },
-              { value: 'sm', label: 'Boxed Small' },
-            ],
-          },
-        },
-      ],
-    },
+    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
     {
       groupName: 'Map',
       defaultOpen: true,

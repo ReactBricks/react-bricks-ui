@@ -55,7 +55,8 @@ BulletListItem.schema = {
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/BulletListItem.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/BulletListItem.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
     color: bulletColors.pinkLight.value,
     text: 'New item',

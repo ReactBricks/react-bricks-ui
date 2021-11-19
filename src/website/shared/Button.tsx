@@ -68,13 +68,15 @@ Button.schema = {
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Button.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Button.tsx',
+  category: 'ReactBricks-UI',
   getDefaultProps: () => ({
-    text: 'Click me',
+    text: 'Click mev',
     href: '',
     isTargetBlank: false,
     variant: 'azure',
     type: 'solid',
+    isBigButton: false,
   }),
   sideEditProps: [
     {
