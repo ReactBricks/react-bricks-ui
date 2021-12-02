@@ -34,7 +34,6 @@ const FaqQuestion: types.Brick = () => {
 }
 
 FaqQuestion.schema = {
-  category: 'ReactBricks-UI',
   name: blockNames.Faq,
   label: 'Question',
   hideFromAddMenu: true,

@@ -38,8 +38,6 @@ const Badge: types.Brick<BadgeProps> = ({
 }
 
 Badge.schema = {
-  category: 'ReactBricks-UI',
-
   name: blockNames.Badge,
   label: 'Badge',
   hideFromAddMenu: true,

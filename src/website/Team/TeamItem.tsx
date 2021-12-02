@@ -90,7 +90,7 @@ TeamItem.schema = {
   hideFromAddMenu: true,
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TeamItem.tsx',
-  category: 'ReactBricks-UI',
+
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

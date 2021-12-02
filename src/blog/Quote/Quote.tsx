@@ -30,8 +30,6 @@ const Quote: types.Brick<QuoteProps> = ({ bg = bgColors.white.value }) => {
 }
 
 Quote.schema = {
-  category: 'ReactBricks-UI',
-
   name: blockNames.Quote,
   label: 'Quote',
   playgroundLinkLabel: 'View source code on Github',

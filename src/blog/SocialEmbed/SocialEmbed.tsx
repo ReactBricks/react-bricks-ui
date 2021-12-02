@@ -91,7 +91,6 @@ const SocialEmbed: types.Brick<SocialEmbedProps> = ({
   )
 }
 SocialEmbed.schema = {
-  category: 'ReactBricks-UI',
   name: blockNames.SocialEmbed,
   label: 'Twitter Embed',
   playgroundLinkLabel: 'View source code on Github',

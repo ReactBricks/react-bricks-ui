@@ -9,7 +9,6 @@ import Section from '../layout/Section'
 import PrismCode from './PrismCode'
 import Styles from './Styles'
 
-
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-bash')
 require('prismjs/components/prism-jsx')
@@ -95,8 +94,6 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
 }
 
 CodeBrick.schema = {
-  category: 'ReactBricks-UI',
-
   name: blockNames.CodeBlock,
   label: 'Code Block',
   playgroundLinkLabel: 'View source code on Github',

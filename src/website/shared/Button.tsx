@@ -69,7 +69,7 @@ Button.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Button.tsx',
-  category: 'ReactBricks-UI',
+
   getDefaultProps: () => ({
     text: 'Click mev',
     href: '',

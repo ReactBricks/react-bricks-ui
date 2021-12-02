@@ -21,7 +21,6 @@ const BlogImage: types.Brick<BlogImageProps> = ({
   )
 }
 BlogImage.schema = {
-  category: 'ReactBricks-UI',
   name: blockNames.BlogImage,
   label: 'Image',
   playgroundLinkLabel: 'View source code on Github',

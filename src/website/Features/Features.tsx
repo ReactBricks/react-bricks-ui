@@ -68,7 +68,7 @@ Features.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features.tsx',
-  category: 'ReactBricks-UI',
+
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

@@ -21,7 +21,7 @@ TextImageLogo.schema = {
   hideFromAddMenu: true,
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImageLogo.tsx',
-  category: 'ReactBricks-UI',
+
   getDefaultProps: () => ({
     imageSource: {
       src:

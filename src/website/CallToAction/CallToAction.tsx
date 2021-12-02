@@ -61,26 +61,26 @@ CallToAction.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction.tsx',
-  category: 'ReactBricks-UI',
+
   getDefaultProps: () => ({
     bg: {
-      color: "#fff",
-      className: "bg-white dark:bg-gray-900"
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
     },
-    borderTop: "boxed",
-    borderBottom: "none",
-    width: "sm",
-    text: "React Bricks is great for developers and marketing.",
+    borderTop: 'boxed',
+    borderBottom: 'none',
+    width: 'sm',
+    text: 'React Bricks is great for developers and marketing.',
     buttons: [
       {
-        text: "Get started",
-        variant: "pink",
-        type: "solid",
-        href: "",
+        text: 'Get started',
+        variant: 'pink',
+        type: 'solid',
+        href: '',
         isTargetBlank: false,
-        isBigButton: false
-      }
-    ]
+        isBigButton: false,
+      },
+    ],
   }),
   repeaterItems: [
     {

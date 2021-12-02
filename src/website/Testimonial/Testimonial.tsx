@@ -110,7 +110,7 @@ Testimonial.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial.tsx',
-  category: 'ReactBricks-UI',
+
   getDefaultProps: () => ({
     quote:
       'F2.net is a skilled company who helped us define our production management application requirements and implemented it as a beautiful system that our users love. We are very satisfied.',

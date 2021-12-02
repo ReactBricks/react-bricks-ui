@@ -27,8 +27,6 @@ const Video: types.Brick<VideoProps> = ({
   )
 }
 Video.schema = {
-  category: 'ReactBricks-UI',
-
   name: blockNames.Video,
   label: 'Embed Video',
   playgroundLinkLabel: 'View source code on Github',
