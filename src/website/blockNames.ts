@@ -26,6 +26,8 @@ enum blockNames {
   Faq = 'faq',
   CallToAction = 'call-to-action',
   BigFeature = 'big-feature',
+  Documents = 'documents',
+  Document = 'document',
 }
 
 export default blockNames
