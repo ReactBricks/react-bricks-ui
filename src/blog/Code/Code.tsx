@@ -1,6 +1,6 @@
 import * as prism from 'prismjs'
 import * as React from 'react'
-import { types, useVisualEdit } from 'react-bricks/frontend'
+import { types, useVisualEdit } from 'react-bricks'
 import Editor from 'react-simple-code-editor'
 import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
@@ -39,7 +39,6 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
     plugins.push('line-highlight')
   }
 
-  console.log(dataline)
   if (isReadOnly) {
     return (
       <Section bg={bg}>
@@ -81,9 +80,13 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
             <Editor
               value={value}
               onValueChange={onChange}
-              highlight={code =>
-                prism.highlight(code, prism.languages[language], `${language}`)
-              }
+              highlight={code => {
+                return prism.highlight(
+                  code,
+                  prism.languages[language],
+                  `${language}`
+                )
+              }}
               padding={10}
             />
           </code>

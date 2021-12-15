@@ -4,7 +4,8 @@ import VideoBrick from './VideoBrick/Video'
 import ImageBrick from './BlogImage/BlogImage'
 import Quote from './Quote/Quote'
 import SocialEmbed from './SocialEmbed/SocialEmbed'
-// import CodeBlock from './CodeBlock'
+import CodeBlock from './Code/Code'
+import Tweet from './SocialEmbed/Tweet'
 
 export {
   Title,
@@ -13,7 +14,8 @@ export {
   ImageBrick,
   Quote,
   SocialEmbed,
-  // CodeBlock,
+  CodeBlock,
+  Tweet,
 }
 
 const bricks: any[] = [
@@ -23,7 +25,8 @@ const bricks: any[] = [
   ImageBrick,
   Quote,
   SocialEmbed,
-  // CodeBlock,
+  CodeBlock,
+  Tweet,
 ]
 
 export default bricks

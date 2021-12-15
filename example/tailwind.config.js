@@ -19,6 +19,14 @@ module.exports = {
           800: '#8f2468',
           900: '#691f53',
         },
+        twitter: {
+          50: '#d9d9d9',
+          500: '#1d9bf0',
+          600: '#1a8cd8',
+          900: '#15181c',
+          'dark-border': '#2f3336',
+          dark: '#000000',
+        },
         orange: colors.orange,
         green: colors.lime,
       },
@@ -36,6 +44,7 @@ module.exports = {
       fontFamily: {
         content: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
         blog: ['Merriweather', ...defaultTheme.fontFamily.serif],
+        twitter: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
     },
   },

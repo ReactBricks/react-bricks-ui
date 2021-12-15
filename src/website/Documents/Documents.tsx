@@ -30,11 +30,7 @@ const Documents: types.Brick<DocumentsProps> = ({
           renderWrapper={items => (
             <ul className="w-full p-6 grid grid-cols-3 gap-6 ">{items}</ul>
           )}
-          renderItemWrapper={item => (
-            <li className="flex justify-center bg-gray-50 border border-gray-200 rounded items-center py-2">
-              {item}
-            </li>
-          )}
+          renderItemWrapper={item => <li>{item}</li>}
         />
       </Container>
     </Section>

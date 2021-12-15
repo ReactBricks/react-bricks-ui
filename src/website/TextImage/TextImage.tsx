@@ -176,7 +176,6 @@ const TextImage: types.Brick<TextImageProps> = ({
           </div>
         )}
       </Container>
-      {console.log()}
     </Section>
   )
 }

@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "react": ">=17",
-    "react-bricks": "^3.1.9"
+    "react-bricks": "^3.2.4"
   },
   "prettier": {
     "printWidth": 80,

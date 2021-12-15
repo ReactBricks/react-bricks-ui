@@ -23,9 +23,8 @@ const PrismCode: React.FC<PrismCodeProps> = ({
   }
 
   React.useEffect(() => {
-    console.log('highlight', dataLine)
     highlight()
-  }, [])
+  }, [dataLine])
 
   const dataLineObj = dataLine ? { 'data-line': dataLine } : {}
 

@@ -1,11 +1,22 @@
+import classNames from 'classnames'
 import React from 'react'
-import { types, File } from 'react-bricks/frontend'
+import { File, types } from 'react-bricks/frontend'
 import { FiFile, FiFilePlus } from 'react-icons/fi'
 import blockNames from '../blockNames'
 
-const Document: types.Brick = ({ ...rest }) => {
+export interface DocumentProps {
+  color?: { color: string; className: string }
+}
+
+const Document: types.Brick<DocumentProps> = ({ color, ...rest }) => {
   return (
-    <div className="h-full flex" {...rest}>
+    <div
+      className={classNames(
+        'flex justify-center bg-gray-50 border border-gray-200 rounded items-center py-2',
+        color?.className
+      )}
+      {...rest}
+    >
       <File
         propName="file"
         renderBlock={file => {
@@ -38,5 +49,24 @@ Document.schema = {
         'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
     },
   }),
+  sideEditProps: [
+    {
+      name: 'color',
+      label: 'Color',
+      type: types.SideEditPropType.Select,
+      selectOptions: {
+        display: types.OptionsDisplay.Color,
+        options: [
+          {
+            value: {
+              color: '#c6f6d5',
+              className: 'bg-green-100 dark:bg-gray-800',
+            },
+            label: 'Green',
+          },
+        ],
+      },
+    },
+  ],
 }
 export default Document

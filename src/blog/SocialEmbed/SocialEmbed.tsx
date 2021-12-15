@@ -51,12 +51,6 @@ const SocialEmbed: types.Brick<SocialEmbedProps> = ({
           }
 
           // const { options, onTweetLoadSuccess, onTweetLoadError } = props
-          console.log(id, widgets, {
-            align,
-            cards,
-            conversation,
-            theme,
-          })
           widgets
             .createTweetEmbed(id, twitterEmbedRef.current, {
               align,

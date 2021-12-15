@@ -14,7 +14,6 @@
     "classnames": "^2.3.1",
     "postcss": "^8.4.4",
     "react-app-polyfill": "^2.0.0",
-    "slate": "^0.71.0",
     "tailwindcss": "^2.2.19"
   },
   "alias": {
