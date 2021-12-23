@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { useEffect, useRef, useState, useContext } from 'react'
 import { types, ReactBricksContext } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
+
 import blockNames from '../blockNames'
 
 import Container from '../layout/Container'
 import Section from '../layout/Section'
 
-export interface SocialEmbedProps {
+export interface TweetProps {
   id: string
   placeholder: string
   align: string
@@ -17,14 +17,13 @@ export interface SocialEmbedProps {
   bg: { color: string; className: string }
 }
 
-const SocialEmbed: types.Brick<SocialEmbedProps> = ({
+const Tweet: types.Brick<TweetProps> = ({
   id,
   placeholder,
   align,
   cards,
   conversation,
   theme,
-  bg = bgColors.white.value,
 }) => {
   const twitterEmbedRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -77,19 +76,19 @@ const SocialEmbed: types.Brick<SocialEmbedProps> = ({
   ])
 
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <div ref={twitterEmbedRef}>{isLoading && placeholder}</div>
       </Container>
     </Section>
   )
 }
-SocialEmbed.schema = {
-  name: blockNames.SocialEmbed,
-  label: 'Twitter Embed',
+Tweet.schema = {
+  name: blockNames.Tweet,
+  label: 'Tweet',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/SocialEmbed/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/index.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
@@ -166,4 +165,4 @@ SocialEmbed.schema = {
     },
   ],
 }
-export default SocialEmbed
+export default Tweet

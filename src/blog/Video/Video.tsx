@@ -1,26 +1,29 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
 
+const videoUrlPrefix: { [key: string]: string } = Object.freeze({
+  youtube: 'https://www.youtube.com/embed/',
+  vimeo: 'https://player.vimeo.com/video/',
+})
+
 export interface VideoProps {
   url: string
-  social: string
-  bg?: { color: string; className: string }
+  platform: string
 }
 
-const Video: types.Brick<VideoProps> = ({
-  bg = bgColors.white.value,
-  social,
-  url,
-}) => {
+const Video: types.Brick<VideoProps> = ({ platform, url }) => {
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <div className="aspect-w-16 aspect-h-9">
-          <iframe width="100%" height="100%" src={`${social}${url}?rel=0`} />
+          <iframe
+            width="100%"
+            height="100%"
+            src={`${videoUrlPrefix[platform]}${url}?rel=0`}
+          />
         </div>
       </Container>
     </Section>
@@ -28,31 +31,30 @@ const Video: types.Brick<VideoProps> = ({
 }
 Video.schema = {
   name: blockNames.Video,
-  label: 'Embed Video',
+  label: 'Video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/VideoBrick/index.tsx',
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
-    url: '1BjgwtG92CI',
-    social: 'https://www.youtube.com/embed/',
+    url: 'aVmRCD5FFMw',
+    platform: 'youtube',
   }),
   sideEditProps: [
     {
-      name: 'social',
-      label: 'Social emitter?',
+      name: 'platform',
+      label: 'Video platform',
       type: types.SideEditPropType.Select,
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'https://www.youtube.com/embed/', label: 'YouTube' },
-          { value: 'https://player.vimeo.com/video/', label: 'Vimeo' },
+          { value: 'youtube', label: 'YouTube' },
+          { value: 'vimeo', label: 'Vimeo' },
         ],
       },
     },
     {
       name: 'url',
-      label: 'ID Video',
+      label: 'Video ID (i.e. "aVmRCD5FFMw")',
       type: types.SideEditPropType.Text,
     },
   ],

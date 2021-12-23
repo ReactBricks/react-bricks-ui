@@ -1,32 +1,29 @@
-import Title from './BlogTitle/Title'
+import Title from './Title/Title'
 import Paragraph from './Paragraph/Paragraph'
-import VideoBrick from './VideoBrick/Video'
-import ImageBrick from './BlogImage/BlogImage'
-import Quote from './Quote/Quote'
-import SocialEmbed from './SocialEmbed/SocialEmbed'
+import VideoBrick from './Video/Video'
+import ImageBrick from './Image/Image'
+import Tweet from './Tweet/Tweet'
 import CodeBlock from './Code/Code'
-import Tweet from './SocialEmbed/Tweet'
+import TweetLight from './Tweet/TweetLight'
 
 export {
   Title,
   Paragraph,
   VideoBrick,
   ImageBrick,
-  Quote,
-  SocialEmbed,
   CodeBlock,
   Tweet,
+  TweetLight,
 }
 
-const bricks: any[] = [
+const bricks = [
   Title,
   Paragraph,
   VideoBrick,
   ImageBrick,
-  Quote,
-  SocialEmbed,
   CodeBlock,
   Tweet,
+  TweetLight,
 ]
 
 export default bricks

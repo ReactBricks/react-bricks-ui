@@ -3,10 +3,9 @@ enum blockNames {
   Paragraph = 'paragraph',
   Video = 'video',
   BlogImage = 'image',
-  Quote = 'quote',
-  SocialEmbed = 'social-embed',
+  Tweet = 'tweet',
   CodeBlock = 'code-block',
-  Tweet = 'twitter-light',
+  TweetLight = 'twitter-light',
 }
 
 export default blockNames

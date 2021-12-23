@@ -47,10 +47,13 @@ const Testimonial: types.Brick<TestimonialProps> = ({
                 small ? 'text-md text-left' : 'text-xl text-center'
               )}
             >
-              “{props.children}”
+              {props.children}
             </div>
           )}
           placeholder="Quote..."
+          renderPlaceholder={props => {
+            return <span>{props.children}</span>
+          }}
           propName="quote"
         />
         <div className="flex items-center">
