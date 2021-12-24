@@ -45,6 +45,7 @@ const Title: types.Brick<TitleProps> = ({ size = 'large' }) => {
           {pageValues.author.avatarUrl ? (
             <img
               src={pageValues.author.avatarUrl}
+              alt="Author"
               className="rounded-full w-12"
             />
           ) : (

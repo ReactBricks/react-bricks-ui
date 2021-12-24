@@ -1,12 +1,10 @@
-import * as React from 'react'
 import classNames from 'classnames'
-
-import { RichText, Repeater, types } from 'react-bricks/frontend'
+import * as React from 'react'
+import { Repeater, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
-
-import { textColors, bgColors, GradientName, gradients } from '../colors'
-import Section, { Border } from '../layout/Section'
+import { bgColors, GradientName, gradients, textColors } from '../colors'
 import Container from '../layout/Container'
+import Section, { Border } from '../layout/Section'
 import { LayoutProp } from '../LayoutSideProps'
 
 export interface HeroUnitProps {
@@ -112,7 +110,6 @@ HeroUnit.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/HeroUnit.tsx',
-   
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
