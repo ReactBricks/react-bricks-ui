@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useEffect, useRef, useState, useContext } from 'react'
 import { types, ReactBricksContext } from 'react-bricks/frontend'
+import { bgColors } from '../../website/colors'
 
 import blockNames from '../blockNames'
 
@@ -24,6 +25,7 @@ const Tweet: types.Brick<TweetProps> = ({
   cards,
   conversation,
   theme,
+  bg = bgColors.white.value,
 }) => {
   const twitterEmbedRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -76,7 +78,7 @@ const Tweet: types.Brick<TweetProps> = ({
   ])
 
   return (
-    <Section>
+    <Section bg={bg}>
       <Container>
         <div ref={twitterEmbedRef}>{isLoading && placeholder}</div>
       </Container>

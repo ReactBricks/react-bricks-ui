@@ -48,7 +48,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
             style={titleStyle}
           >
             <RichText
-              renderBlock={(props) => (
+              renderBlock={props => (
                 <h1
                   className={classNames(
                     'text-center font-black mb-4 bg-clip-text bg-gradient-to-r',
@@ -63,7 +63,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               placeholder="Type a title..."
               propName="title"
               allowedFeatures={[types.RichTextFeatures.Highlight]}
-              renderHighlight={(props) => (
+              renderHighlight={props => (
                 <span className={highlightColor} {...props.attributes}>
                   {props.children}
                 </span>
@@ -72,7 +72,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           </div>
 
           <RichText
-            renderBlock={(props) => (
+            renderBlock={props => (
               <p
                 className={classNames(
                   'text-lg sm:text-xl text-center leading-7 sm:leading-8',

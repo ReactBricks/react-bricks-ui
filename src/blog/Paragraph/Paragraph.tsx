@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link, RichText, types } from 'react-bricks/frontend'
+import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
-import Section from '../layout/Section'
+import Section, { SectionProps } from '../layout/Section'
 
-const Paragraph: types.Brick = () => {
+const Paragraph: types.Brick<SectionProps> = ({
+  bg = bgColors.white.value,
+}) => {
   return (
-    <Section>
+    <Section bg={bg}>
       <Container>
         <RichText
           propName="text"

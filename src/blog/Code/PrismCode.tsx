@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as prism from 'prismjs'
+import Styles from './Styles'
 
 interface PrismCodeProps {
   code: string
@@ -29,14 +30,17 @@ const PrismCode: React.FC<PrismCodeProps> = ({
   const dataLineObj = dataLine ? { 'data-line': dataLine } : {}
 
   return (
-    <pre
-      className={`rounded-lg ${!plugins ? '' : plugins.join(' ')}`}
-      {...dataLineObj}
-    >
-      <code ref={codeRef} className={`language-${language}`}>
-        {code.trim()}
-      </code>
-    </pre>
+    <>
+      <Styles />
+      <pre
+        className={`rounded-lg ${!plugins ? '' : plugins.join(' ')}`}
+        {...dataLineObj}
+      >
+        <code ref={codeRef} className={`language-${language}`}>
+          {code.trim()}
+        </code>
+      </pre>
+    </>
   )
 }
 
