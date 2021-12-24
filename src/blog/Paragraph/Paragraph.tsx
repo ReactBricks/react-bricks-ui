@@ -1,5 +1,5 @@
 import React from 'react'
-import { RichText, types } from 'react-bricks/frontend'
+import { Link, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -62,6 +62,11 @@ const Paragraph: types.Brick = () => {
             <ol className="list-decimal list-inside mt-4 font-base">
               {children}
             </ol>
+          )}
+          renderLink={({ children, href }) => (
+            <Link href={href} className="text-blue-400">
+              {children}
+            </Link>
           )}
         />
       </Container>

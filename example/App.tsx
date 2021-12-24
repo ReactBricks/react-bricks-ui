@@ -36,7 +36,7 @@ const App = () => {
         },
       ]}
       contentClassName={classNames(
-        'font-content antialiased bg-white content',
+        'font-content antialiased bg-white',
         colorMode,
         { 'dark-bg': colorMode === 'dark' }
       )}

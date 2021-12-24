@@ -33,7 +33,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         <div className="flex-1 sm:pr-12 mb-4 sm:mb-0">
           <RichText
             propName="text"
-            renderBlock={(props: any) => (
+            renderBlock={(props) => (
               <span
                 className={classNames(
                   'font-extrabold text-xl sm:text-2xl leading-6 sm:leading-8',

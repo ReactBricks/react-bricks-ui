@@ -82,7 +82,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
       mailchimpUrl.length < 10 ||
       mailchimpUrl.indexOf('post') === -1
     ) {
-      setStatus({
+      setStatus({ 
         status: 'ERROR',
         message: 'Invalid Mailchimp URL',
       })
@@ -106,7 +106,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
         })}
       >
         <Text
-          renderBlock={(props: any) => (
+          renderBlock={(props) => (
             <h1 className="text-2xl mb-4 font-extrabold" {...props.attributes}>
               {props.children}
             </h1>
@@ -115,7 +115,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
           propName="title"
         />
         <Text
-          renderBlock={(props: any) => (
+          renderBlock={(props) => (
             <p className="mb-2" {...props.attributes}>
               {props.children}
             </p>

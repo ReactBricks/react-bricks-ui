@@ -81,7 +81,7 @@ const TextImage: types.Brick<TextImageProps> = ({
 
           <RichText
             propName="title"
-            renderBlock={(props: any) => (
+            renderBlock={(props) => (
               <h2
                 className={classNames(
                   'mt-0 mb-4',
@@ -101,7 +101,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             )}
             placeholder="Type a title..."
             allowedFeatures={[types.RichTextFeatures.Highlight]}
-            renderHighlight={(props: any) => (
+            renderHighlight={(props) => (
               <span className={highlightColor} {...props.attributes}>
                 {props.children}
               </span>
@@ -110,7 +110,7 @@ const TextImage: types.Brick<TextImageProps> = ({
 
           <RichText
             propName="text"
-            renderBlock={(props: any) => (
+            renderBlock={(props) => (
               <p
                 className={classNames('text-lg sm:text-xl mb-3', textColor, {
                   'text-center md:text-left': mobileTextCenter,
@@ -126,7 +126,7 @@ const TextImage: types.Brick<TextImageProps> = ({
               types.RichTextFeatures.Bold,
               types.RichTextFeatures.Link,
             ]}
-            renderLink={(props: any) => (
+            renderLink={(props) => (
               <Link {...props} className="text-lg">
                 {props.children}&nbsp;&raquo;
               </Link>
@@ -138,7 +138,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             itemProps={{
               className: 'lg:w-2/5 text-lg',
             }}
-            renderWrapper={(items: any) => (
+            renderWrapper={(items) => (
               <div className="mt-4 w-full flex flex-col lg:flex-row lg:flex-wrap lg:justify-between">
                 {items}
               </div>
@@ -146,7 +146,7 @@ const TextImage: types.Brick<TextImageProps> = ({
           />
           <Repeater
             propName="buttons"
-            renderWrapper={(items: any) => (
+            renderWrapper={(items) => (
               <div className="flex items-center flex-col sm:flex-row mt-4">
                 {items}
               </div>

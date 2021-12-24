@@ -35,7 +35,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
       </div>
       <Text
         propName="text"
-        renderBlock={(props: any) => (
+        renderBlock={(props) => (
           <span
             className={classNames('dark:text-gray-100', color.className2)}
             {...props.attributes}

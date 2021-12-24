@@ -36,7 +36,7 @@ const BigFeature: types.Brick<BigFeatureProps> = ({
         <div className="flex-1">
           <Text
             propName="title"
-            renderBlock={(props: any) => (
+            renderBlock={(props) => (
               <div
                 className={classNames(
                   'font-extrabold text-xl leading-6 mb-1',
@@ -51,7 +51,7 @@ const BigFeature: types.Brick<BigFeatureProps> = ({
           />
           <RichText
             propName="text"
-            renderBlock={(props: any) => (
+            renderBlock={(props) => (
               <span
                 className={classNames('leading-6', textColors.gray700)}
                 {...props.attributes}

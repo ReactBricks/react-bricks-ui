@@ -20,6 +20,7 @@ const Video: types.Brick<VideoProps> = ({ platform, url }) => {
       <Container>
         <div className="aspect-w-16 aspect-h-9">
           <iframe
+            key="video iframe"
             width="100%"
             height="100%"
             src={`${videoUrlPrefix[platform]}${url}?rel=0`}

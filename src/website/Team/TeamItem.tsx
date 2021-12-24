@@ -28,14 +28,14 @@ const TeamItem: types.Brick<TeamItemProps> = ({
       />
       <div className="text-center dark:text-gray-200 text-gray-500">
         <Text
-          renderBlock={(props: any) => (
+          renderBlock={(props) => (
             <div className="text-sm font-bold">{props.children}</div>
           )}
           placeholder="Member name..."
           propName="memberName"
         />
         <Text
-          renderBlock={(props: any) => (
+          renderBlock={(props) => (
             <div className="text-xs">{props.children}</div>
           )}
           placeholder="Role"

@@ -5,7 +5,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.content a {
-  color: #60A5FA;
-}

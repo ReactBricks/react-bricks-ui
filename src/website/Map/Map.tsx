@@ -21,9 +21,9 @@ export interface MapProps {
 const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
 const MAP_ID = 'streets'
 
-const mapTilerProvider = (x: any, y: any, z: any, dpr: any) => {
+const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
   return `https://api.maptiler.com/maps/${MAP_ID}/256/${z}/${x}/${y}${
-    dpr >= 2 ? '@2x' : ''
+    dpr && dpr >= 2 ? '@2x' : ''
   }.png?key=${MAPTILER_ACCESS_TOKEN}`
 }
 
