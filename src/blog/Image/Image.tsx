@@ -1,12 +1,15 @@
 import React from 'react'
 import { Image, types } from 'react-bricks/frontend'
+import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
-import Section from '../layout/Section'
+import Section, { SectionProps } from '../layout/Section'
 
-const BlogImage: types.Brick = () => {
+const BlogImage: types.Brick<SectionProps> = ({
+  bg = bgColors.white.value,
+}) => {
   return (
-    <Section>
+    <Section bg={bg}>
       <Container>
         <Image propName="image" alt="" />
       </Container>

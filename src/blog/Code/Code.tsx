@@ -1,7 +1,8 @@
-import * as prism from 'prismjs'
+import Prism from 'prismjs'
 import * as React from 'react'
 import { types, useVisualEdit } from 'react-bricks'
 import Editor from 'react-simple-code-editor'
+import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -19,12 +20,14 @@ export interface CodeBrickProps {
   language: string
   dataline?: string
   showLineNumbers: boolean
+  bg?: { color: string; className: string }
 }
 
 const CodeBrick: types.Brick<CodeBrickProps> = ({
   language = 'javascript',
   dataline = '',
   showLineNumbers = false,
+  bg = bgColors.white.value,
 }) => {
   const [value, onChange, isReadOnly] = useVisualEdit('code')
 
@@ -38,7 +41,7 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
 
   if (isReadOnly) {
     return (
-      <Section>
+      <Section bg={bg}>
         <Styles />
         <Container>
           <style>{`
@@ -64,7 +67,7 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
   }
 
   return (
-    <Section>
+    <Section bg={bg}>
       <Styles />
       <style>{`
         .dark pre {
@@ -78,9 +81,9 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
               value={value}
               onValueChange={onChange}
               highlight={code => {
-                return prism.highlight(
+                return Prism.highlight(
                   code,
-                  prism.languages[language],
+                  Prism.languages[language],
                   `${language}`
                 )
               }}
@@ -100,9 +103,10 @@ CodeBrick.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/CodeBlock/index.tsx',
   getDefaultProps: () => ({
+    bg: bgColors.white.value,
     code:
       "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
-    language: 'javascript',
+    language: 'typescript',
     dataline: '',
     showLineNumbers: false,
   }),

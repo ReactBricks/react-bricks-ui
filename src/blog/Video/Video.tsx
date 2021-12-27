@@ -1,5 +1,6 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
+import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -12,11 +13,16 @@ const videoUrlPrefix: { [key: string]: string } = Object.freeze({
 export interface VideoProps {
   url: string
   platform: string
+  bg?: { color: string; className: string }
 }
 
-const Video: types.Brick<VideoProps> = ({ platform, url }) => {
+const Video: types.Brick<VideoProps> = ({
+  platform,
+  url,
+  bg = bgColors.white.value,
+}) => {
   return (
-    <Section>
+    <Section bg={bg}>
       <Container>
         <div className="aspect-w-16 aspect-h-9">
           <iframe

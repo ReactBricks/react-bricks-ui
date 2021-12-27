@@ -59,7 +59,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <Text
           propName="title"
           placeholder="title..."
-          renderBlock={(props) => (
+          renderBlock={props => (
             <h3 className={classNames(getFontSize(screenLayout))}>
               {props.children}
             </h3>
@@ -68,7 +68,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <RichText
           propName="text"
           placeholder="text..."
-          renderBlock={(props) => (
+          renderBlock={props => (
             <p className="text-gray-500 dark:text-gray-200 font-normal leading-6 text-base text">
               {props.children}
             </p>
