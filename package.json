@@ -1,5 +1,5 @@
 {
-  "version": "0.3.3",
+  "version": "0.3.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -11,8 +11,11 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "start": "yarn clean-build && npx rollup --config --configDebug -w",
+    "build": "yarn clean-build && npx rollup --config --configDebug",
+    "clean-build": "rm -rf dist/*.js && rm -rf dist/*.map && rm -rf dist/**/*.js && rm -rf dist/**/*.map",
+    "start-old": "tsdx watch",
+    "build-old": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "install-peers && tsdx build",
@@ -43,6 +46,7 @@
     }
   ],
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
     "@size-limit/preset-small-lib": "^5.0.3",
     "@types/classnames": "^2.3.1",
     "@types/jsonp": "^0.2.1",
@@ -53,6 +57,10 @@
     "install-peers-cli": "^2.2.0",
     "react": ">=17",
     "react-dom": "^17.0.2",
+    "rollup-plugin-dts": "^4.0.0",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "size-limit": "^5.0.3",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
@@ -66,6 +74,7 @@
     "pigeon-maps": "^0.19.7",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.24.1",
+    "react-bricks": "^3.2.5",
     "react-icons": "^4.2.0",
     "react-leaflet": "^3.2.1",
     "react-simple-code-editor": "^0.11.0"
