@@ -7216,7 +7216,7 @@ rc-util@^5.0.1:
     react-is "^16.12.0"
     shallowequal "^1.1.0"
 
-react-bricks@^3.2.5:
+react-bricks@^3.2.4:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.2.5.tgz#93ff04b42247c4e6a17267c72acc10ba99160323"
   integrity sha512-kLHdDZPT63Kp4hglvYv9pkybydjjIoyGTuZl+iFNKV5W35KMPqZ7P/0ReVTlZyN3qgB9FUjAPph/yOB16aGx0w==

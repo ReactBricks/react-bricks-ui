@@ -6,7 +6,7 @@ import {
   types,
   useAdminContext,
   plugins,
-} from 'react-bricks'
+} from 'react-bricks/frontend'
 import { FaTwitter } from 'react-icons/fa'
 import Section from '../layout/Section'
 import blockNames from '../blockNames'
