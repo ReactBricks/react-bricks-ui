@@ -1,5 +1,4 @@
 #!/bin/bash
-npx install-peers
 yarn build
 
 cp scripts/publish/*.json dist/
