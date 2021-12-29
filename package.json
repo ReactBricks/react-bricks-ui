@@ -58,7 +58,7 @@
   "peerDependencies": {
     "prismjs": "^1.25.0",
     "react": ">=17",
-    "react-bricks": "^3.2.4"
+    "react-bricks": "^3.2.5"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -67,10 +67,7 @@
     "jsonp": "^0.2.1",
     "pigeon-maps": "^0.19.7",
     "prism-theme-night-owl": "^1.4.0",
-    "prismjs": "^1.25.0",
-    "react-bricks": "^3.2.4",
     "react-icons": "^4.2.0",
-    "react-leaflet": "^3.2.1",
     "react-simple-code-editor": "^0.11.0"
   },
   "devDependencies": {
