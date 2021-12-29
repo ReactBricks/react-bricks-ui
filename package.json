@@ -35,7 +35,6 @@
     "build": "yarn clean-build && npx rollup --config --configDebug",
     "clean-build": "rm -rf dist/*.js && rm -rf dist/*.map && rm -rf dist/**/*.js && rm -rf dist/**/*.map",
     "test": "",
-    "prepare": "install-peers && yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },

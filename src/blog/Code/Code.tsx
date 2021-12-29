@@ -1,6 +1,6 @@
 import Prism from 'prismjs'
 import * as React from 'react'
-import { types, useVisualEdit } from 'react-bricks'
+import { types, useVisualEdit } from 'react-bricks/frontend'
 import Editor from 'react-simple-code-editor'
 import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
