@@ -63,7 +63,7 @@
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.25.0",
     "react": ">=17",
-    "react-bricks": "^3.2.5",
+    "react-bricks": "^3.2.6",
     "react-icons": "^4.2.0",
     "react-simple-code-editor": "^0.11.0"
   },
