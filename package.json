@@ -63,11 +63,12 @@
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.25.0",
     "react": ">=17",
-    "react-bricks": "^3.2.6",
+    "react-bricks": "^3.2.7",
     "react-icons": "^4.2.0",
     "react-simple-code-editor": "^0.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.0",
     "@rollup/plugin-typescript": "^8.3.0",
     "@size-limit/preset-small-lib": "^5.0.3",
     "@types/classnames": "^2.3.1",
