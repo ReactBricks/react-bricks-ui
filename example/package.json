@@ -4,14 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel index.html --no-cache",
+    "build": "parcel build index.html",
+    "postinstall": "link-module-alias"
+  },
+  "_moduleAliases": {
+    "react-bricks-ui": "../dist"
   },
   "dependencies": {
     "@reach/router": "^1.3.4",
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "autoprefixer": "^10.4.0",
     "classnames": "^2.3.1",
+    "dotenv": "^10.0.0",
     "postcss": "^8.4.4",
     "react-app-polyfill": "^2.0.0",
     "tailwindcss": "^2.2.19"
@@ -25,6 +30,7 @@
   "devDependencies": {
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "link-module-alias": "^1.2.0",
     "parcel": "^2.0.1",
     "typescript": "^4.5.2"
   }

@@ -15,6 +15,7 @@ require('prismjs/components/prism-tsx')
 require('prismjs/plugins/line-numbers/prism-line-numbers.js')
 require('prismjs/plugins/show-language/prism-show-language.js')
 require('prismjs/plugins/line-highlight/prism-line-highlight.js')
+
 export interface CodeBrickProps {
   language: string
   dataline?: string
@@ -28,6 +29,7 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
 }) => {
   const [value, onChange, isReadOnly] = useVisualEdit('code')
 
+  console.log({ value, isReadOnly })
   const plugins = []
   if (showLineNumbers) {
     plugins.push('line-numbers')
@@ -70,6 +72,28 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
         .dark pre {
           background-color: #1f2937;
         }
+        
+        .editor-line-number {
+          counter-reset: line;
+        }
+        
+        .editor-line-number #codeArea {
+          outline: none;
+          padding-left: 40px !important;
+        }
+        
+        .editor-line-number pre {
+          padding-left: 40px !important;
+        }
+        
+        .editor-line-number .row-line-number {
+          position: absolute;
+          left: 0px;
+          color: #999;
+          text-align: right;
+          width: 20px;
+          font-weight: 100;
+        }
       `}</style>
       <Container>
         <pre className={`rounded-lg language-${language}`}>
@@ -77,14 +101,23 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
             <Editor
               value={value}
               onValueChange={onChange}
-              highlight={code => {
+              highlight={(code) => {
                 return Prism.highlight(
-                  code,
+                  code || '',
                   Prism.languages[language],
                   `${language}`
                 )
+                  .split('\n')
+                  .map((line, i) =>
+                    showLineNumbers
+                      ? `<span class='row-line-number'>${i + 1}</span>${line}`
+                      : line
+                  )
+                  .join('\n')
               }}
               padding={10}
+              textareaId="codeArea"
+              className={showLineNumbers ? 'editor-line-number' : ''}
             />
           </code>
         </pre>
@@ -100,8 +133,7 @@ CodeBrick.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/CodeBlock/index.tsx',
   getDefaultProps: () => ({
-    code:
-      "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
+    code: "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
     language: 'typescript',
     dataline: '',
     showLineNumbers: false,
@@ -139,8 +171,8 @@ CodeBrick.schema = {
       type: types.SideEditPropType.Custom,
       component: () => (
         <div className="text-sm">
-          The highlight and line numbers are shown only in the preview and the
-          frontend.
+          The highlighted lines are visible only in preview mode and in the
+          frontend site.
         </div>
       ),
     },
