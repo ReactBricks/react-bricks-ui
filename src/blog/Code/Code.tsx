@@ -133,8 +133,7 @@ CodeBrick.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/CodeBlock/index.tsx',
   getDefaultProps: () => ({
-    code:
-      "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
+    code: "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
     language: 'typescript',
     dataline: '',
     showLineNumbers: false,
@@ -172,8 +171,8 @@ CodeBrick.schema = {
       type: types.SideEditPropType.Custom,
       component: () => (
         <div className="text-sm">
-          The highlight and line numbers are shown only in the preview and the
-          frontend.
+          The highlighted lines are visible only in preview mode and in the
+          frontend site.
         </div>
       ),
     },
