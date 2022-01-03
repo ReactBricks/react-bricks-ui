@@ -11,7 +11,7 @@ const BlogImage: types.Brick<SectionProps> = ({
   return (
     <Section bg={bg}>
       <Container>
-        <Image propName="image" alt="" />
+        <Image propName="image" aspectRatio={1.78} alt="" />
       </Container>
     </Section>
   )
