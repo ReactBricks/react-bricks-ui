@@ -42,7 +42,7 @@ const Button: types.Brick<ButtonProps> = ({
             variant === 'pink' && type === 'solid',
         },
         {
-          'bg-azure-500 text-white hover:bg-azure-600 hover:text-white':
+          'bg-sky-500 text-white hover:bg-sky-600 hover:text-white':
             variant === 'azure' && type === 'solid',
         },
         {
@@ -50,7 +50,7 @@ const Button: types.Brick<ButtonProps> = ({
             variant === 'pink' && type === 'outline',
         },
         {
-          'border border-azure-600 text-azure-600 hover:text-azure-600 dark:border-azure-500 dark:text-azure-500':
+          'border border-sky-600 text-sky-600 hover:text-sky-600 dark:border-sky-500 dark:text-sky-500':
             variant === 'azure' && type === 'outline',
         },
         className

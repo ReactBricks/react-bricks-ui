@@ -11,7 +11,7 @@ const Section: React.FC<SectionProps> = ({
 }) => {
   const bgColor = bg.className
   return (
-    <section className={classNames(bgColor, 'py-5 font-blog')}>
+    <section className={classNames(bgColor, 'py-5 font-content')}>
       {children}
     </section>
   )

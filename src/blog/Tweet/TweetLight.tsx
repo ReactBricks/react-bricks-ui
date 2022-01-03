@@ -11,18 +11,15 @@ import { FaTwitter } from 'react-icons/fa'
 import Section from '../layout/Section'
 import blockNames from '../blockNames'
 import dayjs from 'dayjs'
-import { bgColors } from '../../website/colors'
 
 export interface TweetLightProps {
   tweetLink: string
   authorLink: string
-  bg?: { color: string; className: string }
 }
 
 const TweetLight: types.Brick<TweetLightProps> = ({
   tweetLink,
   authorLink,
-  bg = bgColors.white.value,
 }) => {
   const { isAdmin } = useAdminContext()
   const handleClick = (tweetLink: string) => (event: React.MouseEvent) => {
@@ -35,7 +32,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
     }
   }
   return (
-    <Section bg={bg}>
+    <Section>
       <div className="mx-auto max-w-lg px-6">
         <div
           onClick={handleClick(tweetLink)}
@@ -47,7 +44,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
               rel="noopener noreferrer"
               target="_blank"
               className="flex items-center"
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="mr-2 w-12 h-12">
                 <Image
@@ -127,6 +124,9 @@ const TweetLight: types.Brick<TweetLightProps> = ({
 TweetLight.schema = {
   name: blockNames.TweetLight,
   label: 'Tweet light',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/TweetLight.tsx',
   getDefaultProps: () => ({
     authorName: [
       {
@@ -139,8 +139,7 @@ TweetLight.schema = {
       },
     ],
     author: {
-      src:
-        'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
+      src: 'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
       placeholderSrc:
         'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
       srcSet: '',
@@ -183,6 +182,18 @@ TweetLight.schema = {
     ],
   }),
   sideEditProps: [
+    {
+      name: 'helper',
+      label: 'Why Tweet light?',
+      type: types.SideEditPropType.Custom,
+      component: () => (
+        <div className="text-sm">
+          This is a light version of the Tweet content block: it doesn't load
+          the Twitter JavaScript, so it is much better performance-wise, but it
+          requires manually entering the Tweet content and properties.
+        </div>
+      ),
+    },
     {
       name: 'tweetLink',
       label: 'Tweet Link',

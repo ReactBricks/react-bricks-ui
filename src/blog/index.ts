@@ -1,5 +1,6 @@
 import Title from './Title/Title'
 import Paragraph from './Paragraph/Paragraph'
+import Quote from './Quote/Quote'
 import VideoBrick from './Video/Video'
 import ImageBrick from './Image/Image'
 import Tweet from './Tweet/Tweet'
@@ -9,6 +10,7 @@ import TweetLight from './Tweet/TweetLight'
 export {
   Title,
   Paragraph,
+  Quote,
   VideoBrick,
   ImageBrick,
   CodeBlock,
@@ -19,6 +21,7 @@ export {
 const bricks = [
   Title,
   Paragraph,
+  Quote,
   VideoBrick,
   ImageBrick,
   CodeBlock,

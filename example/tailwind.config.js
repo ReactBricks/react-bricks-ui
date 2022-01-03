@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        azure: colors.lightBlue,
+        sky: colors.sky,
+        orange: colors.orange,
+        green: colors.lime,
         pink: {
           100: '#ffebef',
           200: '#ffd6e0',
@@ -27,8 +29,6 @@ module.exports = {
           'dark-border': '#2f3336',
           dark: '#000000',
         },
-        orange: colors.orange,
-        green: colors.lime,
       },
       gradientColorStops: {
         ocean1: '#007cf0',
@@ -38,13 +38,8 @@ module.exports = {
         sun1: '#ff4d4d',
         sun2: '#f9cb28',
       },
-      padding: {
-        '1/10': '10%',
-      },
       fontFamily: {
         content: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
-        blog: ['Merriweather', ...defaultTheme.fontFamily.serif],
-        twitter: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
     },
   },

@@ -1,6 +1,5 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -13,16 +12,14 @@ const videoUrlPrefix: { [key: string]: string } = Object.freeze({
 export interface VideoProps {
   url: string
   platform: string
-  bg?: { color: string; className: string }
 }
 
 const Video: types.Brick<VideoProps> = ({
   platform,
   url,
-  bg = bgColors.white.value,
 }) => {
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <div className="aspect-w-16 aspect-h-9">
           <iframe
@@ -41,9 +38,9 @@ Video.schema = {
   label: 'Video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/VideoBrick/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/index.tsx',
   getDefaultProps: () => ({
-    url: 'aVmRCD5FFMw',
+    url: 'A60xWr-nqv0',
     platform: 'youtube',
   }),
   sideEditProps: [
@@ -61,7 +58,7 @@ Video.schema = {
     },
     {
       name: 'url',
-      label: 'Video ID (i.e. "aVmRCD5FFMw")',
+      label: 'Video ID (i.e. "A60xWr-nqv0")',
       type: types.SideEditPropType.Text,
     },
   ],

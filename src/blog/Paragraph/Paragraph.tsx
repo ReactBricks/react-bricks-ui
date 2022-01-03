@@ -1,21 +1,18 @@
 import React from 'react'
 import { Link, RichText, types } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
-import Section, { SectionProps } from '../layout/Section'
+import Section from '../layout/Section'
 
-const Paragraph: types.Brick<SectionProps> = ({
-  bg = bgColors.white.value,
-}) => {
+const Paragraph: types.Brick = () => {
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <RichText
           propName="text"
           placeholder="Paragraph..."
           renderBlock={({ children }) => (
-            <p className="text-xl leading-loose mb-2 text-gray-700 dark:text-gray-200">
+            <p className="text-xl leading-relaxed mb-2 text-gray-700 dark:text-gray-200">
               {children}
             </p>
           )}
@@ -27,7 +24,6 @@ const Paragraph: types.Brick<SectionProps> = ({
             types.RichTextFeatures.Italic,
             types.RichTextFeatures.Link,
             types.RichTextFeatures.Code,
-            types.RichTextFeatures.Quote,
             types.RichTextFeatures.Highlight,
             types.RichTextFeatures.UnorderedList,
             types.RichTextFeatures.OrderedList,
@@ -53,11 +49,6 @@ const Paragraph: types.Brick<SectionProps> = ({
               </h3>
             )
           }}
-          renderQuote={({ children }) => (
-            <div className="text-2xl my-8 pl-6 py-1 border-l-2 border-pink-500 text-gray-400">
-              {children}
-            </div>
-          )}
           renderUL={({ children }) => (
             <ul className="list-disc list-inside mt-4 text-xl">{children}</ul>
           )}
@@ -76,9 +67,13 @@ const Paragraph: types.Brick<SectionProps> = ({
     </Section>
   )
 }
+
 Paragraph.schema = {
   name: blockNames.Paragraph,
   label: 'Paragraph',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Paragraph/Paragraph.tsx',
   getDefaultProps: () => ({
     text: [
       {
@@ -93,12 +88,12 @@ Paragraph.schema = {
         type: 'paragraph',
         children: [
           {
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat sagittis faucibus.',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat sagittis faucibus.',
           },
         ],
       },
     ],
   }),
 }
+
 export default Paragraph

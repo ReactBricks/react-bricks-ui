@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useEffect, useRef, useState, useContext } from 'react'
 import { types, ReactBricksContext } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
 
 import blockNames from '../blockNames'
 
@@ -15,7 +14,6 @@ export interface TweetProps {
   cards: string
   conversation: string
   theme: string
-  bg: { color: string; className: string }
 }
 
 const Tweet: types.Brick<TweetProps> = ({
@@ -25,7 +23,6 @@ const Tweet: types.Brick<TweetProps> = ({
   cards,
   conversation,
   theme,
-  bg = bgColors.white.value,
 }) => {
   const twitterEmbedRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -78,19 +75,20 @@ const Tweet: types.Brick<TweetProps> = ({
   ])
 
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <div ref={twitterEmbedRef}>{isLoading && placeholder}</div>
       </Container>
     </Section>
   )
 }
+
 Tweet.schema = {
   name: blockNames.Tweet,
   label: 'Tweet',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',
@@ -167,4 +165,5 @@ Tweet.schema = {
     },
   ],
 }
+
 export default Tweet
