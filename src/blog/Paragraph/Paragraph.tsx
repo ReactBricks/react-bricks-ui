@@ -50,10 +50,12 @@ const Paragraph: types.Brick = () => {
             )
           }}
           renderUL={({ children }) => (
-            <ul className="list-disc list-inside mt-4 text-lg">{children}</ul>
+            <ul className="list-disc list-outside ml-5 mt-4 text-lg">
+              {children}
+            </ul>
           )}
           renderOL={({ children }) => (
-            <ol className="list-decimal list-inside mt-4 text-lg">
+            <ol className="list-decimal list-outside ml-5 mt-4 text-lg">
               {children}
             </ol>
           )}
