@@ -11,18 +11,15 @@ import { FaTwitter } from 'react-icons/fa'
 import Section from '../layout/Section'
 import blockNames from '../blockNames'
 import dayjs from 'dayjs'
-import { bgColors } from '../../website/colors'
 
 export interface TweetLightProps {
   tweetLink: string
   authorLink: string
-  bg?: { color: string; className: string }
 }
 
 const TweetLight: types.Brick<TweetLightProps> = ({
   tweetLink,
   authorLink,
-  bg = bgColors.white.value,
 }) => {
   const { isAdmin } = useAdminContext()
   const handleClick = (tweetLink: string) => (event: React.MouseEvent) => {
@@ -35,7 +32,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
     }
   }
   return (
-    <Section bg={bg}>
+    <Section>
       <div className="mx-auto max-w-lg px-6">
         <div
           onClick={handleClick(tweetLink)}

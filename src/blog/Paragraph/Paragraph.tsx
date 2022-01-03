@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link, RichText, types } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
-import Section, { SectionProps } from '../layout/Section'
+import Section from '../layout/Section'
 
-const Paragraph: types.Brick<SectionProps> = ({
-  bg = bgColors.white.value,
-}) => {
+const Paragraph: types.Brick = () => {
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <RichText
           propName="text"
@@ -27,7 +24,6 @@ const Paragraph: types.Brick<SectionProps> = ({
             types.RichTextFeatures.Italic,
             types.RichTextFeatures.Link,
             types.RichTextFeatures.Code,
-            types.RichTextFeatures.Quote,
             types.RichTextFeatures.Highlight,
             types.RichTextFeatures.UnorderedList,
             types.RichTextFeatures.OrderedList,
@@ -53,11 +49,6 @@ const Paragraph: types.Brick<SectionProps> = ({
               </h3>
             )
           }}
-          renderQuote={({ children }) => (
-            <div className="text-2xl my-8 pl-6 py-1 border-l-2 border-pink-500 text-gray-400">
-              {children}
-            </div>
-          )}
           renderUL={({ children }) => (
             <ul className="list-disc list-inside mt-4 text-xl">{children}</ul>
           )}
@@ -76,6 +67,7 @@ const Paragraph: types.Brick<SectionProps> = ({
     </Section>
   )
 }
+
 Paragraph.schema = {
   name: blockNames.Paragraph,
   label: 'Paragraph',
@@ -103,4 +95,5 @@ Paragraph.schema = {
     ],
   }),
 }
+
 export default Paragraph

@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import dayjs from 'dayjs'
 import React from 'react'
 import { Text, types, usePageValues } from 'react-bricks/frontend'
-import { bgColors } from '../../website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -10,16 +9,12 @@ import DefaultAvatar from './DefaultAvatar'
 
 export interface TitleProps {
   size?: 'medium' | 'large'
-  bg?: { color: string; className: string }
 }
 
-const Title: types.Brick<TitleProps> = ({
-  size = 'large',
-  bg = bgColors.white.value,
-}) => {
+const Title: types.Brick<TitleProps> = ({ size = 'large' }) => {
   const [pageValues] = usePageValues()
   return (
-    <Section bg={bg}>
+    <Section>
       <Container>
         <div
           className={classNames(
@@ -87,6 +82,7 @@ const Title: types.Brick<TitleProps> = ({
     </Section>
   )
 }
+
 Title.schema = {
   name: blockNames.Title,
   label: 'Title',
@@ -106,4 +102,5 @@ Title.schema = {
     ],
   }),
 }
+
 export default Title
