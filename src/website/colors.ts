@@ -74,7 +74,7 @@ export const bgColors: BgColors = {
   },
   lightBlue: {
     label: 'Light Blue',
-    value: { color: '#ebf8ff', className: 'bg-azure-100 dark:bg-gray-800' },
+    value: { color: '#ebf8ff', className: 'bg-sky-100 dark:bg-gray-800' },
   },
   orange: {
     label: 'Orange',
@@ -88,7 +88,7 @@ export const bgColors: BgColors = {
     label: 'Dark Blue',
     value: {
       color: '#2a4365',
-      className: 'bg-azure-900 dark:bg-gray-800 dark',
+      className: 'bg-sky-900 dark:bg-gray-800 dark',
     },
   },
   dark: {
@@ -143,17 +143,16 @@ export const bulletColors: BulletColors = {
     label: 'Azure',
     value: {
       color: '#1ea7fd',
-      className: 'bg-azure-500 text-white',
-      className2: 'text-azure-500',
+      className: 'bg-sky-500 text-white',
+      className2: 'text-sky-500',
     },
   },
   azureLight: {
     label: 'Light blue',
     value: {
       color: 'hsl(200, 100%, 96%)',
-      className:
-        'bg-azure-100 text-azure-500 dark:bg-azure-500 dark:text-white',
-      className2: 'text-azure-500',
+      className: 'bg-sky-100 text-sky-500 dark:bg-sky-500 dark:text-white',
+      className2: 'text-sky-500',
     },
   },
   green: {

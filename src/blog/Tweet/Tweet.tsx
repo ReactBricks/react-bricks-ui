@@ -90,7 +90,7 @@ Tweet.schema = {
   label: 'Tweet',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',
   getDefaultProps: () => ({
     bg: {
       color: '#fff',

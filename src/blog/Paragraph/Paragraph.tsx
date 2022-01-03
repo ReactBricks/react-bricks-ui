@@ -15,7 +15,7 @@ const Paragraph: types.Brick<SectionProps> = ({
           propName="text"
           placeholder="Paragraph..."
           renderBlock={({ children }) => (
-            <p className="text-xl leading-loose mb-2 text-gray-700 dark:text-gray-200">
+            <p className="text-xl leading-relaxed mb-2 text-gray-700 dark:text-gray-200">
               {children}
             </p>
           )}
@@ -79,6 +79,9 @@ const Paragraph: types.Brick<SectionProps> = ({
 Paragraph.schema = {
   name: blockNames.Paragraph,
   label: 'Paragraph',
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Paragraph/Paragraph.tsx',
   getDefaultProps: () => ({
     text: [
       {
@@ -93,8 +96,7 @@ Paragraph.schema = {
         type: 'paragraph',
         children: [
           {
-            text:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat sagittis faucibus.',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat sagittis faucibus.',
           },
         ],
       },

@@ -106,7 +106,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
         })}
       >
         <Text
-          renderBlock={props => (
+          renderBlock={(props) => (
             <h1 className="text-2xl mb-4 font-extrabold" {...props.attributes}>
               {props.children}
             </h1>
@@ -115,7 +115,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
           propName="title"
         />
         <Text
-          renderBlock={props => (
+          renderBlock={(props) => (
             <p className="mb-2" {...props.attributes}>
               {props.children}
             </p>
@@ -125,16 +125,16 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
         />
         <form className="flex" onSubmit={handleSubmit}>
           <input
-            className="bg-white focus:outline-none border-t-2 border-l-2 border-b-2 border-transparent focus:border-azure-500 rounded-l-lg py-2 px-4 appearance-none leading-normal"
+            className="bg-white focus:outline-none border-t-2 border-l-2 border-b-2 border-transparent focus:border-sky-500 rounded-l-lg py-2 px-4 appearance-none leading-normal"
             type="text"
             placeholder="jane@example.com"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <button
             type="submit"
             disabled={status.status === 'SENDING'}
-            className="bg-azure-500 px-8 rounded-r-lg text-white font-bold py-2"
+            className="bg-sky-500 px-8 rounded-r-lg text-white font-bold py-2"
             // style={{ backgroundColor: '#2f9ff4' }}
           >
             {buttonText}
@@ -189,7 +189,7 @@ NewsletterSubscribe.schema = {
       name: 'mailchimpUrl',
       label: 'Mailchimp Form URL',
       type: types.SideEditPropType.Text,
-      validate: value =>
+      validate: (value) =>
         value && value.length > 10 && value.indexOf('https://') !== -1,
       //&& value.indexOf('list-manage.com/subscribe/post?') !== -1,
     },

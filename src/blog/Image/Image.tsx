@@ -21,7 +21,7 @@ BlogImage.schema = {
   label: 'Image',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/ImageBrick/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Image/Image.tsx',
   getDefaultProps: () => ({}),
 }
 export default BlogImage

@@ -41,9 +41,9 @@ Video.schema = {
   label: 'Video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/VideoBrick/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/index.tsx',
   getDefaultProps: () => ({
-    url: 'aVmRCD5FFMw',
+    url: 'A60xWr-nqv0',
     platform: 'youtube',
   }),
   sideEditProps: [
@@ -61,7 +61,7 @@ Video.schema = {
     },
     {
       name: 'url',
-      label: 'Video ID (i.e. "aVmRCD5FFMw")',
+      label: 'Video ID (i.e. "A60xWr-nqv0")',
       type: types.SideEditPropType.Text,
     },
   ],

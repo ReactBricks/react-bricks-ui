@@ -28,21 +28,23 @@ const TeamItem: types.Brick<TeamItemProps> = ({
       />
       <div className="text-center dark:text-gray-200 text-gray-500">
         <Text
-          renderBlock={props => (
+          renderBlock={(props) => (
             <div className="text-sm font-bold">{props.children}</div>
           )}
           placeholder="Member name..."
           propName="memberName"
         />
         <Text
-          renderBlock={props => <div className="text-xs">{props.children}</div>}
+          renderBlock={(props) => (
+            <div className="text-xs">{props.children}</div>
+          )}
           placeholder="Role"
           propName="role"
         />
       </div>
 
       {(twitter || linkedin || github) && (
-        <div className="flex flex-row justify-center space-x-2 mt-2 dark:text-azure-300 text-azure-400 ">
+        <div className="flex flex-row justify-center space-x-2 mt-2 dark:text-sky-300 text-sky-400 ">
           {twitter && (
             <div>
               <a
@@ -103,8 +105,7 @@ TeamItem.schema = {
     github: '',
     linkedin: '',
     picture: {
-      src:
-        'https://images.reactbricks.com/original/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
+      src: 'https://images.reactbricks.com/original/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
       placeholderSrc:
         'https://images.reactbricks.com/placeholder/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
       srcSet:
