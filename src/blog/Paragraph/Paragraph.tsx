@@ -12,7 +12,7 @@ const Paragraph: types.Brick = () => {
           propName="text"
           placeholder="Paragraph..."
           renderBlock={({ children }) => (
-            <p className="tet-lg leading-relaxed mb-2 text-gray-700 dark:text-gray-200">
+            <p className="text-lg leading-relaxed mb-2 text-gray-700 dark:text-gray-200">
               {children}
             </p>
           )}
@@ -50,10 +50,12 @@ const Paragraph: types.Brick = () => {
             )
           }}
           renderUL={({ children }) => (
-            <ul className="list-disc list-inside mt-4 tet-lg">{children}</ul>
+            <ul className="list-disc list-inside mt-4 text-lg">{children}</ul>
           )}
           renderOL={({ children }) => (
-            <ol className="list-decimal list-inside mt-4 tet-lg">{children}</ol>
+            <ol className="list-decimal list-inside mt-4 text-lg">
+              {children}
+            </ol>
           )}
           renderLink={({ children, href }) => (
             <Link href={href} className="text-blue-400">
