@@ -30,37 +30,40 @@ const Paragraph: types.Brick = () => {
           ]}
           renderH2={({ children }) => {
             return (
-              <h2 className="font-content text-4xl font-black text-gray-700 dark:text-gray-100 mb-3 pt-10">
+              <h2 className="font-content text-4xl font-black text-gray-900 dark:text-gray-100 mb-3 pt-10">
                 {children}
               </h2>
             )
           }}
           renderH3={({ children }) => {
             return (
-              <h3 className="font-content text-3xl font-black text-gray-700 dark:text-gray-100 mb-3 pt-8">
+              <h3 className="font-content text-3xl font-black text-gray-900 dark:text-gray-100 mb-3 pt-8">
                 {children}
               </h3>
             )
           }}
           renderH4={({ children }) => {
             return (
-              <h3 className="font-content text-2xl font-black text-gray-700 dark:text-gray-100 mb-3 pt-8">
+              <h3 className="font-content text-2xl font-black text-gray-900 dark:text-gray-100 mb-3 pt-8">
                 {children}
               </h3>
             )
           }}
           renderUL={({ children }) => (
-            <ul className="list-disc list-outside ml-5 mt-4 text-lg">
+            <ul className="list-disc list-outside ml-5 mt-4 text-lg text-gray-700 dark:text-gray-200">
               {children}
             </ul>
           )}
           renderOL={({ children }) => (
-            <ol className="list-decimal list-outside ml-5 mt-4 text-lg">
+            <ol className="list-decimal list-outside ml-5 mt-4 text-lg text-gray-700 dark:text-gray-200">
               {children}
             </ol>
           )}
           renderLink={({ children, href }) => (
-            <Link href={href} className="text-blue-400">
+            <Link
+              href={href}
+              className="text-blue-500 underline dark:text-blue-300"
+            >
               {children}
             </Link>
           )}
