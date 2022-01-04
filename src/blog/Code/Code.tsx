@@ -28,8 +28,6 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
   showLineNumbers = false,
 }) => {
   const [value, onChange, isReadOnly] = useVisualEdit('code')
-
-  console.log({ value, isReadOnly })
   const plugins = []
   if (showLineNumbers) {
     plugins.push('line-numbers')

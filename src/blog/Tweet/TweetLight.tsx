@@ -21,10 +21,9 @@ const TweetLight: types.Brick<TweetLightProps> = ({
   tweetLink,
   authorLink,
 }) => {
-  const { isAdmin } = useAdminContext()
+  const { isAdmin, previewMode } = useAdminContext()
   const handleClick = (tweetLink: string) => (event: React.MouseEvent) => {
-    console.log({ isAdmin })
-    if (isAdmin) {
+    if (isAdmin && !previewMode) {
       return event.preventDefault()
     }
     if (typeof window !== undefined) {
@@ -82,21 +81,26 @@ const TweetLight: types.Brick<TweetLightProps> = ({
             propName="tweetContent"
             placeholder="tweet content"
             renderBlock={({ children }) => (
-              <div className="mb-2 text-xl font-medium leading-tight dark:text-twitter-50">
+              <div className="mb-2 text-xl font-medium leading-tight dark:text-twitter-50" >
                 {children}
               </div>
             )}
             plugins={[
               {
                 ...plugins.link,
-                renderElement: ({ attributes, children }) => (
-                  <span
-                    {...attributes}
-                    className="text-twitter-500 hover:text-twitter-600"
+                renderElement: ({ attributes, children, element }) => {
+                  return(
+                  <a
+                  {...attributes}
+                  href={(element as any).url}
+                  onClick={(event: React.MouseEvent)=>event.stopPropagation()}
+                  className="text-twitter-500 hover:text-twitter-600"
+                  target="_blank"
+                  rel='noopener noreferrer'
                   >
                     {children}
-                  </span>
-                ),
+                  </a>
+                )},
 
                 button: {
                   isActive: plugins.link.button!.isActive,
@@ -130,56 +134,67 @@ TweetLight.schema = {
   getDefaultProps: () => ({
     authorName: [
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'John Doe',
-          },
-        ],
-      },
+            text: "John Doe"
+          }
+        ]
+      }
     ],
     author: {
-      src: 'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
-      placeholderSrc:
-        'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
-      srcSet: '',
+      src: "https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg",
+      placeholderSrc: "https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg",
+      srcSet: "",
       width: 1249.24,
       height: 1249.24,
-      alt: 'Author name',
-      seoName: 'author',
+      alt: "Author name",
+      seoName: "author"
     },
-    tweetLink: 'https://twitter.com/matfrana/status/1237840583982329857',
-    authorLink: '',
+    tweetLink: "https://twitter.com/matfrana/status/1237840583982329857",
+    authorLink: "https://twitter.com/matfrana",
     authorTwitterHandle: [
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: '@JohnDoe',
-          },
-        ],
-      },
+            text: "@JohnDoe"
+          }
+        ]
+      }
     ],
     tweetContent: [
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'Lorem ipsum dolor sit amet',
+            text: "Lorem ipsum dolor sit amet "
           },
-        ],
-      },
+          {
+            type: "link",
+            url: "https://twitter.com/ReactBricks",
+            children: [
+              {
+                text: "@ReactBricks"
+              }
+            ]
+          },
+          {
+            text: ""
+          }
+        ]
+      }
     ],
     date: [
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: dayjs().format('H:mm · MMM DD, YYYY'),
-          },
-        ],
-      },
-    ],
+            text: "10:18 · Jan 04, 2022"
+          }
+        ]
+      }
+    ]
   }),
   sideEditProps: [
     {
