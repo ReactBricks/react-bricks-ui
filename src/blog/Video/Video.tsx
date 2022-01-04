@@ -38,7 +38,7 @@ Video.schema = {
   label: 'Video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/index.tsx',
+'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/Video.tsx',
   getDefaultProps: () => ({
     url: 'A60xWr-nqv0',
     platform: 'youtube',

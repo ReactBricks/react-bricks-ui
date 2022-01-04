@@ -185,7 +185,7 @@ TextImage.schema = {
   label: 'Text Image',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImage.tsx',
 
   getDefaultProps: () => ({
     bg: {

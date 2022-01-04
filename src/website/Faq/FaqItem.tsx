@@ -39,7 +39,7 @@ FaqQuestion.schema = {
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/FaqItem.tsx',
   getDefaultProps: () => ({
     question: 'Why you should change your CMS today?',
     answer:

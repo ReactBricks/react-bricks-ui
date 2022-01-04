@@ -41,6 +41,9 @@ Document.schema = {
   name: blockNames.Document,
   label: 'Document',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
+  playgroundLinkUrl:
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Documents/Document.tsx',
   getDefaultProps: () => ({
     file: {
       name: 'React Bricks Website.pdf',

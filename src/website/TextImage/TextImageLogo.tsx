@@ -19,8 +19,9 @@ TextImageLogo.schema = {
   name: blockNames.TextImageLogo,
   label: 'Logo',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImageLogo.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImageLogo.tsx',
 
   getDefaultProps: () => ({
     imageSource: {

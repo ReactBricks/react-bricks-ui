@@ -88,8 +88,9 @@ TeamItem.schema = {
   name: blockNames.TeamItem,
   label: 'Team Item',
   hideFromAddMenu: true,
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TeamItem.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/TeamItem.tsx',
 
   getDefaultProps: () => ({
     bg: {

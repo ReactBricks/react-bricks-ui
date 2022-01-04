@@ -44,7 +44,7 @@ Customers.schema = {
   label: 'Customers',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
 
   getDefaultProps: () => ({
     bg: {

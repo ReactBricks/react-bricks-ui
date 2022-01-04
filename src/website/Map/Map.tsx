@@ -60,7 +60,7 @@ MapBrick.schema = {
   label: 'Map',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',
 
   getDefaultProps: () => ({
     bg: {

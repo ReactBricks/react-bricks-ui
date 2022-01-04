@@ -112,7 +112,7 @@ Testimonial.schema = {
   label: 'Testimonial',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',
 
   getDefaultProps: () => ({
     quote:

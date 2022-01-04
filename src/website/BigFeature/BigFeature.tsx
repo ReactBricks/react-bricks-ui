@@ -73,7 +73,7 @@ BigFeature.schema = {
   label: 'Feature callout',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/BigFeature.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/BigFeature/BigFeature.tsx',
 
   getDefaultProps: () => ({
     bg: {

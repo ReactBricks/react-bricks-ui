@@ -129,7 +129,7 @@ CodeBrick.schema = {
   label: 'Code',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/CodeBlock/index.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Code/Code.tsx',
   getDefaultProps: () => ({
     code: "import React from 'react'\nconsole.log('hello')\nconst a = 2\nlet b = 3",
     language: 'typescript',
