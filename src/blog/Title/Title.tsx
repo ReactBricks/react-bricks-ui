@@ -53,7 +53,9 @@ const Title: types.Brick<TitleProps> = ({ size = 'large' }) => {
           <div className="text-gray-700 dark:text-gray-200">
             {pageValues.author.firstName || 'John'}{' '}
             {pageValues.author.lastName || 'Doe'}
-            <span className="text-sm text-gray-300 px-2">•</span>
+            <span className="text-sm text-gray-300 dark:text-gray-500 px-2">
+              •
+            </span>
             {dayjs(pageValues.publishedAt || new Date()).format(
               'MMMM DD, YYYY'
             )}

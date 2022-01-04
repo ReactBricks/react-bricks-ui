@@ -101,7 +101,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                     {children}
                   </a>
                 )},
-
+                label: 'Twitter profile link',
                 button: {
                   isActive: plugins.link.button!.isActive,
                   icon: <FaTwitter />,

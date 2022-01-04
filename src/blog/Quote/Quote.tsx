@@ -8,12 +8,12 @@ const Quote: types.Brick = () => {
   return (
     <Section>
       <Container>
-        <div className="text-2xl my-8 pl-6 py-1 border-l-2 border-pink-500">
+        <div className="text-2xl my-8 pl-6 py-1 border-l-4 border-pink-500 dark:border-pink-400">
           <RichText
-            propName="text"
-            placeholder="Innovation distinguishes between a leader and a follower."
+            propName="quote"
+            placeholder="Insert a quote"
             renderBlock={({ children }) => (
-              <p className="text-2xl text-gray-400 dark:text-gray-400">
+              <p className="text-2xl italic text-gray-500 dark:text-gray-200">
                 {children}
               </p>
             )}
@@ -30,7 +30,9 @@ Quote.schema = {
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Quote/Quote.tsx',
-  getDefaultProps: () => ({}),
+  getDefaultProps: () => ({
+    quote: 'Innovation distinguishes between a leader and a follower.',
+  }),
 }
 
 export default Quote
