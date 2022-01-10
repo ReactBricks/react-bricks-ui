@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "module": "react-bricks-ui-website.esm.js",
-  "typings": "../index.d.ts",
+  "typings": "./website.d.ts",
   "exports": {
     "require": "./index.js",
     "import": "./react-bricks-ui-website.esm.js",
