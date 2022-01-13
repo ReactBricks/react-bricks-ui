@@ -1,7 +1,7 @@
-import Prism from 'prismjs'
+import * as Prism from 'prismjs'
 import * as React from 'react'
 import { types, useVisualEdit } from 'react-bricks/frontend'
-import Editor from 'react-simple-code-editor'
+import Editor from './SimpleCodeEditor'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -63,6 +63,7 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
     )
   }
 
+  // return null
   return (
     <Section>
       <Styles />
@@ -70,20 +71,20 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
         .dark pre {
           background-color: #1f2937;
         }
-        
+
         .editor-line-number {
           counter-reset: line;
         }
-        
+
         .editor-line-number #codeArea {
           outline: none;
           padding-left: 40px !important;
         }
-        
+
         .editor-line-number pre {
           padding-left: 40px !important;
         }
-        
+
         .editor-line-number .row-line-number {
           position: absolute;
           left: 0px;
@@ -99,7 +100,7 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
             <Editor
               value={value}
               onValueChange={onChange}
-              highlight={(code) => {
+              highlight={(code: any) => {
                 return Prism.highlight(
                   code || '',
                   Prism.languages[language],

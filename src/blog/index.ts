@@ -18,7 +18,7 @@ export {
   TweetLight,
 }
 
-const bricks = [
+const allBricks = [
   Title,
   Paragraph,
   Quote,
@@ -29,4 +29,4 @@ const bricks = [
   TweetLight,
 ]
 
-export default bricks
+export default allBricks
