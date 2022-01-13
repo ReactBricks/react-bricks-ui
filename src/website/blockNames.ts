@@ -25,7 +25,7 @@ enum blockNames {
   Faqs = 'faqs',
   Faq = 'faq',
   CallToAction = 'call-to-action',
-  BigFeature = 'big-feature',
+  FeatureCallout = 'big-feature',
   Documents = 'documents',
   Document = 'document',
 }

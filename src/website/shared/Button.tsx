@@ -71,7 +71,7 @@ Button.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Button.tsx',
 
   getDefaultProps: () => ({
-    text: 'Click mev',
+    text: 'Click me',
     href: '',
     isTargetBlank: false,
     variant: 'azure',

@@ -14,14 +14,11 @@ export interface VideoProps {
   platform: string
 }
 
-const Video: types.Brick<VideoProps> = ({
-  platform,
-  url,
-}) => {
+const Video: types.Brick<VideoProps> = ({ platform, url }) => {
   return (
     <Section>
       <Container>
-        <div className="aspect-w-16 aspect-h-9">
+        <div className="aspect-video">
           <iframe
             key="video iframe"
             width="100%"
@@ -38,7 +35,7 @@ Video.schema = {
   label: 'Video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/Video.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/Video.tsx',
   getDefaultProps: () => ({
     url: 'A60xWr-nqv0',
     platform: 'youtube',

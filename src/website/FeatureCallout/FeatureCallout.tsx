@@ -9,14 +9,14 @@ import Container, { Size } from '../layout/Container'
 import blockNames from '../blockNames'
 import { LayoutProp } from '../LayoutSideProps'
 
-export interface BigFeatureProps {
+export interface FeatureCalloutProps {
   bg?: { color: string; className: string }
   borderTop?: Border
   borderBottom?: Border
   width?: Size
 }
 
-const BigFeature: types.Brick<BigFeatureProps> = ({
+const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
   bg = bgColors.white.value,
   borderTop = 'boxed',
   borderBottom = 'none',
@@ -68,12 +68,12 @@ const BigFeature: types.Brick<BigFeatureProps> = ({
   )
 }
 
-BigFeature.schema = {
-  name: blockNames.BigFeature,
+FeatureCallout.schema = {
+  name: blockNames.FeatureCallout,
   label: 'Feature callout',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/BigFeature/BigFeature.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
 
   getDefaultProps: () => ({
     bg: {
@@ -101,4 +101,4 @@ BigFeature.schema = {
   ],
 }
 
-export default BigFeature
+export default FeatureCallout

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Image,
   RichTextExt,
@@ -22,6 +22,8 @@ const TweetLight: types.Brick<TweetLightProps> = ({
   authorLink,
 }) => {
   const { isAdmin, previewMode } = useAdminContext()
+  const [isMouseOver, setIsMouseOver] = useState(false)
+
   const handleClick = (tweetLink: string) => (event: React.MouseEvent) => {
     if (isAdmin && !previewMode) {
       return event.preventDefault()
@@ -30,12 +32,13 @@ const TweetLight: types.Brick<TweetLightProps> = ({
       window.open(tweetLink)
     }
   }
+
   return (
     <Section>
       <div className="mx-auto max-w-lg px-6">
         <div
           onClick={handleClick(tweetLink)}
-          className="block font-sans p-4 bg-white hover:bg-gray-50 border dark:bg-twitter-dark border-gray-300 dark:border-twitter-dark-border hover:shadow-lg transition-shadow duration-200 rounded-xl"
+          className="block font-sans p-4 bg-white hover:bg-gray-50 border dark:bg-black border-gray-300 dark:border-gray-800 hover:shadow-lg transition-shadow duration-200 rounded-xl"
         >
           <div className="flex items-start justify-between mb-3">
             <a
@@ -57,7 +60,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                   propName="authorName"
                   placeholder="Author Name"
                   renderBlock={({ children }) => (
-                    <div className="text-md text-gray-900 font-bold leading-tight group-hover:underline dark:text-twitter-50">
+                    <div className="text-md text-gray-900 font-bold leading-tight group-hover:underline dark:text-neutral-300">
                       {children}
                     </div>
                   )}
@@ -73,7 +76,10 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                 />
               </div>
             </a>
-            <div className="text-twitter-500 text-2xl dark:text-twitter-50">
+            <div
+              className="text-2xl dark:text-neutral-300"
+              style={{ color: '#1d9bf0' }}
+            >
               <FaTwitter />
             </div>
           </div>
@@ -81,7 +87,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
             propName="tweetContent"
             placeholder="tweet content"
             renderBlock={({ children }) => (
-              <div className="mb-2 text-xl font-medium leading-tight dark:text-twitter-50" >
+              <div className="mb-2 text-xl font-medium leading-tight dark:text-neutral-300">
                 {children}
               </div>
             )}
@@ -89,18 +95,24 @@ const TweetLight: types.Brick<TweetLightProps> = ({
               {
                 ...plugins.link,
                 renderElement: ({ attributes, children, element }) => {
-                  return(
-                  <a
-                  {...attributes}
-                  href={(element as any).url}
-                  onClick={(event: React.MouseEvent)=>event.stopPropagation()}
-                  className="text-twitter-500 hover:text-twitter-600"
-                  target="_blank"
-                  rel='noopener noreferrer'
-                  >
-                    {children}
-                  </a>
-                )},
+                  return (
+                    <a
+                      {...attributes}
+                      href={(element as any).url}
+                      onClick={(event: React.MouseEvent) =>
+                        event.stopPropagation()
+                      }
+                      className="hover:text-sky-600"
+                      onMouseEnter={() => setIsMouseOver(true)}
+                      onMouseLeave={() => setIsMouseOver(false)}
+                      style={{ color: isMouseOver ? '#1a8cd8' : '#1d9bf0' }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {children}
+                    </a>
+                  )
+                },
                 label: 'Twitter profile link',
                 button: {
                   isActive: plugins.link.button!.isActive,
@@ -134,67 +146,68 @@ TweetLight.schema = {
   getDefaultProps: () => ({
     authorName: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "John Doe"
-          }
-        ]
-      }
+            text: 'John Doe',
+          },
+        ],
+      },
     ],
     author: {
-      src: "https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg",
-      placeholderSrc: "https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg",
-      srcSet: "",
+      src: 'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
+      placeholderSrc:
+        'https://images.reactbricks.com/original/b21a4d81-5354-48b5-88bf-89dc9ed6f302.svg',
+      srcSet: '',
       width: 1249.24,
       height: 1249.24,
-      alt: "Author name",
-      seoName: "author"
+      alt: 'Author name',
+      seoName: 'author',
     },
-    tweetLink: "https://twitter.com/matfrana/status/1237840583982329857",
-    authorLink: "https://twitter.com/matfrana",
+    tweetLink: 'https://twitter.com/matfrana/status/1237840583982329857',
+    authorLink: 'https://twitter.com/matfrana',
     authorTwitterHandle: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "@JohnDoe"
-          }
-        ]
-      }
+            text: '@JohnDoe',
+          },
+        ],
+      },
     ],
     tweetContent: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "Lorem ipsum dolor sit amet "
+            text: 'Lorem ipsum dolor sit amet ',
           },
           {
-            type: "link",
-            url: "https://twitter.com/ReactBricks",
+            type: 'link',
+            url: 'https://twitter.com/ReactBricks',
             children: [
               {
-                text: "@ReactBricks"
-              }
-            ]
+                text: '@ReactBricks',
+              },
+            ],
           },
           {
-            text: ""
-          }
-        ]
-      }
+            text: '',
+          },
+        ],
+      },
     ],
     date: [
       {
-        type: "paragraph",
+        type: 'paragraph',
         children: [
           {
-            text: "10:18 · Jan 04, 2022"
-          }
-        ]
-      }
-    ]
+            text: '10:18 · Jan 04, 2022',
+          },
+        ],
+      },
+    ],
   }),
   sideEditProps: [
     {

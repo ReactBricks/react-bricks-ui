@@ -30,7 +30,8 @@
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.25.0",
     "react": ">=17",
-    "react-bricks": "^3.2.7"
+    "react-bricks": "^3.2.7",
+    "tailwindcss": "^3.0.13"
   },
   "dependencies": {
     "classnames": "^2.3.1",

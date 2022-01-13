@@ -1,4 +1,4 @@
-import BigFeature from './BigFeature/BigFeature'
+import BigFeature from './FeatureCallout/FeatureCallout'
 import CallToAction from './CallToAction/CallToAction'
 import Customer from './Customers/CustomerItem'
 import Customers from './Customers/Customers'
