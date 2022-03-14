@@ -26,8 +26,10 @@ const App = () => {
     setColorMode(newColorMode)
     localStorage.setItem('color-mode', newColorMode)
   }
-  const appId = process.env.APP_ID || ''
-  const apiKey = process.env.API_KEY || ''
+  // const appId = process.env.APP_ID || ''
+  const appId = '94c386c7-bde1-49b6-a619-491e3a380702'
+  // const apiKey = process.env.API_KEY || ''
+  const apiKey = '51913450-614b-48e4-9f59-6ce79db58981'
 
   return (
     <ReactBricks

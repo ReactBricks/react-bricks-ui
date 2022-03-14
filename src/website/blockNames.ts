@@ -28,6 +28,8 @@ enum blockNames {
   FeatureCallout = 'big-feature',
   Documents = 'documents',
   Document = 'document',
+  ImageCarousel = 'image-carousel',
+  SingleImage = 'single-image',
 }
 
 export default blockNames

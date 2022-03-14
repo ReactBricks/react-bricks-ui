@@ -19,6 +19,8 @@ import TeamItem from './Team/TeamItem'
 import Testimonial from './Testimonial/Testimonial'
 import TextImage from './TextImage/TextImage'
 import TextImageLogo from './TextImage/TextImageLogo'
+import ImageSliderReact from './ImageCarousel/ImageCarousel'
+import SingleImage from './ImageCarousel/SingleImage'
 
 export {
   Badge,
@@ -40,6 +42,8 @@ export {
   TeamItem,
   Features,
   FeatureItem,
+  ImageSliderReact,
+  SingleImage,
   // Document,
   // Documents,
 }
@@ -64,6 +68,8 @@ const allBricks = [
   TeamItem,
   Features,
   FeatureItem,
+  ImageSliderReact,
+  SingleImage,
   // Document,
   // Documents,
 ]
