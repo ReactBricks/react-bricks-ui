@@ -11,9 +11,9 @@ const SingleImage: types.Brick<Props> = ({ ...rest }) => {
         noWrapper
         propName="image"
         alt="altText"
-        maxWidth={300}
+        maxWidth={1200}
         aspectRatio={2}
-        imageClassName="rounded-2xl block object-contain w-full h-80 transition-all duration-300"
+        imageClassName="object-cover object-center w-full max-h-96 transition-all duration-300"
       />
     </div>
   )
@@ -22,10 +22,6 @@ const SingleImage: types.Brick<Props> = ({ ...rest }) => {
 SingleImage.schema = {
   name: blockNames.SingleImage,
   label: 'SingleImage',
-  // category: '',
-  // tags: [],
-
-  // Sidebar Edit controls for props
   sideEditProps: [],
 }
 

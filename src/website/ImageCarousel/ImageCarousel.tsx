@@ -67,7 +67,7 @@ const Carousel = ({ repeaterElement }: any) => {
         {/* @ts-ignore */}
         {repeaterElement?.props?.children?.map((child, index) => {
           return (
-            <div key={index} className="p-2">
+            <div key={index} className="h-96 p-0 overflow-hidden">
               {child}
             </div>
           )
@@ -101,13 +101,6 @@ const ImageCarousel: types.Brick<ImageCarouselProps> = ({
 ImageCarousel.schema = {
   name: blockNames.ImageCarousel,
   label: 'Image carousel',
-  // category: '',
-  // tags: [],
-
-  // Defaults when a new brick is added
-  getDefaultProps: () => ({}),
-
-  // Sidebar Edit controls for props
   sideEditProps: [
     LayoutProp({
       colors: [

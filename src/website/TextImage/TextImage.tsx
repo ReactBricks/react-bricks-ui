@@ -68,7 +68,7 @@ const TextImage: types.Brick<TextImageProps> = ({
         >
           <Repeater
             propName="badge"
-            renderWrapper={items => (
+            renderWrapper={(items) => (
               <div
                 className={classNames('mb-4 flex', {
                   'justify-center md:justify-start': mobileTextCenter,
@@ -81,7 +81,7 @@ const TextImage: types.Brick<TextImageProps> = ({
 
           <RichText
             propName="title"
-            renderBlock={props => (
+            renderBlock={(props) => (
               <h2
                 className={classNames(
                   'mt-0 mb-4',
@@ -101,7 +101,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             )}
             placeholder="Type a title..."
             allowedFeatures={[types.RichTextFeatures.Highlight]}
-            renderHighlight={props => (
+            renderHighlight={(props) => (
               <span className={highlightColor} {...props.attributes}>
                 {props.children}
               </span>
@@ -110,7 +110,7 @@ const TextImage: types.Brick<TextImageProps> = ({
 
           <RichText
             propName="text"
-            renderBlock={props => (
+            renderBlock={(props) => (
               <p
                 className={classNames('text-lg sm:text-xl mb-3', textColor, {
                   'text-center md:text-left': mobileTextCenter,
@@ -126,9 +126,9 @@ const TextImage: types.Brick<TextImageProps> = ({
               types.RichTextFeatures.Bold,
               types.RichTextFeatures.Link,
             ]}
-            renderLink={props => (
+            renderLink={(props) => (
               <Link {...props} className="text-lg">
-                {props.children}&nbsp;&raquo;
+                {props.children}
               </Link>
             )}
           />
@@ -138,7 +138,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             itemProps={{
               className: 'lg:w-2/5 text-lg',
             }}
-            renderWrapper={items => (
+            renderWrapper={(items) => (
               <div className="mt-4 w-full flex flex-col lg:flex-row lg:flex-wrap lg:justify-between">
                 {items}
               </div>
@@ -146,7 +146,7 @@ const TextImage: types.Brick<TextImageProps> = ({
           />
           <Repeater
             propName="buttons"
-            renderWrapper={items => (
+            renderWrapper={(items) => (
               <div className="flex items-center flex-col sm:flex-row mt-4">
                 {items}
               </div>
@@ -198,11 +198,9 @@ TextImage.schema = {
     title: 'We built hundreds of apps',
     heroTitle: false,
     mobileTextCenter: false,
-    text:
-      'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.',
+    text: 'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.',
     imageSource: {
-      src:
-        'https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png',
+      src: 'https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png',
       placeholderSrc:
         'https://images.reactbricks.com/placeholder/7a358d12-e668-46e4-ab81-b90431006182.png',
       srcSet:
@@ -273,19 +271,19 @@ TextImage.schema = {
           name: 'mobileIcon',
           label: 'Show as icon on mobile',
           type: types.SideEditPropType.Boolean,
-          show: props => !props.multiple,
+          show: (props) => !props.multiple,
         },
         {
           name: 'hasShadow',
           label: 'Image shadow',
           type: types.SideEditPropType.Boolean,
-          show: props => !props.multiple,
+          show: (props) => !props.multiple,
         },
         {
           name: 'isRounded',
           label: 'Image rounded corners',
           type: types.SideEditPropType.Boolean,
-          show: props => !props.multiple,
+          show: (props) => !props.multiple,
         },
       ],
     },
