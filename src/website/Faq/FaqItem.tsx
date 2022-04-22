@@ -36,6 +36,7 @@ const FaqQuestion: types.Brick = () => {
 FaqQuestion.schema = {
   name: blockNames.Faq,
   label: 'Question',
+  category: 'rb-ui website',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

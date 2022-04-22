@@ -34,7 +34,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
         <div className="max-w-xl mx-auto px-5">
           <Repeater
             propName="badge"
-            renderWrapper={items => <div className="mb-4">{items}</div>}
+            renderWrapper={(items) => <div className="mb-4">{items}</div>}
           />
 
           <div
@@ -48,7 +48,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
             style={titleStyle}
           >
             <RichText
-              renderBlock={props => (
+              renderBlock={(props) => (
                 <h1
                   className={classNames(
                     'text-center font-black mb-4 bg-clip-text bg-gradient-to-r',
@@ -63,7 +63,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               placeholder="Type a title..."
               propName="title"
               allowedFeatures={[types.RichTextFeatures.Highlight]}
-              renderHighlight={props => (
+              renderHighlight={(props) => (
                 <span className={highlightColor} {...props.attributes}>
                   {props.children}
                 </span>
@@ -72,7 +72,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           </div>
 
           <RichText
-            renderBlock={props => (
+            renderBlock={(props) => (
               <p
                 className={classNames(
                   'text-lg sm:text-xl text-center leading-7 sm:leading-8',
@@ -92,7 +92,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           />
           <Repeater
             propName="buttons"
-            renderWrapper={items => (
+            renderWrapper={(items) => (
               <div className="flex justify-center items-center flex-col sm:flex-row mt-6">
                 {items}
               </div>
@@ -107,6 +107,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
 HeroUnit.schema = {
   name: blockNames.HeroUnit,
   label: 'Hero Unit',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
@@ -118,8 +119,7 @@ HeroUnit.schema = {
     size: 'large',
     textGradient: 'none',
     title: 'We develop beautiful web applications',
-    text:
-      "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
+    text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     badge: [
       {
         text: 'high tech',

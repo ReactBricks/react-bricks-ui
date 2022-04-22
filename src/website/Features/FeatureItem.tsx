@@ -81,6 +81,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
 FeatureItem.schema = {
   name: blockNames.FeatureItem,
   label: 'Feature',
+  category: 'rb-ui website',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

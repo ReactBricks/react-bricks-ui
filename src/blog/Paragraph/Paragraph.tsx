@@ -76,6 +76,7 @@ const Paragraph: types.Brick = () => {
 Paragraph.schema = {
   name: blockNames.Paragraph,
   label: 'Paragraph',
+  category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Paragraph/Paragraph.tsx',

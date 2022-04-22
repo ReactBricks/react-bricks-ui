@@ -128,6 +128,7 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
 CodeBrick.schema = {
   name: blockNames.CodeBlock,
   label: 'Code',
+  category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Code/Code.tsx',

@@ -36,7 +36,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
         <div className="flex-1">
           <Text
             propName="title"
-            renderBlock={props => (
+            renderBlock={(props) => (
               <div
                 className={classNames(
                   'font-extrabold text-xl leading-6 mb-1',
@@ -51,7 +51,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
           />
           <RichText
             propName="text"
-            renderBlock={props => (
+            renderBlock={(props) => (
               <span
                 className={classNames('leading-6', textColors.gray700)}
                 {...props.attributes}
@@ -71,6 +71,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
 FeatureCallout.schema = {
   name: blockNames.FeatureCallout,
   label: 'Feature callout',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
@@ -84,11 +85,9 @@ FeatureCallout.schema = {
     borderBottom: 'none',
     width: 'sm',
     title: 'Easy like Wix, but your own.',
-    text:
-      'A great user experience for Content creators, React components for Developers.',
+    text: 'A great user experience for Content creators, React components for Developers.',
     imageSource: {
-      src:
-        'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
+      src: 'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
       placeholderSrc:
         'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
       srcSet: '',

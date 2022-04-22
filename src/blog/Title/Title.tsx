@@ -88,6 +88,7 @@ const Title: types.Brick<TitleProps> = ({ size = 'large' }) => {
 Title.schema = {
   name: blockNames.Title,
   label: 'Title',
+  category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Title/Title.tsx',

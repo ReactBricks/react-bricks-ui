@@ -40,6 +40,7 @@ const Document: types.Brick<DocumentProps> = ({ color, ...rest }) => {
 Document.schema = {
   name: blockNames.Document,
   label: 'Document',
+  category: 'rb-ui website',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

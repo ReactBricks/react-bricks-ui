@@ -110,6 +110,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
 Testimonial.schema = {
   name: blockNames.Testimonial,
   label: 'Testimonial',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',

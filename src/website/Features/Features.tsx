@@ -65,6 +65,7 @@ const Features: types.Brick<FeaturesProps> = ({
 Features.schema = {
   name: blockNames.Features,
   label: 'Features',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',

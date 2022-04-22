@@ -18,6 +18,7 @@ const TextImageLogo: types.Brick = ({ ...rest }) => {
 TextImageLogo.schema = {
   name: blockNames.TextImageLogo,
   label: 'Logo',
+  category: 'rb-ui website',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

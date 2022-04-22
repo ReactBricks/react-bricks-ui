@@ -140,6 +140,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
 TweetLight.schema = {
   name: blockNames.TweetLight,
   label: 'Tweet light',
+  category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/TweetLight.tsx',

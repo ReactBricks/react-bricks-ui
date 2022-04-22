@@ -87,7 +87,11 @@ const ImageCarousel: types.Brick<ImageCarouselProps> = ({
   const repeaterElement = Repeater({ propName: 'singleImage' })
 
   if (fullScreen) {
-    return <Carousel repeaterElement={repeaterElement} />
+    return (
+      <div className="my-2">
+        <Carousel repeaterElement={repeaterElement} />
+      </div>
+    )
   }
   return (
     <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
@@ -101,15 +105,38 @@ const ImageCarousel: types.Brick<ImageCarouselProps> = ({
 ImageCarousel.schema = {
   name: blockNames.ImageCarousel,
   label: 'Image carousel',
+  category: 'rb-ui website',
+  getDefaultProps: () => ({
+    singleImage: [
+      {
+        image: {
+          src: 'https://images.reactbricks.com/original/8309ea05-d105-4f50-9d54-ba86ebddcfbe.jpg',
+          placeholderSrc:
+            'https://images.reactbricks.com/placeholder/8309ea05-d105-4f50-9d54-ba86ebddcfbe.jpg',
+          srcSet:
+            'https://images.reactbricks.com/src_set/8309ea05-d105-4f50-9d54-ba86ebddcfbe-2400.jpg 2400w,\nhttps://images.reactbricks.com/src_set/8309ea05-d105-4f50-9d54-ba86ebddcfbe-1800.jpg 1800w,\nhttps://images.reactbricks.com/src_set/8309ea05-d105-4f50-9d54-ba86ebddcfbe-1200.jpg 1200w,\nhttps://images.reactbricks.com/src_set/8309ea05-d105-4f50-9d54-ba86ebddcfbe-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/8309ea05-d105-4f50-9d54-ba86ebddcfbe-300.jpg 300w',
+          width: 3385,
+          height: 1693,
+          alt: 'altText',
+          seoName: '',
+        },
+      },
+    ],
+  }),
   sideEditProps: [
-    LayoutProp({
-      colors: [
-        bgColors.white,
-        bgColors.light,
-        bgColors.gray,
-        bgColors.darkBlue,
-      ],
-    }),
+    {
+      ...LayoutProp({
+        colors: [
+          bgColors.white,
+          bgColors.light,
+          bgColors.gray,
+          bgColors.darkBlue,
+        ],
+      }),
+      show: (props) => {
+        return !!!props.fullScreen
+      },
+    },
     {
       name: 'fullScreen',
       type: types.SideEditPropType.Boolean,

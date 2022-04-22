@@ -40,6 +40,7 @@ const Documents: types.Brick<DocumentsProps> = ({
 Documents.schema = {
   name: blockNames.Documents,
   label: 'Documents',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Documents/Documents.tsx',

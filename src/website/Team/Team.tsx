@@ -39,6 +39,7 @@ const Team: types.Brick<TeamProps> = ({
 Team.schema = {
   name: blockNames.Team,
   label: 'Team',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/Team.tsx',

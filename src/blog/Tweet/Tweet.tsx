@@ -86,6 +86,7 @@ const Tweet: types.Brick<TweetProps> = ({
 Tweet.schema = {
   name: blockNames.Tweet,
   label: 'Tweet',
+  category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',

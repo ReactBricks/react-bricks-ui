@@ -183,6 +183,7 @@ const TextImage: types.Brick<TextImageProps> = ({
 TextImage.schema = {
   name: blockNames.TextImage,
   label: 'Text Image',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImage.tsx',

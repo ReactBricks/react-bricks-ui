@@ -33,7 +33,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         <div className="flex-1 sm:pr-12 mb-4 sm:mb-0">
           <RichText
             propName="text"
-            renderBlock={props => (
+            renderBlock={(props) => (
               <span
                 className={classNames(
                   'font-extrabold text-xl sm:text-2xl leading-6 sm:leading-8',
@@ -59,6 +59,7 @@ CallToAction.schema = {
   name: blockNames.CallToAction,
   label: 'Call to action',
   playgroundLinkLabel: 'View source code on Github',
+  category: 'rb-ui website',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 

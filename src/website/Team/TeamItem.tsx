@@ -87,6 +87,7 @@ const TeamItem: types.Brick<TeamItemProps> = ({
 TeamItem.schema = {
   name: blockNames.TeamItem,
   label: 'Team Item',
+  category: 'rb-ui website',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

@@ -65,6 +65,7 @@ const Button: types.Brick<ButtonProps> = ({
 Button.schema = {
   name: blockNames.Button,
   label: 'Button',
+  category: 'rb-ui website',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

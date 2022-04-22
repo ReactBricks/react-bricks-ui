@@ -3,5 +3,5 @@ import blog from './blog'
 
 export { website, blog }
 
-const allBricks = [...website]
+const allBricks = [...website, ...blog]
 export default allBricks

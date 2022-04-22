@@ -42,6 +42,7 @@ const Customers: types.Brick<CustomersProps> = ({
 Customers.schema = {
   name: blockNames.Customers,
   label: 'Customers',
+  category: 'rb-ui website',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
@@ -58,8 +59,7 @@ Customers.schema = {
     customers: [
       {
         image: {
-          src:
-            'https://images.reactbricks.com/original/55a585f2-0092-499a-88e7-6f6e72870382.svg',
+          src: 'https://images.reactbricks.com/original/55a585f2-0092-499a-88e7-6f6e72870382.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/55a585f2-0092-499a-88e7-6f6e72870382.svg',
           srcSet: '',
@@ -69,8 +69,7 @@ Customers.schema = {
       },
       {
         image: {
-          src:
-            'https://images.reactbricks.com/original/df0214c6-7feb-4037-921f-985bdf584ed7.svg',
+          src: 'https://images.reactbricks.com/original/df0214c6-7feb-4037-921f-985bdf584ed7.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/df0214c6-7feb-4037-921f-985bdf584ed7.svg',
           srcSet: '',
@@ -80,8 +79,7 @@ Customers.schema = {
       },
       {
         image: {
-          src:
-            'https://images.reactbricks.com/original/44dd50bd-9401-47bb-a248-56192cb0da03.svg',
+          src: 'https://images.reactbricks.com/original/44dd50bd-9401-47bb-a248-56192cb0da03.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/44dd50bd-9401-47bb-a248-56192cb0da03.svg',
           srcSet: '',
@@ -91,8 +89,7 @@ Customers.schema = {
       },
       {
         image: {
-          src:
-            'https://images.reactbricks.com/original/5bea2f55-07ea-47fb-b638-bedaa6c2275f.svg',
+          src: 'https://images.reactbricks.com/original/5bea2f55-07ea-47fb-b638-bedaa6c2275f.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/5bea2f55-07ea-47fb-b638-bedaa6c2275f.svg',
           srcSet: '',
@@ -102,8 +99,7 @@ Customers.schema = {
       },
       {
         image: {
-          src:
-            'https://images.reactbricks.com/original/52f81cf1-01bc-43d0-9428-995351146c2a.svg',
+          src: 'https://images.reactbricks.com/original/52f81cf1-01bc-43d0-9428-995351146c2a.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/52f81cf1-01bc-43d0-9428-995351146c2a.svg',
           srcSet: '',

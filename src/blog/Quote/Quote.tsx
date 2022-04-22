@@ -27,6 +27,7 @@ const Quote: types.Brick = () => {
 Quote.schema = {
   name: blockNames.Quote,
   label: 'Quote',
+  category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Quote/Quote.tsx',
