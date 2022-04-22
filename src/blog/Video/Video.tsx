@@ -33,7 +33,7 @@ const Video: types.Brick<VideoProps> = ({ platform, url }) => {
 Video.schema = {
   name: blockNames.Video,
   label: 'Video',
-  category: 'rb-ui blog',
+  category: 'rb-ui shared',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/Video.tsx',

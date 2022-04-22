@@ -21,6 +21,7 @@ import TextImage from './TextImage/TextImage'
 import TextImageLogo from './TextImage/TextImageLogo'
 import ImageSliderReact from './ImageCarousel/ImageCarousel'
 import SingleImage from './ImageCarousel/SingleImage'
+import Video from 'blog/Video/Video'
 
 export {
   Badge,
@@ -44,6 +45,7 @@ export {
   FeatureItem,
   ImageSliderReact,
   SingleImage,
+  Video,
   // Document,
   // Documents,
 }
@@ -70,6 +72,7 @@ const allBricks = [
   FeatureItem,
   ImageSliderReact,
   SingleImage,
+  Video,
   // Document,
   // Documents,
 ]
