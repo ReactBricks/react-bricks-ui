@@ -51,7 +51,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               renderBlock={(props) => (
                 <h1
                   className={classNames(
-                    'text-center font-black mb-4 bg-clip-text bg-gradient-to-r',
+                    'text-center font-black mb-4 pb-1 bg-clip-text bg-gradient-to-r',
                     titleColor
                   )}
                   style={{ lineHeight: 1.1 }}
