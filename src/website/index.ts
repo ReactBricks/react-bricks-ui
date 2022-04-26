@@ -19,7 +19,7 @@ import TeamItem from './Team/TeamItem'
 import Testimonial from './Testimonial/Testimonial'
 import TextImage from './TextImage/TextImage'
 import TextImageLogo from './TextImage/TextImageLogo'
-import ImageSliderReact from './ImageCarousel/ImageCarousel'
+import ImageCarousel from './ImageCarousel/ImageCarousel'
 import SingleImage from './ImageCarousel/SingleImage'
 import Video from 'blog/Video/Video'
 
@@ -43,7 +43,7 @@ export {
   TeamItem,
   Features,
   FeatureItem,
-  ImageSliderReact,
+  ImageCarousel,
   SingleImage,
   Video,
   // Document,
@@ -70,7 +70,7 @@ const allBricks = [
   TeamItem,
   Features,
   FeatureItem,
-  ImageSliderReact,
+  ImageCarousel,
   SingleImage,
   Video,
   // Document,

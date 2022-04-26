@@ -2,15 +2,15 @@ import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import { MdArrowLeft, MdArrowRight } from 'react-icons/md'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
 import { bgColors } from 'website/colors'
 import Container, { Size } from 'website/layout/Container'
 import Section, { Border } from 'website/layout/Section'
 import { LayoutProp } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
+import Slick from './slick'
 
-interface ImageCarouselProps {
+import SlickTheme from './slick-theme'
+export interface ImageCarouselProps {
   bg?: { color: string; className: string }
   borderTop?: Border
   borderBottom?: Border
@@ -52,6 +52,8 @@ const Carousel = ({ repeaterElement }: any) => {
   }
   return (
     <>
+      <SlickTheme />
+      <Slick />
       <style>{`
       .slick-slide .p-2{
         height: 0px
