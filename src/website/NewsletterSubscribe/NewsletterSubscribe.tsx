@@ -174,18 +174,15 @@ NewsletterSubscribe.schema = {
       label: 'Centered',
       type: types.SideEditPropType.Boolean,
     },
-    {
-      name: 'provider',
-      label: 'Provider',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: NewsletterProvider.MailChimp, label: 'MailChimp' },
-          { value: NewsletterProvider.ConvertKit, label: 'ConvertKit - TODO' },
-        ],
-      },
-    },
+    // {
+    //   name: 'provider',
+    //   label: 'Provider',
+    //   type: types.SideEditPropType.Select,
+    //   selectOptions: {
+    //     display: types.OptionsDisplay.Select,
+    //     options: [{ value: NewsletterProvider.MailChimp, label: 'MailChimp' }],
+    //   },
+    // },
     {
       name: 'mailchimpUrl',
       label: 'Mailchimp Form URL',

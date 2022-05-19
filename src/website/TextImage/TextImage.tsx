@@ -47,10 +47,12 @@ const TextImage: types.Brick<TextImageProps> = ({
       <Container
         size={width}
         className={classNames(
-          'py-12 lg:py-20 flex flex-no-wrap md:justify-between md:items-start',
+          'py-12 lg:py-20 flex flex-no-wrap md:items-start md:space-x-8',
           mobileTextCenter ? 'items-center' : 'items-start',
           mobileImageTop ? 'flex-col-reverse' : 'flex-col',
-          imageSide === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'
+          imageSide === 'right'
+            ? 'md:flex-row'
+            : 'md:flex-row-reverse md:space-x-reverse'
         )}
       >
         <div
@@ -58,13 +60,6 @@ const TextImage: types.Brick<TextImageProps> = ({
             'w-full md:flex-1 flex flex-col',
             imageSide === 'right' ? 'md:pr-1/10' : 'md:pl-1/10'
           )}
-          //items-center md:items-start
-
-          // style={
-          //   imageSide === 'right'
-          //     ? { paddingRight: '10%' }
-          //     : { paddingLeft: '10%' }
-          // }
         >
           <Repeater
             propName="badge"

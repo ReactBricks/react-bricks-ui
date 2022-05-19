@@ -6,14 +6,14 @@ interface Props {}
 
 const SingleImage: types.Brick<Props> = ({ ...rest }) => {
   return (
-    <div {...rest} className="flex items-center h-full">
+    <div {...rest} className="flex justify-center">
       <Image
         noWrapper
         propName="image"
         alt="altText"
         maxWidth={1200}
         aspectRatio={2}
-        imageClassName="object-cover object-center w-full max-h-96 transition-all duration-300"
+        imageClassName="object-cover object-center transition-all duration-300"
       />
     </div>
   )
@@ -23,6 +23,7 @@ SingleImage.schema = {
   name: blockNames.SingleImage,
   label: 'SingleImage',
   category: 'rb-ui website',
+  hideFromAddMenu: true,
   getDefaultProps: () => ({
     image: {
       src: 'https://images.reactbricks.com/original/8309ea05-d105-4f50-9d54-ba86ebddcfbe.jpg',
