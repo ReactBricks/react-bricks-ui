@@ -6,12 +6,10 @@ import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
 import { bgColors } from '../colors'
-import { LayoutProp } from '../LayoutSideProps'
+import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface MapProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   size?: 'medium' | 'large'
   width?: Size
 
@@ -29,15 +27,13 @@ const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
 
 export const MapBrick: types.Brick<MapProps> = ({
   width,
-  borderTop,
   bg,
-  borderBottom,
   lat = 45.9,
   lng = 9.5,
   ...rest
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container size={width}>
         <Map
           center={[lat, lng]}
@@ -75,7 +71,7 @@ MapBrick.schema = {
     lng: 9.5669407,
   }),
   sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
+    BackgroundColorsSideEditProps,
     {
       groupName: 'Map',
       defaultOpen: true,

@@ -59,7 +59,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <Text
           propName="title"
           placeholder="title..."
-          renderBlock={props => (
+          renderBlock={(props) => (
             <h3 className={classNames(getFontSize(screenLayout))}>
               {props.children}
             </h3>
@@ -68,7 +68,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         <RichText
           propName="text"
           placeholder="text..."
-          renderBlock={props => (
+          renderBlock={(props) => (
             <p className="text-gray-500 dark:text-gray-200 font-normal leading-6 text-base text">
               {props.children}
             </p>
@@ -90,12 +90,10 @@ FeatureItem.schema = {
   getDefaultProps: () => ({
     isTextCenter: false,
     title: 'Front-end development',
-    text:
-      'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
+    text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
     screenLayout: 'base',
     image: {
-      src:
-        'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
+      src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
       placeholderSrc:
         'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
       srcSet: '',
@@ -104,7 +102,7 @@ FeatureItem.schema = {
   sideEditProps: [
     {
       name: 'isTextCenter',
-      label: 'center feature',
+      label: 'Center Feature',
       type: types.SideEditPropType.Boolean,
     },
   ],

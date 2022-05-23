@@ -5,17 +5,17 @@ import Slider from 'react-slick'
 import { bgColors } from 'website/colors'
 import Container, { Size } from 'website/layout/Container'
 import Section, { Border } from 'website/layout/Section'
-import { LayoutProp } from 'website/LayoutSideProps'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import Slick from './slick'
 
 import SlickTheme from './slick-theme'
 export interface ImageCarouselProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   width?: Size
-  fullScreen?: boolean
 }
 interface ArrowProps {
   onClick?: () => void
@@ -79,16 +79,10 @@ const Carousel = ({ repeaterElement }: any) => {
   )
 }
 
-const ImageCarousel: types.Brick<ImageCarouselProps> = ({
-  bg,
-  borderTop,
-  borderBottom,
-  width,
-  fullScreen,
-}) => {
+const ImageCarousel: types.Brick<ImageCarouselProps> = ({ bg, width }) => {
   const repeaterElement = Repeater({ propName: 'singleImage' })
 
-  if (fullScreen) {
+  if (width === 'full') {
     return (
       <div className="my-2">
         <Carousel repeaterElement={repeaterElement} />
@@ -96,7 +90,7 @@ const ImageCarousel: types.Brick<ImageCarouselProps> = ({
     )
   }
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container size={width}>
         <Carousel repeaterElement={repeaterElement} />
       </Container>
@@ -125,26 +119,7 @@ ImageCarousel.schema = {
       },
     ],
   }),
-  sideEditProps: [
-    {
-      ...LayoutProp({
-        colors: [
-          bgColors.white,
-          bgColors.light,
-          bgColors.gray,
-          bgColors.darkBlue,
-        ],
-      }),
-      show: (props) => {
-        return !!!props.fullScreen
-      },
-    },
-    {
-      name: 'fullScreen',
-      type: types.SideEditPropType.Boolean,
-      label: 'Full screen',
-    },
-  ],
+  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
   repeaterItems: [
     {
       name: 'singleImage',

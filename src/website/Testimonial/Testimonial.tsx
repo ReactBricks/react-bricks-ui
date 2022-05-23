@@ -7,7 +7,7 @@ import Container from '../layout/Container'
 import { bgColors } from '../colors'
 import { FiUser } from 'react-icons/fi'
 import blockNames from '../blockNames'
-import { LayoutProp } from '../LayoutSideProps'
+import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface TestimonialProps {
   authorName: string
@@ -16,8 +16,6 @@ export interface TestimonialProps {
   logoImage: types.IImageSource
   small?: boolean
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
 }
 
 const Testimonial: types.Brick<TestimonialProps> = ({
@@ -27,11 +25,9 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   logoImage,
   small = false,
   bg = bgColors.white.value,
-  borderTop = 'full',
-  borderBottom = 'none',
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size="sm"
         className={classNames(
@@ -40,7 +36,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
         )}
       >
         <Text
-          renderBlock={props => (
+          renderBlock={(props) => (
             <div
               className={classNames(
                 'flex-1 leading-relaxed text-center mb-6 text-gray-700 dark:text-gray-200 max-w-lg',
@@ -51,7 +47,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
             </div>
           )}
           placeholder="Quote..."
-          renderPlaceholder={props => {
+          renderPlaceholder={(props) => {
             return <span>{props.children}</span>
           }}
           propName="quote"
@@ -78,14 +74,14 @@ const Testimonial: types.Brick<TestimonialProps> = ({
           )}
           <div className="ml-3 dark:text-gray-200">
             <Text
-              renderBlock={props => (
+              renderBlock={(props) => (
                 <div className="text-sm font-bold">{props.children}</div>
               )}
               placeholder="Author name..."
               propName="authorName"
             />
             <Text
-              renderBlock={props => (
+              renderBlock={(props) => (
                 <div className="text-xs">{props.children}</div>
               )}
               placeholder="Job title..."
@@ -121,8 +117,7 @@ Testimonial.schema = {
     authorName: 'Matteo Frana',
     authorJobTitle: 'Founder @ React Bricks',
     avatarImage: {
-      src:
-        'https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
+      src: 'https://images.reactbricks.com/original/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
       placeholderSrc:
         'https://images.reactbricks.com/placeholder/4a14877f-223a-4988-8279-6d2940885ce4.jpg',
       srcSet:
@@ -131,8 +126,7 @@ Testimonial.schema = {
       seoName: 'matteo',
     },
     logoImage: {
-      src:
-        'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
+      src: 'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
       placeholderSrc:
         'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
       srcSet: '',
@@ -140,9 +134,7 @@ Testimonial.schema = {
       seoName: 'react-bricks',
     },
   }),
-  sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
-  ],
+  sideEditProps: [BackgroundColorsSideEditProps],
 }
 
 export default Testimonial

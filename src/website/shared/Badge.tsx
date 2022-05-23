@@ -4,6 +4,7 @@ import { badgeColors } from '../colors'
 
 import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
+import { BadgeColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface BadgeProps {
   color?: { color: string; className: string }
@@ -18,7 +19,7 @@ const Badge: types.Brick<BadgeProps> = ({
   return (
     <div {...rest} className="flex justify-center items-center">
       <Text
-        renderBlock={props => (
+        renderBlock={(props) => (
           <span
             className={classNames(
               'text-sm font-black uppercase text-center',
@@ -49,23 +50,7 @@ Badge.schema = {
     text: 'Special',
     color: badgeColors.gray.value,
   }),
-  sideEditProps: [
-    {
-      name: 'color',
-      label: 'Badge Color',
-      type: types.SideEditPropType.Select,
-      shouldRefreshText: true,
-      selectOptions: {
-        display: types.OptionsDisplay.Color,
-        options: [
-          badgeColors.gray,
-          badgeColors.pink,
-          badgeColors.blue,
-          badgeColors.green,
-        ],
-      },
-    },
-  ],
+  sideEditProps: [BadgeColorsSideEditProps],
 }
 
 export default Badge

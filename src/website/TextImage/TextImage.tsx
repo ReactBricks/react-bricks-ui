@@ -5,12 +5,13 @@ import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
 import Container, { Size } from '../layout/Container'
 import Section, { Border } from '../layout/Section'
-import { LayoutProp } from '../LayoutSideProps'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from '../LayoutSideProps'
 
 export interface TextImageProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   width?: Size
   heroTitle?: boolean
   mobileTextCenter?: boolean
@@ -25,8 +26,6 @@ export interface TextImageProps {
 
 const TextImage: types.Brick<TextImageProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'none',
-  borderBottom = 'none',
   width = 'lg',
   heroTitle = false,
   mobileTextCenter = false,
@@ -43,7 +42,7 @@ const TextImage: types.Brick<TextImageProps> = ({
   const textColor = textColors.gray700
 
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size={width}
         className={classNames(
@@ -212,14 +211,8 @@ TextImage.schema = {
     isRounded: false,
   }),
   sideEditProps: [
-    LayoutProp({
-      colors: [
-        bgColors.white,
-        bgColors.light,
-        bgColors.gray,
-        bgColors.darkBlue,
-      ],
-    }),
+    BackgroundColorsSideEditProps,
+    ContainerSizeSideEditProps,
     {
       groupName: 'Text',
       defaultOpen: true,

@@ -7,23 +7,22 @@ import { bgColors, textColors } from '../colors'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
 import blockNames from '../blockNames'
-import { LayoutProp } from '../LayoutSideProps'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 
 export interface FeatureCalloutProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   width?: Size
 }
 
 const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'boxed',
-  borderBottom = 'none',
   width = 'sm',
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size={width}
         className={classNames(
@@ -95,9 +94,7 @@ FeatureCallout.schema = {
       seoName: 'content-creators',
     },
   }),
-  sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.darkBlue] }),
-  ],
+  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
 }
 
 export default FeatureCallout

@@ -22,6 +22,8 @@ import TextImageLogo from './TextImage/TextImageLogo'
 import ImageCarousel from './ImageCarousel/ImageCarousel'
 import SingleImage from './ImageCarousel/SingleImage'
 import Video from 'blog/Video/Video'
+import HorizontalRule from './HorizontalRule/HorizontalRule'
+import Spacer from './Spacer/Spacer'
 
 export {
   Badge,
@@ -46,6 +48,8 @@ export {
   ImageCarousel,
   SingleImage,
   Video,
+  HorizontalRule,
+  Spacer,
   // Document,
   // Documents,
 }
@@ -73,6 +77,8 @@ const allBricks = [
   ImageCarousel,
   SingleImage,
   Video,
+  HorizontalRule,
+  Spacer,
   // Document,
   // Documents,
 ]

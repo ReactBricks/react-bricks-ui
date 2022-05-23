@@ -7,12 +7,10 @@ import { bgColors } from '../colors'
 import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 import { layoutType } from './FeatureItem'
-import { LayoutProp } from '../LayoutSideProps'
+import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface FeaturesProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   screenLayout: layoutType
 }
 const getRepeaterWidht = (screenLayout: layoutType) => {
@@ -28,12 +26,10 @@ const getRepeaterWidht = (screenLayout: layoutType) => {
 
 const Features: types.Brick<FeaturesProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'none',
-  borderBottom = 'none',
   screenLayout = 'base',
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size={'lg'}
         className={classNames(
@@ -42,7 +38,7 @@ const Features: types.Brick<FeaturesProps> = ({
       >
         <Repeater
           propName="feature-item"
-          renderWrapper={items => (
+          renderWrapper={(items) => (
             <div
               className={classNames(
                 'flex flex-wrap  justify-between mx-auto px-6 md:px-0',
@@ -81,12 +77,10 @@ Features.schema = {
     'feature-item': [
       {
         title: 'Front-end development',
-        text:
-          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
+        text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
         screenLayout: 'base',
         image: {
-          src:
-            'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
+          src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
           srcSet: '',
@@ -94,12 +88,10 @@ Features.schema = {
       },
       {
         title: 'Request feedback',
-        text:
-          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
+        text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
         screenLayout: 'base',
         image: {
-          src:
-            'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
+          src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
           srcSet: '',
@@ -107,12 +99,10 @@ Features.schema = {
       },
       {
         title: 'Front-end development',
-        text:
-          'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
+        text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
         screenLayout: 'base',
         image: {
-          src:
-            'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
+          src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
           placeholderSrc:
             'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
           srcSet: '',
@@ -130,7 +120,7 @@ Features.schema = {
     },
   ],
   sideEditProps: [
-    LayoutProp(),
+    BackgroundColorsSideEditProps,
     {
       name: 'screenLayout',
       label: 'Screen Layout',

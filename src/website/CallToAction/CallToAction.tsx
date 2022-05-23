@@ -1,29 +1,26 @@
-import * as React from 'react'
 import classNames from 'classnames'
-
-import { RichText, Repeater, types } from 'react-bricks/frontend'
+import * as React from 'react'
+import { Repeater, RichText, types } from 'react-bricks/frontend'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-
 import { bgColors, textColors } from '../colors'
-import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
-import { LayoutProp } from '../LayoutSideProps'
+import Section, { Border } from '../layout/Section'
 
 export interface CallToActionProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   width?: Size
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'boxed',
-  borderBottom = 'none',
   width = 'sm',
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size={width}
         className={classNames(
@@ -92,9 +89,7 @@ CallToAction.schema = {
       max: 1,
     },
   ],
-  sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
-  ],
+  sideEditProps: [ContainerSizeSideEditProps, BackgroundColorsSideEditProps],
 }
 
 export default CallToAction

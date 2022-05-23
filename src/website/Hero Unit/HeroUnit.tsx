@@ -1,24 +1,20 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
+import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors, GradientName, gradients, textColors } from '../colors'
 import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
-import { LayoutProp } from '../LayoutSideProps'
 
 export interface HeroUnitProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
   size?: 'medium' | 'large'
   textGradient?: GradientName
 }
 
 const HeroUnit: types.Brick<HeroUnitProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'none',
-  borderBottom = 'none',
   textGradient = 'none',
   size = 'large',
 }: HeroUnitProps) => {
@@ -29,7 +25,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
     textGradient !== 'none' ? { WebkitTextFillColor: 'transparent' } : {}
 
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container size="lg" className="py-12 xl:py-20">
         <div className="max-w-xl mx-auto px-5">
           <Repeater
@@ -134,14 +130,14 @@ HeroUnit.schema = {
         text: 'Get Started',
         href: '',
         isTargetBlank: false,
-        variant: 'azure',
+        variant: 'sky',
         type: 'solid',
       },
       {
         text: 'Learn more',
         href: '',
         isTargetBlank: false,
-        variant: 'azure',
+        variant: 'sky',
         type: 'outline',
       },
     ],
@@ -163,18 +159,7 @@ HeroUnit.schema = {
     },
   ],
   sideEditProps: [
-    LayoutProp({
-      colors: [
-        bgColors.white,
-        bgColors.light,
-        bgColors.gray,
-        bgColors.lightBlue,
-        bgColors.orange,
-        bgColors.green,
-        bgColors.darkBlue,
-        bgColors.dark,
-      ],
-    }),
+    BackgroundColorsSideEditProps,
     {
       groupName: 'Title',
       defaultOpen: true,

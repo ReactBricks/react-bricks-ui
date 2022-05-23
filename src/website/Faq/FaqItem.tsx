@@ -5,12 +5,12 @@ import { Text, RichText, types } from 'react-bricks/frontend'
 import { textColors } from '../colors'
 import blockNames from '../blockNames'
 
-const FaqQuestion: types.Brick = () => {
+const FaqQuestion: types.Brick = ({ ...rest }) => {
   return (
-    <div className="leading-6 mb-12">
+    <div className="leading-6 mb-12" {...rest}>
       <Text
         propName="question"
-        renderBlock={props => (
+        renderBlock={(props) => (
           <p
             className={classNames(textColors.gray900, 'font-extrabold mb-1')}
             {...props.attributes}
@@ -22,7 +22,7 @@ const FaqQuestion: types.Brick = () => {
       />
       <RichText
         propName="answer"
-        renderBlock={props => (
+        renderBlock={(props) => (
           <p className={textColors.gray800} {...props.attributes}>
             {props.children}
           </p>

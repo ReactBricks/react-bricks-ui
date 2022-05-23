@@ -1,36 +1,33 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-import Container from '../layout/Container'
+import Container, { Size } from '../layout/Container'
 import Section, { Border } from '../layout/Section'
-import { LayoutProp } from '../LayoutSideProps'
-
 export interface DocumentsProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
+  width: Size
 }
 
-const Documents: types.Brick<DocumentsProps> = ({
-  bg,
-  borderTop,
-  borderBottom,
-}) => {
+const Documents: types.Brick<DocumentsProps> = ({ bg, width }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
-        size={'lg'}
+        size={width}
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
         )}
       >
         <Repeater
           propName="files"
-          renderWrapper={items => (
+          renderWrapper={(items) => (
             <ul className="w-full p-6 grid grid-cols-3 gap-6 ">{items}</ul>
           )}
-          renderItemWrapper={item => <li>{item}</li>}
+          renderItemWrapper={(item) => <li>{item}</li>}
         />
       </Container>
     </Section>
@@ -50,29 +47,26 @@ Documents.schema = {
         file: {
           name: 'React Bricks Website.pdf',
           size: 521.929,
-          url:
-            'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
+          url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
         },
       },
       {
         file: {
           name: 'React Bricks Website.pdf',
           size: 521.929,
-          url:
-            'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
+          url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
         },
       },
       {
         file: {
           name: 'React Bricks Website.pdf',
           size: 521.929,
-          url:
-            'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
+          url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
         },
       },
     ],
   }),
-  sideEditProps: [LayoutProp()],
+  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
   repeaterItems: [
     {
       name: 'files',

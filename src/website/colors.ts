@@ -5,7 +5,7 @@ export type TextColorName =
   | 'gray600'
   | 'gray500'
   | 'purple500'
-  
+
 export type BgColorName =
   | 'white'
   | 'light'
@@ -22,8 +22,8 @@ export type BadgeColorName = 'gray' | 'pink' | 'green' | 'blue'
 export type BulletColorName =
   | 'pink'
   | 'pinkLight'
-  | 'azure'
-  | 'azureLight'
+  | 'sky'
+  | 'skyLight'
   | 'green'
   | 'greenLight'
 
@@ -131,15 +131,15 @@ export const bulletColors: BulletColors = {
       className2: 'text-pink-500',
     },
   },
-  azure: {
-    label: 'Azure',
+  sky: {
+    label: 'Sky',
     value: {
       color: '#0ea5e9',
       className: 'bg-sky-500 text-white',
       className2: 'text-sky-500',
     },
   },
-  azureLight: {
+  skyLight: {
     label: 'Light blue',
     value: {
       color: '#e0f2fe',

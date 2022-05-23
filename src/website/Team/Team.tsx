@@ -6,23 +6,22 @@ import Container, { Size } from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 import { bgColors } from '../colors'
 import blockNames from '../blockNames'
-import { LayoutProp } from '../LayoutSideProps'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 
 export interface TeamProps {
   bg?: { color: string; className: string }
   width?: Size
-  borderTop?: Border
-  borderBottom?: Border
 }
 
 const Team: types.Brick<TeamProps> = ({
   bg = bgColors.white.value,
   width = 'lg',
-  borderTop = 'none',
-  borderBottom = 'none',
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size={width}
         className={classNames(
@@ -57,8 +56,7 @@ Team.schema = {
         memberName: 'Matteo Frana',
         duty: 'Frontend Designer',
         picture: {
-          src:
-            'https://images.reactbricks.com/original/8a568f5b-98e4-46d5-96eb-b9cd01ab5c67.jpg',
+          src: 'https://images.reactbricks.com/original/8a568f5b-98e4-46d5-96eb-b9cd01ab5c67.jpg',
           placeholderSrc:
             'https://images.reactbricks.com/placeholder/8a568f5b-98e4-46d5-96eb-b9cd01ab5c67.jpg',
           srcSet:
@@ -76,8 +74,7 @@ Team.schema = {
         github: '',
         linkedin: '',
         picture: {
-          src:
-            'https://images.reactbricks.com/original/a439e3bd-066d-4a04-84cf-3be233814f56.jpg',
+          src: 'https://images.reactbricks.com/original/a439e3bd-066d-4a04-84cf-3be233814f56.jpg',
           placeholderSrc:
             'https://images.reactbricks.com/placeholder/a439e3bd-066d-4a04-84cf-3be233814f56.jpg',
           srcSet:
@@ -91,8 +88,7 @@ Team.schema = {
         github: '',
         linkedin: '',
         picture: {
-          src:
-            'https://images.reactbricks.com/original/36a83dc9-58bd-419a-8c51-c78feeda3d6e.jpg',
+          src: 'https://images.reactbricks.com/original/36a83dc9-58bd-419a-8c51-c78feeda3d6e.jpg',
           placeholderSrc:
             'https://images.reactbricks.com/placeholder/36a83dc9-58bd-419a-8c51-c78feeda3d6e.jpg',
           srcSet:
@@ -106,8 +102,7 @@ Team.schema = {
         github: '',
         linkedin: '',
         picture: {
-          src:
-            'https://images.reactbricks.com/original/83791a26-9465-49da-b4ef-61b0425fbba0.jpg',
+          src: 'https://images.reactbricks.com/original/83791a26-9465-49da-b4ef-61b0425fbba0.jpg',
           placeholderSrc:
             'https://images.reactbricks.com/placeholder/83791a26-9465-49da-b4ef-61b0425fbba0.jpg',
           srcSet:
@@ -121,8 +116,7 @@ Team.schema = {
         github: '',
         linkedin: '',
         picture: {
-          src:
-            'https://images.reactbricks.com/original/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
+          src: 'https://images.reactbricks.com/original/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
           placeholderSrc:
             'https://images.reactbricks.com/placeholder/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
           srcSet:
@@ -140,8 +134,6 @@ Team.schema = {
       max: 5,
     },
   ],
-  sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
-  ],
+  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
 }
 export default Team

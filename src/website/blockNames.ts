@@ -30,6 +30,8 @@ enum blockNames {
   Document = 'document',
   ImageCarousel = 'image-carousel',
   SingleImage = 'single-image',
+  HorizontalRule = 'horizontal-rule',
+  Spacer = 'spacer',
 }
 
 export default blockNames

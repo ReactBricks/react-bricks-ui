@@ -1,13 +1,14 @@
-import * as React from 'react'
 import classNames from 'classnames'
-
+import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-
 import { bgColors } from '../colors'
-import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
-import { LayoutProp } from '../LayoutSideProps'
+import Section, { Border } from '../layout/Section'
 
 export interface CustomersProps {
   bg?: { color: string; className: string }
@@ -20,13 +21,11 @@ export interface CustomersProps {
 
 const Customers: types.Brick<CustomersProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'none',
-  borderBottom = 'none',
   width = 'lg',
   grayscale = true,
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container
         size={width}
         className={classNames(
@@ -121,7 +120,8 @@ Customers.schema = {
     },
   ],
   sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
+    BackgroundColorsSideEditProps,
+    ContainerSizeSideEditProps,
     {
       name: 'grayscale',
       label: 'Greyscale',

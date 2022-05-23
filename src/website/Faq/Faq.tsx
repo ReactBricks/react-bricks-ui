@@ -1,30 +1,26 @@
-import * as React from 'react'
 import classNames from 'classnames'
-
+import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-
 import { bgColors } from '../colors'
-import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
-import { LayoutProp } from '../LayoutSideProps'
+import Section from '../layout/Section'
 
 export interface FaqProps {
   bg?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
-  size?: 'medium' | 'large'
   width?: Size
 }
 
 const Faq: types.Brick<FaqProps> = ({
   bg = bgColors.white.value,
-  borderTop = 'full',
-  borderBottom = 'none',
   width = 'sm',
 }) => {
   return (
-    <Section bg={bg} borderTop={borderTop} borderBottom={borderBottom}>
+    <Section bg={bg}>
       <Container size={width} className={classNames('pt-12')}>
         <Repeater propName="faqs" />
       </Container>
@@ -60,9 +56,7 @@ Faq.schema = {
       itemLabel: 'Question',
     },
   ],
-  sideEditProps: [
-    LayoutProp({ colors: [bgColors.white, bgColors.light, bgColors.gray] }),
-  ],
+  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
 }
 
 export default Faq

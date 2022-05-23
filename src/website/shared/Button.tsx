@@ -8,7 +8,7 @@ export interface ButtonProps {
   href: string
   isTargetBlank: boolean
   isBigButton: boolean
-  variant?: 'pink' | 'azure'
+  variant?: 'pink' | 'sky'
   type?: 'solid' | 'outline'
   padding: 'normal' | 'small'
   className?: string
@@ -43,7 +43,7 @@ const Button: types.Brick<ButtonProps> = ({
         },
         {
           'bg-sky-500 text-white hover:bg-sky-600 hover:text-white':
-            variant === 'azure' && type === 'solid',
+            variant === 'sky' && type === 'solid',
         },
         {
           'border border-pink-600 text-pink-600 hover:text-pink-600 dark:border-pink-500 dark:text-pink-500':
@@ -51,7 +51,7 @@ const Button: types.Brick<ButtonProps> = ({
         },
         {
           'border border-sky-600 text-sky-600 hover:text-sky-600 dark:border-sky-500 dark:text-sky-500':
-            variant === 'azure' && type === 'outline',
+            variant === 'sky' && type === 'outline',
         },
         className
       )}
@@ -75,7 +75,7 @@ Button.schema = {
     text: 'Click me',
     href: '',
     isTargetBlank: false,
-    variant: 'azure',
+    variant: 'sky',
     type: 'solid',
     isBigButton: false,
   }),
@@ -97,7 +97,7 @@ Button.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'azure', label: 'Azure' },
+          { value: 'sky', label: 'Sky' },
           { value: 'pink', label: 'Pink' },
         ],
       },

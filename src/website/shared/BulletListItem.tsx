@@ -4,6 +4,7 @@ import { FiCheck } from 'react-icons/fi'
 import { Text, types } from 'react-bricks/frontend'
 import { bulletColors } from '../colors'
 import blockNames from '../blockNames'
+import { BulletColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface BulletListItemProps {
   color: { color: string; className: string; className2: string }
@@ -35,7 +36,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
       </div>
       <Text
         propName="text"
-        renderBlock={props => (
+        renderBlock={(props) => (
           <span
             className={classNames('dark:text-gray-100', color.className2)}
             {...props.attributes}
@@ -62,26 +63,7 @@ BulletListItem.schema = {
     color: bulletColors.pinkLight.value,
     text: 'New item',
   }),
-  sideEditProps: [
-    {
-      name: 'color',
-      label: 'Color',
-      type: types.SideEditPropType.Select,
-      shouldRefreshText: true,
-      selectOptions: {
-        display: types.OptionsDisplay.Color,
-        options: [
-          bulletColors.pink,
-          bulletColors.pinkLight,
-          bulletColors.azure,
-          bulletColors.azureLight,
-          bulletColors.green,
-          bulletColors.greenLight,
-        ],
-      },
-      // show: props => props.bulletListItems?.length > 0,
-    },
-  ],
+  sideEditProps: [BulletColorsSideEditProps],
 }
 
 export default BulletListItem
