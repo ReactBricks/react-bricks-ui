@@ -26,6 +26,7 @@ const HorizontalRule: types.Brick<HorizontalRuleProps> = ({ width, bg }) => {
 HorizontalRule.schema = {
   name: blockNames.HorizontalRule,
   label: 'Horizontal Rule',
+  category: 'rb-ui website',
   sideEditProps: [ContainerSizeSideEditProps, BackgroundColorsSideEditProps],
 }
 

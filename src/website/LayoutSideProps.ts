@@ -9,13 +9,13 @@ export const BackgroundColorsSideEditProps: types.ISideEditProp = {
     display: types.OptionsDisplay.Color,
     options: [
       bgColors.white,
-      bgColors.dark,
-      bgColors.darkBlue,
-      bgColors.gray,
-      bgColors.green,
       bgColors.light,
+      bgColors.gray,
       bgColors.lightBlue,
+      bgColors.green,
       bgColors.orange,
+      bgColors.darkBlue,
+      bgColors.dark,
     ],
   },
 }
