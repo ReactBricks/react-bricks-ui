@@ -36,7 +36,7 @@ const Button: types.Brick<ButtonProps> = ({
       className={classNames(
         'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150',
         padding === 'normal' ? 'px-8' : 'px-5',
-        isBigButton && ' w-3/5 text-center rounded-sm',
+        isBigButton && ' w-3/5 text-center rounded-full',
         {
           'bg-pink-500 text-white hover:bg-pink-600 hover:text-white':
             variant === 'pink' && type === 'solid',
@@ -87,7 +87,7 @@ Button.schema = {
     },
     {
       name: 'isBigButton',
-      label: 'Size button big?',
+      label: 'Full width button',
       type: types.SideEditPropType.Boolean,
     },
     {
