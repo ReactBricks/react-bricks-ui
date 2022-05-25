@@ -4,7 +4,7 @@ import blockNames from 'website/blockNames'
 import Section from 'website/layout/Section'
 import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 
-interface Props {
+export interface SpacerProps {
   range: number
   bg?: { color: string; className: string }
 }
@@ -38,7 +38,7 @@ const switchRange = (range: string) => {
   }
 }
 
-const Spacer: types.Brick<Props> = ({ range, bg }) => {
+const Spacer: types.Brick<SpacerProps> = ({ range, bg }) => {
   return (
     <Section bg={bg}>
       <div className={switchRange(range + '')} />
