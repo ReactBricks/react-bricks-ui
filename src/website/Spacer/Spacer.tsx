@@ -1,5 +1,5 @@
 import React from 'react'
-import { types } from 'react-bricks'
+import { types } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
 import Section from 'website/layout/Section'
 import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
