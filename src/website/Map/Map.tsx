@@ -42,6 +42,7 @@ export const MapBrick: types.Brick<MapProps> = ({
           zoom={10}
           provider={mapTilerProvider}
           dprs={[1, 2]}
+          metaWheelZoomWarning="Use ctrl + wheel to zoom!"
           {...rest}
         >
           <Marker anchor={[lat, lng]} />
