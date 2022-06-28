@@ -120,12 +120,21 @@ Customers.schema = {
     },
   ],
   sideEditProps: [
-    BackgroundColorsSideEditProps,
-    ContainerSizeSideEditProps,
     {
-      name: 'grayscale',
-      label: 'Greyscale',
-      type: types.SideEditPropType.Boolean,
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
+    {
+      groupName: 'Logos',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'grayscale',
+          label: 'Greyscale',
+          type: types.SideEditPropType.Boolean,
+        },
+      ],
     },
   ],
 }

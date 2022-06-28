@@ -94,7 +94,13 @@ FeatureCallout.schema = {
       seoName: 'content-creators',
     },
   }),
-  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
+  ],
 }
 
 export default FeatureCallout

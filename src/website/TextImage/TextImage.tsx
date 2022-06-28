@@ -211,11 +211,14 @@ TextImage.schema = {
     isRounded: false,
   }),
   sideEditProps: [
-    BackgroundColorsSideEditProps,
-    ContainerSizeSideEditProps,
+    {
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
     {
       groupName: 'Text',
-      defaultOpen: true,
+      defaultOpen: false,
       props: [
         {
           name: 'heroTitle',
@@ -233,6 +236,7 @@ TextImage.schema = {
     },
     {
       groupName: 'Image',
+      defaultOpen: false,
       props: [
         {
           name: 'multiple',

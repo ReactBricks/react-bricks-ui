@@ -72,9 +72,13 @@ MapBrick.schema = {
     lng: 9.5669407,
   }),
   sideEditProps: [
-    BackgroundColorsSideEditProps,
     {
-      groupName: 'Map',
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [BackgroundColorsSideEditProps],
+    },
+    {
+      groupName: 'Coordinates',
       defaultOpen: true,
       props: [
         {

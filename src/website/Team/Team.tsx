@@ -134,6 +134,12 @@ Team.schema = {
       max: 5,
     },
   ],
-  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
+  ],
 }
 export default Team

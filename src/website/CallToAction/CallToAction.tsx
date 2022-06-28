@@ -89,7 +89,13 @@ CallToAction.schema = {
       max: 1,
     },
   ],
-  sideEditProps: [ContainerSizeSideEditProps, BackgroundColorsSideEditProps],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
+  ],
 }
 
 export default CallToAction

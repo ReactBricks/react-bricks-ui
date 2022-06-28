@@ -159,7 +159,11 @@ HeroUnit.schema = {
     },
   ],
   sideEditProps: [
-    BackgroundColorsSideEditProps,
+    {
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [BackgroundColorsSideEditProps],
+    },
     {
       groupName: 'Title',
       defaultOpen: true,

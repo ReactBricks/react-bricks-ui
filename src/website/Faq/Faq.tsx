@@ -56,7 +56,13 @@ Faq.schema = {
       itemLabel: 'Question',
     },
   ],
-  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
+  ],
 }
 
 export default Faq

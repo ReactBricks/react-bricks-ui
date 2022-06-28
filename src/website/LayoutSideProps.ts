@@ -20,7 +20,7 @@ export const BackgroundColorsSideEditProps: types.ISideEditProp = {
   },
 }
 
-export const ContainerSizeSideEditProps = {
+export const ContainerSizeSideEditProps: types.ISideEditProp = {
   name: 'width',
   label: 'Width',
   type: types.SideEditPropType.Select,

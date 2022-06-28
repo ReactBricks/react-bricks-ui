@@ -119,7 +119,6 @@ ImageCarousel.schema = {
       },
     ],
   }),
-  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
   repeaterItems: [
     {
       name: 'singleImage',
@@ -127,6 +126,13 @@ ImageCarousel.schema = {
       itemLabel: 'Image',
       min: 1,
       max: 5,
+    },
+  ],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
     },
   ],
 }

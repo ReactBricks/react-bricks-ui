@@ -134,7 +134,13 @@ Testimonial.schema = {
       seoName: 'react-bricks',
     },
   }),
-  sideEditProps: [BackgroundColorsSideEditProps],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps],
+    },
+  ],
 }
 
 export default Testimonial

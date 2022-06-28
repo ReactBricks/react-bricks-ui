@@ -27,7 +27,13 @@ HorizontalRule.schema = {
   name: blockNames.HorizontalRule,
   label: 'Horizontal Rule',
   category: 'rb-ui website',
-  sideEditProps: [ContainerSizeSideEditProps, BackgroundColorsSideEditProps],
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: true,
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+    },
+  ],
 }
 
 export default HorizontalRule

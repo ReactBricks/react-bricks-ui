@@ -170,36 +170,33 @@ NewsletterSubscribe.schema = {
   }),
   sideEditProps: [
     {
-      name: 'centered',
-      label: 'Centered',
-      type: types.SideEditPropType.Boolean,
-    },
-    // {
-    //   name: 'provider',
-    //   label: 'Provider',
-    //   type: types.SideEditPropType.Select,
-    //   selectOptions: {
-    //     display: types.OptionsDisplay.Select,
-    //     options: [{ value: NewsletterProvider.MailChimp, label: 'MailChimp' }],
-    //   },
-    // },
-    {
-      name: 'mailchimpUrl',
-      label: 'Mailchimp Form URL',
-      type: types.SideEditPropType.Text,
-      validate: (value) =>
-        value && value.length > 10 && value.indexOf('https://') !== -1,
-      //&& value.indexOf('list-manage.com/subscribe/post?') !== -1,
-    },
-    {
-      name: 'buttonText',
-      label: 'Button text',
-      type: types.SideEditPropType.Text,
-    },
-    {
-      name: 'resultOkText',
-      label: 'Result OK text',
-      type: types.SideEditPropType.Text,
+      groupName: 'Newsletter',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'centered',
+          label: 'Centered',
+          type: types.SideEditPropType.Boolean,
+        },
+        {
+          name: 'mailchimpUrl',
+          label: 'Mailchimp Form URL',
+          type: types.SideEditPropType.Text,
+          validate: (value) =>
+            value && value.length > 10 && value.indexOf('https://') !== -1,
+          //&& value.indexOf('list-manage.com/subscribe/post?') !== -1,
+        },
+        {
+          name: 'buttonText',
+          label: 'Button text',
+          type: types.SideEditPropType.Text,
+        },
+        {
+          name: 'resultOkText',
+          label: 'Result OK text',
+          type: types.SideEditPropType.Text,
+        },
+      ],
     },
   ],
 }

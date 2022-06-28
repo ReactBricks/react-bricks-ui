@@ -120,19 +120,29 @@ Features.schema = {
     },
   ],
   sideEditProps: [
-    BackgroundColorsSideEditProps,
     {
-      name: 'screenLayout',
-      label: 'Screen Layout',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'base', label: 'Two columns' },
-          { value: 'small', label: 'Small two columns' },
-          { value: 'small-3cols', label: 'Three columns' },
-        ],
-      },
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [BackgroundColorsSideEditProps],
+    },
+    {
+      groupName: 'Columns',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'screenLayout',
+          label: 'Screen Layout',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Select,
+            options: [
+              { value: 'base', label: 'Two columns' },
+              { value: 'small', label: 'Small two columns' },
+              { value: 'small-3cols', label: 'Three columns' },
+            ],
+          },
+        },
+      ],
     },
   ],
 }
