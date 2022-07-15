@@ -1950,10 +1950,10 @@ react-big-calendar@^0.40.0:
     react-overlays "^4.1.1"
     uncontrollable "^7.2.1"
 
-react-bricks@^3.2.29:
-  version "3.2.29"
-  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.2.29.tgz#b970ab49254a6b34b9665a5d70b9da28fcc90fc8"
-  integrity sha512-OdDPFyadjtIZCSazqmNeQlx0nxJyrNSBm/ToG6o9stmhyJ2K4dFGC/1oIrHu3XdB54fLeBVBgrzC2Oi8HZAeww==
+react-bricks@3.3.0-beta.2:
+  version "3.3.0-beta.2"
+  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.3.0-beta.2.tgz#339d64ccd0c1e06fa526b8d398d577ebc918944a"
+  integrity sha512-DZjwHOcfk4A968ViAxXjckZN/KCQ8BzV/I5Hg47g7n8LUPHWKBX71X7m6uceBWLn4/4OqLQfEoRxSVU+0/TVyQ==
   dependencies:
     "@tippyjs/react" "^4.2.6"
     axios "^0.25.0"

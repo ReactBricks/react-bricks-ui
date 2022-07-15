@@ -52,7 +52,9 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
             ? 'w-24 md:w-auto h-auto md:h-24'
             : 'w-12 h-12'
         }
-        containerClassName="my-auto mr-6 md:mr-0 md:mb-5"
+        renderWrapper={({ children }) => {
+          return <div className="my-auto mr-6 md:mr-0 md:mb-5">{children}</div>
+        }}
       />
 
       <div className="flex-1">

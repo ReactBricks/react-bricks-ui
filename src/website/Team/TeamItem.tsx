@@ -23,8 +23,12 @@ const TeamItem: types.Brick<TeamItemProps> = ({
         alt="team-item"
         // containerClassName="w-12 h-12 lg:w-16 lg:h-16 mx-4 mb-8 bg-white rounded-full p-2 shadow-md flex justify-center items-center"
         // imageClassName="w-6 h-6 lg:w-10 lg:h-10"
-        containerClassName="w-24 h-24 mb-6 flex justify-center items-center bg-white rounded-full shadow-xl mx-auto"
         imageClassName="w-24 h-24 rounded-full"
+        renderWrapper={({ children }) => (
+          <div className="w-24 h-24 mb-6 flex justify-center items-center bg-white rounded-full shadow-xl mx-auto">
+            {children}
+          </div>
+        )}
       />
       <div className="text-center dark:text-gray-200 text-gray-500">
         <Text

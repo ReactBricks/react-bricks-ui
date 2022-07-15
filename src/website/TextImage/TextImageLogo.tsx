@@ -8,8 +8,12 @@ const TextImageLogo: types.Brick = ({ ...rest }) => {
       <Image
         propName="imageSource"
         alt="logo"
-        containerClassName="w-16 h-16 lg:w-24 lg:h-24 mx-3 mb-6 p-2 flex justify-center items-center bg-white rounded-full shadow-xl"
         imageClassName="w-12 h-12 lg:w-16 lg:h-16"
+        renderWrapper={({ children }) => (
+          <div className="w-16 h-16 lg:w-24 lg:h-24 mx-3 mb-6 p-2 flex justify-center items-center bg-white rounded-full shadow-xl">
+            {children}
+          </div>
+        )}
       />
     </div>
   )
@@ -26,8 +30,7 @@ TextImageLogo.schema = {
 
   getDefaultProps: () => ({
     imageSource: {
-      src:
-        'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
+      src: 'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       placeholderSrc:
         'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
       srcSet: '',
