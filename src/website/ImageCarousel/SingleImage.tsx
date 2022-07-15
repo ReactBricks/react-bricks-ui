@@ -8,7 +8,6 @@ const SingleImage: types.Brick<Props> = ({ ...rest }) => {
   return (
     <div {...rest} className="flex justify-center">
       <Image
-        noWrapper
         propName="image"
         alt="altText"
         maxWidth={1200}
