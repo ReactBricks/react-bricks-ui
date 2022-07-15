@@ -26,6 +26,7 @@ interface SectionProps {
   borderTop?: Border
   borderBottom?: Border
   className?: string
+  children?: React.ReactNode
 }
 
 const Section: React.FC<SectionProps> = ({

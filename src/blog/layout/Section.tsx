@@ -4,6 +4,7 @@ import { bgColors } from '../../website/colors'
 
 export interface SectionProps {
   bg?: { color: string; className: string }
+  children?: React.ReactNode
 }
 const Section: React.FC<SectionProps> = ({
   bg = bgColors.white.value,

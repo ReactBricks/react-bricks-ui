@@ -6,6 +6,7 @@ export type Size = 'lg' | 'md' | 'sm' | 'full'
 export interface ContainerProps {
   size?: Size
   className?: string
+  children?: React.ReactNode
 }
 
 const getWidthClass = (size: Size) => {
