@@ -50,7 +50,7 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         imageClassName={
           screenLayout === 'base'
             ? 'w-24 md:w-auto h-auto md:h-24'
-            : 'w-12 h-12'
+            : 'w-12 md:w-auto h-auto md:h-12'
         }
         renderWrapper={({ children }) => {
           return <div className="my-auto mr-6 md:mr-0 md:mb-5">{children}</div>

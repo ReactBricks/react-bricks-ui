@@ -16,9 +16,9 @@ export interface FeaturesProps {
 const getRepeaterWidht = (screenLayout: layoutType) => {
   switch (screenLayout) {
     case 'base':
-      return 'max-w-3xl'
+      return 'w-full max-w-3xl'
     case 'small':
-      return 'max-w-2xl'
+      return 'w-full max-w-2xl'
     case 'small-3cols':
       return 'md:w-full max-w-5xl md:-mx-8'
   }
@@ -41,7 +41,7 @@ const Features: types.Brick<FeaturesProps> = ({
           renderWrapper={(items) => (
             <div
               className={classNames(
-                'flex flex-wrap  justify-between mx-auto px-6 md:px-0',
+                'flex flex-wrap justify-between mx-auto px-6 md:px-0',
                 getRepeaterWidht(screenLayout)
               )}
             >
