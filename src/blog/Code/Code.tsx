@@ -27,6 +27,11 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
   dataline = '',
   showLineNumbers = false,
 }) => {
+  const [hasMount, setHasMount] = React.useState(false)
+  React.useEffect(() => {
+    setHasMount(true)
+  }, [])
+
   const [value, onChange, isReadOnly] = useVisualEdit('code')
   const plugins = []
   if (showLineNumbers) {
@@ -36,6 +41,9 @@ const CodeBrick: types.Brick<CodeBrickProps> = ({
     plugins.push('line-highlight')
   }
 
+  if (!hasMount) {
+    return null
+  }
   if (isReadOnly) {
     return (
       <Section>

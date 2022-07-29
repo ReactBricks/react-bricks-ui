@@ -6,11 +6,11 @@ import {
   types,
   useAdminContext,
   plugins,
+  RichText,
 } from 'react-bricks/frontend'
 import { FaTwitter } from 'react-icons/fa'
 import Section from '../layout/Section'
 import blockNames from '../blockNames'
-import dayjs from 'dayjs'
 
 export interface TweetLightProps {
   tweetLink: string
@@ -83,7 +83,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
               <FaTwitter />
             </div>
           </div>
-          <RichTextExt
+          <RichText
             propName="tweetContent"
             placeholder="tweet content"
             renderBlock={({ children }) => (
@@ -91,35 +91,22 @@ const TweetLight: types.Brick<TweetLightProps> = ({
                 {children}
               </div>
             )}
-            plugins={[
-              {
-                ...plugins.link,
-                renderElement: ({ attributes, children, element }) => {
-                  return (
-                    <a
-                      {...attributes}
-                      href={(element as any).url}
-                      onClick={(event: React.MouseEvent) =>
-                        event.stopPropagation()
-                      }
-                      className="hover:text-sky-600"
-                      onMouseEnter={() => setIsMouseOver(true)}
-                      onMouseLeave={() => setIsMouseOver(false)}
-                      style={{ color: isMouseOver ? '#1a8cd8' : '#1d9bf0' }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {children}
-                    </a>
-                  )
-                },
-                label: 'Twitter profile link',
-                button: {
-                  isActive: plugins.link.button!.isActive,
-                  icon: <FaTwitter />,
-                },
-              },
-            ]}
+            allowedFeatures={[types.RichTextFeatures.Link]}
+            renderLink={({ children, href, attributes }) => (
+              <a
+                {...attributes}
+                href={href}
+                onClick={(event: React.MouseEvent) => event.stopPropagation()}
+                className="hover:text-sky-600"
+                onMouseEnter={() => setIsMouseOver(true)}
+                onMouseLeave={() => setIsMouseOver(false)}
+                style={{ color: isMouseOver ? '#1a8cd8' : '#1d9bf0' }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {children}
+              </a>
+            )}
           />
 
           <Text

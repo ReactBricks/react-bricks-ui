@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import { MdArrowLeft, MdArrowRight } from 'react-icons/md'
 import Slider from 'react-slick'
@@ -80,8 +80,15 @@ const Carousel = ({ repeaterElement }: any) => {
 }
 
 const ImageCarousel: types.Brick<ImageCarouselProps> = ({ bg, width }) => {
+  const [hasMount, setHasMount] = useState(false)
+  useEffect(() => {
+    setHasMount(true)
+  }, [])
   const repeaterElement = Repeater({ propName: 'singleImage' })
 
+  if (!hasMount) {
+    return null
+  }
   if (width === 'full') {
     return (
       <div className="my-2">
