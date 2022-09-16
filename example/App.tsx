@@ -4,7 +4,7 @@ import { Router, Link, navigate } from '@reach/router'
 import classNames from 'classnames'
 import * as dotenv from 'dotenv'
 
-import { ReactBricks } from 'react-bricks'
+import { ReactBricks, types } from 'react-bricks/frontend'
 import bricks from 'react-bricks-ui'
 
 import Login from './Login'
@@ -33,6 +33,7 @@ const App = () => {
 
   return (
     <ReactBricks
+      blockIconsPosition={types.BlockIconsPosition.OutsideBlock}
       appId={appId}
       apiKey={apiKey}
       bricks={bricks}
@@ -72,9 +73,6 @@ const App = () => {
 
         <Editor path="/editor" />
         <Playground path="/playground" />
-        {/* <Playground path="/playground" />
-        <AppSettings path="/app-settings" />
-        <Viewer path="/page/:slug" /> */}
       </Router>
     </ReactBricks>
   )

@@ -13,8 +13,9 @@ export interface MapProps {
   size?: 'medium' | 'large'
   width?: Size
 
-  lat: number
-  lng: number
+  zoom: string
+  lat: string
+  lng: string
 }
 const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
 const MAP_ID = 'streets'
@@ -28,15 +29,16 @@ const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
 export const MapBrick: types.Brick<MapProps> = ({
   width,
   bg,
-  lat = 45.9,
-  lng = 9.5,
+  lat = '45.6782509',
+  lng = '9.5669407',
+  zoom = '10',
   ...rest
 }) => {
   return (
     <Section bg={bg}>
       <Container size={width}>
         <Map
-          center={[lat, lng]}
+          center={[parseFloat(lat), parseFloat(lng)]}
           height={350}
           metaWheelZoom
           zoom={10}
@@ -45,7 +47,7 @@ export const MapBrick: types.Brick<MapProps> = ({
           metaWheelZoomWarning="Use ctrl + wheel to zoom!"
           {...rest}
         >
-          <Marker anchor={[lat, lng]} />
+          <Marker anchor={[parseFloat(lat), parseFloat(lng)]} />
         </Map>
       </Container>
     </Section>
@@ -81,6 +83,11 @@ MapBrick.schema = {
       groupName: 'Coordinates',
       defaultOpen: true,
       props: [
+        {
+          name: 'zoom',
+          label: 'Zoom',
+          type: types.SideEditPropType.Number,
+        },
         {
           name: 'lat',
           label: 'Latitude',
