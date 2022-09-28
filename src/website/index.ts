@@ -24,6 +24,14 @@ import SingleImage from './ImageCarousel/SingleImage'
 import Video from 'blog/Video/Video'
 import HorizontalRule from './HorizontalRule/HorizontalRule'
 import Spacer from './Spacer/Spacer'
+import FormBuilder from './FormBuilder/FormBuilder'
+import FormButton from './FormBuilder/FormButton'
+import FormCheckbox from './FormBuilder/FormCheckbox'
+import FormInput from './FormBuilder/FormInput'
+import FormSelect from './FormBuilder/FormSelect'
+import FormRadiobuttons from './FormBuilder/FormRadiobuttons'
+import FormSingleRadio from './FormBuilder/FormSingleRadio'
+import FormTextarea from './FormBuilder/FormTextarea'
 
 export {
   Badge,
@@ -52,6 +60,14 @@ export {
   Spacer,
   // Document,
   // Documents,
+  FormBuilder,
+  FormButton,
+  FormCheckbox,
+  FormInput,
+  FormSelect,
+  FormRadiobuttons,
+  FormSingleRadio,
+  FormTextarea,
 }
 
 const allBricks = [
@@ -81,6 +97,14 @@ const allBricks = [
   Spacer,
   // Document,
   // Documents,
+  FormBuilder,
+  FormButton,
+  FormCheckbox,
+  FormInput,
+  FormSelect,
+  FormRadiobuttons,
+  FormSingleRadio,
+  FormTextarea,
 ]
 
 export default allBricks

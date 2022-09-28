@@ -32,6 +32,14 @@ enum blockNames {
   SingleImage = 'single-image',
   HorizontalRule = 'horizontal-rule',
   Spacer = 'spacer',
+  FormBuilder = 'form-builder',
+  FormButton = 'form-button',
+  FormCheckbox = 'form-checkbox',
+  FormInput = 'form-input',
+  FormRadiobuttons = 'form-radiobuttons',
+  FormSelect = 'form-select',
+  FormSingleRadio = 'form-single-radio',
+  FormTextArea = 'form-text-area',
 }
 
 export default blockNames
