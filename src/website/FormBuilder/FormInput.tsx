@@ -10,7 +10,7 @@ interface Props {
     [x: string]: any
   }>
   fieldName?: string
-  label: string
+  label?: string
   isRequired: boolean
   inputType: 'text' | 'number' | 'date'
   key: string
@@ -41,9 +41,9 @@ const strToRegex = (strRegex: string | undefined): RegExp | undefined => {
 const FormInput: types.Brick<Props> = ({
   register,
   isRequired = true,
-  fieldName = 'test',
-  label = 'Label',
-  inputType = 'text',
+  fieldName = '',
+  label,
+  inputType,
   key,
   pattern,
   errors,
@@ -58,14 +58,14 @@ const FormInput: types.Brick<Props> = ({
         columns === 'two' && 'col-span-2'
       )}
     >
-      <span className="block text-gray-400 group-hover:text-indigo-600 font-medium uppercase tracking-widest text-sm peer-focus:text-indigo-700">
+      <span className="block text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 font-medium uppercase tracking-widest text-sm peer-focus:text-indigo-700">
         {label}
         {isRequired && <span className="text-red-600 ml-2">*</span>}
       </span>
       <input
         type={inputType}
         className={clsx(
-          'w-full px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:shadow-indigo-200 focus:shadow-lg peer',
+          'w-full px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:shadow-indigo-200 dark:focus:shadow-indigo-900 focus:shadow-lg peer',
           errors[fieldName] ? 'ring-1 ring-red-400' : 'ring-indigo-500'
         )}
         {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
@@ -93,9 +93,14 @@ FormInput.schema = {
   // tags: [],
 
   getDefaultProps: () => ({
-    fieldName: 'test',
-    isRequired: true,
+    fieldName: 'inputField',
+    isRequired: false,
     inputType: 'text',
+    columns: 'two',
+    label: 'Input Field Label',
+    requiredError: '',
+    pattern: '',
+    patternError: '',
   }),
 
   sideEditProps: [

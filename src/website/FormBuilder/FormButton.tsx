@@ -44,7 +44,7 @@ FormButton.schema = {
         type: 'paragraph',
         children: [
           {
-            text: 'Button',
+            text: 'Submit',
           },
         ],
       },

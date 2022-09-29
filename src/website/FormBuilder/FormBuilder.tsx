@@ -1,6 +1,5 @@
 import * as React from 'react'
-import clsx from 'clsx'
-import { Repeater, types } from 'react-bricks/frontend'
+import { Repeater, Text, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import blockNames from 'website/blockNames'
 
@@ -17,12 +16,21 @@ const FormBuilder: types.Brick<Props> = ({ columns }) => {
 
   return (
     <>
+      <Text
+        propName="formTitle"
+        placeholder="Type a Title..."
+        renderBlock={({ children }) => (
+          <div className="flex justify-center">
+            <h1 className="text-2xl w-auto font-medium text-gray-900 dark:text-white">
+              {children}
+            </h1>
+          </div>
+        )}
+      />
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={clsx(
-          'py-4 max-w-2xl mx-auto px-8',
-          columns === 'one' ? '' : 'grid grid-cols-2 gap-2'
-        )}
+        className="py-4 max-w-2xl mx-auto px-8 grid grid-cols-2 gap-4"
       >
         <Repeater propName="form-elements" itemProps={{ register, errors }} />
         <Repeater
@@ -64,61 +72,32 @@ FormBuilder.schema = {
   ],
 
   getDefaultProps: () => ({
-    columns: 'two',
-    'form-elements': [
+    formTitle: [
       {
-        fieldName: 'Test',
-        isRequired: true,
-        inputType: 'text',
-      },
-      {
-        isRequired: false,
-        fieldName: 'Textarea',
-      },
-      {
-        isRequired: false,
-        fieldName: 'Checkbox',
-      },
-      {
-        isRequired: false,
-        values: 'value : Label\ntest : Test',
-        fieldName: 'Select',
-      },
-    ],
-    'form-buttons': [
-      {
-        type: 'submit',
-        color: {
-          color: '#3b82f6',
-          className: 'bg-blue-500',
-        },
-        buttonLabel: [
+        type: 'paragraph',
+        children: [
           {
-            type: 'paragraph',
-            children: [
-              {
-                text: 'Sumbit',
-              },
-            ],
+            text: 'Form Title',
           },
         ],
       },
     ],
-  }),
-  sideEditProps: [
-    {
-      name: 'columns',
-      label: 'Columns',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Radio,
-        options: [
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
-        ],
+    'form-elements': [
+      {
+        type: blockNames.FormInput,
+        props: {
+          fieldName: 'inputField',
+          isRequired: false,
+          inputType: 'text',
+          columns: 'two',
+          label: 'Input Field',
+          requiredError: '',
+          pattern: '',
+          patternError: '',
+        },
       },
-    },
-  ],
+    ],
+  }),
 }
 
 export default FormBuilder

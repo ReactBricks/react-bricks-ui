@@ -7,6 +7,7 @@ import blockNames from 'website/blockNames'
 interface Props {
   register?: UseFormRegister<any>
   fieldName?: string
+  fieldLabel?: string
   isRequired: boolean
   columns: 'one' | 'two'
 }
@@ -14,11 +15,17 @@ interface Props {
 const FormRadiobuttons: types.Brick<Props> = ({
   register,
   fieldName,
+  fieldLabel,
   isRequired,
   columns,
 }) => {
   return (
-    <div className={clsx('w-full', columns === 'two' && 'col-span-2')}>
+    <div
+      className={clsx('w-full px-2 py-1', columns === 'two' && 'col-span-2')}
+    >
+      <span className="block text-gray-400 group-hover:text-indigo-600 font-medium uppercase tracking-widest text-sm peer-focus:text-indigo-700 mb-2">
+        {fieldLabel}
+      </span>
       <Repeater
         propName="radiobuttons"
         itemProps={{
@@ -38,7 +45,18 @@ FormRadiobuttons.schema = {
   hideFromAddMenu: true,
 
   // Defaults when a new brick is added
-  getDefaultProps: () => ({}),
+  getDefaultProps: () => ({
+    columns: 'one',
+    fieldName: 'radiobuttonsField',
+    fieldLabel: 'Radiobuttons Label',
+    radiobuttons: [
+      {
+        label: 'Label single radio',
+        value: 'value',
+      },
+    ],
+    isRequired: false,
+  }),
 
   repeaterItems: [
     {
@@ -66,6 +84,11 @@ FormRadiobuttons.schema = {
       name: 'fieldName',
       type: types.SideEditPropType.Text,
       label: 'Field Name',
+    },
+    {
+      name: 'fieldLabel',
+      type: types.SideEditPropType.Text,
+      label: 'Field label',
     },
     {
       name: 'isRequired',

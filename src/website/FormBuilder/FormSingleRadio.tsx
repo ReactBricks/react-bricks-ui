@@ -21,13 +21,13 @@ const FormSingleRadio: types.Brick<Props> = ({
   key,
 }) => {
   return (
-    <label className="col-span-1">
+    <label className="block">
       <input
         {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key)}
         type="radio"
         value={value}
       />
-      <span className="ml-2">{label}</span>
+      <span className="ml-2 text-gray-800 dark:text-gray-50">{label}</span>
     </label>
   )
 }
@@ -41,8 +41,8 @@ FormSingleRadio.schema = {
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
-    label: 'Label',
-    value: 'ciao',
+    label: 'Label single radio',
+    value: 'value',
   }),
 
   // Sidebar Edit controls for props

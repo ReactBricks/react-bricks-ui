@@ -31,15 +31,18 @@ const FormTextarea: types.Brick<Props> = ({
     <label
       className={clsx(
         'px-2 py-1 group block',
-        columns === 'two' && 'col-span-2'
+        columns === 'two' ? 'col-span-2' : ''
       )}
     >
-      <span className="block text-gray-400 group-hover:text-indigo-600 font-medium uppercase tracking-widest text-sm peer-focus:text-indigo-700">
+      <span className="block text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 font-medium uppercase tracking-widest text-sm peer-focus:text-indigo-700">
         {label} {isRequired && <span className="text-red-600">*</span>}
       </span>
 
       <textarea
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 ring-indigo-500 focus:shadow-indigo-200 focus:shadow-lg peer"
+        className={clsx(
+          'w-full px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:shadow-indigo-200 dark:focus:shadow-indigo-900 focus:shadow-lg peer',
+          errors[fieldName] ? 'ring-1 ring-red-400' : 'ring-indigo-500'
+        )}
         {...register(fieldName.toLowerCase() || key, {
           required: isRequired,
         })}
@@ -61,7 +64,11 @@ FormTextarea.schema = {
   hideFromAddMenu: true,
 
   getDefaultProps: () => ({
-    label: 'Label',
+    columns: 'two',
+    fieldName: 'textareaField',
+    label: 'Textarea Field',
+    isRequired: false,
+    requiredError: '',
   }),
 
   sideEditProps: [

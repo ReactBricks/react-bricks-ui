@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { types } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
+import blockNames from 'website/blockNames'
 
 interface Props {
   register: UseFormRegister<any>
@@ -27,21 +28,16 @@ const FormCheckbox: types.Brick<Props> = ({
   columns,
 }) => {
   return (
-    <div>
-      <label
-        className={clsx(
-          'px-2 py-1 flex items-center',
-          columns === 'two' && 'col-span-2'
-        )}
-      >
+    <div className={columns === 'two' ? 'col-span-2' : ''}>
+      <label className="px-2 py-1 flex items-center">
         <input
           type="checkbox"
-          className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+          className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:-0 focus:ring-offset-0"
           {...register(fieldName?.replace(/\s/g, '') || key, {
             required: isRequired,
           })}
         />
-        <span className="ml-2 text-gray-600 font-medium">
+        <span className="ml-2 text-gray-600 dark:text-gray-50 font-medium">
           {label}
           {isRequired && <span className="text-red-600 ml-2">*</span>}
         </span>
@@ -54,12 +50,17 @@ const FormCheckbox: types.Brick<Props> = ({
 }
 
 FormCheckbox.schema = {
-  name: 'form-checkbox',
+  name: blockNames.FormCheckbox,
   label: 'Form Checkbox',
   category: 'Tailblock Form',
   hideFromAddMenu: true,
 
-  getDefaultProps: () => ({}),
+  getDefaultProps: () => ({
+    label: 'Checkbox Field',
+    columns: 'two',
+    isRequired: false,
+    fieldName: 'checkboxField',
+  }),
 
   sideEditProps: [
     {
