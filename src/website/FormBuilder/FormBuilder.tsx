@@ -1,13 +1,17 @@
+import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, Text, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import blockNames from 'website/blockNames'
+import Container from 'website/layout/Container'
+import Section from 'website/layout/Section'
+import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 
 interface Props {
-  columns: 'one' | 'two'
+  bg?: { color: string; className: string }
 }
 
-const FormBuilder: types.Brick<Props> = ({ columns }) => {
+const FormBuilder: types.Brick<Props> = ({ bg }) => {
   const {
     register,
     handleSubmit,
@@ -15,34 +19,36 @@ const FormBuilder: types.Brick<Props> = ({ columns }) => {
   } = useForm()
 
   return (
-    <>
-      <Text
-        propName="formTitle"
-        placeholder="Type a Title..."
-        renderBlock={({ children }) => (
-          <div className="flex justify-center">
-            <h1 className="text-2xl w-auto font-medium text-gray-900 dark:text-white">
-              {children}
-            </h1>
-          </div>
-        )}
-      />
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="py-4 max-w-2xl mx-auto px-8 grid grid-cols-2 gap-4"
-      >
-        <Repeater propName="form-elements" itemProps={{ register, errors }} />
-        <Repeater
-          propName="form-buttons"
-          renderWrapper={(items) => (
-            <div className="w-full flex justify-center space-x-6 col-span-2">
-              {items}
+    <Section bg={bg}>
+      <Container size="lg" className="py-12 xl:py-20">
+        <Text
+          propName="formTitle"
+          placeholder="Type a Title..."
+          renderBlock={({ children }) => (
+            <div className="flex justify-center">
+              <h1 className="text-2xl w-auto font-medium text-gray-900 dark:text-white">
+                {children}
+              </h1>
             </div>
           )}
         />
-      </form>
-    </>
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="py-4 max-w-2xl mx-auto px-8 grid grid-cols-2 gap-4"
+        >
+          <Repeater propName="form-elements" itemProps={{ register, errors }} />
+          <Repeater
+            propName="form-buttons"
+            renderWrapper={(items) => (
+              <div className="w-full flex justify-center space-x-6 col-span-2">
+                {items}
+              </div>
+            )}
+          />
+        </form>
+      </Container>
+    </Section>
   )
 }
 const onSubmit = (values: any) => console.log(values)
@@ -72,6 +78,10 @@ FormBuilder.schema = {
   ],
 
   getDefaultProps: () => ({
+    bg: {
+      color: '#fff',
+      className: 'bg-white dark:bg-gray-900',
+    },
     formTitle: [
       {
         type: 'paragraph',
@@ -98,6 +108,14 @@ FormBuilder.schema = {
       },
     ],
   }),
+
+  sideEditProps: [
+    {
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [BackgroundColorsSideEditProps],
+    },
+  ],
 }
 
 export default FormBuilder
