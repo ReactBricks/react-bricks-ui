@@ -8,10 +8,10 @@ interface Props {
 
 const TableCell: types.Brick<Props> = ({ isHeader }) => {
   return isHeader ? (
-    <th className="px-4 py-3 bg-gray-100 dark:bg-gray-800">
+    <th className="px-4 py-3 bg-gray-100 dark:bg-gray-800 text-left">
       <Text
         propName="cellText"
-        placeholder="Type a column..."
+        placeholder="Insert text"
         renderBlock={({ children }) => (
           <span className="title-font tracking-wider font-medium text-gray-900 dark:text-white text-sm">
             {children}
@@ -20,10 +20,10 @@ const TableCell: types.Brick<Props> = ({ isHeader }) => {
       />
     </th>
   ) : (
-    <td className="px-4 py-3">
+    <td className="px-4 py-3 border-b-2 border-gray-200">
       <Text
         propName="cellText"
-        placeholder="Type a column..."
+        placeholder="Insert text"
         renderBlock={({ children }) => <span>{children}</span>}
       />
     </td>

@@ -32,7 +32,7 @@ const FormCheckbox: types.Brick<Props> = ({
       <label className="px-2 py-1 flex items-center">
         <input
           type="checkbox"
-          className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:-0 focus:ring-offset-0"
+          className="rounded border-gray-300 accent-sky-500 shadow-sm focus:border-sky-300 focus:-0 focus:ring-offset-0"
           {...register(fieldName?.replace(/\s/g, '') || key, {
             required: isRequired,
           })}
