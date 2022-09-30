@@ -32,6 +32,9 @@ import FormSelect from './FormBuilder/FormSelect'
 import FormRadiobuttons from './FormBuilder/FormRadiobuttons'
 import FormSingleRadio from './FormBuilder/FormSingleRadio'
 import FormTextarea from './FormBuilder/FormTextarea'
+import Table from './TableBuilder/Table'
+import TableRow from './TableBuilder/TableRow'
+import TableCell from './TableBuilder/TableCell'
 
 export {
   Badge,
@@ -68,6 +71,9 @@ export {
   FormRadiobuttons,
   FormSingleRadio,
   FormTextarea,
+  Table,
+  TableRow,
+  TableCell,
 }
 
 const allBricks = [
@@ -105,6 +111,9 @@ const allBricks = [
   FormRadiobuttons,
   FormSingleRadio,
   FormTextarea,
+  Table,
+  TableRow,
+  TableCell,
 ]
 
 export default allBricks

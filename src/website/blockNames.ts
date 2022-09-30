@@ -40,6 +40,9 @@ enum blockNames {
   FormSelect = 'form-select',
   FormSingleRadio = 'form-single-radio',
   FormTextArea = 'form-text-area',
+  Table = 'table',
+  TableRow = 'table-row',
+  TableCell = 'table-cell',
 }
 
 export default blockNames

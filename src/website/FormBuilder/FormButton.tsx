@@ -13,7 +13,10 @@ const FormButton: types.Brick<Props> = ({ type, color }) => {
   return (
     <button
       type={type}
-      className={clsx('rounded-lg px-2 py-1 text-white', color?.className)}
+      className={clsx(
+        'py-3 px-5 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150',
+        color?.className
+      )}
     >
       <Text
         propName="buttonLabel"
@@ -36,8 +39,8 @@ FormButton.schema = {
   getDefaultProps: () => ({
     type: 'submit',
     color: {
-      color: '#3b82f6',
-      className: 'bg-blue-500',
+      color: '#0ea5e9',
+      className: 'bg-sky-500 text-white hover:bg-sky-600 hover:text-white',
     },
     buttonLabel: [
       {
@@ -73,15 +76,25 @@ FormButton.schema = {
         options: [
           {
             value: {
-              color: '#3b82f6',
-              className: 'bg-blue-500',
+              color: '#0ea5e9',
+              className:
+                'bg-sky-500 text-white hover:bg-sky-600 hover:text-white',
             },
             label: 'Blue',
           },
           {
             value: {
-              color: '#9CA3AF',
-              className: 'bg-gray-400',
+              color: '#ec489a',
+              className:
+                'bg-pink-500 text-white hover:bg-pink-600 hover:text-white',
+            },
+            label: 'Pink',
+          },
+          {
+            value: {
+              color: '#6b7280',
+              className:
+                'bg-gray-500 text-white hover:bg-gray-600 hover:text-white',
             },
             label: 'Gray',
           },
