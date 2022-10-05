@@ -2,9 +2,9 @@ import * as React from 'react'
 import clsx from 'clsx'
 import { types } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormInputProps {
   register: UseFormRegister<any>
   errors: FieldErrorsImpl<{
     [x: string]: any
@@ -38,7 +38,7 @@ const strToRegex = (strRegex: string | undefined): RegExp | undefined => {
   }
 }
 
-const FormInput: types.Brick<Props> = ({
+const FormInput: types.Brick<FormInputProps> = ({
   register,
   isRequired = true,
   fieldName = '',

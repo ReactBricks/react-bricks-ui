@@ -2,9 +2,9 @@ import * as React from 'react'
 import { types } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import clsx from 'clsx'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormSelectProps {
   register: UseFormRegister<any>
   fieldName?: string
   label: string
@@ -18,7 +18,7 @@ interface Props {
   columns: 'one' | 'two'
 }
 
-const FormSelect: types.Brick<Props> = ({
+const FormSelect: types.Brick<FormSelectProps> = ({
   values,
   isRequired,
   register,

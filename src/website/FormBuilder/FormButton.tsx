@@ -2,14 +2,14 @@ import * as React from 'react'
 import clsx from 'clsx'
 
 import { Text, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormButtonProps {
   type: 'submit' | 'reset'
   color?: { color: string; className: string }
 }
 
-const FormButton: types.Brick<Props> = ({ type, color }) => {
+const FormButton: types.Brick<FormButtonProps> = ({ type, color }) => {
   return (
     <button
       type={type}

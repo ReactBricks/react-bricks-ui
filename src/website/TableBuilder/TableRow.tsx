@@ -1,12 +1,12 @@
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface TableRowProps {
   index: number
 }
 
-const TableRow: types.Brick<Props> = ({ index }) => {
+const TableRow: types.Brick<TableRowProps> = ({ index }) => {
   {
     return index === 0 ? (
       <thead>

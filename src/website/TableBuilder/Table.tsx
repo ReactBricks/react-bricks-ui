@@ -1,15 +1,15 @@
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import Container from 'website/layout/Container'
-import Section from 'website/layout/Section'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import blockNames from '../blockNames'
+import Container from '../layout/Container'
+import Section from '../layout/Section'
+import { BackgroundColorsSideEditProps } from '../LayoutSideProps'
 
-interface Props {
+export interface TableProps {
   bg?: { color: string; className: string }
 }
 
-const Table: types.Brick<Props> = ({ bg }) => {
+const Table: types.Brick<TableProps> = ({ bg }) => {
   return (
     <Section bg={bg}>
       <Container size="lg" className="py-12 xl:py-20">

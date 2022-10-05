@@ -2,16 +2,16 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, Text, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
-import blockNames from 'website/blockNames'
-import Container from 'website/layout/Container'
-import Section from 'website/layout/Section'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import blockNames from '../blockNames'
+import Container from '../layout/Container'
+import Section from '../layout/Section'
+import { BackgroundColorsSideEditProps } from '../LayoutSideProps'
 
-interface Props {
+export interface FormBuilderProps {
   bg?: { color: string; className: string }
 }
 
-const FormBuilder: types.Brick<Props> = ({ bg }) => {
+const FormBuilder: types.Brick<FormBuilderProps> = ({ bg }) => {
   const {
     register,
     handleSubmit,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 import Container, { Size } from 'website/layout/Container'
 import Section from 'website/layout/Section'
 import {

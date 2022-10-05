@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { types } from 'react-bricks/frontend'
 import { UseFormRegister } from 'react-hook-form'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormSingleRadioProps {
   register: UseFormRegister<any>
   fieldName?: string
   label: string
@@ -12,7 +12,7 @@ interface Props {
   key: string
 }
 
-const FormSingleRadio: types.Brick<Props> = ({
+const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
   register,
   fieldName,
   label,

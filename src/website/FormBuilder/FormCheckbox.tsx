@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { types } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormCheckboxProps {
   register: UseFormRegister<any>
   fieldName: string
   label: string
@@ -17,7 +17,7 @@ interface Props {
   columns: 'one' | 'two'
 }
 
-const FormCheckbox: types.Brick<Props> = ({
+const FormCheckbox: types.Brick<FormCheckboxProps> = ({
   register,
   isRequired = true,
   fieldName,

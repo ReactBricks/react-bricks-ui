@@ -1,12 +1,12 @@
 import React from 'react'
 import { Text, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface TableCellProps {
   isHeader: boolean
 }
 
-const TableCell: types.Brick<Props> = ({ isHeader }) => {
+const TableCell: types.Brick<TableCellProps> = ({ isHeader }) => {
   return isHeader ? (
     <th className="px-4 py-3 bg-gray-100 dark:bg-gray-800 text-left">
       <Text

@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import { UseFormRegister } from 'react-hook-form'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormRadiobuttonsProps {
   register?: UseFormRegister<any>
   fieldName?: string
   fieldLabel?: string
@@ -12,7 +12,7 @@ interface Props {
   columns: 'one' | 'two'
 }
 
-const FormRadiobuttons: types.Brick<Props> = ({
+const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
   register,
   fieldName,
   fieldLabel,

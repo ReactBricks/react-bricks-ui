@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { types } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 
-interface Props {
+export interface FormTextareaProps {
   register: UseFormRegister<any>
   isRequired: boolean
   fieldName?: string
@@ -17,7 +17,7 @@ interface Props {
   columns: 'one' | 'two'
 }
 
-const FormTextarea: types.Brick<Props> = ({
+const FormTextarea: types.Brick<FormTextareaProps> = ({
   fieldName = 'text area',
   label,
   isRequired = true,
