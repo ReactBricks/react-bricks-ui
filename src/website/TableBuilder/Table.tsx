@@ -24,7 +24,7 @@ const Table: types.Brick<Props> = ({ bg }) => {
 Table.schema = {
   name: blockNames.Table,
   label: 'Table',
-  category: 'Multilevel',
+  category: 'rb-ui website',
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
