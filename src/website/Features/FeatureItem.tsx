@@ -34,7 +34,7 @@ const screen = (screenLayout: layoutType) => {
 const FeatureItem: types.Brick<FeatureItemProps> = ({
   screenLayout,
   isTextCenter = false,
-  ...rest
+
 }) => {
   return (
     <div
@@ -42,7 +42,6 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
         `flex md:flex-col ${screen(screenLayout)} mb-16`,
         isTextCenter && 'text-center items-center'
       )}
-      {...rest}
     >
       <Image
         propName="image"

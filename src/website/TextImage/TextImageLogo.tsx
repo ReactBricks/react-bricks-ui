@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Image, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 
-const TextImageLogo: types.Brick = ({ ...rest }) => {
+const TextImageLogo: types.Brick = () => {
   return (
-    <div {...rest}>
+    <div>
       <Image
         propName="imageSource"
         alt="logo"

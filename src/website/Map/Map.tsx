@@ -32,7 +32,6 @@ export const MapBrick: types.Brick<MapProps> = ({
   lat = '45.6782509',
   lng = '9.5669407',
   zoom = '10',
-  ...rest
 }) => {
   return (
     <Section bg={bg}>
@@ -45,7 +44,6 @@ export const MapBrick: types.Brick<MapProps> = ({
           provider={mapTilerProvider}
           dprs={[1, 2]}
           metaWheelZoomWarning="Use ctrl + wheel to zoom!"
-          {...rest}
         >
           <Marker anchor={[parseFloat(lat), parseFloat(lng)]} />
         </Map>

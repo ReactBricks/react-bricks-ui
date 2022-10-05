@@ -5,9 +5,9 @@ import { Text, RichText, types } from 'react-bricks/frontend'
 import { textColors } from '../colors'
 import blockNames from '../blockNames'
 
-const FaqQuestion: types.Brick = ({ ...rest }) => {
+const FaqQuestion: types.Brick = () => {
   return (
-    <div className="leading-6 mb-12" {...rest}>
+    <div className="leading-6 mb-12">
       <Text
         propName="question"
         renderBlock={(props) => (

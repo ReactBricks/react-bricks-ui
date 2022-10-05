@@ -23,7 +23,6 @@ const Button: types.Brick<ButtonProps> = ({
   type = 'solid',
   padding = 'normale',
   className,
-  ...rest
 }) => {
   const target = isTargetBlank
     ? { target: '_blank', rel: 'noopener noreferrer' }
@@ -55,7 +54,6 @@ const Button: types.Brick<ButtonProps> = ({
         },
         className
       )}
-      {...rest}
     >
       {text}
     </Link>

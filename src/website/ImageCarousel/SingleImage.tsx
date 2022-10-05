@@ -4,9 +4,9 @@ import blockNames from 'website/blockNames'
 
 interface Props {}
 
-const SingleImage: types.Brick<Props> = ({ ...rest }) => {
+const SingleImage: types.Brick<Props> = () => {
   return (
-    <div {...rest} className="flex justify-center">
+    <div className="flex justify-center">
       <Image
         propName="image"
         alt="altText"

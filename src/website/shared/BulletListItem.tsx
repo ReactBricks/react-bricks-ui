@@ -15,7 +15,6 @@ export interface BulletListItemProps {
 const BulletListItem: types.Brick<BulletListItemProps> = ({
   color = bulletColors.pinkLight.value,
   className,
-  ...rest
 }) => {
   return (
     <div
@@ -23,7 +22,6 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
         'flex justify-start items-center py-2 leading-tight',
         className
       )}
-      {...rest}
     >
       <div
         className={classNames(

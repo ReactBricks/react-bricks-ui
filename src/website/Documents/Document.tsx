@@ -8,18 +8,17 @@ export interface DocumentProps {
   color?: { color: string; className: string }
 }
 
-const Document: types.Brick<DocumentProps> = ({ color, ...rest }) => {
+const Document: types.Brick<DocumentProps> = ({ color }) => {
   return (
     <div
       className={classNames(
         'flex justify-center bg-gray-50 border border-gray-200 rounded items-center py-2',
         color?.className
       )}
-      {...rest}
     >
       <File
         propName="file"
-        renderBlock={file => {
+        renderBlock={(file) => {
           return file ? (
             <div className="flex font-semibold h-full items-center">
               <FiFile className="mr-2" />
@@ -49,8 +48,7 @@ Document.schema = {
     file: {
       name: 'React Bricks Website.pdf',
       size: 521.929,
-      url:
-        'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
+      url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
     },
   }),
   sideEditProps: [

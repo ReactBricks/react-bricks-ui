@@ -505,7 +505,7 @@ export default class Editor extends React.Component<Props, State> {
 
       /* eslint-enable no-unused-vars */
       preClassName,
-      ...rest
+
     } = this.props
 
     const contentStyle = {
@@ -517,7 +517,7 @@ export default class Editor extends React.Component<Props, State> {
     const highlighted = highlight(value)
 
     return (
-      <div {...rest} style={{ ...styles.container, ...style }}>
+      <div style={{ ...styles.container, ...style }}>
         <textarea
           ref={(c) => (this._input = c)}
           style={{ ...styles.editor, ...styles.textarea, ...contentStyle }}

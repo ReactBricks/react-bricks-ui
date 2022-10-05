@@ -14,10 +14,9 @@ const TeamItem: types.Brick<TeamItemProps> = ({
   twitter,
   github,
   linkedin,
-  ...rest
 }) => {
   return (
-    <div className="flex flex-col sm:w-1/3 w-1/2 p-6" {...rest}>
+    <div className="flex flex-col sm:w-1/3 w-1/2 p-6">
       <Image
         propName="picture"
         alt="team-item"

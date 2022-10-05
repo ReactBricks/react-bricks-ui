@@ -1,12 +1,8 @@
 import React from 'react'
 
-const DefaultAvatar = ({ ...rest }) => {
+const DefaultAvatar = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1249.24 1249.24"
-      {...rest}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1249.24 1249.24">
       <defs>
         <linearGradient
           id="a"

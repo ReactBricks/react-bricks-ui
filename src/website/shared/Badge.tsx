@@ -14,10 +14,9 @@ export interface BadgeProps {
 const Badge: types.Brick<BadgeProps> = ({
   color = badgeColors.gray.value,
   className,
-  ...rest
 }) => {
   return (
-    <div {...rest} className="flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <Text
         renderBlock={(props) => (
           <span
