@@ -104,6 +104,7 @@ Title.schema = {
       },
     ],
   }),
+  
 }
 
 export default Title

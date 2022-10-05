@@ -1,8 +1,16 @@
 import React from 'react'
 
-const DefaultAvatar = () => {
+interface DefaultAvatarProps {
+  className: string
+}
+
+const DefaultAvatar: React.FC<DefaultAvatarProps> = ({ className }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1249.24 1249.24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1249.24 1249.24"
+      {...{ className }}
+    >
       <defs>
         <linearGradient
           id="a"

@@ -37,7 +37,9 @@ TableCell.schema = {
   hideFromAddMenu: true,
 
   // Defaults when a new brick is added
-  getDefaultProps: () => ({}),
+  getDefaultProps: () => ({
+    cellText: 'Cell text default',
+  }),
 
   // Sidebar Edit controls for props
   sideEditProps: [],

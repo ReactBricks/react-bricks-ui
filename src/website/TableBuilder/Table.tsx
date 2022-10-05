@@ -30,7 +30,40 @@ Table.schema = {
   getDefaultProps: () => ({
     rows: [
       {
-        cells: [{ text: 'Cell' }],
+        cells: [
+          {
+            cellText: 'Cell text default',
+            text: 'Cell',
+          },
+          {
+            cellText: 'Cell text default',
+            text: 'Cell',
+          },
+        ],
+      },
+      {
+        cells: [
+          {
+            cellText: 'Cell text default',
+            text: 'Cell',
+          },
+          {
+            cellText: 'Cell text default',
+            text: 'Cell',
+          },
+        ],
+      },
+      {
+        cells: [
+          {
+            cellText: 'Cell text default',
+            text: 'Cell',
+          },
+          {
+            cellText: 'Cell text default',
+            text: 'Cell',
+          },
+        ],
       },
     ],
   }),

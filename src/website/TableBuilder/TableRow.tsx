@@ -37,7 +37,14 @@ TableRow.schema = {
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
-    cells: [{ text: 'Cell' }],
+    cells: [
+      {
+        text: 'Cell',
+      },
+      {
+        text: 'Cell',
+      },
+    ],
   }),
 
   repeaterItems: [
