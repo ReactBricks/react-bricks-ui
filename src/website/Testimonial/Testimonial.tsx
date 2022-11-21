@@ -1,13 +1,13 @@
-import * as React from 'react'
 import classNames from 'classnames'
-import { Text, Image, types } from 'react-bricks/frontend'
+import * as React from 'react'
+import { Image, Text, types } from 'react-bricks/frontend'
 
-import Section, { Border } from '../layout/Section'
-import Container from '../layout/Container'
-import { bgColors } from '../colors'
 import { FiUser } from 'react-icons/fi'
-import blockNames from '../blockNames'
 import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import blockNames from '../blockNames'
+import { bgColors } from '../colors'
+import Container from '../layout/Container'
+import Section from '../layout/Section'
 
 export interface TestimonialProps {
   authorName: string
@@ -52,7 +52,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
           }}
           propName="quote"
         />
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           {avatarImage ? (
             <Image
               alt={authorName}
@@ -93,7 +93,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
               <Image
                 alt={authorJobTitle}
                 propName="logoImage"
-                imageClassName="h-6"
+                imageClassName="w-12"
               />
             </div>
           )}
