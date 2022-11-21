@@ -1,6 +1,6 @@
 {
   "name": "react-bricks-ui",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "MIT",
   "author": "Matteo Frana <info@reactbricks.com>",
   "main": "index.js",
@@ -30,7 +30,7 @@
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.27.0",
     "react": ">=17",
-    "react-bricks": "^3.2.25",
+    "react-bricks": "^3.6.1",
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
