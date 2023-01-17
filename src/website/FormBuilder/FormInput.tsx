@@ -122,7 +122,7 @@ FormInput.schema = {
       label: 'Field Name',
     },
     {
-      name: 'lanel',
+      name: 'label',
       type: types.SideEditPropType.Text,
       label: 'Label',
     },
