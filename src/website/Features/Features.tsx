@@ -25,7 +25,7 @@ const getRepeaterWidht = (screenLayout: layoutType) => {
 }
 
 const Features: types.Brick<FeaturesProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   screenLayout = 'base',
 }) => {
   return (
@@ -67,10 +67,7 @@ Features.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     screenLayout: 'base',

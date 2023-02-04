@@ -5,8 +5,8 @@ import { Map, Marker } from 'pigeon-maps'
 import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
-import { bgColors } from '../colors'
 import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import { bgColors } from 'website/colors'
 
 export interface MapProps {
   bg?: { color: string; className: string }
@@ -61,10 +61,7 @@ MapBrick.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     width: 'sm',

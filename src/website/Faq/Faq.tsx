@@ -16,7 +16,7 @@ export interface FaqProps {
 }
 
 const Faq: types.Brick<FaqProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   width = 'sm',
 }) => {
   return (
@@ -37,7 +37,7 @@ Faq.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.white.value,
+    bg: bgColors.WHITE.value,
     borderTop: 'full',
     borderBottom: 'none',
     width: 'sm',

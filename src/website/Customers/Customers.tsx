@@ -20,7 +20,7 @@ export interface CustomersProps {
 }
 
 const Customers: types.Brick<CustomersProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   width = 'lg',
   grayscale = true,
 }) => {
@@ -47,10 +47,7 @@ Customers.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#f7fafc',
-      className: 'bg-gray-100 dark:bg-gray-800',
-    },
+    bg: bgColors.GRAY.value,
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',

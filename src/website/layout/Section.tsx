@@ -30,7 +30,7 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   borderTop = 'none',
   borderBottom = 'none',
   className = '',

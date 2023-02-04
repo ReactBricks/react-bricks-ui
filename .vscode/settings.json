@@ -1,3 +1,4 @@
 {
-  "prettier.semi": false
+  "prettier.semi": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -2,13 +2,19 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { Link, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
+import { buttonColors } from 'website/colors'
+import { ButtonColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface ButtonProps {
   text: string
   href: string
   isTargetBlank: boolean
   isBigButton: boolean
-  variant?: 'pink' | 'sky'
+  buttonColor?: {
+    color: string
+    classNameSolid: string
+    classNameOutline: string
+  }
   type?: 'solid' | 'outline'
   padding: 'normal' | 'small'
   className?: string
@@ -19,7 +25,7 @@ const Button: types.Brick<ButtonProps> = ({
   href,
   isTargetBlank = false,
   isBigButton = false,
-  variant = 'pink',
+  buttonColor = buttonColors.SKY.value,
   type = 'solid',
   padding = 'normale',
   className,
@@ -37,21 +43,12 @@ const Button: types.Brick<ButtonProps> = ({
         padding === 'normal' ? 'px-8' : 'px-5',
         isBigButton && ' w-3/5 text-center rounded-full',
         {
-          'bg-pink-500 text-white hover:bg-pink-600 hover:text-white':
-            variant === 'pink' && type === 'solid',
+          [buttonColor.classNameSolid]: type === 'solid',
         },
         {
-          'bg-sky-500 text-white hover:bg-sky-600 hover:text-white':
-            variant === 'sky' && type === 'solid',
+          [buttonColor.classNameOutline]: type === 'outline',
         },
-        {
-          'border border-pink-600 text-pink-600 hover:text-pink-600 dark:border-pink-500 dark:text-pink-500':
-            variant === 'pink' && type === 'outline',
-        },
-        {
-          'border border-sky-600 text-sky-600 hover:text-sky-600 dark:border-sky-500 dark:text-sky-500':
-            variant === 'sky' && type === 'outline',
-        },
+
         className
       )}
     >
@@ -73,7 +70,7 @@ Button.schema = {
     text: 'Click me',
     href: '',
     isTargetBlank: false,
-    variant: 'sky',
+    buttonColor: buttonColors.SKY.value,
     type: 'solid',
     isBigButton: false,
   }),
@@ -88,18 +85,7 @@ Button.schema = {
       label: 'Full width button',
       type: types.SideEditPropType.Boolean,
     },
-    {
-      name: 'variant',
-      label: 'Variant',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Radio,
-        options: [
-          { value: 'sky', label: 'Sky' },
-          { value: 'pink', label: 'Pink' },
-        ],
-      },
-    },
+    ButtonColorsSideEditProps,
     {
       name: 'type',
       label: 'Type',

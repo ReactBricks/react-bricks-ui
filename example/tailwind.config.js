@@ -5,7 +5,11 @@ module.exports = {
   content: ['../src/**/*.{ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   variants: {
     extend: {},

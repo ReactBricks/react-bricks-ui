@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, Text, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
+import { bgColors } from 'website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
@@ -78,10 +79,7 @@ FormBuilder.schema = {
   ],
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     formTitle: [
       {
         type: 'paragraph',

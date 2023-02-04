@@ -1,5 +1,6 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
+import { bgColors } from 'website/colors'
 import blockNames from '../blockNames'
 import Section from '../layout/Section'
 import { BackgroundColorsSideEditProps } from '../LayoutSideProps'
@@ -51,7 +52,7 @@ Spacer.schema = {
   label: 'Spacer',
   category: 'rb-ui website',
   getDefaultProps: () => ({
-    bg: { color: '#fff', className: 'bg-white dark:bg-gray-900' },
+    bg: bgColors.WHITE.value,
     range: '5',
   }),
   sideEditProps: [

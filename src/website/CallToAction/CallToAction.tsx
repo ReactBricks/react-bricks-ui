@@ -16,7 +16,7 @@ export interface CallToActionProps {
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   width = 'sm',
 }) => {
   return (
@@ -34,7 +34,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
               <span
                 className={classNames(
                   'font-extrabold text-xl sm:text-2xl leading-6 sm:leading-8',
-                  textColors.gray800
+                  textColors.GRAY_800
                 )}
                 {...props.attributes}
               >
@@ -61,10 +61,7 @@ CallToAction.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',

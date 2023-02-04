@@ -1,28 +1,34 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import {
+  BackgroundColorsSideEditProps,
+  HighlightTextSideEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-import { bgColors, GradientName, gradients, textColors } from '../colors'
+import { bgColors, gradients, highlightTextColors, textColors } from '../colors'
 import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 
 export interface HeroUnitProps {
   bg?: { color: string; className: string }
   size?: 'medium' | 'large'
-  textGradient?: GradientName
+  textGradient?: keyof typeof gradients
+  highlightTextColor: { color: string; className: string }
 }
 
 const HeroUnit: types.Brick<HeroUnitProps> = ({
-  bg = bgColors.white.value,
-  textGradient = 'none',
+  bg = bgColors.WHITE.value,
+  textGradient = gradients.NONE.value,
   size = 'large',
+  highlightTextColor = highlightTextColors.LIME.value,
 }: HeroUnitProps) => {
-  const titleColor = textColors.gray800
-  const textColor = textColors.gray700
-  const highlightColor = textColors.purple500
+  const titleColor = textColors.GRAY_800
+  const textColor = textColors.GRAY_700
   const titleStyle =
-    textGradient !== 'none' ? { WebkitTextFillColor: 'transparent' } : {}
+    textGradient !== gradients.NONE.value
+      ? { WebkitTextFillColor: 'transparent' }
+      : {}
 
   return (
     <Section bg={bg}>
@@ -36,7 +42,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           <div
             className={classNames(
               titleColor,
-              gradients[textGradient],
+              gradients[textGradient].className,
               'text-3xl',
               { 'sm:text-5xl': size === 'large' },
               { 'sm:text-4xl': size === 'medium' }
@@ -56,13 +62,11 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
                   {props.children}
                 </h1>
               )}
+              allowedFeatures={[types.RichTextFeatures.Highlight]}
               placeholder="Type a title..."
               propName="title"
-              allowedFeatures={[types.RichTextFeatures.Highlight]}
-              renderHighlight={(props) => (
-                <span className={highlightColor} {...props.attributes}>
-                  {props.children}
-                </span>
+              renderHighlight={({ children }) => (
+                <span className={highlightTextColor.className}>{children}</span>
               )}
             />
           </div>
@@ -108,21 +112,16 @@ HeroUnit.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     size: 'large',
-    textGradient: 'none',
+    textGradient: gradients.NONE.value,
+    highlightTextColor: highlightTextColors.LIME.value,
     title: 'We develop beautiful web applications',
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
     badge: [
       {
         text: 'high tech',
-        color: {
-          color: '#90cdf4',
-          className: 'text-blue-400 dark:text-blue-300',
-        },
+        color: highlightTextColors.SKY.value,
       },
     ],
     buttons: [
@@ -175,10 +174,11 @@ HeroUnit.schema = {
           selectOptions: {
             display: types.OptionsDisplay.Select,
             options: [
-              { value: 'none', label: 'None' },
-              { value: 'ocean', label: 'Ocean' },
-              { value: 'violet', label: 'Violet' },
-              { value: 'sun', label: 'Sunset' },
+              gradients.NONE,
+              gradients.OCEAN,
+              gradients.VIOLET,
+              gradients.INDIGO_PINK,
+              gradients.SUN,
             ],
           },
         },
@@ -194,6 +194,7 @@ HeroUnit.schema = {
             ],
           },
         },
+        HighlightTextSideEditProps,
       ],
     },
   ],

@@ -24,7 +24,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   avatarImage,
   logoImage,
   small = false,
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
 }) => {
   return (
     <Section bg={bg}>

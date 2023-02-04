@@ -2,18 +2,18 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { FiCheck } from 'react-icons/fi'
 import { Text, types } from 'react-bricks/frontend'
-import { bulletColors } from '../colors'
+import { highlightBgColors } from '../colors'
 import blockNames from '../blockNames'
 import { BulletColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface BulletListItemProps {
-  color: { color: string; className: string; className2: string }
+  bulletColor: { color: string; className: string; }
   className: string
   attributes: string
 }
 
 const BulletListItem: types.Brick<BulletListItemProps> = ({
-  color = bulletColors.pinkLight.value,
+  bulletColor = highlightBgColors.SKY.value,
   className,
 }) => {
   return (
@@ -26,7 +26,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
       <div
         className={classNames(
           'flex justify-center items-center w-5 h-5 rounded-full mr-4 text-sm',
-          color.className
+          bulletColor.className
         )}
         style={{ minWidth: '1.25rem' }}
       >
@@ -36,7 +36,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
         propName="text"
         renderBlock={(props) => (
           <span
-            className={classNames('dark:text-gray-100', color.className2)}
+            className="text-gray-700 dark:text-gray-100"
             {...props.attributes}
           >
             {props.children}
@@ -58,7 +58,7 @@ BulletListItem.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/BulletListItem.tsx',
 
   getDefaultProps: () => ({
-    color: bulletColors.pinkLight.value,
+    bulletColor: highlightBgColors.SKY.value,
     text: 'New item',
   }),
   sideEditProps: [BulletColorsSideEditProps],

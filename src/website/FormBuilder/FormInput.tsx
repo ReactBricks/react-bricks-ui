@@ -70,8 +70,11 @@ const FormInput: types.Brick<FormInputProps> = ({
         )}
         {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
           required: isRequired,
+          //@ts-ignore
           valueAsNumber: inputType === 'number',
+          //@ts-ignore
           valueAsDate: inputType === 'date',
+          //@ts-ignore
           pattern: strToRegex(pattern),
         })}
       />

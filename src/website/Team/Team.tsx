@@ -17,7 +17,7 @@ export interface TeamProps {
 }
 
 const Team: types.Brick<TeamProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   width = 'lg',
 }) => {
   return (
@@ -44,10 +44,7 @@ Team.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/Team.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',

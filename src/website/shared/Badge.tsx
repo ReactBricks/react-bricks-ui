@@ -1,18 +1,18 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { badgeColors } from '../colors'
+import { highlightTextColors } from '../colors'
 
 import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import { BadgeColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface BadgeProps {
-  color?: { color: string; className: string }
+  badgeColor?: { color: string; className: string }
   className?: string
 }
 
 const Badge: types.Brick<BadgeProps> = ({
-  color = badgeColors.gray.value,
+  badgeColor = highlightTextColors.SKY.value,
   className,
 }) => {
   return (
@@ -22,7 +22,7 @@ const Badge: types.Brick<BadgeProps> = ({
           <span
             className={classNames(
               'text-sm font-black uppercase text-center',
-              color.className,
+              badgeColor.className,
               className
             )}
             style={{ letterSpacing: '0.35em' }}
@@ -47,7 +47,7 @@ Badge.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Badge.tsx',
   getDefaultProps: () => ({
     text: 'Special',
-    color: badgeColors.gray.value,
+    badgeColor: highlightTextColors.SKY.value,
   }),
   sideEditProps: [BadgeColorsSideEditProps],
 }

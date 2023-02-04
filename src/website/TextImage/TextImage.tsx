@@ -25,7 +25,7 @@ export interface TextImageProps {
 }
 
 const TextImage: types.Brick<TextImageProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   width = 'lg',
   heroTitle = false,
   mobileTextCenter = false,
@@ -37,9 +37,8 @@ const TextImage: types.Brick<TextImageProps> = ({
   isRounded = false,
   // bulletsVariant = bulletColors.pinkLight.value,
 }) => {
-  const titleColor = textColors.gray900
-  const highlightColor = textColors.purple500
-  const textColor = textColors.gray700
+  const titleColor = textColors.GRAY_900
+  const textColor = textColors.GRAY_700
 
   return (
     <Section bg={bg}>
@@ -95,11 +94,6 @@ const TextImage: types.Brick<TextImageProps> = ({
             )}
             placeholder="Type a title..."
             allowedFeatures={[types.RichTextFeatures.Highlight]}
-            renderHighlight={(props) => (
-              <span className={highlightColor} {...props.attributes}>
-                {props.children}
-              </span>
-            )}
           />
 
           <RichText
@@ -183,10 +177,7 @@ TextImage.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImage.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',

@@ -7,7 +7,7 @@ export interface SectionProps {
   children?: React.ReactNode
 }
 const Section: React.FC<SectionProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   children,
 }) => {
   const bgColor = bg.className

@@ -18,7 +18,7 @@ export interface FeatureCalloutProps {
 }
 
 const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
-  bg = bgColors.white.value,
+  bg = bgColors.WHITE.value,
   width = 'sm',
 }) => {
   return (
@@ -39,7 +39,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
               <div
                 className={classNames(
                   'font-extrabold text-xl leading-6 mb-1',
-                  textColors.gray900
+                  textColors.GRAY_900
                 )}
                 {...props.attributes}
               >
@@ -52,7 +52,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
             propName="text"
             renderBlock={(props) => (
               <span
-                className={classNames('leading-6', textColors.gray700)}
+                className={classNames('leading-6', textColors.GRAY_700)}
                 {...props.attributes}
               >
                 {props.children}
@@ -76,10 +76,7 @@ FeatureCallout.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',

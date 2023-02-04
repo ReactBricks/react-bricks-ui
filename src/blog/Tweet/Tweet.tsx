@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useEffect, useRef, useState, useContext } from 'react'
 import { types, ReactBricksContext } from 'react-bricks/frontend'
+import { bgColors } from 'website/colors'
 
 import blockNames from '../blockNames'
 
@@ -91,10 +92,7 @@ Tweet.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
+    bg: bgColors.WHITE.value,
     id: '1237840583982329857',
     placeholder: 'Loading Tweet',
     position: 'center',
