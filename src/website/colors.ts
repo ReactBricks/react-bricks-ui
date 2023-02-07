@@ -104,9 +104,9 @@ const tailwindColors = {
 } as const satisfies TailwindColors
 
 export const textColors = {
-  GRAY_900: 'text-gray-900 dark:text-gray-100',
-  GRAY_800: 'text-gray-800 dark:text-gray-100',
-  GRAY_700: 'text-gray-700 dark:text-gray-300',
+  GRAY_900: 'text-gray-900 dark:text-white',
+  GRAY_800: 'text-gray-800 dark:text-white',
+  GRAY_700: 'text-gray-700 dark:text-white',
 } as const satisfies Record<string, string>
 
 type Color = {

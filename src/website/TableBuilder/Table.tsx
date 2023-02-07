@@ -12,7 +12,7 @@ export interface TableProps {
 const Table: types.Brick<TableProps> = ({ bg }) => {
   return (
     <Section bg={bg}>
-      <Container size="lg" className="py-12 xl:py-20">
+      <Container className="py-12 xl:py-20">
         <table className="w-full">
           <Repeater propName="rows" />
         </table>

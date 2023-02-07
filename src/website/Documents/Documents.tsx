@@ -6,18 +6,16 @@ import {
   ContainerSizeSideEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-import Container, { Size } from '../layout/Container'
-import Section, { Border } from '../layout/Section'
+import Container from '../layout/Container'
+import Section from '../layout/Section'
 export interface DocumentsProps {
   bg?: { color: string; className: string }
-  width: Size
 }
 
-const Documents: types.Brick<DocumentsProps> = ({ bg, width }) => {
+const Documents: types.Brick<DocumentsProps> = ({ bg }) => {
   return (
     <Section bg={bg}>
       <Container
-        size={width}
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
         )}

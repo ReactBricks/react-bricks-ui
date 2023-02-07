@@ -31,7 +31,6 @@ const Features: types.Brick<FeaturesProps> = ({
   return (
     <Section bg={bg}>
       <Container
-        size={'lg'}
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
         )}

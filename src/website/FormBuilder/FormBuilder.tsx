@@ -21,7 +21,7 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({ bg }) => {
 
   return (
     <Section bg={bg}>
-      <Container size="lg" className="py-12 xl:py-20">
+      <Container className="py-12 xl:py-20">
         <Text
           propName="formTitle"
           placeholder="Type a Title..."

@@ -14,20 +14,17 @@ export interface CustomersProps {
   bg?: { color: string; className: string }
   borderTop?: Border
   borderBottom?: Border
-  size?: 'medium' | 'large'
   width?: Size
   grayscale?: boolean
 }
 
 const Customers: types.Brick<CustomersProps> = ({
   bg = bgColors.WHITE.value,
-  width = 'lg',
   grayscale = true,
 }) => {
   return (
     <Section bg={bg}>
       <Container
-        size={width}
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
         )}
@@ -50,7 +47,6 @@ Customers.schema = {
     bg: bgColors.GRAY.value,
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'lg',
     grayscale: true,
     customers: [
       {

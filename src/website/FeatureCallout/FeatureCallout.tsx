@@ -5,7 +5,7 @@ import { Text, RichText, Image, types } from 'react-bricks/frontend'
 
 import { bgColors, textColors } from '../colors'
 import Section, { Border } from '../layout/Section'
-import Container, { Size } from '../layout/Container'
+import Container from '../layout/Container'
 import blockNames from '../blockNames'
 import {
   BackgroundColorsSideEditProps,
@@ -14,17 +14,15 @@ import {
 
 export interface FeatureCalloutProps {
   bg?: { color: string; className: string }
-  width?: Size
 }
 
 const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
   bg = bgColors.WHITE.value,
-  width = 'sm',
 }) => {
   return (
     <Section bg={bg}>
       <Container
-        size={width}
+        size="small"
         className={classNames(
           'py-12 flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
@@ -95,7 +93,7 @@ FeatureCallout.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [BackgroundColorsSideEditProps],
     },
   ],
 }

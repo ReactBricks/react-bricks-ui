@@ -1,28 +1,23 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
-import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
-} from 'website/LayoutSideProps'
+import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
-import Container, { Size } from '../layout/Container'
+import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 
 export interface CallToActionProps {
   bg?: { color: string; className: string }
-  width?: Size
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
   bg = bgColors.WHITE.value,
-  width = 'sm',
 }) => {
   return (
     <Section bg={bg}>
       <Container
-        size={width}
+        size="small"
         className={classNames(
           'py-12 flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
@@ -90,7 +85,7 @@ CallToAction.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [BackgroundColorsSideEditProps],
     },
   ],
 }

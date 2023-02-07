@@ -41,7 +41,7 @@ const switchRange = (range: string) => {
 
 const Spacer: types.Brick<SpacerProps> = ({ range, bg }) => {
   return (
-    <Section bg={bg}>
+    <Section bg={bg} paddingTop="none" paddingBottom="none">
       <div className={switchRange(range + '')} />
     </Section>
   )

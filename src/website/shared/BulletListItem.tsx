@@ -7,7 +7,7 @@ import blockNames from '../blockNames'
 import { BulletColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface BulletListItemProps {
-  bulletColor: { color: string; className: string; }
+  bulletColor: { color: string; className: string }
   className: string
   attributes: string
 }
@@ -17,33 +17,30 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
   className,
 }) => {
   return (
-    <div
-      className={classNames(
-        'flex justify-start items-center py-2 leading-tight',
-        className
-      )}
-    >
+    <div className={classNames('flex justify-start items-center', className)}>
       <div
         className={classNames(
-          'flex justify-center items-center w-5 h-5 rounded-full mr-4 text-sm',
+          'flex justify-center items-center w-5 h-5 rounded-full mr-3 text-sm',
           bulletColor.className
         )}
         style={{ minWidth: '1.25rem' }}
       >
         <FiCheck />
       </div>
-      <Text
-        propName="text"
-        renderBlock={(props) => (
-          <span
-            className="text-gray-700 dark:text-gray-100"
-            {...props.attributes}
-          >
-            {props.children}
-          </span>
-        )}
-        placeholder="Type..."
-      />
+      <div>
+        <Text
+          propName="text"
+          renderBlock={(props) => (
+            <span
+              className="text-gray-700 dark:text-gray-100 leading-tight inline-block min-w-[120px]"
+              {...props.attributes}
+            >
+              {props.children}
+            </span>
+          )}
+          placeholder="Type..."
+        />
+      </div>
     </div>
   )
 }

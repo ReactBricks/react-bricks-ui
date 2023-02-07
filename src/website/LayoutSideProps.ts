@@ -36,6 +36,15 @@ export const BackgroundColorsSideEditProps: types.ISideEditProp = {
   },
 }
 
+export const BackgroundImageEditProps: types.ISideEditProp = {
+  name: 'backgroundImage',
+  label: 'Background Image',
+  type: types.SideEditPropType.Image,
+  imageOptions: {
+    aspectRatio: 1.8,
+  },
+}
+
 export const ContainerSizeSideEditProps: types.ISideEditProp = {
   name: 'width',
   label: 'Width',
@@ -43,13 +52,43 @@ export const ContainerSizeSideEditProps: types.ISideEditProp = {
   selectOptions: {
     display: types.OptionsDisplay.Select,
     options: [
-      { value: 'sm', label: 'Small' },
-      { value: 'md', label: 'Medium' },
-      { value: 'lg', label: 'Large' },
-      { value: 'full', label: 'Fullwidth' },
+      { value: 'normal', label: 'Normal' },
+      { value: 'small', label: 'Small' },
+      { value: 'full', label: 'Full-width' },
     ],
   },
 }
+
+export const SectionPaddings: types.ISideEditProp[] = [
+  {
+    name: 'paddingTop',
+    label: 'Padding Top',
+    type: types.SideEditPropType.Select,
+    selectOptions: {
+      display: types.OptionsDisplay.Select,
+      options: [
+        { value: 'normal', label: 'Normal' },
+        { value: 'small', label: 'Small' },
+        { value: 'thin', label: 'Thin' },
+        { value: 'none', label: 'None' },
+      ],
+    },
+  },
+  {
+    name: 'paddingBottom',
+    label: 'Padding Bottom',
+    type: types.SideEditPropType.Select,
+    selectOptions: {
+      display: types.OptionsDisplay.Select,
+      options: [
+        { value: 'normal', label: 'Normal' },
+        { value: 'small', label: 'Small' },
+        { value: 'thin', label: 'Thin' },
+        { value: 'none', label: 'None' },
+      ],
+    },
+  },
+]
 
 export const BadgeColorsSideEditProps = {
   name: 'badgeColor',

@@ -5,7 +5,10 @@ import { Map, Marker } from 'pigeon-maps'
 import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import {
+  BackgroundColorsSideEditProps,
+  ContainerSizeSideEditProps,
+} from 'website/LayoutSideProps'
 import { bgColors } from 'website/colors'
 
 export interface MapProps {
@@ -40,7 +43,7 @@ export const MapBrick: types.Brick<MapProps> = ({
           center={[parseFloat(lat), parseFloat(lng)]}
           height={350}
           metaWheelZoom
-          zoom={10}
+          zoom={parseInt(zoom, 10)}
           provider={mapTilerProvider}
           dprs={[1, 2]}
           metaWheelZoomWarning="Use ctrl + wheel to zoom!"
@@ -64,7 +67,7 @@ MapBrick.schema = {
     bg: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'sm',
+    width: 'small',
     lat: 45.6782509,
     lng: 9.5669407,
   }),
@@ -72,7 +75,7 @@ MapBrick.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps],
+      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
     },
     {
       groupName: 'Coordinates',

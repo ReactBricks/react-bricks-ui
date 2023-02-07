@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
       },
+      screens: {
+        lg: '900px',
+      },
     },
   },
   variants: {

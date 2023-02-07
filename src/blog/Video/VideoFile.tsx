@@ -1,46 +1,45 @@
 import React from 'react'
-import { types } from 'react-bricks/frontend'
+import { File, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
 
-const videoUrlPrefix: { [key: string]: string } = Object.freeze({
-  youtube: 'https://www.youtube.com/embed/',
-  vimeo: 'https://player.vimeo.com/video/',
-})
-
-export interface VideoProps {
+export interface VideoFileProps {
   url: string
   platform: string
 }
 
-const Video: types.Brick<VideoProps> = ({ platform, url }) => {
+const VideoFile: types.Brick<VideoFileProps> = ({ platform, url }) => {
   return (
     <Section>
       <Container>
         <div className="aspect-video">
-          <iframe
-            key="video iframe"
-            width="100%"
-            height="100%"
-            src={`${videoUrlPrefix[platform]}${url}?rel=0`}
+          <File
+            propName="videoFile"
+            renderBlock={(file) => {
+              return file ? (
+                <video src={url} />
+              ) : (
+                <div className="flex justify-center items-center">
+                  <FiFilePlus className="mr-2" />
+                  Add document
+                </div>
+              )
+            }}
           />
         </div>
       </Container>
     </Section>
   )
 }
-Video.schema = {
-  name: blockNames.Video,
-  label: 'Video',
+VideoFile.schema = {
+  name: blockNames.VideoFile,
+  label: 'Local Video',
   category: 'video',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Video/Video.tsx',
-  getDefaultProps: () => ({
-    url: 'A60xWr-nqv0',
-    platform: 'youtube',
-  }),
+  getDefaultProps: () => ({}),
   sideEditProps: [
     {
       name: 'platform',
@@ -61,4 +60,4 @@ Video.schema = {
     },
   ],
 }
-export default Video
+export default VideoFile

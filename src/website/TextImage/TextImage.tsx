@@ -4,19 +4,23 @@ import { Image, Link, Repeater, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
 import Container, { Size } from '../layout/Container'
-import Section, { Border } from '../layout/Section'
+import Section, { Padding } from '../layout/Section'
 import {
   BackgroundColorsSideEditProps,
   ContainerSizeSideEditProps,
+  SectionPaddings,
 } from '../LayoutSideProps'
 
 export interface TextImageProps {
   bg?: { color: string; className: string }
+  paddingTop?: Padding
+  paddingBottom?: Padding
   width?: Size
   heroTitle?: boolean
   mobileTextCenter?: boolean
   multiple?: boolean
   imageSide?: 'left' | 'right'
+  bigImage?: boolean
   mobileImageTop?: boolean
   mobileIcon?: boolean
   hasShadow?: boolean
@@ -26,11 +30,13 @@ export interface TextImageProps {
 
 const TextImage: types.Brick<TextImageProps> = ({
   bg = bgColors.WHITE.value,
-  width = 'lg',
+  paddingTop = 'normal',
+  paddingBottom = 'normal',
   heroTitle = false,
   mobileTextCenter = false,
   multiple = false,
   imageSide = 'right',
+  bigImage = false,
   mobileImageTop = false,
   mobileIcon = false,
   hasShadow = false,
@@ -41,26 +47,19 @@ const TextImage: types.Brick<TextImageProps> = ({
   const textColor = textColors.GRAY_700
 
   return (
-    <Section bg={bg}>
+    <Section bg={bg} paddingTop={paddingTop} paddingBottom={paddingBottom}>
       <Container
-        size={width}
         className={classNames(
-          'py-12 lg:py-20 flex flex-no-wrap md:items-start md:space-x-8',
+          'flex md:justify-between md:items-center',
           mobileTextCenter ? 'items-center' : 'items-start',
           mobileImageTop ? 'flex-col-reverse' : 'flex-col',
-          imageSide === 'right'
-            ? 'md:flex-row'
-            : 'md:flex-row-reverse md:space-x-reverse'
+          imageSide === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'
         )}
       >
-        <div
-          className={classNames(
-            'w-full md:flex-1 flex flex-col',
-            imageSide === 'right' ? 'md:pr-1/10' : 'md:pl-1/10'
-          )}
-        >
+        <div className={classNames('w-full md:w-2/5 lg:pr-[5%] flex flex-col')}>
           <Repeater
             propName="badge"
+            itemProps={{ textAlign: 'left' }}
             renderWrapper={(items) => (
               <div
                 className={classNames('mb-4 flex', {
@@ -100,10 +99,13 @@ const TextImage: types.Brick<TextImageProps> = ({
             propName="text"
             renderBlock={(props) => (
               <p
-                className={classNames('text-lg sm:text-xl mb-3', textColor, {
-                  'text-center md:text-left': mobileTextCenter,
-                })}
-                style={{ lineHeight: 1.6 }}
+                className={classNames(
+                  'text-lg sm:text-xl mb-3 leading-relaxed',
+                  textColor,
+                  {
+                    'text-center md:text-left': mobileTextCenter,
+                  }
+                )}
                 {...props.attributes}
               >
                 {props.children}
@@ -124,10 +126,10 @@ const TextImage: types.Brick<TextImageProps> = ({
           <Repeater
             propName="bulletListItems"
             itemProps={{
-              className: 'lg:w-2/5 text-lg',
+              className: 'text-lg',
             }}
             renderWrapper={(items) => (
-              <div className="mt-4 w-full flex flex-col lg:flex-row lg:flex-wrap lg:justify-between">
+              <div className="mt-4 grid grid-cols-1 xl:grid-cols-2 gap-x-4 gap-y-1">
                 {items}
               </div>
             )}
@@ -135,14 +137,12 @@ const TextImage: types.Brick<TextImageProps> = ({
           <Repeater
             propName="buttons"
             renderWrapper={(items) => (
-              <div className="flex items-center flex-col sm:flex-row mt-4">
-                {items}
-              </div>
+              <div className="flex items-center space-x-4 mt-4">{items}</div>
             )}
           />
         </div>
         {multiple ? (
-          <div className="flex w-full md:w-2/5 lg:w-1/2 max-w-xs md:max-w-sm mx-auto mt-10 md:mt-0 flex-wrap justify-center -mb-6">
+          <div className="md:w-1/2 grid grid-cols-3 gap-3">
             <Repeater propName="logos" />
           </div>
         ) : (
@@ -150,7 +150,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             className={classNames(
               mobileIcon ? 'w-24' : 'w-full',
               mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
-              'md:w-2/5 md:mt-0 md:mb-0'
+              'md:w-1/2 md:mt-0 md:mb-0'
             )}
           >
             <Image
@@ -158,7 +158,11 @@ const TextImage: types.Brick<TextImageProps> = ({
               alt="Image"
               imageClassName={classNames(
                 { 'rounded-lg': isRounded },
-                { 'shadow-2xl': hasShadow }
+                { 'shadow-2xl': hasShadow },
+                {
+                  'md:h-[500px] md:max-w-none':
+                    bigImage && imageSide === 'right',
+                }
               )}
             />
           </div>
@@ -180,7 +184,6 @@ TextImage.schema = {
     bg: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'lg',
     title: 'We built hundreds of apps',
     heroTitle: false,
     mobileTextCenter: false,
@@ -195,6 +198,7 @@ TextImage.schema = {
       seoName: 'dashboard',
     },
     imageSide: 'right',
+    bigImage: false,
     multiple: false,
     mobileImageTop: false,
     mobileIcon: false,
@@ -205,7 +209,7 @@ TextImage.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [BackgroundColorsSideEditProps, ...SectionPaddings],
     },
     {
       groupName: 'Text',
@@ -245,6 +249,12 @@ TextImage.schema = {
               { value: 'right', label: 'Right' },
             ],
           },
+        },
+        {
+          name: 'bigImage',
+          label: 'Big image (only right side)',
+          type: types.SideEditPropType.Boolean,
+          show: (props) => !props.multiple && props.imageSide === 'right',
         },
         {
           name: 'mobileImageTop',
@@ -292,7 +302,7 @@ TextImage.schema = {
       itemType: blockNames.Button,
       itemLabel: 'Button',
       min: 0,
-      max: 1,
+      max: 2,
     },
     {
       name: 'logos',

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { Link, types } from 'react-bricks/frontend'
+import { Text, Link, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import { buttonColors } from 'website/colors'
 import { ButtonColorsSideEditProps } from 'website/LayoutSideProps'
@@ -39,7 +39,7 @@ const Button: types.Brick<ButtonProps> = ({
       href={href}
       {...target}
       className={classNames(
-        'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150',
+        'inline-block whitespace-nowrap text-center py-3 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5 min-w-[120px]',
         padding === 'normal' ? 'px-8' : 'px-5',
         isBigButton && ' w-3/5 text-center rounded-full',
         {
@@ -52,7 +52,11 @@ const Button: types.Brick<ButtonProps> = ({
         className
       )}
     >
-      {text}
+      <Text
+        propName="text"
+        placeholder="Text..."
+        renderBlock={({ children }) => <span>{children}</span>}
+      />
     </Link>
   )
 }
@@ -75,11 +79,11 @@ Button.schema = {
     isBigButton: false,
   }),
   sideEditProps: [
-    {
-      name: 'text',
-      label: 'Button text',
-      type: types.SideEditPropType.Text,
-    },
+    // {
+    //   name: 'text',
+    //   label: 'Button text',
+    //   type: types.SideEditPropType.Text,
+    // },
     {
       name: 'isBigButton',
       label: 'Full width button',

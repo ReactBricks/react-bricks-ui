@@ -9,6 +9,7 @@ import Faq from './Faq/FaqItem'
 import FeatureItem from './Features/FeatureItem'
 import Features from './Features/Features'
 import HeroUnit from './Hero Unit/HeroUnit'
+import HeroUnit2 from './Hero Unit/HeroUnit2'
 import Map from './Map/Map'
 import NewsletterSubscribe from './NewsletterSubscribe/NewsletterSubscribe'
 import Badge from './shared/Badge'
@@ -41,6 +42,7 @@ export {
   Button,
   BulletListItem,
   HeroUnit,
+  HeroUnit2,
   TextImage,
   TextImageLogo,
   Testimonial,
@@ -81,6 +83,7 @@ const allBricks = [
   Button,
   BulletListItem,
   HeroUnit,
+  HeroUnit2,
   TextImage,
   TextImageLogo,
   Testimonial,

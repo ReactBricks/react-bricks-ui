@@ -29,7 +29,7 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   return (
     <Section bg={bg}>
       <Container
-        size="sm"
+        size="small"
         className={classNames(
           'pt-12 pb-20 flex flex-col justify-between ',
           small ? 'items-start' : 'items-center'

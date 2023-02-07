@@ -15,7 +15,7 @@ interface HorizontalRuleProps {
 
 const HorizontalRule: types.Brick<HorizontalRuleProps> = ({ width, bg }) => {
   return (
-    <Section bg={bg} className="py-4">
+    <Section bg={bg} paddingTop="none" paddingBottom="none">
       <Container size={width}>
         <hr />
       </Container>
@@ -26,7 +26,7 @@ const HorizontalRule: types.Brick<HorizontalRuleProps> = ({ width, bg }) => {
 HorizontalRule.schema = {
   name: blockNames.HorizontalRule,
   label: 'Horizontal Rule',
-  category: 'rb-ui website',
+  category: 'separator',
   sideEditProps: [
     {
       groupName: 'Layout',

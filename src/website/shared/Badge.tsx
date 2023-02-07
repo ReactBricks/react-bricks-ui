@@ -8,11 +8,13 @@ import { BadgeColorsSideEditProps } from 'website/LayoutSideProps'
 
 export interface BadgeProps {
   badgeColor?: { color: string; className: string }
+  textAlign?: 'left' | 'center'
   className?: string
 }
 
 const Badge: types.Brick<BadgeProps> = ({
   badgeColor = highlightTextColors.SKY.value,
+  textAlign = 'center',
   className,
 }) => {
   return (
@@ -21,7 +23,8 @@ const Badge: types.Brick<BadgeProps> = ({
         renderBlock={(props) => (
           <span
             className={classNames(
-              'text-sm font-black uppercase text-center',
+              'text-sm font-black uppercase inline-block min-w-[120px]',
+              textAlign === 'center' ? 'text-center' : 'text-left',
               badgeColor.className,
               className
             )}
