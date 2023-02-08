@@ -3,15 +3,15 @@ import { types } from 'react-bricks/frontend'
 import { bgColors } from 'website/colors'
 import blockNames from '../blockNames'
 import Section from '../layout/Section'
-import { BackgroundColorsSideEditProps } from '../LayoutSideProps'
+import { backgroundColorsEditProps } from '../LayoutSideProps'
 
 export interface SpacerProps {
-  range: number
-  bg?: { color: string; className: string }
+  height: number
+  backgroundColor?: { color: string; className: string }
 }
 
-const switchRange = (range: string) => {
-  switch (range) {
+const getPadding = (height: string) => {
+  switch (height) {
     case '0':
       return 'py-1'
     case '1':
@@ -39,10 +39,10 @@ const switchRange = (range: string) => {
   }
 }
 
-const Spacer: types.Brick<SpacerProps> = ({ range, bg }) => {
+const Spacer: types.Brick<SpacerProps> = ({ height, backgroundColor }) => {
   return (
-    <Section bg={bg} paddingTop="none" paddingBottom="none">
-      <div className={switchRange(range + '')} />
+    <Section backgroundColor={backgroundColor}>
+      <div className={getPadding(height + '')} />
     </Section>
   )
 }
@@ -50,19 +50,19 @@ const Spacer: types.Brick<SpacerProps> = ({ range, bg }) => {
 Spacer.schema = {
   name: blockNames.Spacer,
   label: 'Spacer',
-  category: 'rb-ui website',
+  category: 'separator',
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
-    range: '5',
+    backgroundColor: bgColors.WHITE.value,
+    height: '5',
   }),
   sideEditProps: [
     {
       groupName: 'Layout',
       defaultOpen: true,
       props: [
-        BackgroundColorsSideEditProps,
+        backgroundColorsEditProps,
         {
-          name: 'range',
+          name: 'height',
           label: 'Height',
           shouldRefreshText: true,
           type: types.SideEditPropType.Range,

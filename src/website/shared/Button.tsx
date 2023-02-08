@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { Text, Link, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import { buttonColors } from 'website/colors'
-import { ButtonColorsSideEditProps } from 'website/LayoutSideProps'
+import { buttonColorsEditProps } from 'website/LayoutSideProps'
 
 export interface ButtonProps {
   text: string
@@ -89,7 +89,7 @@ Button.schema = {
       label: 'Full width button',
       type: types.SideEditPropType.Boolean,
     },
-    ButtonColorsSideEditProps,
+    buttonColorsEditProps,
     {
       name: 'type',
       label: 'Type',

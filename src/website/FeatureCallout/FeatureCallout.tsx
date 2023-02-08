@@ -8,27 +8,41 @@ import Section, { Border } from '../layout/Section'
 import Container from '../layout/Container'
 import blockNames from '../blockNames'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  sectionBordersEditProps,
 } from 'website/LayoutSideProps'
 
 export interface FeatureCalloutProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
+  borderTop: Border
+  borderBottom: Border
 }
 
 const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
-  bg = bgColors.WHITE.value,
+  backgroundColor = bgColors.WHITE.value,
+  borderTop,
+  borderBottom,
 }) => {
   return (
-    <Section bg={bg}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
         size="small"
+        paddingTop="small"
+        paddingBottom="small"
         className={classNames(
-          'py-12 flex flex-col sm:flex-row items-center text-center sm:text-left'
+          'flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
       >
-        <div className="sm:mr-10 mb-4 sm:mb-0 w-32">
-          <Image propName="imageSource" alt="image" />
+        <div className="sm:mr-10 mb-4 sm:mb-0">
+          <Image
+            propName="imageSource"
+            alt="image"
+            imageClassName="w-36 h-36 object-contain"
+          />
         </div>
         <div className="flex-1">
           <Text
@@ -68,13 +82,13 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
 FeatureCallout.schema = {
   name: blockNames.FeatureCallout,
   label: 'Feature callout',
-  category: 'rb-ui website',
+  category: 'content sections',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',
@@ -93,7 +107,7 @@ FeatureCallout.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps],
+      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
     },
   ],
 }

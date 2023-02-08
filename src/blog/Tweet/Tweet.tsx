@@ -92,7 +92,7 @@ Tweet.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     id: '1237840583982329857',
     placeholder: 'Loading Tweet',
     position: 'center',

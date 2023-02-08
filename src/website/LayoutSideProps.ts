@@ -6,8 +6,8 @@ import {
   buttonColors,
 } from './colors'
 
-export const BackgroundColorsSideEditProps: types.ISideEditProp = {
-  name: 'bg',
+export const backgroundColorsEditProps: types.ISideEditProp = {
+  name: 'backgroundColor',
   label: 'Background',
   type: types.SideEditPropType.Select,
   selectOptions: {
@@ -36,7 +36,7 @@ export const BackgroundColorsSideEditProps: types.ISideEditProp = {
   },
 }
 
-export const BackgroundImageEditProps: types.ISideEditProp = {
+export const backgroundImageEditProps: types.ISideEditProp = {
   name: 'backgroundImage',
   label: 'Background Image',
   type: types.SideEditPropType.Image,
@@ -45,21 +45,7 @@ export const BackgroundImageEditProps: types.ISideEditProp = {
   },
 }
 
-export const ContainerSizeSideEditProps: types.ISideEditProp = {
-  name: 'width',
-  label: 'Width',
-  type: types.SideEditPropType.Select,
-  selectOptions: {
-    display: types.OptionsDisplay.Select,
-    options: [
-      { value: 'normal', label: 'Normal' },
-      { value: 'small', label: 'Small' },
-      { value: 'full', label: 'Full-width' },
-    ],
-  },
-}
-
-export const SectionPaddings: types.ISideEditProp[] = [
+export const sectionPaddingsEditProps: types.ISideEditProp[] = [
   {
     name: 'paddingTop',
     label: 'Padding Top',
@@ -90,7 +76,58 @@ export const SectionPaddings: types.ISideEditProp[] = [
   },
 ]
 
-export const BadgeColorsSideEditProps = {
+export const sectionBordersEditProps: types.ISideEditProp[] = [
+  {
+    name: 'borderTop',
+    label: 'Border Top',
+    type: types.SideEditPropType.Select,
+    selectOptions: {
+      display: types.OptionsDisplay.Select,
+      options: [
+        { value: 'none', label: 'None' },
+        { value: 'full', label: 'Full-width' },
+        { value: 'boxed', label: 'Boxed' },
+      ],
+    },
+  },
+  {
+    name: 'borderBottom',
+    label: 'Border Bottom',
+    type: types.SideEditPropType.Select,
+    selectOptions: {
+      display: types.OptionsDisplay.Select,
+      options: [
+        { value: 'none', label: 'None' },
+        { value: 'full', label: 'Full-width' },
+        { value: 'boxed', label: 'Boxed' },
+      ],
+    },
+  },
+]
+
+export const sectionDefaults = {
+  backgroundColor: bgColors.WHITE,
+  paddingTop: 'normal',
+  paddingBottom: 'normal',
+  borderTop: 'none',
+  borderBottom: 'none',
+}
+
+export const containerSizeEditProps: types.ISideEditProp = {
+  name: 'width',
+  label: 'Width',
+  type: types.SideEditPropType.Select,
+  selectOptions: {
+    display: types.OptionsDisplay.Select,
+    options: [
+      { value: 'normal', label: 'Normal' },
+      { value: 'small', label: 'Small' },
+      { value: 'full', label: 'Full-width' },
+    ],
+  },
+}
+
+export const badgeColorsEditProps = {
   name: 'badgeColor',
   label: 'Badge Color',
   type: types.SideEditPropType.Select,
@@ -120,7 +157,7 @@ export const BadgeColorsSideEditProps = {
   },
 }
 
-export const BulletColorsSideEditProps = {
+export const bulletColorsEditProps = {
   name: 'bulletColor',
   label: 'Bullet Color',
   type: types.SideEditPropType.Select,
@@ -150,7 +187,7 @@ export const BulletColorsSideEditProps = {
   },
 }
 
-export const ButtonColorsSideEditProps = {
+export const buttonColorsEditProps = {
   name: 'buttonColor',
   label: 'Button Color',
   type: types.SideEditPropType.Select,
@@ -180,7 +217,7 @@ export const ButtonColorsSideEditProps = {
   },
 }
 
-export const HighlightTextSideEditProps = {
+export const highlightTextEditProps = {
   name: 'highlightTextColor',
   label: 'Highlight Color',
   type: types.SideEditPropType.Select,

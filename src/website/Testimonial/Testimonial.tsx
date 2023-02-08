@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Image, Text, types } from 'react-bricks/frontend'
 
 import { FiUser } from 'react-icons/fi'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import { backgroundColorsEditProps } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
 import Container from '../layout/Container'
@@ -15,7 +15,7 @@ export interface TestimonialProps {
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
   small?: boolean
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
 }
 
 const Testimonial: types.Brick<TestimonialProps> = ({
@@ -24,10 +24,10 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   avatarImage,
   logoImage,
   small = false,
-  bg = bgColors.WHITE.value,
+  backgroundColor = bgColors.WHITE.value,
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container
         size="small"
         className={classNames(
@@ -138,7 +138,7 @@ Testimonial.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps],
+      props: [backgroundColorsEditProps],
     },
   ],
 }

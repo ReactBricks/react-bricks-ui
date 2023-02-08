@@ -4,7 +4,7 @@ import { FiCheck } from 'react-icons/fi'
 import { Text, types } from 'react-bricks/frontend'
 import { highlightBgColors } from '../colors'
 import blockNames from '../blockNames'
-import { BulletColorsSideEditProps } from 'website/LayoutSideProps'
+import { bulletColorsEditProps } from 'website/LayoutSideProps'
 
 export interface BulletListItemProps {
   bulletColor: { color: string; className: string }
@@ -20,10 +20,9 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
     <div className={classNames('flex justify-start items-center', className)}>
       <div
         className={classNames(
-          'flex justify-center items-center w-5 h-5 rounded-full mr-3 text-sm',
+          'flex-shrink-0 flex justify-center items-center w-5 h-5 rounded-full mr-3 text-sm',
           bulletColor.className
         )}
-        style={{ minWidth: '1.25rem' }}
       >
         <FiCheck />
       </div>
@@ -58,7 +57,7 @@ BulletListItem.schema = {
     bulletColor: highlightBgColors.SKY.value,
     text: 'New item',
   }),
-  sideEditProps: [BulletColorsSideEditProps],
+  sideEditProps: [bulletColorsEditProps],
 }
 
 export default BulletListItem

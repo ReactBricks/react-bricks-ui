@@ -6,13 +6,13 @@ import { bgColors } from 'website/colors'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
-import { BackgroundColorsSideEditProps } from '../LayoutSideProps'
+import { backgroundColorsEditProps } from '../LayoutSideProps'
 
 export interface FormBuilderProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
 }
 
-const FormBuilder: types.Brick<FormBuilderProps> = ({ bg }) => {
+const FormBuilder: types.Brick<FormBuilderProps> = ({ backgroundColor }) => {
   const {
     register,
     handleSubmit,
@@ -20,7 +20,7 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({ bg }) => {
   } = useForm()
 
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container className="py-12 xl:py-20">
         <Text
           propName="formTitle"
@@ -79,7 +79,7 @@ FormBuilder.schema = {
   ],
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     formTitle: [
       {
         type: 'paragraph',
@@ -111,7 +111,7 @@ FormBuilder.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps],
+      props: [backgroundColorsEditProps],
     },
   ],
 }
