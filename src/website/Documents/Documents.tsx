@@ -2,19 +2,19 @@ import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
 export interface DocumentsProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
 }
 
-const Documents: types.Brick<DocumentsProps> = ({ bg }) => {
+const Documents: types.Brick<DocumentsProps> = ({ backgroundColor }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
@@ -64,7 +64,7 @@ Documents.schema = {
       },
     ],
   }),
-  sideEditProps: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+  sideEditProps: [backgroundColorsEditProps, containerSizeEditProps],
   repeaterItems: [
     {
       name: 'files',

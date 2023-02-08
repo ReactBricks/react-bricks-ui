@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
@@ -11,7 +11,7 @@ import Container, { Size } from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 
 export interface CustomersProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
   borderTop?: Border
   borderBottom?: Border
   width?: Size
@@ -19,11 +19,11 @@ export interface CustomersProps {
 }
 
 const Customers: types.Brick<CustomersProps> = ({
-  bg = bgColors.WHITE.value,
+  backgroundColor = bgColors.WHITE.value,
   grayscale = true,
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
@@ -44,7 +44,7 @@ Customers.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.GRAY.value,
+    backgroundColor: bgColors.GRAY.value,
     borderTop: 'none',
     borderBottom: 'none',
     grayscale: true,
@@ -116,7 +116,7 @@ Customers.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [backgroundColorsEditProps, containerSizeEditProps],
     },
     {
       groupName: 'Logos',

@@ -3,15 +3,15 @@ import { Repeater, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 import Container from '../layout/Container'
 import Section from '../layout/Section'
-import { BackgroundColorsSideEditProps } from '../LayoutSideProps'
+import { backgroundColorsEditProps } from '../LayoutSideProps'
 
 export interface TableProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
 }
 
-const Table: types.Brick<TableProps> = ({ bg }) => {
+const Table: types.Brick<TableProps> = ({ backgroundColor }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container className="py-12 xl:py-20">
         <table className="w-full">
           <Repeater propName="rows" />
@@ -81,7 +81,7 @@ Table.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps],
+      props: [backgroundColorsEditProps],
     },
   ],
 }

@@ -1,21 +1,21 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import { backgroundColorsEditProps } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
 import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 
 export interface CallToActionProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
-  bg = bgColors.WHITE.value,
+  backgroundColor = bgColors.WHITE.value,
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container
         size="small"
         className={classNames(
@@ -56,7 +56,7 @@ CallToAction.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
     width: 'sm',
@@ -85,7 +85,7 @@ CallToAction.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps],
+      props: [backgroundColorsEditProps],
     },
   ],
 }

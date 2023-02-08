@@ -7,10 +7,10 @@ import { bgColors } from '../colors'
 import Container from '../layout/Container'
 import Section, { Border } from '../layout/Section'
 import { layoutType } from './FeatureItem'
-import { BackgroundColorsSideEditProps } from 'website/LayoutSideProps'
+import { backgroundColorsEditProps } from 'website/LayoutSideProps'
 
 export interface FeaturesProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
   screenLayout: layoutType
 }
 const getRepeaterWidht = (screenLayout: layoutType) => {
@@ -25,11 +25,11 @@ const getRepeaterWidht = (screenLayout: layoutType) => {
 }
 
 const Features: types.Brick<FeaturesProps> = ({
-  bg = bgColors.WHITE.value,
+  backgroundColor = bgColors.WHITE.value,
   screenLayout = 'base',
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container
         className={classNames(
           'py-12 flex flex-wrap justify-center items-center'
@@ -66,7 +66,7 @@ Features.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     screenLayout: 'base',
@@ -119,7 +119,7 @@ Features.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps],
+      props: [backgroundColorsEditProps],
     },
     {
       groupName: 'Columns',

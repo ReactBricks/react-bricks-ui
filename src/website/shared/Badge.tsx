@@ -4,7 +4,7 @@ import { highlightTextColors } from '../colors'
 
 import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
-import { BadgeColorsSideEditProps } from 'website/LayoutSideProps'
+import { badgeColorsEditProps } from 'website/LayoutSideProps'
 
 export interface BadgeProps {
   badgeColor?: { color: string; className: string }
@@ -52,7 +52,7 @@ Badge.schema = {
     text: 'Special',
     badgeColor: highlightTextColors.SKY.value,
   }),
-  sideEditProps: [BadgeColorsSideEditProps],
+  sideEditProps: [badgeColorsEditProps],
 }
 
 export default Badge

@@ -6,15 +6,15 @@ import { bgColors } from 'website/colors'
 import Container, { Size } from 'website/layout/Container'
 import Section, { Border } from 'website/layout/Section'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import Slick from './slick'
 
 import SlickTheme from './slick-theme'
 export interface ImageCarouselProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
   width?: Size
 }
 interface ArrowProps {
@@ -79,7 +79,10 @@ const Carousel = ({ repeaterElement }: any) => {
   )
 }
 
-const ImageCarousel: types.Brick<ImageCarouselProps> = ({ bg, width }) => {
+const ImageCarousel: types.Brick<ImageCarouselProps> = ({
+  backgroundColor,
+  width,
+}) => {
   const [hasMount, setHasMount] = useState(false)
   useEffect(() => {
     setHasMount(true)
@@ -97,7 +100,7 @@ const ImageCarousel: types.Brick<ImageCarouselProps> = ({ bg, width }) => {
     )
   }
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container size={width}>
         <Carousel repeaterElement={repeaterElement} />
       </Container>
@@ -139,7 +142,7 @@ ImageCarousel.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [backgroundColorsEditProps, containerSizeEditProps],
     },
   ],
 }

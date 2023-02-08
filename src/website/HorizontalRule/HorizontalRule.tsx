@@ -4,20 +4,24 @@ import blockNames from '../blockNames'
 import Container, { Size } from 'website/layout/Container'
 import Section from 'website/layout/Section'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
+import { bgColors } from 'website/colors'
 
 interface HorizontalRuleProps {
   width?: Size
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
 }
 
-const HorizontalRule: types.Brick<HorizontalRuleProps> = ({ width, bg }) => {
+const HorizontalRule: types.Brick<HorizontalRuleProps> = ({
+  width = 'normal',
+  backgroundColor = bgColors.WHITE.value,
+}) => {
   return (
-    <Section bg={bg} paddingTop="none" paddingBottom="none">
-      <Container size={width}>
-        <hr />
+    <Section backgroundColor={backgroundColor}>
+      <Container size={width} paddingTop="none" paddingBottom="none">
+        <hr className="border-black/10" />
       </Container>
     </Section>
   )
@@ -27,11 +31,15 @@ HorizontalRule.schema = {
   name: blockNames.HorizontalRule,
   label: 'Horizontal Rule',
   category: 'separator',
+  getDefaultProps: () => ({
+    backgroundColor: bgColors.WHITE.value,
+    width: 'normal',
+  }),
   sideEditProps: [
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [backgroundColorsEditProps, containerSizeEditProps],
     },
   ],
 }

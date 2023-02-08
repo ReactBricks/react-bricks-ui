@@ -2,31 +2,37 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
-  BackgroundColorsSideEditProps,
-  BackgroundImageEditProps,
-  HighlightTextSideEditProps,
-  SectionPaddings,
+  backgroundColorsEditProps,
+  backgroundImageEditProps,
+  highlightTextEditProps,
+  sectionBordersEditProps,
+  sectionDefaults,
+  sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors, gradients, highlightTextColors, textColors } from '../colors'
-import Container from '../layout/Container'
-import Section, { Padding } from '../layout/Section'
+import Container, { Padding } from '../layout/Container'
+import Section, { Border } from '../layout/Section'
 
 export interface HeroUnitProps {
-  bg?: { color: string; className: string }
+  backgroundColor: { color: string; className: string }
   backgroundImage?: types.IImageSource
-  paddingTop?: Padding
-  paddingBottom?: Padding
-  size?: 'medium' | 'large'
-  textGradient?: keyof typeof gradients
+  paddingTop: Padding
+  paddingBottom: Padding
+  borderTop: Border
+  borderBottom: Border
+  size: 'medium' | 'large'
+  textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
 }
 
 const HeroUnit: types.Brick<HeroUnitProps> = ({
-  bg = bgColors.WHITE.value,
+  backgroundColor = bgColors.WHITE.value,
   backgroundImage,
   paddingTop = 'small',
   paddingBottom = 'small',
+  borderTop = 'none',
+  borderBottom = 'none',
   textGradient = gradients.NONE.value,
   size = 'large',
   highlightTextColor = highlightTextColors.LIME.value,
@@ -40,12 +46,12 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
 
   return (
     <Section
-      bg={bg}
+      backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
-      paddingTop={paddingTop}
-      paddingBottom={paddingBottom}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
     >
-      <Container>
+      <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div className="max-w-xl mx-auto px-5">
           <Repeater
             propName="badge"
@@ -55,9 +61,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           <div
             className={classNames(
               titleColor,
-              gradients[textGradient].className,
-              'text-[28px] sm:text-[40px]',
-              { 'lg:text-5xl': size === 'large' }
+              gradients[textGradient].className
             )}
             style={titleStyle}
           >
@@ -65,10 +69,10 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
               renderBlock={(props) => (
                 <h1
                   className={classNames(
-                    'text-center font-black mb-4 pb-1 bg-clip-text bg-gradient-to-r',
+                    'text-[28px] leading-8 sm:text-[40px] sm:leading-tight text-center font-black mb-4 pb-1 bg-clip-text bg-gradient-to-r',
+                    { 'lg:text-5xl lg:leading-snug': size === 'large' },
                     titleColor
                   )}
-                  style={{ lineHeight: 1.1 }}
                   {...props.attributes}
                 >
                   {props.children}
@@ -87,7 +91,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
             renderBlock={(props) => (
               <p
                 className={classNames(
-                  'text-lg sm:text-xl text-center leading-7 sm:leading-8',
+                  'text-base leading-6 sm:text-xl sm:leading-8 text-center',
                   textColor
                 )}
                 {...props.attributes}
@@ -118,13 +122,13 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
 
 HeroUnit.schema = {
   name: blockNames.HeroUnit,
-  label: 'Hero Unit',
-  category: 'rb-ui website',
+  label: 'Centered',
+  category: 'hero sections',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    ...sectionDefaults,
     size: 'large',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
@@ -174,9 +178,10 @@ HeroUnit.schema = {
       groupName: 'Layout',
       defaultOpen: false,
       props: [
-        BackgroundColorsSideEditProps,
-        BackgroundImageEditProps,
-        ...SectionPaddings,
+        backgroundColorsEditProps,
+        backgroundImageEditProps,
+        ...sectionPaddingsEditProps,
+        ...sectionBordersEditProps,
       ],
     },
     {
@@ -210,7 +215,7 @@ HeroUnit.schema = {
             ],
           },
         },
-        HighlightTextSideEditProps,
+        highlightTextEditProps,
       ],
     },
   ],

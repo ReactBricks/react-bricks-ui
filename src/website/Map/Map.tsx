@@ -6,13 +6,13 @@ import blockNames from '../blockNames'
 import Section, { Border } from '../layout/Section'
 import Container, { Size } from '../layout/Container'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
 import { bgColors } from 'website/colors'
 
 export interface MapProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
   size?: 'medium' | 'large'
   width?: Size
 
@@ -31,13 +31,13 @@ const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
 
 export const MapBrick: types.Brick<MapProps> = ({
   width,
-  bg,
+  backgroundColor,
   lat = '45.6782509',
   lng = '9.5669407',
   zoom = '10',
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container size={width}>
         <Map
           center={[parseFloat(lat), parseFloat(lng)]}
@@ -64,7 +64,7 @@ MapBrick.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     width: 'small',
@@ -75,7 +75,7 @@ MapBrick.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [backgroundColorsEditProps, containerSizeEditProps],
     },
     {
       groupName: 'Coordinates',

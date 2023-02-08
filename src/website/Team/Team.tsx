@@ -7,21 +7,21 @@ import Section, { Border } from '../layout/Section'
 import { bgColors } from '../colors'
 import blockNames from '../blockNames'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
 
 export interface TeamProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
   width?: Size
 }
 
 const Team: types.Brick<TeamProps> = ({
-  bg = bgColors.WHITE.value,
-  width = 'lg',
+  backgroundColor = bgColors.WHITE.value,
+  width = 'normal',
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container
         size={width}
         className={classNames(
@@ -44,7 +44,7 @@ Team.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/Team.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
     width: 'lg',
@@ -135,7 +135,7 @@ Team.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [backgroundColorsEditProps, containerSizeEditProps],
     },
   ],
 }

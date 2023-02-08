@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import {
-  BackgroundColorsSideEditProps,
-  ContainerSizeSideEditProps,
+  backgroundColorsEditProps,
+  containerSizeEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
@@ -11,16 +11,16 @@ import Container, { Size } from '../layout/Container'
 import Section from '../layout/Section'
 
 export interface FaqProps {
-  bg?: { color: string; className: string }
+  backgroundColor?: { color: string; className: string }
   width?: Size
 }
 
 const Faq: types.Brick<FaqProps> = ({
-  bg = bgColors.WHITE.value,
-  width = 'sm',
+  backgroundColor = bgColors.WHITE.value,
+  width = 'small',
 }) => {
   return (
-    <Section bg={bg}>
+    <Section backgroundColor={backgroundColor}>
       <Container size={width} className={classNames('pt-12')}>
         <Repeater propName="faqs" />
       </Container>
@@ -37,7 +37,7 @@ Faq.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',
 
   getDefaultProps: () => ({
-    bg: bgColors.WHITE.value,
+    backgroundColor: bgColors.WHITE.value,
     borderTop: 'full',
     borderBottom: 'none',
     width: 'sm',
@@ -60,7 +60,7 @@ Faq.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [BackgroundColorsSideEditProps, ContainerSizeSideEditProps],
+      props: [backgroundColorsEditProps, containerSizeEditProps],
     },
   ],
 }
