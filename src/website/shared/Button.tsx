@@ -54,7 +54,7 @@ const Button: types.Brick<ButtonProps> = ({
     >
       <Text
         propName="text"
-        placeholder="Text..."
+        placeholder="Action text..."
         renderBlock={({ children }) => <span>{children}</span>}
       />
     </Link>

@@ -192,6 +192,7 @@ HeroUnit2.schema = {
             options: [
               gradients.NONE,
               gradients.OCEAN,
+              gradients.RAINBOW,
               gradients.VIOLET,
               gradients.INDIGO_PINK,
               gradients.SUN,

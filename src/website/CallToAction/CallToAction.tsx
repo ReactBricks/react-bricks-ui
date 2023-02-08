@@ -1,7 +1,10 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
-import { backgroundColorsEditProps } from 'website/LayoutSideProps'
+import {
+  backgroundColorsEditProps,
+  sectionBordersEditProps,
+} from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
 import Container from '../layout/Container'
@@ -9,26 +12,36 @@ import Section, { Border } from '../layout/Section'
 
 export interface CallToActionProps {
   backgroundColor?: { color: string; className: string }
+  borderTop: Border
+  borderBottom: Border
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
   backgroundColor = bgColors.WHITE.value,
+  borderTop,
+  borderBottom,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
         size="small"
+        paddingTop="small"
+        paddingBottom="small"
         className={classNames(
-          'py-12 flex flex-col sm:flex-row items-center text-center sm:text-left'
+          'flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
       >
-        <div className="flex-1 sm:pr-12 mb-4 sm:mb-0">
+        <div className="flex-1 sm:pr-14 mb-4 sm:mb-0">
           <RichText
             propName="text"
             renderBlock={(props) => (
               <span
                 className={classNames(
-                  'font-extrabold text-xl sm:text-2xl leading-6 sm:leading-8',
+                  'font-black text-xl leading-6 sm:text-2xl sm:leading-7',
                   textColors.GRAY_800
                 )}
                 {...props.attributes}
@@ -59,15 +72,18 @@ CallToAction.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
-    width: 'sm',
     text: 'React Bricks is great for developers and marketing.',
     buttons: [
       {
         text: 'Get started',
-        variant: 'pink',
         type: 'solid',
-        href: '',
-        isTargetBlank: false,
+        buttonColor: {
+          color: "#0ea5e9",
+          classNameSolid: "bg-sky-500 text-white hover:bg-sky-600",
+          classNameOutline: "border border-sky-600 text-sky-600 dark:border-white dark:text-white"
+        },
+        href: 'https://reactbricks.com',
+        isTargetBlank: true,
         isBigButton: false,
       },
     ],
@@ -85,7 +101,7 @@ CallToAction.schema = {
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [backgroundColorsEditProps],
+      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
     },
   ],
 }

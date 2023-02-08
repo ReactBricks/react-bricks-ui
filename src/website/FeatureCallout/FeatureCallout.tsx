@@ -91,7 +91,6 @@ FeatureCallout.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
-    width: 'sm',
     title: 'Easy like Wix, but your own.',
     text: 'A great user experience for Content creators, React components for Developers.',
     imageSource: {

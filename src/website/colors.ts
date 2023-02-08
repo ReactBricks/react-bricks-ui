@@ -705,6 +705,13 @@ export const gradients = {
     value: 'OCEAN',
     className: 'from-blue-500 to-teal-400',
   },
+  RAINBOW: {
+    label: 'Rainbow',
+    value: 'RAINBOW',
+    className: 'from-rose-500 via-cyan-500 to-blue-500',
+    // className:
+    // 'from-rose-500 via-red-500 via-orange-500 via-amber-500 via-lime-500 via-green-500 via-cyan-500 via-sky-500 to-blue-500',
+  },
   VIOLET: {
     label: 'Violet',
     value: 'VIOLET',
