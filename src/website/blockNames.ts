@@ -5,6 +5,8 @@ enum blockNames {
   HeroUnit2 = 'hero-unit-2',
   Separator = 'separator',
   Testimonial = 'testimonial',
+  Testimonial3Cols = 'testimonial-3-cols',
+  Testimonial3ColsItem = 'testimonial-3-cols-item',
   TextImage = 'text-image',
   TextLogoItem = 'text-logo-item',
   TextLogos = 'text-logos',

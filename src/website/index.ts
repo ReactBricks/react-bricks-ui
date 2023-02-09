@@ -11,13 +11,15 @@ import Features from './Features/Features'
 import HeroUnit from './Hero Unit/HeroUnit'
 import HeroUnit2 from './Hero Unit/HeroUnit2'
 import Map from './Map/Map'
-import NewsletterSubscribe from './NewsletterSubscribe/NewsletterSubscribe'
+import NewsletterSubscribe from './CallToAction/NewsletterSubscribe'
 import Badge from './shared/Badge'
 import BulletListItem from './shared/BulletListItem'
 import Button from './shared/Button'
 import Team from './Team/Team'
 import TeamItem from './Team/TeamItem'
 import Testimonial from './Testimonial/Testimonial'
+import Testimonial3Cols from './Testimonial/Testimonial3Cols'
+import Testimonial3ColsItem from './Testimonial/Testimonial3ColsItem'
 import TextImage from './TextImage/TextImage'
 import TextImageLogo from './TextImage/TextImageLogo'
 import ImageCarousel from './ImageCarousel/ImageCarousel'
@@ -46,6 +48,8 @@ export {
   TextImage,
   TextImageLogo,
   Testimonial,
+  Testimonial3Cols,
+  Testimonial3ColsItem,
   Customers,
   Customer,
   Faqs,
@@ -87,6 +91,8 @@ const allBricks = [
   TextImage,
   TextImageLogo,
   Testimonial,
+  Testimonial3Cols,
+  Testimonial3ColsItem,
   Customers,
   Customer,
   Faqs,

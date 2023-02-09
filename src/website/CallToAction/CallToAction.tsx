@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import * as React from 'react'
-import { Repeater, RichText, types } from 'react-bricks/frontend'
+import { Repeater, Text, types } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
@@ -36,7 +36,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         )}
       >
         <div className="flex-1 sm:pr-14 mb-4 sm:mb-0">
-          <RichText
+          <Text
             propName="text"
             renderBlock={(props) => (
               <span
@@ -64,7 +64,7 @@ CallToAction.schema = {
   name: blockNames.CallToAction,
   label: 'Call to action',
   playgroundLinkLabel: 'View source code on Github',
-  category: 'rb-ui website',
+  category: 'call to action',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 
@@ -78,9 +78,10 @@ CallToAction.schema = {
         text: 'Get started',
         type: 'solid',
         buttonColor: {
-          color: "#0ea5e9",
-          classNameSolid: "bg-sky-500 text-white hover:bg-sky-600",
-          classNameOutline: "border border-sky-600 text-sky-600 dark:border-white dark:text-white"
+          color: '#0ea5e9',
+          classNameSolid: 'bg-sky-500 text-white hover:bg-sky-600',
+          classNameOutline:
+            'border border-sky-600 text-sky-600 dark:border-white dark:text-white',
         },
         href: 'https://reactbricks.com',
         isTargetBlank: true,

@@ -39,7 +39,7 @@ const Button: types.Brick<ButtonProps> = ({
       href={href}
       {...target}
       className={classNames(
-        'inline-block whitespace-nowrap text-center py-3 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5 min-w-[120px]',
+        'inline-block whitespace-nowrap text-center py-3 rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5 min-w-[120px]',
         padding === 'normal' ? 'px-8' : 'px-5',
         isBigButton && ' w-3/5 text-center rounded-full',
         {

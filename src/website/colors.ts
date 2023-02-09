@@ -107,6 +107,7 @@ export const textColors = {
   GRAY_900: 'text-gray-900 dark:text-white',
   GRAY_800: 'text-gray-800 dark:text-white',
   GRAY_700: 'text-gray-700 dark:text-white',
+  GRAY_600: 'text-gray-600 dark:text-white',
 } as const satisfies Record<string, string>
 
 type Color = {

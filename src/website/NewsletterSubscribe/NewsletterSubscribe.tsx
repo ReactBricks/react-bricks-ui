@@ -134,8 +134,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
           <button
             type="submit"
             disabled={status.status === 'SENDING'}
-            className="bg-sky-500 px-8 rounded-r-lg text-white font-bold py-2"
-            // style={{ backgroundColor: '#2f9ff4' }}
+            className="bg-sky-500 px-8 rounded-r-lg text-white font-bold py-2 hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5"
           >
             {buttonText}
           </button>
