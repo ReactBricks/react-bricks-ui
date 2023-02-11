@@ -10,24 +10,23 @@ export interface ButtonProps {
   href: string
   isTargetBlank: boolean
   isBigButton: boolean
-  buttonColor?: {
+  buttonColor: {
     color: string
     classNameSolid: string
     classNameOutline: string
   }
-  type?: 'solid' | 'outline'
+  type: 'solid' | 'outline'
   padding: 'normal' | 'small'
   className?: string
 }
 
 const Button: types.Brick<ButtonProps> = ({
-  text,
   href,
-  isTargetBlank = false,
-  isBigButton = false,
-  buttonColor = buttonColors.SKY.value,
-  type = 'solid',
-  padding = 'normale',
+  isTargetBlank,
+  isBigButton,
+  buttonColor,
+  type,
+  padding,
   className,
 }) => {
   const target = isTargetBlank
@@ -74,9 +73,10 @@ Button.schema = {
     text: 'Click me',
     href: '',
     isTargetBlank: false,
+    isBigButton: false,
     buttonColor: buttonColors.SKY.value,
     type: 'solid',
-    isBigButton: false,
+    padding: 'normal'
   }),
   sideEditProps: [
     // {

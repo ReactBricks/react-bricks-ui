@@ -130,6 +130,8 @@ HeroUnit.schema = {
   getDefaultProps: () => ({
     ...sectionDefaults,
     size: 'large',
+    paddingTop: 'thick',
+    paddingBottom: 'thick',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
     title: 'We develop beautiful web applications',
@@ -137,7 +139,7 @@ HeroUnit.schema = {
     badge: [
       {
         text: 'high tech',
-        color: highlightTextColors.SKY.value,
+        badgeColor: highlightTextColors.SKY.value,
       },
     ],
     buttons: [

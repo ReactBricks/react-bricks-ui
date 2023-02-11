@@ -7,14 +7,14 @@ import blockNames from '../blockNames'
 import { badgeColorsEditProps } from 'website/LayoutSideProps'
 
 export interface BadgeProps {
-  badgeColor?: { color: string; className: string }
-  textAlign?: 'left' | 'center'
+  badgeColor: { color: string; className: string }
+  textAlign: 'left' | 'center'
   className?: string
 }
 
 const Badge: types.Brick<BadgeProps> = ({
-  badgeColor = highlightTextColors.SKY.value,
-  textAlign = 'center',
+  badgeColor,
+  textAlign,
   className,
 }) => {
   return (
@@ -50,6 +50,7 @@ Badge.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Badge.tsx',
   getDefaultProps: () => ({
     text: 'Special',
+    textAlign: 'center',
     badgeColor: highlightTextColors.SKY.value,
   }),
   sideEditProps: [badgeColorsEditProps],

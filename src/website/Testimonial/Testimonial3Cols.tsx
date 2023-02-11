@@ -32,12 +32,7 @@ const Testimonial3Cols: types.Brick<TestimonialProps> = ({
       borderTop={borderTop}
       borderBottom={borderBottom}
     >
-      <Container
-        size="normal"
-        paddingTop="normal"
-        paddingBottom="normal"
-        className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-10"
-      >
+      <Container className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-10">
         <Repeater propName="testimonials" />
       </Container>
     </Section>

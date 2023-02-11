@@ -41,7 +41,7 @@ const Section: React.FC<SectionProps> = ({
     >
       {borderTop !== 'none' && (
         <Container
-          size={borderTop === 'boxed' ? 'normal' : 'full'}
+          size={borderTop === 'boxed' ? 'medium' : 'full'}
           paddingBottom="none"
           paddingTop="none"
         >
@@ -51,7 +51,7 @@ const Section: React.FC<SectionProps> = ({
       {children}
       {borderBottom !== 'none' && (
         <Container
-          size={borderBottom === 'boxed' ? 'normal' : 'full'}
+          size={borderBottom === 'boxed' ? 'medium' : 'full'}
           paddingBottom="none"
           paddingTop="none"
         >

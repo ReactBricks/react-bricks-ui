@@ -15,8 +15,8 @@ interface HorizontalRuleProps {
 }
 
 const HorizontalRule: types.Brick<HorizontalRuleProps> = ({
-  width = 'normal',
-  backgroundColor = bgColors.WHITE.value,
+  width,
+  backgroundColor,
 }) => {
   return (
     <Section backgroundColor={backgroundColor}>
@@ -33,7 +33,7 @@ HorizontalRule.schema = {
   category: 'separator',
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
-    width: 'normal',
+    width: 'medium',
   }),
   sideEditProps: [
     {

@@ -53,7 +53,8 @@ export const sectionPaddingsEditProps: types.ISideEditProp[] = [
     selectOptions: {
       display: types.OptionsDisplay.Select,
       options: [
-        { value: 'normal', label: 'Normal' },
+        { value: 'thick', label: 'Thick' },
+        { value: 'medium', label: 'Medium' },
         { value: 'small', label: 'Small' },
         { value: 'thin', label: 'Thin' },
         { value: 'none', label: 'None' },
@@ -67,7 +68,8 @@ export const sectionPaddingsEditProps: types.ISideEditProp[] = [
     selectOptions: {
       display: types.OptionsDisplay.Select,
       options: [
-        { value: 'normal', label: 'Normal' },
+        { value: 'thick', label: 'Thick' },
+        { value: 'medium', label: 'Medium' },
         { value: 'small', label: 'Small' },
         { value: 'thin', label: 'Thin' },
         { value: 'none', label: 'None' },
@@ -107,8 +109,8 @@ export const sectionBordersEditProps: types.ISideEditProp[] = [
 
 export const sectionDefaults = {
   backgroundColor: bgColors.WHITE,
-  paddingTop: 'normal',
-  paddingBottom: 'normal',
+  paddingTop: 'medium',
+  paddingBottom: 'medium',
   borderTop: 'none',
   borderBottom: 'none',
 }
@@ -120,7 +122,7 @@ export const containerSizeEditProps: types.ISideEditProp = {
   selectOptions: {
     display: types.OptionsDisplay.Select,
     options: [
-      { value: 'normal', label: 'Normal' },
+      { value: 'medium', label: 'Medium' },
       { value: 'small', label: 'Small' },
       { value: 'full', label: 'Full-width' },
     ],

@@ -2,6 +2,8 @@ import BigFeature from './FeatureCallout/FeatureCallout'
 import CallToAction from './CallToAction/CallToAction'
 import Customer from './Customers/CustomerItem'
 import Customers from './Customers/Customers'
+import LogoGrid from './LogoGrid/LogoGrid'
+import LogoGridItem from './LogoGrid/LogoGridItem'
 // import Document from './Documents/Document'
 // import Documents from './Documents/Documents'
 import Faqs from './Faq/Faq'
@@ -52,6 +54,8 @@ export {
   Testimonial3ColsItem,
   Customers,
   Customer,
+  LogoGrid,
+  LogoGridItem,
   Faqs,
   Faq,
   CallToAction,
@@ -95,6 +99,8 @@ const allBricks = [
   Testimonial3ColsItem,
   Customers,
   Customer,
+  LogoGrid,
+  LogoGridItem,
   Faqs,
   Faq,
   CallToAction,

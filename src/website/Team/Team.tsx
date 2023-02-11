@@ -16,10 +16,7 @@ export interface TeamProps {
   width?: Size
 }
 
-const Team: types.Brick<TeamProps> = ({
-  backgroundColor = bgColors.WHITE.value,
-  width = 'normal',
-}) => {
+const Team: types.Brick<TeamProps> = ({ backgroundColor, width }) => {
   return (
     <Section backgroundColor={backgroundColor}>
       <Container
@@ -47,7 +44,7 @@ Team.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'lg',
+    width: 'medium',
     teamItem: [
       {
         memberName: 'Matteo Frana',

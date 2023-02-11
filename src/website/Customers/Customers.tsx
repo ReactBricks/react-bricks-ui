@@ -4,6 +4,7 @@ import { Repeater, types } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   containerSizeEditProps,
+  sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
@@ -16,20 +17,28 @@ export interface CustomersProps {
   borderBottom?: Border
   width?: Size
   grayscale?: boolean
+  customers: any
 }
 
 const Customers: types.Brick<CustomersProps> = ({
-  backgroundColor = bgColors.WHITE.value,
-  grayscale = true,
+  backgroundColor,
+  grayscale,
+  customers,
 }) => {
   return (
     <Section backgroundColor={backgroundColor}>
-      <Container
-        className={classNames(
-          'py-12 flex flex-wrap justify-center items-center'
-        )}
-      >
-        <Repeater propName="customers" itemProps={{ grayscale }} />
+      <Container>
+        <div
+          className={classNames(
+            'flex flex-wrap justify-center items-center -mx-4 md:-mx-5 -my-4',
+            {
+              'md:justify-between':
+                customers.length >= 4 && customers.length <= 5,
+            }
+          )}
+        >
+          <Repeater propName="customers" itemProps={{ grayscale }} />
+        </div>
       </Container>
     </Section>
   )
@@ -38,65 +47,77 @@ const Customers: types.Brick<CustomersProps> = ({
 Customers.schema = {
   name: blockNames.Customers,
   label: 'Customers',
-  category: 'rb-ui website',
+  category: 'logo grid',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.GRAY.value,
+    backgroundColor: bgColors.WHITE.value,
+    paddingTop: 'small',
+    paddingBottom: 'small',
     borderTop: 'none',
     borderBottom: 'none',
     grayscale: true,
     customers: [
       {
         image: {
-          src: 'https://images.reactbricks.com/original/55a585f2-0092-499a-88e7-6f6e72870382.svg',
+          src: 'https://images.reactbricks.com/original/93ed8ddd-a8cd-40dc-a4dd-d954ea568cad.svg',
           placeholderSrc:
-            'https://images.reactbricks.com/original/55a585f2-0092-499a-88e7-6f6e72870382.svg',
+            'https://images.reactbricks.com/original/93ed8ddd-a8cd-40dc-a4dd-d954ea568cad.svg',
           srcSet: '',
-          alt: 'Airbnb',
-          seoName: 'airbnb',
+          alt: 'Woosmap',
+          seoName: 'woosmap',
+          width: 997.334,
+          height: 198.205,
         },
       },
       {
         image: {
-          src: 'https://images.reactbricks.com/original/df0214c6-7feb-4037-921f-985bdf584ed7.svg',
+          src: 'https://images.reactbricks.com/original/6278b20a-e04d-4e0e-b2dd-d8e27228c069.svg',
           placeholderSrc:
-            'https://images.reactbricks.com/original/df0214c6-7feb-4037-921f-985bdf584ed7.svg',
+            'https://images.reactbricks.com/original/6278b20a-e04d-4e0e-b2dd-d8e27228c069.svg',
           srcSet: '',
-          alt: 'Dribble',
-          seoName: 'dribble',
+          alt: 'Capbase',
+          seoName: 'capbase',
+          width: 1000,
+          height: 300,
         },
       },
       {
         image: {
-          src: 'https://images.reactbricks.com/original/44dd50bd-9401-47bb-a248-56192cb0da03.svg',
+          src: 'https://images.reactbricks.com/original/b6895334-198a-43d9-aa53-f27b7ff75f53.svg',
           placeholderSrc:
-            'https://images.reactbricks.com/original/44dd50bd-9401-47bb-a248-56192cb0da03.svg',
+            'https://images.reactbricks.com/original/b6895334-198a-43d9-aa53-f27b7ff75f53.svg',
           srcSet: '',
-          alt: 'Netflix',
-          seoName: 'netflix',
+          alt: 'Casavo',
+          seoName: 'casavo',
+          width: 520.76,
+          height: 135.83,
         },
       },
       {
         image: {
-          src: 'https://images.reactbricks.com/original/5bea2f55-07ea-47fb-b638-bedaa6c2275f.svg',
+          src: 'https://images.reactbricks.com/original/9124b82c-686e-4de5-bd14-291d2fce37b8.svg',
           placeholderSrc:
-            'https://images.reactbricks.com/original/5bea2f55-07ea-47fb-b638-bedaa6c2275f.svg',
+            'https://images.reactbricks.com/original/9124b82c-686e-4de5-bd14-291d2fce37b8.svg',
           srcSet: '',
-          alt: 'Pinterest',
-          seoName: 'pinterest',
+          alt: 'Everfund',
+          seoName: 'everfund',
+          width: 2698.39,
+          height: 585.2,
         },
       },
       {
         image: {
-          src: 'https://images.reactbricks.com/original/52f81cf1-01bc-43d0-9428-995351146c2a.svg',
+          src: 'https://images.reactbricks.com/original/e39a61c5-0a25-49bd-9f77-3d29fb43e5af.svg',
           placeholderSrc:
-            'https://images.reactbricks.com/original/52f81cf1-01bc-43d0-9428-995351146c2a.svg',
+            'https://images.reactbricks.com/original/e39a61c5-0a25-49bd-9f77-3d29fb43e5af.svg',
           srcSet: '',
-          alt: 'Next.js',
-          seoName: 'next-js',
+          alt: 'Neoskop',
+          seoName: 'neoskop',
+          width: 145,
+          height: 40,
         },
       },
     ],
@@ -116,7 +137,7 @@ Customers.schema = {
     {
       groupName: 'Layout',
       defaultOpen: false,
-      props: [backgroundColorsEditProps, containerSizeEditProps],
+      props: [backgroundColorsEditProps, ...sectionPaddingsEditProps],
     },
     {
       groupName: 'Logos',

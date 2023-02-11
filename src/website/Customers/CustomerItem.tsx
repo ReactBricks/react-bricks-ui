@@ -1,5 +1,6 @@
+import classNames from 'classnames'
 import * as React from 'react'
-import { Image, ReactBricksContext, types } from 'react-bricks/frontend'
+import { Image, types } from 'react-bricks/frontend'
 import blockNames from '../blockNames'
 
 export interface CustomerProps {
@@ -7,20 +8,17 @@ export interface CustomerProps {
 }
 
 const Customer: types.Brick<CustomerProps> = ({ grayscale = true }) => {
-  const { isDarkColorMode } = React.useContext(ReactBricksContext)
   return (
-    <div className="px-6 py-4 w-1/2 sm:w-1/3 md:w-1/6 flex justify-center items-center text-gray-300">
+    <div className="inline-flex items-center px-4 py-4 md:px-5">
       <Image
         propName="image"
         alt="customer"
-        imageClassName="w-32 h-16"
-        imageStyle={
-          grayscale
-            ? isDarkColorMode
-              ? { filter: 'opacity(0.5) grayscale(100%) invert(1)' } //grayscale and darkmode
-              : { filter: 'opacity(0.5) grayscale(100%)' } //only grayscale
-            : {}
-        }
+        imageClassName={classNames(
+          'block object-contain w-[80px] h-[20px] md:w-[96px] md:h-[24px] lg:w-[116px] lg:h-[29px]',
+          {
+            'opacity-50 grayscale dark:invert': grayscale,
+          }
+        )}
       />
     </div>
   )
@@ -37,12 +35,14 @@ Customer.schema = {
 
   getDefaultProps: () => ({
     image: {
-      src: 'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
+      src: 'https://images.reactbricks.com/original/7fd7ef1a-928f-45d6-b7a7-ff34bf91c15e.svg',
       placeholderSrc:
-        'https://images.reactbricks.com/original/3c4b1f31-16ec-417f-ab2d-d734632bdeb8.svg',
+        'https://images.reactbricks.com/original/7fd7ef1a-928f-45d6-b7a7-ff34bf91c15e.svg',
       srcSet: '',
-      alt: 'React Bricks Icon',
-      seoName: 'react-bricks-icon',
+      alt: 'React Bricks',
+      seoName: 'react-bricks',
+      width: 1700.787,
+      height: 377.953,
     },
   }),
 }
