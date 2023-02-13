@@ -4,7 +4,7 @@ import { validate } from 'email-validator'
 import classNames from 'classnames'
 
 import { Text, types } from 'react-bricks/frontend'
-import blockNames from '../blockNames'
+import blockNames from '../../blockNames'
 
 enum NewsletterProvider {
   MailChimp = 'MAILCHIMP',
