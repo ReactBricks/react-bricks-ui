@@ -37,6 +37,8 @@ const App = () => {
       appId={appId}
       apiKey={apiKey}
       bricks={bricks}
+      enablePreviewImage
+      enablePreviewIcon
       pageTypes={[
         {
           name: 'page',

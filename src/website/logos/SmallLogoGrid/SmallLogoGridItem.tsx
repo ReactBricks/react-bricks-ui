@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Image, Link, types } from 'react-bricks/frontend'
-import { logos } from 'website/shared/defaultImages'
+import { iconLogos } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 
-export interface LogoGridItemProps {
+export interface SmallLogoGridItemProps {
   link: string
   targetBlank: boolean
 }
@@ -19,7 +19,7 @@ const Content: React.FC = () => (
   </div>
 )
 
-const LogoGridItem: types.Brick<LogoGridItemProps> = ({
+const SmallLogoGridItem: types.Brick<SmallLogoGridItemProps> = ({
   link,
   targetBlank,
 }) => {
@@ -27,18 +27,15 @@ const LogoGridItem: types.Brick<LogoGridItemProps> = ({
     <Link
       href={link}
       target={targetBlank ? '_blank' : '_self'}
-      className={classNames('bg-white border border-black/10 rounded-md p-4', {
-        'hover:border-sky-500/50 transition-all duration-150 hover:shadow-lg hover:-translate-y-[3px]':
-          link,
-      })}
+      className="rounded-md p-1"
     >
       <Content />
     </Link>
   )
 }
 
-LogoGridItem.schema = {
-  name: blockNames.LogoGridItem,
+SmallLogoGridItem.schema = {
+  name: blockNames.SmallLogoGridItem,
   label: 'Logo',
   category: 'logos',
   hideFromAddMenu: true,
@@ -47,7 +44,7 @@ LogoGridItem.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/CustomerItem.tsx',
 
   getDefaultProps: () => ({
-    image: logos.REACT_BRICKS,
+    image: iconLogos.REACT_BRICKS,
     link: 'https://reactbricks.com',
   }),
   sideEditProps: [
@@ -59,4 +56,4 @@ LogoGridItem.schema = {
   ],
 }
 
-export default LogoGridItem
+export default SmallLogoGridItem

@@ -6,7 +6,7 @@ import {
   sectionBordersEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
-import { bgColors, textColors } from '../../colors'
+import { bgColors, buttonColors, textColors } from '../../colors'
 import Container from '../../shared/layout/Container'
 import Section, { Border } from '../../shared/layout/Section'
 
@@ -72,17 +72,12 @@ CallToAction.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'boxed',
     borderBottom: 'none',
-    text: 'React Bricks is great for developers and marketing.',
+    text: 'React Bricks is great for developers and marketing teams.',
     buttons: [
       {
-        text: 'Get started',
+        text: 'Discover more',
         type: 'solid',
-        buttonColor: {
-          color: '#0ea5e9',
-          classNameSolid: 'bg-sky-500 text-white hover:bg-sky-600',
-          classNameOutline:
-            'border border-sky-600 text-sky-600 dark:border-white dark:text-white',
-        },
+        buttonColor: buttonColors.SKY.value,
         href: 'https://reactbricks.com',
         isTargetBlank: true,
         isBigButton: false,

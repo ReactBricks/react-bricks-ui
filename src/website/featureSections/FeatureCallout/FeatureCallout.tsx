@@ -11,6 +11,7 @@ import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
 } from 'website/LayoutSideProps'
+import { icons } from 'website/shared/defaultImages'
 
 export interface FeatureCalloutProps {
   backgroundColor?: { color: string; className: string }
@@ -39,7 +40,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
       >
         <div className="sm:mr-10 mb-4 sm:mb-0">
           <Image
-            propName="imageSource"
+            propName="image"
             alt="image"
             imageClassName="w-36 h-36 object-contain"
           />
@@ -82,7 +83,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
 FeatureCallout.schema = {
   name: blockNames.FeatureCallout,
   label: 'Feature callout',
-  category: 'content sections',
+  category: 'features',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
@@ -93,14 +94,7 @@ FeatureCallout.schema = {
     borderBottom: 'none',
     title: 'Easy like Wix, but your own.',
     text: 'A great user experience for Content creators, React components for Developers.',
-    imageSource: {
-      src: 'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
-      placeholderSrc:
-        'https://images.reactbricks.com/original/b3dc173e-fcb1-4aab-8a7a-1638386915f7.svg',
-      srcSet: '',
-      alt: 'Content creators',
-      seoName: 'content-creators',
-    },
+    image: icons.PHOTOS,
   }),
   sideEditProps: [
     {

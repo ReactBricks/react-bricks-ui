@@ -10,15 +10,15 @@ import {
   backgroundColorsEditProps,
   containerSizeEditProps,
 } from 'website/LayoutSideProps'
-import { logos } from 'website/shared/defaultImages'
+import { iconLogos } from 'website/shared/defaultImages'
 
-export interface LogoGridProps {
+export interface SmallLogoGridProps {
   backgroundColor?: { color: string; className: string }
   width?: Size
   targetBlank: boolean
 }
 
-const LogoGrid: types.Brick<LogoGridProps> = ({
+const SmallLogoGrid: types.Brick<SmallLogoGridProps> = ({
   backgroundColor,
   width,
   targetBlank,
@@ -37,7 +37,7 @@ const LogoGrid: types.Brick<LogoGridProps> = ({
         />
         <div
           className={classNames(
-            'grid gap-5 auto-rows-auto grid-flow-dense grid-cols-[repeat(auto-fill,_minmax(120px,_1fr))] lg:grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))]'
+            'grid gap-5 auto-rows-auto grid-cols-[repeat(auto-fit,_minmax(60px,_60px))]'
           )}
         >
           <Repeater propName="logos" itemProps={{ targetBlank }} />
@@ -46,9 +46,9 @@ const LogoGrid: types.Brick<LogoGridProps> = ({
     </Section>
   )
 }
-LogoGrid.schema = {
-  name: blockNames.LogoGrid,
-  label: 'Logo Grid',
+SmallLogoGrid.schema = {
+  name: blockNames.SmallLogoGrid,
+  label: 'Small Logo Grid',
   category: 'logos',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -58,7 +58,7 @@ LogoGrid.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'medium',
+    width: 'small',
     targetBlank: true,
     badge: [
       {
@@ -68,34 +68,48 @@ LogoGrid.schema = {
     ],
     logos: [
       {
-        image: logos.REACT,
+        image: iconLogos.REACT,
         link: 'https://reactjs.org/',
       },
       {
-        image: logos.VUE,
+        image: iconLogos.VUE,
         link: 'https://vuejs.org/',
       },
       {
-        image: logos.SVELTE,
+        image: iconLogos.SVELTE,
         link: 'https://svelte.dev/',
       },
       {
-        image: logos.SOLID,
+        image: iconLogos.SOLID,
         link: 'https://www.solidjs.com/',
       },
       {
-        image: logos.ASTRO,
+        image: iconLogos.ASTRO,
         link: 'https://astro.build/',
+      },
+      {
+        image: iconLogos.REACT,
+        link: 'https://reactjs.org/',
+      },
+      {
+        image: iconLogos.VUE,
+        link: 'https://vuejs.org/',
+      },
+      {
+        image: iconLogos.SVELTE,
+        link: 'https://svelte.dev/',
+      },
+      {
+        image: iconLogos.SOLID,
+        link: 'https://www.solidjs.com/',
       },
     ],
   }),
   repeaterItems: [
     {
       name: 'logos',
-      itemType: blockNames.LogoGridItem,
+      itemType: blockNames.SmallLogoGridItem,
       itemLabel: 'Logo',
-      min: 5,
-      max: 25,
     },
     {
       name: 'badge',
@@ -124,4 +138,4 @@ LogoGrid.schema = {
     },
   ],
 }
-export default LogoGrid
+export default SmallLogoGrid

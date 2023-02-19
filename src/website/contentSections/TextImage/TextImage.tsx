@@ -2,13 +2,21 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Image, Link, Repeater, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import { bgColors, textColors } from '../../colors'
+import {
+  bgColors,
+  buttonColors,
+  highlightBgColors,
+  highlightTextColors,
+  textColors,
+} from '../../colors'
 import Container, { Size, Padding } from '../../shared/layout/Container'
 import Section, { Border } from '../../shared/layout/Section'
 import {
   backgroundColorsEditProps,
+  sectionBordersEditProps,
   sectionPaddingsEditProps,
 } from '../../LayoutSideProps'
+import { photos } from 'website/shared/defaultImages'
 
 export interface TextImageProps {
   backgroundColor: { color: string; className: string }
@@ -29,6 +37,8 @@ const TextImage: types.Brick<TextImageProps> = ({
   backgroundColor,
   paddingTop,
   paddingBottom,
+  borderTop,
+  borderBottom,
   multiple,
   imageSide,
   bigImage,
@@ -41,7 +51,11 @@ const TextImage: types.Brick<TextImageProps> = ({
   const textColor = textColors.GRAY_700
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div
           className={classNames(
@@ -124,7 +138,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             />
           </div>
           {multiple ? (
-            <div className="md:w-1/2 grid grid-cols-3 gap-3">
+            <div className="md:w-1/2 grid grid-cols-3 gap-6">
               <Repeater propName="logos" />
             </div>
           ) : (
@@ -142,7 +156,7 @@ const TextImage: types.Brick<TextImageProps> = ({
                   { 'rounded-lg': isRounded },
                   { 'shadow-2xl': hasShadow },
                   {
-                    'md:h-[500px] md:max-w-none':
+                    'md:h-[500px] md:max-w-none object-cover':
                       bigImage && imageSide === 'right',
                   }
                 )}
@@ -159,6 +173,13 @@ TextImage.schema = {
   name: blockNames.TextImage,
   label: 'Text Image',
   category: 'content sections',
+  previewIcon: (
+    <svg viewBox="0 0 10 10">
+      <circle cx={5} cy={5} r={4} fill="red"></circle>
+    </svg>
+  ),
+  previewImageUrl:
+    'https://images.reactbricks.com/original/2faa8447-7778-4b78-88f6-1d4290318fad.png',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImage.tsx',
@@ -167,17 +188,9 @@ TextImage.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    title: 'We built hundreds of apps',
-    text: 'We create and host websites since 1997. We saw the Internet grow up as the standards evolved. We have built hundreds of successful web applications and we still have a lot of fun.',
-    imageSource: {
-      src: 'https://images.reactbricks.com/original/7a358d12-e668-46e4-ab81-b90431006182.png',
-      placeholderSrc:
-        'https://images.reactbricks.com/placeholder/7a358d12-e668-46e4-ab81-b90431006182.png',
-      srcSet:
-        'https://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1600.png 1600w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-1200.png 1200w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-400.png 400w,\nhttps://images.reactbricks.com/src_set/7a358d12-e668-46e4-ab81-b90431006182-200.png 200w',
-      alt: 'Dashboard',
-      seoName: 'dashboard',
-    },
+    title: 'Making content editing fun!',
+    text: 'Our mission is making content editing fun, for everyone.',
+    imageSource: photos.DESK_MAC,
     imageSide: 'right',
     bigImage: false,
     multiple: false,
@@ -185,12 +198,35 @@ TextImage.schema = {
     mobileIcon: false,
     hasShadow: false,
     isRounded: false,
+    bulletListItems: [
+      {
+        bulletColor: highlightBgColors.PINK.value,
+        text: 'Marketing',
+      },
+      {
+        bulletColor: highlightBgColors.SKY.value,
+        text: 'Developers',
+      },
+      {
+        bulletColor: highlightBgColors.GREEN.value,
+        text: 'Designers',
+      },
+      {
+        bulletColor: highlightBgColors.AMBER.value,
+        text: 'Enterprise',
+      },
+    ],
   }),
   sideEditProps: [
     {
-      groupName: 'Layout',
+      groupName: 'Background',
       defaultOpen: false,
-      props: [backgroundColorsEditProps, ...sectionPaddingsEditProps],
+      props: [backgroundColorsEditProps],
+    },
+    {
+      groupName: 'Padding & Borders',
+      defaultOpen: false,
+      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
     },
     {
       groupName: 'Image',
@@ -273,6 +309,65 @@ TextImage.schema = {
       itemLabel: 'Logo',
       min: 0,
       max: 9,
+    },
+  ],
+  stories: [
+    {
+      id: 'orange-big-image',
+      name: 'Orange big image',
+      props: {
+        backgroundColor: bgColors.ORANGE.value,
+        borderTop: 'none',
+        borderBottom: 'none',
+        title: 'A CMS with a head and a heart',
+        text: 'Headless should not mean boring and cold. React Bricks is fun for content editors and cool for developers.',
+        imageSource: photos.STONE_SMILE,
+        imageSide: 'right',
+        bigImage: true,
+        multiple: false,
+        mobileImageTop: false,
+        mobileIcon: false,
+        hasShadow: true,
+        isRounded: true,
+        badge: [
+          {
+            id: '49fd2c97-52b7-4ac9-850d-8ac7d428ca66',
+            type: 'badge',
+            props: {
+              text: 'Experience',
+              badgeColor: highlightTextColors.FUCHSIA.value,
+            },
+          },
+        ],
+        buttons: [
+          {
+            id: '1b057cb1-d36b-47b3-93a8-83b6192645fd',
+            type: 'button',
+            props: {
+              text: 'Learn more',
+              href: 'https://reactbricks.com',
+              isTargetBlank: true,
+              isBigButton: false,
+              buttonColor: buttonColors.CYAN.value,
+              type: 'solid',
+              padding: 'normal',
+            },
+          },
+          {
+            id: '18c2593a-b751-4daf-806f-846a1238c1f5',
+            type: 'button',
+            props: {
+              text: 'Sign up',
+              href: 'https://reactbricks.com/sign-up',
+              isTargetBlank: true,
+              isBigButton: false,
+              buttonColor: buttonColors.CYAN.value,
+              type: 'outline',
+              padding: 'normal',
+            },
+          },
+        ],
+      },
     },
   ],
 }

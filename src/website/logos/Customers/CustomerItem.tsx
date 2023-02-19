@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Image, types } from 'react-bricks/frontend'
+import { logos } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 
 export interface CustomerProps {
@@ -34,16 +35,7 @@ Customer.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/CustomerItem.tsx',
 
   getDefaultProps: () => ({
-    image: {
-      src: 'https://images.reactbricks.com/original/7fd7ef1a-928f-45d6-b7a7-ff34bf91c15e.svg',
-      placeholderSrc:
-        'https://images.reactbricks.com/original/7fd7ef1a-928f-45d6-b7a7-ff34bf91c15e.svg',
-      srcSet: '',
-      alt: 'React Bricks',
-      seoName: 'react-bricks',
-      width: 1700.787,
-      height: 377.953,
-    },
+    image: logos.REACT_BRICKS,
   }),
 }
 

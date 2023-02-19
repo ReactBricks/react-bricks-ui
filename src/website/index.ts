@@ -4,10 +4,19 @@ import Customer from './logos/Customers/CustomerItem'
 import Customers from './logos/Customers/Customers'
 import LogoGrid from './logos/LogoGrid/LogoGrid'
 import LogoGridItem from './logos/LogoGrid/LogoGridItem'
+import SmallLogoGrid from './logos/SmallLogoGrid/SmallLogoGrid'
+import SmallLogoGridItem from './logos/SmallLogoGrid/SmallLogoGridItem'
+import Header from './layout/Header'
+import HeaderMenuItem from './layout/HeaderMenuItem'
+import HeaderMenuSubItem from './layout/HeaderMenuSubItem'
+import Footer from './layout/Footer'
+import FooterColumn from './layout/FooterColumn'
+import FooterLink from './layout/FooterLink'
 // import Document from './Documents/Document'
 // import Documents from './Documents/Documents'
 import Faqs from './Faq/Faq'
 import Faq from './Faq/FaqItem'
+import Faqs2cols from './Faq/Faq2cols'
 import FeatureItem from './featureSections/Features/FeatureItem'
 import Features from './featureSections/Features/Features'
 import HeroUnit from './heroSections/Hero Unit/HeroUnit'
@@ -19,11 +28,14 @@ import BulletListItem from './shared/BulletListItem'
 import Button from './shared/Button'
 import Team from './teamm/Team/Team'
 import TeamItem from './teamm/Team/TeamItem'
+import Team2Cols from './teamm/Team2Cols/Team2Cols'
+import Team2ColsItem from './teamm/Team2Cols/Team2ColsItem'
 import Testimonial from './testimonials/Testimonial/Testimonial'
 import Testimonial3Cols from './testimonials/Testimonial3Cols/Testimonial3Cols'
-import Testimonial3ColsItem from './testimonials/Testimonial3ColsItem'
+import Testimonial3ColsItem from './testimonials/Testimonial3Cols/Testimonial3ColsItem'
 import TextImage from './contentSections/TextImage/TextImage'
 import TextImageLogo from './contentSections/TextImage/TextImageLogo'
+import Title from './contentSections/Title/Title'
 import ImageCarousel from './ImageCarousel/ImageCarousel'
 import SingleImage from './ImageCarousel/SingleImage'
 import Video from 'blog/Video/Video'
@@ -42,6 +54,12 @@ import TableRow from './contentSections/TableBuilder/TableRow'
 import TableCell from './contentSections/TableBuilder/TableCell'
 
 export {
+  Header,
+  HeaderMenuItem,
+  HeaderMenuSubItem,
+  Footer,
+  FooterColumn,
+  FooterLink,
   Badge,
   Button,
   BulletListItem,
@@ -49,6 +67,7 @@ export {
   HeroUnit2,
   TextImage,
   TextImageLogo,
+  Title,
   Testimonial,
   Testimonial3Cols,
   Testimonial3ColsItem,
@@ -56,14 +75,19 @@ export {
   Customer,
   LogoGrid,
   LogoGridItem,
+  SmallLogoGrid,
+  SmallLogoGridItem,
   Faqs,
   Faq,
+  Faqs2cols,
   CallToAction,
   Map,
   BigFeature,
   NewsletterSubscribe,
   Team,
   TeamItem,
+  Team2Cols,
+  Team2ColsItem,
   Features,
   FeatureItem,
   ImageCarousel,
@@ -87,6 +111,12 @@ export {
 }
 
 const allBricks = [
+  Header,
+  HeaderMenuItem,
+  HeaderMenuSubItem,
+  Footer,
+  FooterColumn,
+  FooterLink,
   Badge,
   Button,
   BulletListItem,
@@ -94,6 +124,7 @@ const allBricks = [
   HeroUnit2,
   TextImage,
   TextImageLogo,
+  Title,
   Testimonial,
   Testimonial3Cols,
   Testimonial3ColsItem,
@@ -101,14 +132,19 @@ const allBricks = [
   Customer,
   LogoGrid,
   LogoGridItem,
+  SmallLogoGrid,
+  SmallLogoGridItem,
   Faqs,
   Faq,
+  Faqs2cols,
   CallToAction,
   Map,
   BigFeature,
   NewsletterSubscribe,
   Team,
   TeamItem,
+  Team2Cols,
+  Team2ColsItem,
   Features,
   FeatureItem,
   ImageCarousel,

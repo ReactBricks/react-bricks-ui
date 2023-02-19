@@ -9,7 +9,6 @@ export interface ButtonProps {
   text: string
   href: string
   isTargetBlank: boolean
-  isBigButton: boolean
   buttonColor: {
     color: string
     classNameSolid: string
@@ -23,7 +22,6 @@ export interface ButtonProps {
 const Button: types.Brick<ButtonProps> = ({
   href,
   isTargetBlank,
-  isBigButton,
   buttonColor,
   type,
   padding,
@@ -38,9 +36,10 @@ const Button: types.Brick<ButtonProps> = ({
       href={href}
       {...target}
       className={classNames(
-        'inline-block whitespace-nowrap text-center py-3 rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5 min-w-[120px]',
-        padding === 'normal' ? 'px-8' : 'px-5',
-        isBigButton && ' w-3/5 text-center rounded-full',
+        'inline-block whitespace-nowrap text-center rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5',
+        padding === 'normal'
+          ? 'py-3 px-8 min-w-[120px]'
+          : 'py-2 px-4 text-sm min-w-[75px]',
         {
           [buttonColor.classNameSolid]: type === 'solid',
         },
@@ -53,7 +52,7 @@ const Button: types.Brick<ButtonProps> = ({
     >
       <Text
         propName="text"
-        placeholder="Action text..."
+        placeholder="Action"
         renderBlock={({ children }) => <span>{children}</span>}
       />
     </Link>
@@ -63,7 +62,7 @@ const Button: types.Brick<ButtonProps> = ({
 Button.schema = {
   name: blockNames.Button,
   label: 'Button',
-  category: 'rb-ui website',
+  category: 'shared',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -76,7 +75,7 @@ Button.schema = {
     isBigButton: false,
     buttonColor: buttonColors.SKY.value,
     type: 'solid',
-    padding: 'normal'
+    padding: 'normal',
   }),
   sideEditProps: [
     // {
@@ -85,9 +84,16 @@ Button.schema = {
     //   type: types.SideEditPropType.Text,
     // },
     {
-      name: 'isBigButton',
-      label: 'Full width button',
-      type: types.SideEditPropType.Boolean,
+      name: 'padding',
+      label: 'Padding',
+      type: types.SideEditPropType.Select,
+      selectOptions: {
+        display: types.OptionsDisplay.Radio,
+        options: [
+          { value: 'normal', label: 'Normal' },
+          { value: 'small', label: 'Small' },
+        ],
+      },
     },
     buttonColorsEditProps,
     {

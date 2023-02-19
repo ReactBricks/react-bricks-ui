@@ -1,12 +1,19 @@
 import classNames from 'classnames'
 import * as React from 'react'
-import { RichText, Text, types, useAdminContext } from 'react-bricks/frontend'
+import {
+  Link,
+  RichText,
+  Text,
+  types,
+  useAdminContext,
+} from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
+  textGradientEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
-import { bgColors, textColors } from '../../colors'
+import { bgColors, gradients, textColors } from '../../colors'
 import Container from '../../shared/layout/Container'
 import Section, { Border } from '../../shared/layout/Section'
 
@@ -14,14 +21,20 @@ export interface CallToActionProps {
   backgroundColor?: { color: string; className: string }
   borderTop: Border
   borderBottom: Border
+  textGradient: keyof typeof gradients
 }
 
 const CallToAction: types.Brick<CallToActionProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
+  textGradient = gradients.NONE.value,
 }) => {
   const { isAdmin } = useAdminContext()
+  const titleStyle =
+    textGradient !== gradients.NONE.value
+      ? { WebkitTextFillColor: 'transparent' }
+      : {}
 
   return (
     <Section
@@ -37,13 +50,16 @@ const CallToAction: types.Brick<CallToActionProps> = ({
         )}
       >
         <div className="flex-1 lg:pr-14 mb-4 lg:mb-0">
-          <div className="mb-4">
+          <div
+            className={classNames('mb-4', gradients[textGradient].className)}
+            style={titleStyle}
+          >
             <Text
               propName="title"
               renderBlock={(props) => (
                 <p
                   className={classNames(
-                    'font-bold text-[32px] leading-tight md:text-[40px] lg:text-[56px]',
+                    'font-bold text-[32px] leading-tight md:text-4xl xl:text-5xl bg-clip-text bg-gradient-to-r',
                     textColors.GRAY_900
                   )}
                   {...props.attributes}
@@ -92,7 +108,10 @@ const CallToAction: types.Brick<CallToActionProps> = ({
                   height="14px"
                   className="absolute left-4 top-1/2 -mt-[7px] z-10"
                 >
-                  <path d="M0 2.5c0-.27.22-.5.5-.5h13c.28 0 .5.23.5.5v9a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-9Zm1 1.02V11h12V3.52L7.31 7.89a.5.5 0 0 1-.52.07.5.5 0 0 1-.1-.07L1 3.52ZM12.03 3H1.97L7 6.87 12.03 3Z"></path>
+                  <path
+                    fill="#9ca3af"
+                    d="M0 2.5c0-.27.22-.5.5-.5h13c.28 0 .5.23.5.5v9a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-9Zm1 1.02V11h12V3.52L7.31 7.89a.5.5 0 0 1-.52.07.5.5 0 0 1-.1-.07L1 3.52ZM12.03 3H1.97L7 6.87 12.03 3Z"
+                  ></path>
                 </svg>
 
                 <input
@@ -116,6 +135,29 @@ const CallToAction: types.Brick<CallToActionProps> = ({
                 />
               </button>
             </form>
+            <div className="mt-2">
+              <RichText
+                propName="privacy"
+                renderBlock={(props) => (
+                  <span
+                    className={classNames(
+                      'text-xs leading-relaxed',
+                      textColors.GRAY_500
+                    )}
+                    {...props.attributes}
+                  >
+                    {props.children}
+                  </span>
+                )}
+                placeholder="Privacy..."
+                allowedFeatures={[types.RichTextFeatures.Link]}
+                renderLink={({ children, href }) => (
+                  <Link href={href} className="underline">
+                    {children}
+                  </Link>
+                )}
+              />
+            </div>
           </div>
         </div>
       </Container>
@@ -135,13 +177,14 @@ CallToAction.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    title: 'Stay updated!',
+    title: 'Stay in the loop with our newsletter!',
+    textGradient: gradients.NONE.value,
     description: [
       {
         type: 'paragraph',
         children: [
           {
-            text: 'Join our newsletter.\nSent every ',
+            text: 'Sent every ',
           },
           {
             text: '2 weeks',
@@ -153,14 +196,38 @@ CallToAction.schema = {
         ],
       },
     ],
-    text: 'Join thousands of developers who want to change the way people edit website. By submitting the form you accept our Privacy policy.',
+    text: 'Join thousands of developers who want to change the way people edit website.',
+    privacy: [
+      {
+        type: 'paragraph',
+        children: [
+          {
+            text: 'By submitting the form you accept our ',
+          },
+          {
+            type: 'link',
+            url: 'https://reactbricks.com/legal/privacy',
+            children: [
+              {
+                text: 'Privacy policy',
+              },
+            ],
+          },
+        ],
+      },
+    ],
     buttonText: 'Subscribe',
   }),
   sideEditProps: [
     {
       groupName: 'Layout',
-      defaultOpen: true,
+      defaultOpen: false,
       props: [backgroundColorsEditProps, ...sectionBordersEditProps],
+    },
+    {
+      groupName: 'Title',
+      defaultOpen: true,
+      props: [textGradientEditProps],
     },
   ],
 }

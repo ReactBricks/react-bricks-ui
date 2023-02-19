@@ -6,6 +6,7 @@ import {
   containerSizeEditProps,
   sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
+import { customers } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 import { bgColors } from '../../colors'
 import Container, { Size } from '../../shared/layout/Container'
@@ -61,64 +62,19 @@ Customers.schema = {
     grayscale: true,
     customers: [
       {
-        image: {
-          src: 'https://images.reactbricks.com/original/93ed8ddd-a8cd-40dc-a4dd-d954ea568cad.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/93ed8ddd-a8cd-40dc-a4dd-d954ea568cad.svg',
-          srcSet: '',
-          alt: 'Woosmap',
-          seoName: 'woosmap',
-          width: 997.334,
-          height: 198.205,
-        },
+        image: customers.WOOSMAP,
       },
       {
-        image: {
-          src: 'https://images.reactbricks.com/original/6278b20a-e04d-4e0e-b2dd-d8e27228c069.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/6278b20a-e04d-4e0e-b2dd-d8e27228c069.svg',
-          srcSet: '',
-          alt: 'Capbase',
-          seoName: 'capbase',
-          width: 1000,
-          height: 300,
-        },
+        image: customers.CAPBASE,
       },
       {
-        image: {
-          src: 'https://images.reactbricks.com/original/b6895334-198a-43d9-aa53-f27b7ff75f53.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/b6895334-198a-43d9-aa53-f27b7ff75f53.svg',
-          srcSet: '',
-          alt: 'Casavo',
-          seoName: 'casavo',
-          width: 520.76,
-          height: 135.83,
-        },
+        image: customers.CASAVO,
       },
       {
-        image: {
-          src: 'https://images.reactbricks.com/original/9124b82c-686e-4de5-bd14-291d2fce37b8.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/9124b82c-686e-4de5-bd14-291d2fce37b8.svg',
-          srcSet: '',
-          alt: 'Everfund',
-          seoName: 'everfund',
-          width: 2698.39,
-          height: 585.2,
-        },
+        image: customers.EVERFUND,
       },
       {
-        image: {
-          src: 'https://images.reactbricks.com/original/e39a61c5-0a25-49bd-9f77-3d29fb43e5af.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/e39a61c5-0a25-49bd-9f77-3d29fb43e5af.svg',
-          srcSet: '',
-          alt: 'Neoskop',
-          seoName: 'neoskop',
-          width: 145,
-          height: 40,
-        },
+        image: customers.NEOSKOP,
       },
     ],
   }),

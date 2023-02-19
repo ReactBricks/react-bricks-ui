@@ -6,20 +6,15 @@ import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
 } from 'website/LayoutSideProps'
-import blockNames from '../blockNames'
-import { bgColors, textColors } from '../colors'
-import Container from '../shared/layout/Container'
-import Section, { Border } from '../shared/layout/Section'
+import { avatars } from 'website/shared/defaultImages'
+import blockNames from '../../blockNames'
+import { textColors } from '../../colors'
 
 export interface TestimonialProps {
   authorName: any
   authorJobTitle: any
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
-  backgroundColor?: { color: string; className: string }
-  borderTop: Border
-  borderBottom: Border
-  small: boolean
 }
 
 const Testimonial3ColsItem: types.Brick<TestimonialProps> = ({
@@ -78,18 +73,10 @@ Testimonial3ColsItem.schema = {
   category: 'testimonials',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    quote:
-      'React Bricks allowed us to quickly create a beautiful website that drives business goals and is easy to maintain. No one from the marketing team would ever go back!',
-    authorName: 'Matteo Frana',
-    authorJobTitle: 'Founder @ React Bricks',
-    avatarImage: {
-      src: 'https://images.reactbricks.com/original/910d4267-6e46-4d9e-8790-53348ede99fb.svg',
-      placeholderSrc:
-        'https://images.reactbricks.com/original/910d4267-6e46-4d9e-8790-53348ede99fb.svg',
-      srcSet: '',
-      alt: 'Matteo Frana',
-      seoName: 'matteo-frana',
-    },
+    quote: "I'm smart enough to know that I'm dumb.",
+    authorName: 'Richard Feynman',
+    authorJobTitle: 'Theoretical physicist',
+    avatarImage: avatars.PLACEHOLDER1,
   }),
 }
 

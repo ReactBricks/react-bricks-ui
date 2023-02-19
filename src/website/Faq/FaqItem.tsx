@@ -7,7 +7,7 @@ import blockNames from '../blockNames'
 
 const FaqQuestion: types.Brick = () => {
   return (
-    <div className="leading-6 mb-12">
+    <div className="leading-6">
       <Text
         propName="question"
         renderBlock={(props) => (
@@ -36,15 +36,15 @@ const FaqQuestion: types.Brick = () => {
 FaqQuestion.schema = {
   name: blockNames.Faq,
   label: 'Question',
-  category: 'rb-ui website',
+  category: 'faq',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/FaqItem.tsx',
   getDefaultProps: () => ({
-    question: 'Why you should change your CMS today?',
+    question: 'Is this the latest question?',
     answer:
-      'Because you want to have top user experience and top developer experience.',
+      "This is either the first question or the one following the one before it. It is the last question if you did't add other questions after it.",
   }),
 }
 

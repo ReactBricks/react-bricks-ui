@@ -108,6 +108,8 @@ export const textColors = {
   GRAY_800: 'text-gray-800 dark:text-white',
   GRAY_700: 'text-gray-700 dark:text-white',
   GRAY_600: 'text-gray-600 dark:text-white',
+  GRAY_500: 'text-gray-500 dark:text-white',
+  GRAY_400: 'text-gray-400 dark:text-gray-100',
 } as const satisfies Record<string, string>
 
 type Color = {
@@ -701,28 +703,76 @@ export const buttonColors = {
 } as const satisfies ButtonColors
 
 export const gradients = {
+  CARIBBEAN_BLUE: {
+    label: 'Caribbean Blue',
+    value: 'CARIBBEAN_BLUE',
+    className: 'from-blue-500 to-teal-400 dark:from-blue-400 dark:to-teal-300',
+  },
+  PURPLE_PINK: {
+    label: 'Purple Pink',
+    value: 'PURPLE_PINK',
+    className:
+      'from-purple-700 to-pink-500 dark:from-purple-500 dark:to-pink-300',
+  },
+  SUN: {
+    label: 'Sun',
+    value: 'SUN',
+    className:
+      'from-red-500 to-yellow-400 dark:from-red-400 dark:to-yellow-400',
+  },
+  DAWN: {
+    label: 'Dawn',
+    value: 'DAWN',
+    className:
+      'from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-300 dark:via-purple-400 dark:to-pink-400',
+  },
+  EVENING: {
+    label: 'Evening',
+    value: 'EVENING',
+    className:
+      'from-purple-800 via-fuchsia-500 to-amber-400 dark:from-purple-600 via-fuchsia-400 to-amber-400',
+  },
+  FRESH_LIME: {
+    label: 'Fresh lime',
+    value: 'FRESH_LIME',
+    className:
+      'from-sky-800 via-lime-500 to-amber-400 dark:from-sky-600 via-lime-400 to-amber-400',
+  },
+  MUSIC: {
+    label: 'Music',
+    value: 'MUSIC',
+    className:
+      'from-rose-500 via-cyan-500 to-blue-500 dark:from-rose-500 dark:via-cyan-400 dark:to-blue-400',
+  },
+  MORNING_LIGHT: {
+    label: 'Morning light',
+    value: 'MORNING_LIGHT',
+    className: 'from-purple-700 via-fuchsia-400 to-cyan-500',
+  },
   OCEAN: {
     label: 'Ocean',
     value: 'OCEAN',
-    className: 'from-blue-500 to-teal-400',
+    className: 'from-indigo-700 via-sky-600 to-teal-400',
   },
-  RAINBOW: {
-    label: 'Rainbow',
-    value: 'RAINBOW',
-    className: 'from-rose-500 via-cyan-500 to-blue-500',
-    // className:
-    // 'from-rose-500 via-red-500 via-orange-500 via-amber-500 via-lime-500 via-green-500 via-cyan-500 via-sky-500 to-blue-500',
+  MANGO: {
+    label: 'Mango',
+    value: 'MANGO',
+    className: 'from-teal-600 via-yellow-500 to-orange-500',
   },
-  VIOLET: {
-    label: 'Violet',
-    value: 'VIOLET',
-    className: 'from-purple-700 to-pink-500',
+  MINT_GREEN: {
+    label: 'Mint green',
+    value: 'MINT_GREEN',
+    className: 'from-cyan-700 via-teal-500 to-emerald-500',
   },
-  INDIGO_PINK: {
-    label: 'Indigo-Pink',
-    value: 'INDIGO_PINK',
-    className: 'from-indigo-500 via-purple-500 to-pink-500',
+  FLASH_NEON: {
+    label: 'Flash Neon',
+    value: 'FLASH_NEON',
+    className: 'from-purple-500 via-fuchsia-400 to-violet-500',
   },
-  SUN: { label: 'Sun', value: 'SUN', className: 'from-red-500 to-yellow-400' },
+  LIGHTHOUSE: {
+    label: 'Lighthouse',
+    value: 'LIGHTHOUSE',
+    className: 'from-purple-500 via-yellow-600 to-purple-500',
+  },
   NONE: { label: 'None', value: 'NONE', className: '' },
 } as const satisfies Record<string, Gradient>

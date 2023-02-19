@@ -4,6 +4,7 @@ import {
   bgColors,
   highlightBgColors,
   buttonColors,
+  gradients,
 } from './colors'
 
 export const backgroundColorsEditProps: types.ISideEditProp = {
@@ -36,14 +37,24 @@ export const backgroundColorsEditProps: types.ISideEditProp = {
   },
 }
 
-export const backgroundImageEditProps: types.ISideEditProp = {
-  name: 'backgroundImage',
-  label: 'Background Image',
-  type: types.SideEditPropType.Image,
-  imageOptions: {
-    aspectRatio: 1.8,
+export const backgroundImageEditProps: types.ISideEditProp[] = [
+  {
+    name: 'backgroundImage',
+    label: 'Background Image',
+    type: types.SideEditPropType.Image,
+    imageOptions: {
+      aspectRatio: 2,
+    },
   },
-}
+  {
+    name: 'backgroundImageDark',
+    label: 'Background Image Dark',
+    type: types.SideEditPropType.Image,
+    imageOptions: {
+      aspectRatio: 2,
+    },
+  },
+]
 
 export const sectionPaddingsEditProps: types.ISideEditProp[] = [
   {
@@ -78,33 +89,37 @@ export const sectionPaddingsEditProps: types.ISideEditProp[] = [
   },
 ]
 
+export const borderTopEditProp: types.ISideEditProp = {
+  name: 'borderTop',
+  label: 'Border Top',
+  type: types.SideEditPropType.Select,
+  selectOptions: {
+    display: types.OptionsDisplay.Select,
+    options: [
+      { value: 'none', label: 'None' },
+      { value: 'full', label: 'Full-width' },
+      { value: 'boxed', label: 'Boxed' },
+    ],
+  },
+}
+
+export const borderBottomEditProp: types.ISideEditProp = {
+  name: 'borderBottom',
+  label: 'Border Bottom',
+  type: types.SideEditPropType.Select,
+  selectOptions: {
+    display: types.OptionsDisplay.Select,
+    options: [
+      { value: 'none', label: 'None' },
+      { value: 'full', label: 'Full-width' },
+      { value: 'boxed', label: 'Boxed' },
+    ],
+  },
+}
+
 export const sectionBordersEditProps: types.ISideEditProp[] = [
-  {
-    name: 'borderTop',
-    label: 'Border Top',
-    type: types.SideEditPropType.Select,
-    selectOptions: {
-      display: types.OptionsDisplay.Select,
-      options: [
-        { value: 'none', label: 'None' },
-        { value: 'full', label: 'Full-width' },
-        { value: 'boxed', label: 'Boxed' },
-      ],
-    },
-  },
-  {
-    name: 'borderBottom',
-    label: 'Border Bottom',
-    type: types.SideEditPropType.Select,
-    selectOptions: {
-      display: types.OptionsDisplay.Select,
-      options: [
-        { value: 'none', label: 'None' },
-        { value: 'full', label: 'Full-width' },
-        { value: 'boxed', label: 'Boxed' },
-      ],
-    },
-  },
+  borderTopEditProp,
+  borderBottomEditProp,
 ]
 
 export const sectionDefaults = {
@@ -124,7 +139,7 @@ export const containerSizeEditProps: types.ISideEditProp = {
     options: [
       { value: 'medium', label: 'Medium' },
       { value: 'small', label: 'Small' },
-      { value: 'full', label: 'Full-width' },
+      // { value: 'full', label: 'Full-width' },
     ],
   },
 }
@@ -245,6 +260,31 @@ export const highlightTextEditProps = {
       highlightTextColors.FUCHSIA,
       highlightTextColors.PINK,
       highlightTextColors.ROSE,
+    ],
+  },
+}
+
+export const textGradientEditProps = {
+  name: 'textGradient',
+  label: 'Text gradient',
+  type: types.SideEditPropType.Select,
+  selectOptions: {
+    display: types.OptionsDisplay.Select,
+    options: [
+      gradients.NONE,
+      gradients.CARIBBEAN_BLUE,
+      gradients.PURPLE_PINK,
+      gradients.SUN,
+      gradients.DAWN,
+      gradients.EVENING,
+      gradients.FRESH_LIME,
+      gradients.MUSIC,
+      gradients.MORNING_LIGHT,
+      gradients.OCEAN,
+      gradients.MANGO,
+      gradients.MINT_GREEN,
+      gradients.FLASH_NEON,
+      gradients.LIGHTHOUSE,
     ],
   },
 }

@@ -1,5 +1,5 @@
 enum blockNames {
-  Title = 'title',
+  BlogTitle = 'blog-title',
   Paragraph = 'paragraph',
   Quote = 'quote',
   Video = 'video',

@@ -6,6 +6,7 @@ import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
 } from 'website/LayoutSideProps'
+import { avatars, iconLogos } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 import { bgColors, textColors } from '../../colors'
 import Container from '../../shared/layout/Container'
@@ -115,22 +116,8 @@ Testimonial.schema = {
       'React Bricks allowed us to quickly create a beautiful website that drives business goals and is easy to maintain. No one from the marketing team would ever go back!',
     authorName: 'Matteo Frana',
     authorJobTitle: 'Founder @ React Bricks',
-    avatarImage: {
-      src: 'https://images.reactbricks.com/original/910d4267-6e46-4d9e-8790-53348ede99fb.svg',
-      placeholderSrc:
-        'https://images.reactbricks.com/original/910d4267-6e46-4d9e-8790-53348ede99fb.svg',
-      srcSet: '',
-      alt: 'Matteo Frana',
-      seoName: 'matteo-frana',
-    },
-    logoImage: {
-      src: 'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
-      placeholderSrc:
-        'https://images.reactbricks.com/original/dc2b9d0b-9a49-4674-bc88-fdd8fbf357ae.svg',
-      srcSet: '',
-      alt: 'React Bricks',
-      seoName: 'react-bricks',
-    },
+    avatarImage: avatars.MATTEO_FRANA,
+    logoImage: iconLogos.REACT_BRICKS,
   }),
   sideEditProps: [
     {

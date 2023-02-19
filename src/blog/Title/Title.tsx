@@ -86,7 +86,7 @@ const Title: types.Brick<TitleProps> = ({ size = 'large' }) => {
 }
 
 Title.schema = {
-  name: blockNames.Title,
+  name: blockNames.BlogTitle,
   label: 'Title',
   category: 'rb-ui blog',
   playgroundLinkLabel: 'View source code on Github',
@@ -104,7 +104,6 @@ Title.schema = {
       },
     ],
   }),
-  
 }
 
 export default Title

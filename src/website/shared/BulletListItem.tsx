@@ -47,7 +47,7 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
 BulletListItem.schema = {
   name: blockNames.BulletListItem,
   label: 'List item',
-  category: 'rb-ui website',
+  category: 'shared',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

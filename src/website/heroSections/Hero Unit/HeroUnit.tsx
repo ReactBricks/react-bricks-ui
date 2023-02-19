@@ -4,19 +4,26 @@ import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   backgroundImageEditProps,
+  textGradientEditProps,
   highlightTextEditProps,
   sectionBordersEditProps,
   sectionDefaults,
   sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
-import { bgColors, gradients, highlightTextColors, textColors } from '../../colors'
+import {
+  buttonColors,
+  gradients,
+  highlightTextColors,
+  textColors,
+} from '../../colors'
 import Container, { Padding } from '../../shared/layout/Container'
 import Section, { Border } from '../../shared/layout/Section'
 
 export interface HeroUnitProps {
   backgroundColor: { color: string; className: string }
   backgroundImage?: types.IImageSource
+  backgroundImageDark?: types.IImageSource
   paddingTop: Padding
   paddingBottom: Padding
   borderTop: Border
@@ -27,12 +34,13 @@ export interface HeroUnitProps {
 }
 
 const HeroUnit: types.Brick<HeroUnitProps> = ({
-  backgroundColor = bgColors.WHITE.value,
+  backgroundColor,
   backgroundImage,
-  paddingTop = 'small',
-  paddingBottom = 'small',
-  borderTop = 'none',
-  borderBottom = 'none',
+  backgroundImageDark,
+  paddingTop,
+  paddingBottom,
+  borderTop,
+  borderBottom,
   textGradient = gradients.NONE.value,
   size = 'large',
   highlightTextColor = highlightTextColors.LIME.value,
@@ -48,6 +56,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
     <Section
       backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
+      backgroundImageDark={backgroundImageDark}
       borderTop={borderTop}
       borderBottom={borderBottom}
     >
@@ -61,7 +70,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
           <div
             className={classNames(
               titleColor,
-              gradients[textGradient].className
+              gradients[textGradient]?.className
             )}
             style={titleStyle}
           >
@@ -122,7 +131,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
 
 HeroUnit.schema = {
   name: blockNames.HeroUnit,
-  label: 'Centered',
+  label: 'Centered Hero',
   category: 'hero sections',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -130,8 +139,8 @@ HeroUnit.schema = {
   getDefaultProps: () => ({
     ...sectionDefaults,
     size: 'large',
-    paddingTop: 'thick',
-    paddingBottom: 'thick',
+    paddingTop: 'small',
+    paddingBottom: 'small',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
     title: 'We develop beautiful web applications',
@@ -147,14 +156,14 @@ HeroUnit.schema = {
         text: 'Get Started',
         href: '',
         isTargetBlank: false,
-        variant: 'sky',
+        buttonColor: buttonColors.SKY.value,
         type: 'solid',
       },
       {
         text: 'Learn more',
         href: '',
         isTargetBlank: false,
-        variant: 'sky',
+        buttonColor: buttonColors.SKY.value,
         type: 'outline',
       },
     ],
@@ -177,35 +186,20 @@ HeroUnit.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Layout',
+      groupName: 'Background',
       defaultOpen: false,
-      props: [
-        backgroundColorsEditProps,
-        backgroundImageEditProps,
-        ...sectionPaddingsEditProps,
-        ...sectionBordersEditProps,
-      ],
+      props: [backgroundColorsEditProps, ...backgroundImageEditProps],
+    },
+    {
+      groupName: 'Padding & Borders',
+      defaultOpen: false,
+      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
     },
     {
       groupName: 'Title',
       defaultOpen: true,
       props: [
-        {
-          name: 'textGradient',
-          label: 'Text gradient',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              gradients.NONE,
-              gradients.OCEAN,
-              gradients.RAINBOW,
-              gradients.VIOLET,
-              gradients.INDIGO_PINK,
-              gradients.SUN,
-            ],
-          },
-        },
+        textGradientEditProps,
         {
           name: 'size',
           label: 'Title size',

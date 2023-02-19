@@ -16,19 +16,19 @@ export interface FaqProps {
   width?: Size
 }
 
-const Faq: types.Brick<FaqProps> = ({ backgroundColor, width }) => {
+const Faq2cols: types.Brick<FaqProps> = ({ backgroundColor, width }) => {
   return (
     <Section backgroundColor={backgroundColor}>
-      <Container size={width} className="flex flex-col space-y-12">
+      <Container size={width} className="grid sm:grid-cols-2 gap-12">
         <Repeater propName="faqs" />
       </Container>
     </Section>
   )
 }
 
-Faq.schema = {
-  name: blockNames.Faqs,
-  label: 'Faq',
+Faq2cols.schema = {
+  name: blockNames.Faqs2cols,
+  label: 'Faq 2 cols',
   category: 'faq',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -38,12 +38,17 @@ Faq.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'full',
     borderBottom: 'none',
-    width: 'small',
+    width: 'medium',
     faqs: [
       {
         question: 'Why you should change your CMS today?',
         answer:
           'Because you care about your content creators and you are looking for a top developer experience, with a future-proof solution.',
+      },
+      {
+        question: 'Can I create an e-commerce with React Bricks?',
+        answer:
+          "Sure! E-commerce solutions usually have a poor content management system for the product details page: let's change this with juicy visual editing!",
       },
     ],
   }),
@@ -67,4 +72,4 @@ Faq.schema = {
   ],
 }
 
-export default Faq
+export default Faq2cols

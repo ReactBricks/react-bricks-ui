@@ -8,15 +8,22 @@ import {
   sectionBordersEditProps,
   sectionDefaults,
   sectionPaddingsEditProps,
+  textGradientEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
-import { gradients, highlightTextColors, textColors } from '../../colors'
+import {
+  buttonColors,
+  gradients,
+  highlightTextColors,
+  textColors,
+} from '../../colors'
 import Container, { Padding } from '../../shared/layout/Container'
 import Section, { Border } from '../../shared/layout/Section'
 
 export interface HeroUnitProps {
   backgroundColor: { color: string; className: string }
   backgroundImage?: types.IImageSource
+  backgroundImageDark?: types.IImageSource
   paddingTop: Padding
   paddingBottom: Padding
   borderTop: Border
@@ -28,6 +35,7 @@ export interface HeroUnitProps {
 const HeroUnit2: types.Brick<HeroUnitProps> = ({
   backgroundColor,
   backgroundImage,
+  backgroundImageDark,
   paddingTop,
   paddingBottom,
   borderTop,
@@ -46,6 +54,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
     <Section
       backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
+      backgroundImageDark={backgroundImageDark}
       borderTop={borderTop}
       borderBottom={borderBottom}
     >
@@ -63,7 +72,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
             <div
               className={classNames(
                 titleColor,
-                gradients[textGradient].className
+                gradients[textGradient]?.className
               )}
               style={titleStyle}
             >
@@ -124,7 +133,7 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
 
 HeroUnit2.schema = {
   name: blockNames.HeroUnit2,
-  label: 'Horizontal',
+  label: 'Horizontal Hero',
   category: 'hero sections',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
@@ -132,7 +141,7 @@ HeroUnit2.schema = {
   getDefaultProps: () => ({
     ...sectionDefaults,
     paddingTop: 'thick',
-    paddingBottom: 'normal',
+    paddingBottom: 'medium',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
     title: 'We develop beautiful web applications',
@@ -142,14 +151,14 @@ HeroUnit2.schema = {
         text: 'Get Started now',
         href: '',
         isTargetBlank: false,
-        variant: 'sky',
+        buttonColor: buttonColors.SKY.value,
         type: 'solid',
       },
       {
         text: 'Watch demo',
         href: '',
         isTargetBlank: false,
-        variant: 'sky',
+        buttonColor: buttonColors.SKY.value,
         type: 'outline',
       },
     ],
@@ -172,37 +181,19 @@ HeroUnit2.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Layout',
+      groupName: 'Background',
       defaultOpen: false,
-      props: [
-        backgroundColorsEditProps,
-        backgroundImageEditProps,
-        ...sectionPaddingsEditProps,
-        ...sectionBordersEditProps,
-      ],
+      props: [backgroundColorsEditProps, ...backgroundImageEditProps],
+    },
+    {
+      groupName: 'Padding & Borders',
+      defaultOpen: false,
+      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
     },
     {
       groupName: 'Title',
       defaultOpen: true,
-      props: [
-        {
-          name: 'textGradient',
-          label: 'Text gradient',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              gradients.NONE,
-              gradients.OCEAN,
-              gradients.RAINBOW,
-              gradients.VIOLET,
-              gradients.INDIGO_PINK,
-              gradients.SUN,
-            ],
-          },
-        },
-        highlightTextEditProps,
-      ],
+      props: [textGradientEditProps, highlightTextEditProps],
     },
   ],
 }

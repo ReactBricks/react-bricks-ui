@@ -43,7 +43,7 @@ const Badge: types.Brick<BadgeProps> = ({
 Badge.schema = {
   name: blockNames.Badge,
   label: 'Badge',
-  category: 'rb-ui website',
+  category: 'shared',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
