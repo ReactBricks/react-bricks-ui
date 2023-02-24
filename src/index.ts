@@ -1,7 +1,6 @@
 import website from './website'
-import blog from './blog'
 
-export { website, blog }
+export { website }
 
-const allBricks = [...website, ...blog]
+const allBricks = website
 export default allBricks

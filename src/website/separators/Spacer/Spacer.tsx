@@ -2,7 +2,7 @@ import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { bgColors } from 'website/colors'
 import blockNames from '../../blockNames'
-import Section from '../../shared/layout/Section'
+import Section from '../../shared/components/Section'
 import { backgroundColorsEditProps } from '../../LayoutSideProps'
 
 export interface SpacerProps {

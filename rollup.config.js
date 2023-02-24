@@ -10,12 +10,12 @@ const config = [
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
     plugins: [dts()],
   },
-  //  >> create ts definitions in "blog" folder
-  {
-    input: './src/blog/index.ts',
-    output: [{ file: 'dist/blog/blog.d.ts', format: 'es' }],
-    plugins: [dts()],
-  },
+  // //  >> create ts definitions in "blog" folder
+  // {
+  //   input: './src/blog/index.ts',
+  //   output: [{ file: 'dist/blog/blog.d.ts', format: 'es' }],
+  //   plugins: [dts()],
+  // },
   //  >> create ts definitions in "website" folder
   {
     input: './src/website/index.ts',
@@ -27,7 +27,7 @@ const config = [
   {
     input: {
       'react-bricks-ui.esm': './src/index.ts',
-      'blog/react-bricks-ui-blog.esm': './src/blog/index.ts',
+      //'blog/react-bricks-ui-blog.esm': './src/blog/index.ts',
       'website/react-bricks-ui-website.esm': './src/website/index.ts',
     },
     plugins: [typescript(), terser({ format: { comments: false } })],
@@ -45,7 +45,7 @@ const config = [
   {
     input: {
       index: './src/index.ts',
-      'blog/index': './src/blog/index.ts',
+      //'blog/index': './src/blog/index.ts',
       'website/index': './src/website/index.ts',
     },
     plugins: [typescript(), terser({ format: { comments: false } })],

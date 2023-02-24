@@ -9,8 +9,8 @@ import {
 import { avatars, iconLogos } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 import { bgColors, textColors } from '../../colors'
-import Container from '../../shared/layout/Container'
-import Section, { Border } from '../../shared/layout/Section'
+import Container from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 
 export interface TestimonialProps {
   authorName: any

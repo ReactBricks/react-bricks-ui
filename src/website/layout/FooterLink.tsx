@@ -36,7 +36,8 @@ const FooterLink: types.Brick<FooterLinkProps> = ({ linkPath }) => {
 FooterLink.schema = {
   name: blockNames.FooterLink,
   label: 'Link',
-  // category: '',
+  category: 'layout',
+  hideFromAddMenu: true,
   // tags: [],
 
   // Defaults when a new brick is added

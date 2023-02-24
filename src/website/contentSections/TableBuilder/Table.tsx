@@ -1,8 +1,8 @@
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import Container from '../../shared/layout/Container'
-import Section from '../../shared/layout/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import { backgroundColorsEditProps } from '../../LayoutSideProps'
 
 export interface TableProps {

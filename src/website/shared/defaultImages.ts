@@ -280,20 +280,20 @@ export const photos = {
     width: 1080,
     height: 717,
   },
-  STONE_SMILE: {
-    src: 'https://images.reactbricks.com/original/5fcb793c-9133-4ad7-b1fc-55f399b95dbc.webp',
+  IMAGE_TEXT_STORY_HERO: {
+    src: 'https://images.reactbricks.com/original/1a8b35b7-4793-4c72-836b-86a491718494.webp',
     placeholderSrc:
-      'https://images.reactbricks.com/placeholder/5fcb793c-9133-4ad7-b1fc-55f399b95dbc.jpg',
+      'https://images.reactbricks.com/placeholder/1a8b35b7-4793-4c72-836b-86a491718494.jpg',
     srcSet:
-      'https://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-800.webp 800w,\nhttps://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-400.webp 400w,\nhttps://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-200.webp 200w',
-    alt: 'white and purple heart shaped stone',
+      'https://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-800.webp 800w,\nhttps://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-400.webp 400w,\nhttps://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-200.webp 200w',
+    alt: 'macbook pro displaying computer icons',
     seoName: 'dashboard',
     fallbackSrc:
-      'https://images.reactbricks.com/original/5fcb793c-9133-4ad7-b1fc-55f399b95dbc.jpg',
+      'https://images.reactbricks.com/original/1a8b35b7-4793-4c72-836b-86a491718494macbook pro displaying computer icons',
     fallbackSrcSet:
-      'https://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-800.jpg 800w,\nhttps://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-400.jpg 400w,\nhttps://images.reactbricks.com/src_set/5fcb793c-9133-4ad7-b1fc-55f399b95dbc-200.jpg 200w',
+      'https://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-1080macbook pro displaying computer icons 1080w,\nhttps://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-800macbook pro displaying computer icons 800w,\nhttps://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-400macbook pro displaying computer icons 400w,\nhttps://images.reactbricks.com/src_set/1a8b35b7-4793-4c72-836b-86a491718494-200macbook pro displaying computer icons 200w',
     fallbackType: 'image/jpeg',
     width: 1080,
-    height: 720,
+    height: 608,
   },
 } as const satisfies Images

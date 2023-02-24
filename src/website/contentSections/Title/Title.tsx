@@ -8,9 +8,9 @@ import {
   sectionDefaults,
   sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
-import Container, { Padding, Size } from 'website/shared/layout/Container'
-import Section, { Border } from 'website/shared/layout/Section'
-import TitleSubtitle from 'website/shared/layout/TitleSubtitle'
+import Container, { Padding, Size } from 'website/shared/components/Container'
+import Section, { Border } from 'website/shared/components/Section'
+import TitleSubtitle from 'website/shared/components/TitleSubtitle'
 
 interface Props {
   backgroundColor: { color: string; className: string }
@@ -21,6 +21,8 @@ interface Props {
   borderTop: Border
   borderBottom: Border
   width: Size
+  bigCentered: boolean
+  extraboldTitle: boolean
 }
 
 const Title: types.Brick<Props> = ({
@@ -32,6 +34,8 @@ const Title: types.Brick<Props> = ({
   borderTop,
   borderBottom,
   width,
+  bigCentered,
+  extraboldTitle,
 }) => {
   return (
     <Section
@@ -46,7 +50,10 @@ const Title: types.Brick<Props> = ({
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
       >
-        <TitleSubtitle />
+        <TitleSubtitle
+          bigCentered={bigCentered}
+          extraboldTitle={extraboldTitle}
+        />
       </Container>
     </Section>
   )
@@ -62,7 +69,9 @@ Title.schema = {
   getDefaultProps: () => ({
     ...sectionDefaults,
     title: 'Thick as a brick',
-    subtitle: 'Another brick in the wall',
+    subtitle: "All in all you're just another brick in the page",
+    bigCentered: true,
+    extraboldTitle: false,
   }),
 
   // Sidebar Edit controls for props
@@ -79,6 +88,22 @@ Title.schema = {
         ...sectionPaddingsEditProps,
         ...sectionBordersEditProps,
         containerSizeEditProps,
+      ],
+    },
+    {
+      groupName: 'Text',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'bigCentered',
+          label: 'Big centered',
+          type: types.SideEditPropType.Boolean,
+        },
+        {
+          name: 'extraboldTitle',
+          label: 'Extra bold Title',
+          type: types.SideEditPropType.Boolean,
+        },
       ],
     },
   ],

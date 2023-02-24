@@ -8,8 +8,8 @@ import {
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
-import Container, { Size } from '../shared/layout/Container'
-import Section from '../shared/layout/Section'
+import Container, { Size } from '../shared/components/Container'
+import Section from '../shared/components/Section'
 
 export interface FaqProps {
   backgroundColor?: { color: string; className: string }

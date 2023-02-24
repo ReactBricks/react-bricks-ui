@@ -14,13 +14,13 @@ interface FooterColumnProps {}
 
 const FooterColumn: types.Brick<FooterColumnProps> = (props) => {
   return (
-    <div>
+    <div className="w-1/2 sm:w-auto sm:mr-8 mb-8">
       <Text
         propName="title"
         placeholder="Title..."
         renderBlock={({ children }) => (
           <div
-            className={`text-xs font-black uppercase tracking-[0.35em] min-w-[120px] mb-3 ${textColors.GRAY_400}`}
+            className={`mb-3 text-xs font-black uppercase tracking-[0.35em] min-w-[120px] ${textColors.GRAY_400}`}
           >
             {children}
           </div>
@@ -35,6 +35,7 @@ FooterColumn.schema = {
   name: blockNames.FooterColumn,
   label: 'Column',
   category: 'layout',
+  hideFromAddMenu: true,
   // tags: [],
   repeaterItems: [
     {

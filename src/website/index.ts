@@ -1,46 +1,60 @@
-import BigFeature from './featureSections/FeatureCallout/FeatureCallout'
-import CallToAction from './cta/CallToAction/CallToAction'
-import Customer from './logos/Customers/CustomerItem'
-import Customers from './logos/Customers/Customers'
-import LogoGrid from './logos/LogoGrid/LogoGrid'
-import LogoGridItem from './logos/LogoGrid/LogoGridItem'
-import SmallLogoGrid from './logos/SmallLogoGrid/SmallLogoGrid'
-import SmallLogoGridItem from './logos/SmallLogoGrid/SmallLogoGridItem'
+// LAYOUT
 import Header from './layout/Header'
 import HeaderMenuItem from './layout/HeaderMenuItem'
 import HeaderMenuSubItem from './layout/HeaderMenuSubItem'
 import Footer from './layout/Footer'
 import FooterColumn from './layout/FooterColumn'
 import FooterLink from './layout/FooterLink'
-// import Document from './Documents/Document'
-// import Documents from './Documents/Documents'
-import Faqs from './Faq/Faq'
-import Faq from './Faq/FaqItem'
-import Faqs2cols from './Faq/Faq2cols'
-import FeatureItem from './featureSections/Features/FeatureItem'
-import Features from './featureSections/Features/Features'
+
+// SHARED
+import Badge from './shared/bricks/Badge'
+import BulletListItem from './shared/bricks/BulletListItem'
+import Button from './shared/bricks/Button'
+
+// HERO UNITS
 import HeroUnit from './heroSections/Hero Unit/HeroUnit'
 import HeroUnit2 from './heroSections/HeroUnit2/HeroUnit2'
-import Map from './contacts/Map/Map'
 import NewsletterSubscribe from './heroSections/NewsletterHero/NewsletterHero'
-import Badge from './shared/Badge'
-import BulletListItem from './shared/BulletListItem'
-import Button from './shared/Button'
-import Team from './teamm/Team/Team'
-import TeamItem from './teamm/Team/TeamItem'
-import Team2Cols from './teamm/Team2Cols/Team2Cols'
-import Team2ColsItem from './teamm/Team2Cols/Team2ColsItem'
-import Testimonial from './testimonials/Testimonial/Testimonial'
-import Testimonial3Cols from './testimonials/Testimonial3Cols/Testimonial3Cols'
-import Testimonial3ColsItem from './testimonials/Testimonial3Cols/Testimonial3ColsItem'
-import TextImage from './contentSections/TextImage/TextImage'
-import TextImageLogo from './contentSections/TextImage/TextImageLogo'
-import Title from './contentSections/Title/Title'
-import ImageCarousel from './ImageCarousel/ImageCarousel'
-import SingleImage from './ImageCarousel/SingleImage'
-import Video from 'blog/Video/Video'
+
+// SEPARATORS
 import HorizontalRule from './separators/HorizontalRule/HorizontalRule'
 import Spacer from './separators/Spacer/Spacer'
+
+// MAIN CONTENT SECTIONS
+import Title from './contentSections/Title/Title'
+import TextImage from './contentSections/TextImage/TextImage'
+import TextImageLogo from './contentSections/TextImage/TextImageLogo'
+
+import Features from './featureSections/Features/Features'
+import FeatureItem from './featureSections/Features/FeatureItem'
+import FeatureCallout from './featureSections/FeatureCallout/FeatureCallout'
+import Thumbnails from './featureSections/Thumbnails/Thumbnails'
+import Thumbnail from './featureSections/Thumbnails/Thumbnail'
+
+// CALL TO ACTION
+import CallToAction from './cta/CallToAction/CallToAction'
+
+// TEAM
+import Team from './team/Team/Team'
+import TeamItem from './team/Team/TeamItem'
+import Team2Cols from './team/Team2Cols/Team2Cols'
+import Team2ColsItem from './team/Team2Cols/Team2ColsItem'
+
+// LOGO SECTIONS
+import Customers from './logos/Customers/Customers'
+import Customer from './logos/Customers/CustomerItem'
+import LogoGrid from './logos/LogoGrid/LogoGrid'
+import LogoGridItem from './logos/LogoGrid/LogoGridItem'
+import SmallLogoGrid from './logos/SmallLogoGrid/SmallLogoGrid'
+import SmallLogoGridItem from './logos/SmallLogoGrid/SmallLogoGridItem'
+
+// FAQ
+import Faqs from './Faq/Faq'
+import Faqs2cols from './Faq/Faq2cols'
+import Faq from './Faq/FaqItem'
+
+// CONTACT
+import Map from './contacts/Map/Map'
 import FormBuilder from './contacts/FormBuilder/FormBuilder'
 import FormButton from './contacts/FormBuilder/FormButton'
 import FormCheckbox from './contacts/FormBuilder/FormCheckbox'
@@ -49,9 +63,23 @@ import FormSelect from './contacts/FormBuilder/FormSelect'
 import FormRadiobuttons from './contacts/FormBuilder/FormRadiobuttons'
 import FormSingleRadio from './contacts/FormBuilder/FormSingleRadio'
 import FormTextarea from './contacts/FormBuilder/FormTextarea'
+
+// TESTIMONIAL
+import Testimonial from './testimonials/Testimonial/Testimonial'
+import Testimonial3Cols from './testimonials/Testimonial3Cols/Testimonial3Cols'
+import Testimonial3ColsItem from './testimonials/Testimonial3Cols/Testimonial3ColsItem'
+
+// SINGLE COLUMN
+import Video from './singleColumnContent/Video/Video'
+import Code from './singleColumnContent/Code/Code'
+import Paragraph from './singleColumnContent/Paragraph/Paragraph'
 import Table from './contentSections/TableBuilder/Table'
 import TableRow from './contentSections/TableBuilder/TableRow'
 import TableCell from './contentSections/TableBuilder/TableCell'
+
+// IMAGE CAROUSEL
+import ImageCarousel from './ImageCarousel/ImageCarousel'
+import SingleImage from './ImageCarousel/SingleImage'
 
 export {
   Header,
@@ -82,7 +110,7 @@ export {
   Faqs2cols,
   CallToAction,
   Map,
-  BigFeature,
+  FeatureCallout,
   NewsletterSubscribe,
   Team,
   TeamItem,
@@ -90,6 +118,8 @@ export {
   Team2ColsItem,
   Features,
   FeatureItem,
+  Thumbnails,
+  Thumbnail,
   ImageCarousel,
   SingleImage,
   Video,
@@ -108,6 +138,8 @@ export {
   Table,
   TableRow,
   TableCell,
+  Code,
+  Paragraph,
 }
 
 const allBricks = [
@@ -139,7 +171,7 @@ const allBricks = [
   Faqs2cols,
   CallToAction,
   Map,
-  BigFeature,
+  FeatureCallout,
   NewsletterSubscribe,
   Team,
   TeamItem,
@@ -147,6 +179,8 @@ const allBricks = [
   Team2ColsItem,
   Features,
   FeatureItem,
+  Thumbnails,
+  Thumbnail,
   ImageCarousel,
   SingleImage,
   Video,
@@ -165,6 +199,8 @@ const allBricks = [
   Table,
   TableRow,
   TableCell,
+  Code,
+  Paragraph,
 ]
 
 export default allBricks

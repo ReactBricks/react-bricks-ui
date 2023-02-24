@@ -58,32 +58,37 @@ const FormInput: types.Brick<FormInputProps> = ({
         columns === 'two' && 'col-span-2'
       )}
     >
-      <span className="block text-gray-400 group-hover:text-sky-600 dark:group-hover:text-sky-300 font-medium uppercase tracking-widest text-sm peer-focus:text-sky-700">
-        {label}
-        {isRequired && <span className="text-red-600 ml-2">*</span>}
-      </span>
-      <input
-        type={inputType}
-        className={clsx(
-          'w-full px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:shadow-sky-200 dark:focus:shadow-sky-900 focus:shadow-lg peer',
-          errors[fieldName] ? 'ring-1 ring-red-400' : 'ring-sky-500'
-        )}
-        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
-          required: isRequired,
-          //@ts-ignore
-          valueAsNumber: inputType === 'number',
-          //@ts-ignore
-          valueAsDate: inputType === 'date',
-          //@ts-ignore
-          pattern: strToRegex(pattern),
-        })}
-      />
-      {errors[fieldName] && (
-        <span className="block mt-2 text-xs text-red-500 font-bold">
-          {errors[fieldName]?.type === 'required' && requiredError}
-          {errors[fieldName]?.type === 'pattern' && patternError}
+      <>
+        <span className="block text-gray-600 text-sm mb-1">
+          {label}
+          {isRequired && <span className="text-red-600 ml-[5px]">*</span>}
         </span>
-      )}
+        <input
+          type={inputType}
+          className={clsx(
+            'w-full px-[15px] py-[10px] border rounded outline-none peer',
+            errors[fieldName]
+              ? 'border-red-500'
+              : 'border-gray-300 focus:border-sky-500'
+          )}
+          {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
+            required: isRequired,
+            //@ts-ignore
+            valueAsNumber: inputType === 'number',
+            //@ts-ignore
+            valueAsDate: inputType === 'date',
+            //@ts-ignore
+            pattern: strToRegex(pattern),
+          })}
+        />
+
+        {errors[fieldName] && (
+          <span className="block mt-1 text-xs text-red-500 font-bold">
+            {errors[fieldName]?.type === 'required' && requiredError}
+            {errors[fieldName]?.type === 'pattern' && patternError}
+          </span>
+        )}
+      </>
     </label>
   )
 }

@@ -7,7 +7,7 @@ import {
   backgroundColorsEditProps,
   borderBottomEditProp,
 } from 'website/LayoutSideProps'
-import Section from '../../website/shared/layout/Section'
+import Section from '../shared/components/Section'
 
 interface HeaderProps {
   backgroundColor: { color: string; className: string }

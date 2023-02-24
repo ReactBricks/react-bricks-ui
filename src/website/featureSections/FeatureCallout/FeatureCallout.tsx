@@ -4,8 +4,8 @@ import classNames from 'classnames'
 import { Text, RichText, Image, types } from 'react-bricks/frontend'
 
 import { bgColors, textColors } from '../../colors'
-import Section, { Border } from '../../shared/layout/Section'
-import Container from '../../shared/layout/Container'
+import Section, { Border } from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
 import blockNames from '../../blockNames'
 import {
   backgroundColorsEditProps,

@@ -5,10 +5,14 @@ import { textColors } from 'website/colors'
 
 interface TitleSubtitleProps {
   withPaddingBottom?: boolean
+  bigCentered?: boolean
+  extraboldTitle?: boolean
 }
 
 const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
   withPaddingBottom = false,
+  bigCentered = false,
+  extraboldTitle = false,
 }) => {
   return (
     <div className={classNames({ 'pb-10': withPaddingBottom })}>
@@ -17,7 +21,12 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
         placeholder="Title..."
         renderBlock={({ children }) => (
           <h2
-            className={`text-2xl lg:text-[32px] font-black ${textColors.GRAY_900} leading-9`}
+            className={classNames(
+              'text-2xl leading-7',
+              extraboldTitle ? 'font-extrabold' : 'font-bold',
+              textColors.GRAY_900,
+              { 'lg:text-[32px] lg:leading-9 text-center': bigCentered }
+            )}
           >
             {children}
           </h2>
@@ -27,7 +36,13 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
         propName="subtitle"
         placeholder="Subtitle..."
         renderBlock={({ children }) => (
-          <p className={`mt-2 sm:text-xl leading-8 ${textColors.GRAY_600}`}>
+          <p
+            className={classNames(
+              { 'sm:text-xl leading-8': bigCentered },
+              textColors.GRAY_600,
+              bigCentered ? 'mt-3 text-center' : 'mt-2'
+            )}
+          >
             {children}
           </p>
         )}

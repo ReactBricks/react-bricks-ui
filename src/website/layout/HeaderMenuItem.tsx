@@ -41,7 +41,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
           href={linkPath}
           className="block lg:hidden text-sm mb-3 transition-colors ease-out text-gray-800 dark:text-white hover:text-sky-600"
         >
-          {Plain.serialize(linkText)}
+          {typeof linkText === 'string' ? linkText : Plain.serialize(linkText)}
         </Link>
       </div>
     )
@@ -108,7 +108,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         <div
           className={`text-xs font-extrabold ${textColors.GRAY_500} uppercase tracking-[0.35rem] mb-4`}
         >
-          {Plain.serialize(linkText)}
+          {typeof linkText === 'string' ? linkText : Plain.serialize(linkText)}
         </div>
         <Repeater propName="submenuItems" />
       </div>
@@ -119,7 +119,8 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
 HeaderMenuItem.schema = {
   name: blockNames.HeaderMenuItem,
   label: 'Menu Item',
-  category: 'header',
+  category: 'layout',
+  hideFromAddMenu: true,
 
   repeaterItems: [
     {

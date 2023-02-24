@@ -3,8 +3,8 @@ import { types } from 'react-bricks/frontend'
 import { Map, Marker } from 'pigeon-maps'
 
 import blockNames from '../../blockNames'
-import Section, { Border } from '../../shared/layout/Section'
-import Container, { Size } from '../../shared/layout/Container'
+import Section, { Border } from '../../shared/components/Section'
+import Container, { Size } from '../../shared/components/Container'
 import {
   backgroundColorsEditProps,
   containerSizeEditProps,
@@ -13,14 +13,13 @@ import { bgColors } from 'website/colors'
 
 export interface MapProps {
   backgroundColor?: { color: string; className: string }
-  size?: 'medium' | 'large'
   width?: Size
 
   zoom: string
   lat: string
   lng: string
 }
-const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
+const MAPTILER_ACCESS_TOKEN = '' //'zGVHxdSZR3rlLBsL6hUv#0.5'
 const MAP_ID = 'streets'
 
 const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
@@ -36,6 +35,12 @@ export const MapBrick: types.Brick<MapProps> = ({
   lng = '9.5669407',
   zoom = '10',
 }) => {
+  let mapTilerProviderProp = {}
+  if (MAPTILER_ACCESS_TOKEN) {
+    mapTilerProviderProp = {
+      provider: mapTilerProvider,
+    }
+  }
   return (
     <Section backgroundColor={backgroundColor}>
       <Container size={width}>
@@ -44,7 +49,7 @@ export const MapBrick: types.Brick<MapProps> = ({
           height={350}
           metaWheelZoom
           zoom={parseInt(zoom, 10)}
-          provider={mapTilerProvider}
+          {...mapTilerProviderProp}
           dprs={[1, 2]}
           metaWheelZoomWarning="Use ctrl + wheel to zoom!"
         >
@@ -67,9 +72,10 @@ MapBrick.schema = {
     backgroundColor: bgColors.WHITE.value,
     borderTop: 'none',
     borderBottom: 'none',
-    width: 'small',
+    width: 'normal',
     lat: 45.6782509,
     lng: 9.5669407,
+    zoom: 6,
   }),
   sideEditProps: [
     {
@@ -95,6 +101,24 @@ MapBrick.schema = {
           name: 'lng',
           label: 'Longitude',
           type: types.SideEditPropType.Number,
+        },
+        {
+          name: 'maptiler',
+          label: 'MapTiler',
+          type: types.SideEditPropType.Custom,
+          show: () => !MAPTILER_ACCESS_TOKEN,
+          component: () => {
+            if (!MAPTILER_ACCESS_TOKEN) {
+              return (
+                <p className="text-sm">
+                  For better maps, please create a MapTiler free account and set
+                  the <code className="text-xs">MAPTILER_ACCESS_TOKEN</code>{' '}
+                  string.
+                </p>
+              )
+            }
+            return null
+          },
         },
       ],
     },

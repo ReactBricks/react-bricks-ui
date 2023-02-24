@@ -1,9 +1,9 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { highlightTextColors } from '../colors'
+import { highlightTextColors } from '../../colors'
 
 import { Text, types } from 'react-bricks/frontend'
-import blockNames from '../blockNames'
+import blockNames from '../../blockNames'
 import { badgeColorsEditProps } from 'website/LayoutSideProps'
 
 export interface BadgeProps {

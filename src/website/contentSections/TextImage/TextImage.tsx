@@ -9,14 +9,16 @@ import {
   highlightTextColors,
   textColors,
 } from '../../colors'
-import Container, { Size, Padding } from '../../shared/layout/Container'
-import Section, { Border } from '../../shared/layout/Section'
+import Container, { Size, Padding } from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
+  sectionDefaults,
   sectionPaddingsEditProps,
 } from '../../LayoutSideProps'
 import { photos } from 'website/shared/defaultImages'
+import Video from 'website/shared/components/Video'
 
 export interface TextImageProps {
   backgroundColor: { color: string; className: string }
@@ -24,13 +26,18 @@ export interface TextImageProps {
   paddingBottom: Padding
   borderTop: Border
   borderBottom: Border
-  multiple: boolean
   imageSide: 'left' | 'right'
   bigImage: boolean
   mobileImageTop: boolean
   mobileIcon: boolean
   hasShadow: boolean
   isRounded: boolean
+  extraBoldTitle: boolean
+  bigText: boolean
+  heroSizeTitle: boolean
+  mediaType: 'image' | 'multiple-images' | 'video-file' | 'video-streaming'
+  platform: 'youtube' | 'vimeo'
+  videoId: string
 }
 
 const TextImage: types.Brick<TextImageProps> = ({
@@ -39,13 +46,18 @@ const TextImage: types.Brick<TextImageProps> = ({
   paddingBottom,
   borderTop,
   borderBottom,
-  multiple,
   imageSide,
   bigImage,
   mobileImageTop,
   mobileIcon,
   hasShadow,
   isRounded,
+  extraBoldTitle,
+  bigText,
+  heroSizeTitle,
+  mediaType,
+  platform,
+  videoId,
 }) => {
   const titleColor = textColors.GRAY_900
   const textColor = textColors.GRAY_700
@@ -82,7 +94,12 @@ const TextImage: types.Brick<TextImageProps> = ({
               renderBlock={(props) => (
                 <h2
                   className={classNames(
-                    'mt-0 mb-4 text-center md:text-left text-2xl leading-7 md:text-[32px] md:leading-tight font-black',
+                    'mt-0 text-center md:text-left text-2xl leading-7',
+                    heroSizeTitle
+                      ? 'md:text-[40px] md:leading-tight'
+                      : 'md:text-[32px] md:leading-tight',
+                    extraBoldTitle ? 'font-extrabold' : 'font-bold',
+                    bigText ? 'mb-4' : 'mb-3',
                     titleColor
                   )}
                   {...props.attributes}
@@ -99,7 +116,8 @@ const TextImage: types.Brick<TextImageProps> = ({
               renderBlock={(props) => (
                 <p
                   className={classNames(
-                    'leading-normal md:text-xl md:leading-8 mb-3 text-center md:text-left',
+                    'leading-7 mb-3 text-center md:text-left',
+                    { 'md:text-xl md:leading-8': bigText },
                     textColor
                   )}
                   {...props.attributes}
@@ -112,9 +130,12 @@ const TextImage: types.Brick<TextImageProps> = ({
                 types.RichTextFeatures.Bold,
                 types.RichTextFeatures.Link,
               ]}
-              renderLink={(props) => (
-                <Link {...props} className="text-lg">
-                  {props.children}
+              renderLink={({ children, href }) => (
+                <Link
+                  href={href}
+                  className="inline-block text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150"
+                >
+                  {children}
                 </Link>
               )}
             />
@@ -122,7 +143,7 @@ const TextImage: types.Brick<TextImageProps> = ({
             <Repeater
               propName="bulletListItems"
               itemProps={{
-                className: 'text-lg',
+                className: bigText ? 'text-lg' : 'text-base',
               }}
               renderWrapper={(items) => (
                 <div className="mt-4 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-1">
@@ -137,11 +158,11 @@ const TextImage: types.Brick<TextImageProps> = ({
               )}
             />
           </div>
-          {multiple ? (
+          {mediaType === 'multiple-images' ? (
             <div className="md:w-1/2 grid grid-cols-3 gap-6">
               <Repeater propName="logos" />
             </div>
-          ) : (
+          ) : mediaType === 'image' ? (
             <div
               className={classNames(
                 mobileIcon ? 'w-24' : 'w-full',
@@ -162,6 +183,15 @@ const TextImage: types.Brick<TextImageProps> = ({
                 )}
               />
             </div>
+          ) : mediaType === 'video-file' ? (
+            <Video type="file" className="w-full mt-10 md:w-1/2 md:mt-0" />
+          ) : (
+            <Video
+              type="streaming"
+              platform={platform}
+              videoId={videoId}
+              className="w-full mt-10 md:w-1/2 md:mt-0"
+            />
           )}
         </div>
       </Container>
@@ -185,19 +215,20 @@ TextImage.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImage.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
-    borderTop: 'none',
-    borderBottom: 'none',
+    ...sectionDefaults,
     title: 'Making content editing fun!',
     text: 'Our mission is making content editing fun, for everyone.',
     imageSource: photos.DESK_MAC,
+    mediaType: 'image',
     imageSide: 'right',
     bigImage: false,
-    multiple: false,
     mobileImageTop: false,
     mobileIcon: false,
     hasShadow: false,
     isRounded: false,
+    extraBoldTitle: true,
+    bigText: true,
+    heroSizeTitle: false,
     bulletListItems: [
       {
         bulletColor: highlightBgColors.PINK.value,
@@ -229,14 +260,30 @@ TextImage.schema = {
       props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
     },
     {
-      groupName: 'Image',
-      defaultOpen: false,
+      groupName: 'Media type',
+      defaultOpen: true,
       props: [
         {
-          name: 'multiple',
-          label: 'Multiple logos',
-          type: types.SideEditPropType.Boolean,
+          name: 'mediaType',
+          label: 'Media type',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Radio,
+            options: [
+              { value: 'image', label: 'Image' },
+              { value: 'multiple-images', label: 'Multiple logos' },
+              { value: 'video-file', label: 'Video (mp4 file)' },
+              { value: 'video-streaming', label: 'Video (streaming)' },
+            ],
+          },
         },
+      ],
+    },
+    {
+      groupName: 'Image',
+      show: ({ mediaType }) => mediaType === 'image',
+      defaultOpen: false,
+      props: [
         {
           name: 'imageSide',
           label: 'Image side',
@@ -253,7 +300,8 @@ TextImage.schema = {
           name: 'bigImage',
           label: 'Big image (only right side)',
           type: types.SideEditPropType.Boolean,
-          show: (props) => !props.multiple && props.imageSide === 'right',
+          show: (props) =>
+            props.mediaType === 'image' && props.imageSide === 'right',
         },
         {
           name: 'mobileImageTop',
@@ -264,19 +312,68 @@ TextImage.schema = {
           name: 'mobileIcon',
           label: 'Show as icon on mobile',
           type: types.SideEditPropType.Boolean,
-          show: (props) => !props.multiple,
+          show: (props) => props.mediaType === 'image',
         },
         {
           name: 'hasShadow',
           label: 'Image shadow',
           type: types.SideEditPropType.Boolean,
-          show: (props) => !props.multiple,
+          show: (props) => props.mediaType === 'image',
         },
         {
           name: 'isRounded',
           label: 'Image rounded corners',
           type: types.SideEditPropType.Boolean,
-          show: (props) => !props.multiple,
+          show: (props) => props.mediaType === 'image',
+        },
+      ],
+    },
+    {
+      groupName: 'video',
+      defaultOpen: true,
+      show: ({ mediaType }) => mediaType === 'video-streaming',
+      props: [
+        {
+          name: 'platform',
+          label: 'Video platform',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Radio,
+            options: [
+              { value: 'youtube', label: 'YouTube' },
+              { value: 'vimeo', label: 'Vimeo' },
+            ],
+          },
+        },
+        {
+          name: 'videoId',
+          label: 'Video ID (i.e. "A60xWr-nqv0")',
+          type: types.SideEditPropType.Text,
+        },
+      ],
+    },
+    {
+      groupName: 'video mp4',
+      show: ({ mediaType }) => mediaType === 'video-file',
+      props: [],
+    },
+    {
+      groupName: 'Text',
+      props: [
+        {
+          name: 'heroSizeTitle',
+          label: 'Hero-size title',
+          type: types.SideEditPropType.Boolean,
+        },
+        {
+          name: 'extraBoldTitle',
+          label: 'Extrabold title',
+          type: types.SideEditPropType.Boolean,
+        },
+        {
+          name: 'bigText',
+          label: 'Big text',
+          type: types.SideEditPropType.Boolean,
         },
       ],
     },
@@ -313,15 +410,13 @@ TextImage.schema = {
   ],
   stories: [
     {
-      id: 'orange-big-image',
-      name: 'Orange big image',
+      id: 'image-hero',
+      name: 'Image Hero',
       props: {
-        backgroundColor: bgColors.ORANGE.value,
-        borderTop: 'none',
-        borderBottom: 'none',
-        title: 'A CMS with a head and a heart',
-        text: 'Headless should not mean boring and cold. React Bricks is fun for content editors and cool for developers.',
-        imageSource: photos.STONE_SMILE,
+        ...sectionDefaults,
+        title: 'Add magic to your components',
+        text: 'With little changes you can turn your React design system into visually editable content blocks your marketing will love.',
+        imageSource: photos.IMAGE_TEXT_STORY_HERO,
         imageSide: 'right',
         bigImage: true,
         multiple: false,
@@ -329,44 +424,47 @@ TextImage.schema = {
         mobileIcon: false,
         hasShadow: true,
         isRounded: true,
-        badge: [
-          {
-            id: '49fd2c97-52b7-4ac9-850d-8ac7d428ca66',
-            type: 'badge',
-            props: {
-              text: 'Experience',
-              badgeColor: highlightTextColors.FUCHSIA.value,
-            },
-          },
-        ],
+        extraBoldTitle: false,
+        bigText: false,
+        heroSizeTitle: true,
         buttons: [
           {
-            id: '1b057cb1-d36b-47b3-93a8-83b6192645fd',
+            id: '6a41405a-4651-4899-b236-bc4f43cc1566',
             type: 'button',
             props: {
               text: 'Learn more',
-              href: 'https://reactbricks.com',
-              isTargetBlank: true,
-              isBigButton: false,
-              buttonColor: buttonColors.CYAN.value,
+              href: '',
+              isTargetBlank: false,
+              buttonColor: buttonColors.PINK.value,
               type: 'solid',
-              padding: 'normal',
+              isBigButton: false,
             },
           },
           {
-            id: '18c2593a-b751-4daf-806f-846a1238c1f5',
+            id: '25623fa5-f03d-4798-afef-7febb8aac580',
             type: 'button',
             props: {
               text: 'Sign up',
-              href: 'https://reactbricks.com/sign-up',
-              isTargetBlank: true,
-              isBigButton: false,
-              buttonColor: buttonColors.CYAN.value,
+              href: '',
+              isTargetBlank: false,
+              buttonColor: buttonColors.PINK.value,
               type: 'outline',
-              padding: 'normal',
+              isBigButton: false,
             },
           },
         ],
+        bulletListItems: [],
+        badge: [
+          {
+            id: '3fc7d1eb-8d3d-49d8-94d3-47807c449a7a',
+            type: 'badge',
+            props: {
+              text: 'Design system',
+              badgeColor: highlightTextColors.LIME.value,
+            },
+          },
+        ],
+        logos: [],
       },
     },
   ],

@@ -54,7 +54,8 @@ const HeaderMenuSubItem: types.Brick<HeaderMenuSubItemProps> = ({
 HeaderMenuSubItem.schema = {
   name: blockNames.HeaderMenuSubItem,
   label: 'Submenu Item',
-  category: 'header',
+  category: 'layout',
+  hideFromAddMenu: true,
 
   getDefaultProps: () => ({
     linkText: 'Changelog',

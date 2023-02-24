@@ -1,26 +1,35 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import Container, { Size } from 'website/shared/layout/Container'
-import Section from 'website/shared/layout/Section'
+import Container, { Padding, Size } from 'website/shared/components/Container'
+import Section from 'website/shared/components/Section'
 import {
   backgroundColorsEditProps,
-  containerSizeEditProps,
+  containerSizeEditPropsWithFull,
+  sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
 import { bgColors } from 'website/colors'
 
 interface HorizontalRuleProps {
   width?: Size
   backgroundColor?: { color: string; className: string }
+  paddingTop: Padding
+  paddingBottom: Padding
 }
 
 const HorizontalRule: types.Brick<HorizontalRuleProps> = ({
   width,
   backgroundColor,
+  paddingTop,
+  paddingBottom,
 }) => {
   return (
     <Section backgroundColor={backgroundColor}>
-      <Container size={width} paddingTop="none" paddingBottom="none">
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <hr className="border-black/10" />
       </Container>
     </Section>
@@ -34,12 +43,18 @@ HorizontalRule.schema = {
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
     width: 'medium',
+    paddingTop: 'medium',
+    paddingBottom: 'medium',
   }),
   sideEditProps: [
     {
       groupName: 'Layout',
       defaultOpen: true,
-      props: [backgroundColorsEditProps, containerSizeEditProps],
+      props: [
+        backgroundColorsEditProps,
+        containerSizeEditPropsWithFull,
+        ...sectionPaddingsEditProps,
+      ],
     },
   ],
 }

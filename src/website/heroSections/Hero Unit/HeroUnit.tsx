@@ -17,8 +17,8 @@ import {
   highlightTextColors,
   textColors,
 } from '../../colors'
-import Container, { Padding } from '../../shared/layout/Container'
-import Section, { Border } from '../../shared/layout/Section'
+import Container, { Padding } from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 
 export interface HeroUnitProps {
   backgroundColor: { color: string; className: string }

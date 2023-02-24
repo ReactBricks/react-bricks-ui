@@ -6,8 +6,8 @@ import {
   containerSizeEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-import Container from '../shared/layout/Container'
-import Section from '../shared/layout/Section'
+import Container from '../shared/components/Container'
+import Section from '../shared/components/Section'
 export interface DocumentsProps {
   backgroundColor?: { color: string; className: string }
 }

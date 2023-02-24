@@ -3,8 +3,8 @@ import { Repeater, types } from 'react-bricks/frontend'
 import { MdArrowLeft, MdArrowRight } from 'react-icons/md'
 import Slider from 'react-slick'
 import { bgColors } from 'website/colors'
-import Container, { Size } from 'website/shared/layout/Container'
-import Section, { Border } from 'website/shared/layout/Section'
+import Container, { Size } from 'website/shared/components/Container'
+import Section, { Border } from 'website/shared/components/Section'
 import {
   backgroundColorsEditProps,
   containerSizeEditProps,

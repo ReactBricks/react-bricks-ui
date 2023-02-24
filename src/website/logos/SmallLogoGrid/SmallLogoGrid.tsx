@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 
 import classNames from 'classnames'
-import Container, { Size } from '../../shared/layout/Container'
-import Section, { Border } from '../../shared/layout/Section'
+import Container, { Size } from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 import { bgColors, highlightTextColors } from '../../colors'
 import blockNames from '../../blockNames'
 import {

@@ -144,6 +144,20 @@ export const containerSizeEditProps: types.ISideEditProp = {
   },
 }
 
+export const containerSizeEditPropsWithFull: types.ISideEditProp = {
+  name: 'width',
+  label: 'Width',
+  type: types.SideEditPropType.Select,
+  selectOptions: {
+    display: types.OptionsDisplay.Select,
+    options: [
+      { value: 'medium', label: 'Medium' },
+      { value: 'small', label: 'Small' },
+      { value: 'full', label: 'Full-width' },
+    ],
+  },
+}
+
 export const badgeColorsEditProps = {
   name: 'badgeColor',
   label: 'Badge Color',

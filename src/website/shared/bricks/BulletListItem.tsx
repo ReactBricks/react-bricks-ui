@@ -2,8 +2,8 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { FiCheck } from 'react-icons/fi'
 import { Text, types } from 'react-bricks/frontend'
-import { highlightBgColors } from '../colors'
-import blockNames from '../blockNames'
+import { highlightBgColors } from '../../colors'
+import blockNames from '../../blockNames'
 import { bulletColorsEditProps } from 'website/LayoutSideProps'
 
 export interface BulletListItemProps {
@@ -17,7 +17,12 @@ const BulletListItem: types.Brick<BulletListItemProps> = ({
   className,
 }) => {
   return (
-    <div className={classNames('flex justify-start items-center', className)}>
+    <div
+      className={classNames(
+        'flex justify-center md:justify-start items-center',
+        className
+      )}
+    >
       <div
         className={classNames(
           'flex-shrink-0 flex justify-center items-center w-5 h-5 rounded-full mr-3 text-sm',

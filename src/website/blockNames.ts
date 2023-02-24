@@ -1,6 +1,8 @@
 enum blockNames {
   FeatureItem = 'feature-item',
   Features = 'features',
+  Thumbnails = 'thumbnails',
+  Thumbnail = 'thumbnail',
   HeroUnit = 'hero-unit',
   HeroUnit2 = 'hero-unit-2',
   Separator = 'separator',
@@ -58,6 +60,9 @@ enum blockNames {
   Footer = 'footer',
   FooterColumn = 'footer-column',
   FooterLink = 'footer-link',
+  Video = 'video',
+  Code = 'code',
+  Paragraph = 'paragraph',
 }
 
 export default blockNames

@@ -4,8 +4,8 @@ import { Repeater, Text, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import { bgColors } from 'website/colors'
 import blockNames from '../../blockNames'
-import Container from '../../shared/layout/Container'
-import Section from '../../shared/layout/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import { backgroundColorsEditProps } from '../../LayoutSideProps'
 
 export interface FormBuilderProps {
@@ -21,19 +21,7 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({ backgroundColor }) => {
 
   return (
     <Section backgroundColor={backgroundColor}>
-      <Container className="py-12 xl:py-20">
-        <Text
-          propName="formTitle"
-          placeholder="Type a Title..."
-          renderBlock={({ children }) => (
-            <div className="flex justify-center">
-              <h1 className="text-2xl w-auto font-medium text-gray-900 dark:text-white">
-                {children}
-              </h1>
-            </div>
-          )}
-        />
-
+      <Container>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="py-4 max-w-2xl mx-auto px-8 grid grid-cols-2 gap-4"
@@ -56,8 +44,8 @@ const onSubmit = (values: any) => console.log(values)
 
 FormBuilder.schema = {
   name: blockNames.FormBuilder,
-  label: 'Form Builder',
-  category: 'rb-ui website',
+  label: 'Form',
+  category: 'contact',
 
   repeaterItems: [
     {
@@ -68,7 +56,7 @@ FormBuilder.schema = {
         { type: blockNames.FormTextArea },
         { type: blockNames.FormCheckbox },
         { type: blockNames.FormSelect },
-        { type: blockNames.FormRadiobuttons, max: 1 },
+        { type: blockNames.FormRadiobuttons },
       ],
     },
     {

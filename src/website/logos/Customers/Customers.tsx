@@ -9,8 +9,8 @@ import {
 import { customers } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 import { bgColors } from '../../colors'
-import Container, { Size } from '../../shared/layout/Container'
-import Section, { Border } from '../../shared/layout/Section'
+import Container, { Size } from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 
 export interface CustomersProps {
   backgroundColor?: { color: string; className: string }

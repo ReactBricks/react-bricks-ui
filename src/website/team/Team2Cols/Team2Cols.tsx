@@ -1,9 +1,9 @@
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
-import Container from 'website/shared/layout/Container'
-import Section from 'website/shared/layout/Section'
-import TitleSubtitle from 'website/shared/layout/TitleSubtitle'
+import Container from 'website/shared/components/Container'
+import Section from 'website/shared/components/Section'
+import TitleSubtitle from 'website/shared/components/TitleSubtitle'
 
 interface Props {
   withTitle?: boolean

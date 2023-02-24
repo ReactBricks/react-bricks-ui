@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import {
   Image,
-  RichTextExt,
   Text,
   types,
   useAdminContext,
-  plugins,
   RichText,
 } from 'react-bricks/frontend'
 import { FaTwitter } from 'react-icons/fa'
@@ -51,7 +49,7 @@ const TweetLight: types.Brick<TweetLightProps> = ({
               <div className="mr-2 w-12 h-12">
                 <Image
                   propName="author"
-                  alt="athor-name"
+                  alt="author-name"
                   imageClassName="rounded-full filter hover:brightness-90"
                 />
               </div>

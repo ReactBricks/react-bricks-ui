@@ -1,9 +1,9 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import { Text, Link, types } from 'react-bricks/frontend'
-import blockNames from '../blockNames'
-import { buttonColors } from 'website/colors'
-import { buttonColorsEditProps } from 'website/LayoutSideProps'
+import blockNames from '../../blockNames'
+import { buttonColors } from '../../colors'
+import { buttonColorsEditProps } from '../../LayoutSideProps'
 
 export interface ButtonProps {
   text: string
@@ -37,9 +37,9 @@ const Button: types.Brick<ButtonProps> = ({
       {...target}
       className={classNames(
         'inline-block whitespace-nowrap text-center rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5',
-        padding === 'normal'
-          ? 'py-3 px-8 min-w-[120px]'
-          : 'py-2 px-4 text-sm min-w-[75px]',
+        padding === 'small'
+          ? 'py-2 px-4 text-sm min-w-[75px]'
+          : 'py-3 px-5 min-w-[120px]',
         {
           [buttonColor.classNameSolid]: type === 'solid',
         },
@@ -72,7 +72,6 @@ Button.schema = {
     text: 'Click me',
     href: '',
     isTargetBlank: false,
-    isBigButton: false,
     buttonColor: buttonColors.SKY.value,
     type: 'solid',
     padding: 'normal',

@@ -14,8 +14,8 @@ import {
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
 import { bgColors, gradients, textColors } from '../../colors'
-import Container from '../../shared/layout/Container'
-import Section, { Border } from '../../shared/layout/Section'
+import Container from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 
 export interface CallToActionProps {
   backgroundColor?: { color: string; className: string }

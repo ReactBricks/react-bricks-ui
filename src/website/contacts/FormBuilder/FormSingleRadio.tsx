@@ -23,7 +23,7 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
   return (
     <label className="block">
       <input
-        className="accent-sky-500"
+        className="h-4 w-4 border-gray-300 text-sky-500 focus:ring-sky-500"
         {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key)}
         type="radio"
         value={value}
