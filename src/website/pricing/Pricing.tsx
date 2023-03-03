@@ -3,11 +3,11 @@ import { types } from 'react-bricks/frontend'
 import { Repeater } from 'react-bricks/frontend'
 import Container, { Size } from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
-
 import blockNames from 'website/blockNames'
 import {
   backgroundColorsEditProps,
   containerSizeEditProps,
+  neutralBackgroundColorsEditProps,
 } from 'website/LayoutSideProps'
 
 interface PricingProps {
@@ -19,7 +19,7 @@ const Pricing: types.Brick<PricingProps> = ({ backgroundColor, width }) => {
   return (
     <Section backgroundColor={backgroundColor}>
       <Container size={width}>
-        <div className="flex flex-1 grow flex-wrap justify-center lg:flex-nowrap">
+        <div className={`flex flex-wrap justify-center`}>
           <Repeater propName="plans" />
         </div>
       </Container>
@@ -29,22 +29,22 @@ const Pricing: types.Brick<PricingProps> = ({ backgroundColor, width }) => {
 
 Pricing.schema = {
   name: blockNames.Pricing,
-  label: '3 business plan',
-  category: 'rb-ui website',
+  label: 'Pricing',
+  category: 'pricing',
   getDefaultProps: () => ({}),
   repeaterItems: [
     {
-      name: 'plan-brick',
+      name: 'plans',
       itemType: blockNames.PricingPlan,
       itemLabel: 'Plan',
-      min: 1,
-      max: 3,
+      min: 0,
+      max: 6,
     },
   ],
   sideEditProps: [
     {
       groupName: 'layout',
-      props: [backgroundColorsEditProps, containerSizeEditProps],
+      props: [neutralBackgroundColorsEditProps, containerSizeEditProps],
     },
   ],
 }

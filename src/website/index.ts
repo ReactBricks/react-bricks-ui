@@ -86,6 +86,11 @@ import TweetLight from './singleColumnContent/Tweet/TweetLight'
 import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
 import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
 
+// PRICING
+import Pricing from './pricing/Pricing'
+import PricingPlan from './pricing/PricingPlan'
+import PlanFeature from './pricing/PlanFeature'
+
 export {
   Header,
   HeaderMenuItem,
@@ -150,6 +155,9 @@ export {
   BigImage,
   Tweet,
   TweetLight,
+  Pricing,
+  PricingPlan,
+  PlanFeature,
 }
 
 const allBricks = [
@@ -216,6 +224,9 @@ const allBricks = [
   BigImage,
   Tweet,
   TweetLight,
+  Pricing,
+  PricingPlan,
+  PlanFeature,
 ]
 
 export default allBricks
