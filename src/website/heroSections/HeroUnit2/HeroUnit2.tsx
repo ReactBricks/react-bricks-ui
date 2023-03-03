@@ -153,6 +153,7 @@ HeroUnit2.schema = {
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
         type: 'solid',
+        padding: 'normal',
       },
       {
         text: 'Watch demo',
@@ -160,6 +161,7 @@ HeroUnit2.schema = {
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
         type: 'outline',
+        padding: 'normal',
       },
     ],
   }),

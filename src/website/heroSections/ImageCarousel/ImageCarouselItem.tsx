@@ -1,27 +1,45 @@
 import React from 'react'
 import { Image, types } from 'react-bricks/frontend'
-import blockNames from '../blockNames'
+import blockNames from '../../blockNames'
 
-interface Props {}
+interface Props {
+  adaptAspectRatio: boolean
+  slidesToShow: number
+}
 
-const SingleImage: types.Brick<Props> = () => {
+const ImageCarouselItem: types.Brick<Props> = ({
+  adaptAspectRatio,
+  slidesToShow,
+}) => {
+  let aspectRatioProp = {}
+
+  if (adaptAspectRatio) {
+    if (slidesToShow === 1) {
+      aspectRatioProp = { aspectRatio: 4 }
+    }
+    if (slidesToShow === 2) {
+      aspectRatioProp = { aspectRatio: 2 }
+    }
+    if (slidesToShow > 2) {
+      aspectRatioProp = { aspectRatio: 1 }
+    }
+  }
+
   return (
-    <div className="flex justify-center">
-      <Image
-        propName="image"
-        alt="altText"
-        maxWidth={1200}
-        aspectRatio={2}
-        imageClassName="object-cover object-center transition-all duration-300"
-      />
-    </div>
+    <Image
+      propName="image"
+      alt="altText"
+      maxWidth={1200}
+      imageClassName="w-full h-32 sm:h-48 md:h-72 object-cover object-center transition-all duration-300"
+      {...aspectRatioProp}
+    />
   )
 }
 
-SingleImage.schema = {
-  name: blockNames.SingleImage,
-  label: 'SingleImage',
-  category: 'rb-ui website',
+ImageCarouselItem.schema = {
+  name: blockNames.ImageCarouselItem,
+  label: 'ImageCarouselItem',
+  category: 'hero sections',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
     image: {
@@ -38,4 +56,4 @@ SingleImage.schema = {
   }),
 }
 
-export default SingleImage
+export default ImageCarouselItem

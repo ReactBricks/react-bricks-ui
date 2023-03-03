@@ -1,33 +1,22 @@
-import * as React from 'react'
-import { Image, types, Text, Link, Plain } from 'react-bricks/frontend'
 import classNames from 'classnames'
-import blockNames from '../../blockNames'
+import React from 'react'
+import { Plain, types } from 'react-bricks/frontend'
+import { RichText, Text, Image, Link } from 'react-bricks/frontend'
+import blockNames from 'website/blockNames'
 import { textColors } from 'website/colors'
-import { ColsNumber } from './Features'
 import { icons } from 'website/shared/defaultImages'
 
-export interface FeatureItemProps {
-  colsNumber: ColsNumber
+interface CardProps {
   withIcon: boolean
+  withTitle: boolean
   withLink: boolean
   linkText: any
   linkPath: string
 }
 
-const getColumnClass = (colsNumber: ColsNumber) => {
-  switch (colsNumber) {
-    case '2':
-      return 'sm:flex-[0_1_45%] mb-12 sm:mb-16'
-    case '3':
-      return 'sm:flex-[0_1_27%] mb-12 sm:mb-16'
-    case '4':
-      return 'sm:flex-[0_1_45%] lg:flex-[0_1_20%] mb-12 sm:mb-16'
-  }
-}
-
-const FeatureItem: types.Brick<FeatureItemProps> = ({
-  colsNumber,
+const Card: types.Brick<CardProps> = ({
   withIcon,
+  withTitle,
   withLink,
   linkText,
   linkPath,
@@ -36,39 +25,44 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
     typeof linkText === 'string' ? linkText : Plain.serialize(linkText)
 
   return (
-    <div className={classNames('text-base', getColumnClass(colsNumber))}>
+    <div
+      className={`p-7 flex border border-black/10 dark:border-white/10 bg-white dark:bg-white/10 rounded`}
+    >
       {withIcon && (
         <Image
-          propName="image"
-          alt="feature"
-          aspectRatio={1}
-          imageClassName="block w-12 h-12 object-contain"
-          renderWrapper={({ children }) => {
-            return (
-              <div className="float-left mr-5 mt-1 sm:float-none sm:mr-0 sm:mt-0 sm:mb-5">
-                {children}
-              </div>
-            )
-          }}
+          propName="icon"
+          alt="logo"
+          imageClassName={`text-left object-contain w-10 h-10 mr-5`}
         />
       )}
 
-      <div className="overflow-hidden">
-        <Text
-          propName="title"
-          placeholder="Title..."
+      <div className="w-full">
+        {withTitle && (
+          <Text
+            renderBlock={(props) => (
+              <div
+                className={classNames('font-bold mb-1', textColors.GRAY_800)}
+              >
+                {props.children}
+              </div>
+            )}
+            placeholder="Title..."
+            propName="title"
+          />
+        )}
+        <RichText
           renderBlock={(props) => (
-            <div className={classNames('font-bold mb-1', textColors.GRAY_800)}>
+            <div
+              className={classNames(
+                'text-base font-normal',
+                textColors.GRAY_600
+              )}
+            >
               {props.children}
             </div>
           )}
-        />
-        <Text
-          propName="text"
-          placeholder="Title..."
-          renderBlock={(props) => (
-            <div className={textColors.GRAY_500}>{props.children}</div>
-          )}
+          placeholder="Description..."
+          propName="description"
         />
         {withLink && (
           <div className="mt-2">
@@ -108,31 +102,35 @@ const FeatureItem: types.Brick<FeatureItemProps> = ({
     </div>
   )
 }
-FeatureItem.schema = {
-  name: blockNames.FeatureItem,
-  label: 'Feature',
+
+Card.schema = {
+  name: blockNames.Card,
+  label: 'Card',
   category: 'features',
   hideFromAddMenu: true,
-  playgroundLinkLabel: 'View source code on Github',
-  playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/FeatureItem.tsx',
-
   getDefaultProps: () => ({
-    title: 'The best experience for editors',
-    text: 'Your marketing team hates gray forms. Give them the easiest UX.',
     withIcon: true,
-    withLink: false,
-    image: icons.PHOTO_STACK,
+    withTitle: true,
+    withLink: true,
+    icon: icons.TWITTER,
+    title: 'Twitter',
+    description: 'Get the latest event updates about React Bricks.',
+    linkText: 'Follow us now',
   }),
   sideEditProps: [
     {
       name: 'withIcon',
-      label: 'With icon',
+      label: 'With Icon',
+      type: types.SideEditPropType.Boolean,
+    },
+    {
+      name: 'withTitle',
+      label: 'With Title',
       type: types.SideEditPropType.Boolean,
     },
     {
       name: 'withLink',
-      label: 'With link',
+      label: 'With Link',
       type: types.SideEditPropType.Boolean,
     },
     {
@@ -144,4 +142,4 @@ FeatureItem.schema = {
   ],
 }
 
-export default FeatureItem
+export default Card

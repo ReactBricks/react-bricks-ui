@@ -5,54 +5,43 @@ import classNames from 'classnames'
 import blockNames from '../../blockNames'
 import { bgColors } from '../../colors'
 import Container from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
-import { layoutType } from './FeatureItem'
-import { backgroundColorsEditProps } from 'website/LayoutSideProps'
+import Section from '../../shared/components/Section'
+import {
+  neutralBackgroundColorsEditProps,
+  sectionBordersEditProps,
+  sectionDefaults,
+  LayoutProps,
+  sectionPaddingsEditProps,
+} from 'website/LayoutSideProps'
+import { icons } from 'website/shared/defaultImages'
 
-export interface FeaturesProps {
-  backgroundColor?: { color: string; className: string }
-  screenLayout: layoutType
-}
-const getRepeaterWidht = (screenLayout: layoutType) => {
-  switch (screenLayout) {
-    case 'base':
-      return 'w-full max-w-3xl'
-    case 'small':
-      return 'w-full max-w-2xl'
-    case 'small-3cols':
-      return 'md:w-full max-w-5xl md:-mx-8'
-  }
+export type ColsNumber = '2' | '3' | '4'
+
+interface FeaturesProps extends LayoutProps {
+  colsNumber: ColsNumber
 }
 
 const Features: types.Brick<FeaturesProps> = ({
   backgroundColor = bgColors.WHITE.value,
-  screenLayout = 'base',
+  colsNumber,
+  paddingTop,
+  paddingBottom,
+  borderTop,
+  borderBottom,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
-        className={classNames(
-          'py-12 flex flex-wrap justify-center items-center'
-        )}
+        size={colsNumber === '2' ? 'small' : 'medium'}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        className={classNames('flex flex-wrap justify-between')}
       >
-        <Repeater
-          propName="feature-item"
-          renderWrapper={(items) => (
-            <div
-              className={classNames(
-                'flex flex-wrap justify-between mx-auto px-6 md:px-0',
-                getRepeaterWidht(screenLayout)
-              )}
-            >
-              {screenLayout === 'small-3cols' ? (
-                <div className="grid md:grid-cols-3">{items}</div>
-              ) : (
-                items
-              )}
-            </div>
-          )}
-          itemProps={{ screenLayout: screenLayout }}
-        />
+        <Repeater propName="features" itemProps={{ colsNumber: colsNumber }} />
       </Container>
     </Section>
   )
@@ -66,75 +55,74 @@ Features.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
-    borderTop: 'none',
-    borderBottom: 'none',
-    screenLayout: 'base',
-    'feature-item': [
+    ...sectionDefaults,
+    paddingBottom: 'none',
+    colsNumber: '2',
+    features: [
       {
-        title: 'Front-end development',
-        text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
-        screenLayout: 'base',
-        image: {
-          src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
-          srcSet: '',
-        },
+        title: 'The best experience for editors',
+        text: 'Your marketing team hates gray forms. Give them the easiest UX.',
+        withIcon: true,
+        withLink: false,
+        image: icons.PHOTO_STACK,
       },
       {
-        title: 'Request feedback',
-        text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
-        screenLayout: 'base',
-        image: {
-          src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
-          srcSet: '',
-        },
+        title: 'React components for devs',
+        text: 'Leverage React to create amazing visually editable content blocks.',
+        withIcon: true,
+        withLink: false,
+        image: icons.MIND_MAP,
       },
       {
-        title: 'Front-end development',
-        text: 'We are specialized in the development of React web applications. For public websites we use Next.js or Gatbsy, based on the type of project.',
-        screenLayout: 'base',
-        image: {
-          src: 'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
-          placeholderSrc:
-            'https://images.reactbricks.com/original/193ab040-1fc7-47b5-8ca0-c2176be578a6.svg',
-          srcSet: '',
-        },
+        title: 'Your design system',
+        text: 'Deploy your pixel-perfect design system and be sure nobody can break it..',
+        withIcon: true,
+        withLink: false,
+        image: icons.RADAR_PLOT,
+      },
+      {
+        title: 'Enterprise ready',
+        text: 'Collaboration, localization, granular permissions, SSO, top support: we got you covered.',
+        withIcon: true,
+        withLink: false,
+        image: icons.DATABASE,
       },
     ],
   }),
   repeaterItems: [
     {
-      name: 'feature-item',
+      name: 'features',
       itemType: blockNames.FeatureItem,
       itemLabel: 'Feature',
       min: 0,
-      max: 4,
+      max: 9,
     },
   ],
   sideEditProps: [
     {
-      groupName: 'Layout',
+      groupName: 'Background',
       defaultOpen: false,
-      props: [backgroundColorsEditProps],
+      props: [neutralBackgroundColorsEditProps],
+    },
+    {
+      groupName: 'Padding & Borders',
+      defaultOpen: false,
+      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
     },
     {
       groupName: 'Columns',
       defaultOpen: true,
       props: [
         {
-          name: 'screenLayout',
-          label: 'Screen Layout',
+          name: 'colsNumber',
+          label: 'Columns number',
           type: types.SideEditPropType.Select,
           selectOptions: {
-            display: types.OptionsDisplay.Select,
+            display: types.OptionsDisplay.Radio,
             options: [
-              { value: 'base', label: 'Two columns' },
-              { value: 'small', label: 'Small two columns' },
-              { value: 'small-3cols', label: 'Three columns' },
+              { value: '2', label: '2 columns' },
+              { value: '3', label: '3 columns' },
+              { value: '4', label: '4 columns' },
             ],
           },
         },

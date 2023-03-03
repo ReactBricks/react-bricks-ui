@@ -6,6 +6,17 @@ import {
   buttonColors,
   gradients,
 } from './colors'
+import { Padding, Size } from './shared/components/Container'
+import { Border } from './shared/components/Section'
+
+export interface LayoutProps {
+  backgroundColor?: { color: string; className: string }
+  borderTop: Border
+  borderBottom: Border
+  width?: Size
+  paddingTop: Padding
+  paddingBottom: Padding
+}
 
 export const backgroundColorsEditProps: types.ISideEditProp = {
   name: 'backgroundColor',
@@ -32,6 +43,21 @@ export const backgroundColorsEditProps: types.ISideEditProp = {
       bgColors.VIOLET,
       bgColors.PURPLE,
       bgColors.FUCHSIA,
+      bgColors.DARK_GRAY,
+    ],
+  },
+}
+
+export const neutralBackgroundColorsEditProps: types.ISideEditProp = {
+  name: 'backgroundColor',
+  label: 'Background',
+  type: types.SideEditPropType.Select,
+  selectOptions: {
+    display: types.OptionsDisplay.Color,
+    options: [
+      bgColors.WHITE,
+      bgColors.LIGHT_GRAY,
+      bgColors.GRAY,
       bgColors.DARK_GRAY,
     ],
   },

@@ -261,6 +261,106 @@ export const icons = {
     width: 48,
     height: 48,
   },
+  TWITTER: {
+    src: 'https://images.reactbricks.com/original/3a2856d6-c209-4c90-9483-85d9959999e2.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/3a2856d6-c209-4c90-9483-85d9959999e2.svg',
+    srcSet: '',
+    width: 248,
+    height: 204,
+    alt: 'Twitter icon',
+    seoName: 'twitter-icon',
+  },
+  YOUTUBE: {
+    src: 'https://images.reactbricks.com/original/02fb7799-0da2-4537-a6c7-4822bc1410a2.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/02fb7799-0da2-4537-a6c7-4822bc1410a2.svg',
+    srcSet: '',
+    width: 159,
+    height: 110,
+    alt: 'Youtube icon',
+    seoName: 'youtube-icon',
+  },
+  PHOTO_STACK: {
+    src: 'https://images.reactbricks.com/original/aca3dbf3-ccb6-47cf-973e-059e85e55571.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/aca3dbf3-ccb6-47cf-973e-059e85e55571.svg',
+    srcSet: '',
+    width: 1,
+    height: 1,
+    alt: 'Best UX for editors',
+    seoName: 'best-ux-editors',
+  },
+  DATABASE: {
+    src: 'https://images.reactbricks.com/original/0037d5f4-d486-4cdf-a64c-dcbf0260ebb3.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/0037d5f4-d486-4cdf-a64c-dcbf0260ebb3.svg',
+    srcSet: '',
+    width: 1,
+    height: 1,
+    alt: 'Enterprise-ready',
+    seoName: 'enterprise-ready',
+  },
+  MIND_MAP: {
+    src: 'https://images.reactbricks.com/original/dd14c0fe-3f21-4fc1-8362-22e005e82897.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/dd14c0fe-3f21-4fc1-8362-22e005e82897.svg',
+    srcSet: '',
+    width: 1,
+    height: 1,
+    alt: 'React components',
+    seoName: 'react-components',
+  },
+  RADAR_PLOT: {
+    src: 'https://images.reactbricks.com/original/6f0a3910-b542-4791-a2ab-57474b9b2bb1.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/6f0a3910-b542-4791-a2ab-57474b9b2bb1.svg',
+    srcSet: '',
+    width: 1,
+    height: 1,
+    alt: 'Design system',
+    seoName: 'design-system',
+  },
+  VISUAL_EDITING: {
+    src: 'https://images.reactbricks.com/original/50313730-79c9-4d6a-b7e0-d8aeb2a936e2.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/50313730-79c9-4d6a-b7e0-d8aeb2a936e2.svg',
+    srcSet: '',
+    width: 48,
+    height: 48,
+    alt: 'Best UX for editors',
+    seoName: 'best-ux-editors',
+  },
+  COMPONENTS: {
+    src: 'https://images.reactbricks.com/original/cca08a7b-c3ad-4928-a69b-84b5d9e06ef4.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/cca08a7b-c3ad-4928-a69b-84b5d9e06ef4.svg',
+    srcSet: '',
+    width: 48,
+    height: 48,
+    alt: 'React components',
+    seoName: 'react-components',
+  },
+  MULTILANGUAGE: {
+    src: 'https://images.reactbricks.com/original/643f6d1e-2c4f-40bd-8478-82b43694054b.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/643f6d1e-2c4f-40bd-8478-82b43694054b.svg',
+    srcSet: '',
+    width: 48,
+    height: 48,
+    alt: '',
+    seoName: '',
+  },
+  SCHEDULED_PUBLISHING: {
+    src: 'https://images.reactbricks.com/original/3eaa0b6b-bcf0-4430-b099-3c4f872a6d91.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/3eaa0b6b-bcf0-4430-b099-3c4f872a6d91.svg',
+    srcSet: '',
+    width: 48,
+    height: 48,
+    alt: 'Enterprise-ready',
+    seoName: 'enterprise-ready',
+  },
 } as const satisfies Images
 
 export const photos = {
@@ -295,5 +395,117 @@ export const photos = {
     fallbackType: 'image/jpeg',
     width: 1080,
     height: 608,
+  },
+  SEASIDE: {
+    fallbackSrc:
+      'https://images.reactbricks.com/original/71fd29e5-d54d-4c99-a2da-681bd8d888d1.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/71fd29e5-d54d-4c99-a2da-681bd8d888d1-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/71fd29e5-d54d-4c99-a2da-681bd8d888d1-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/71fd29e5-d54d-4c99-a2da-681bd8d888d1-300.jpg 300w',
+    fallbackType: 'image/jpeg',
+    src: 'https://images.reactbricks.com/original/71fd29e5-d54d-4c99-a2da-681bd8d888d1.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/71fd29e5-d54d-4c99-a2da-681bd8d888d1.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/71fd29e5-d54d-4c99-a2da-681bd8d888d1-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/71fd29e5-d54d-4c99-a2da-681bd8d888d1-600.webp 600w,\nhttps://images.reactbricks.com/src_set/71fd29e5-d54d-4c99-a2da-681bd8d888d1-300.webp 300w',
+    width: 1080,
+    height: 606,
+    alt: 'aerial photography of islands during daytime',
+    seoName: 'seaside',
+  },
+  CAROUSEL_MOUNTAINS_1: {
+    src: 'https://images.reactbricks.com/original/b83f614b-8dc9-4a20-b39f-a7e90374d4cc.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/b83f614b-8dc9-4a20-b39f-a7e90374d4cc.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/b83f614b-8dc9-4a20-b39f-a7e90374d4cc-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/b83f614b-8dc9-4a20-b39f-a7e90374d4cc-600.webp 600w,\nhttps://images.reactbricks.com/src_set/b83f614b-8dc9-4a20-b39f-a7e90374d4cc-300.webp 300w',
+    width: 1080,
+    height: 270,
+    alt: 'aerial photography of mountain range covered with snow under white and blue sky at daytime',
+    seoName: 'mountains',
+    fallbackSrc:
+      'https://images.reactbricks.com/original/b83f614b-8dc9-4a20-b39f-a7e90374d4cc.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/b83f614b-8dc9-4a20-b39f-a7e90374d4cc-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/b83f614b-8dc9-4a20-b39f-a7e90374d4cc-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/b83f614b-8dc9-4a20-b39f-a7e90374d4cc-300.jpg 300w',
+    fallbackType: 'image/jpeg',
+  },
+  CAROUSEL_MOUNTAINS_2: {
+    src: 'https://images.reactbricks.com/original/79c16949-6349-45de-996b-5a11b31800e6.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/79c16949-6349-45de-996b-5a11b31800e6.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/79c16949-6349-45de-996b-5a11b31800e6-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/79c16949-6349-45de-996b-5a11b31800e6-600.webp 600w,\nhttps://images.reactbricks.com/src_set/79c16949-6349-45de-996b-5a11b31800e6-300.webp 300w',
+    width: 1080,
+    height: 270,
+    alt: 'snow mountain under stars',
+    seoName: 'mountains',
+    fallbackSrc:
+      'https://images.reactbricks.com/original/79c16949-6349-45de-996b-5a11b31800e6.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/79c16949-6349-45de-996b-5a11b31800e6-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/79c16949-6349-45de-996b-5a11b31800e6-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/79c16949-6349-45de-996b-5a11b31800e6-300.jpg 300w',
+    fallbackType: 'image/jpeg',
+  },
+  CAROUSEL_SEA_1: {
+    src: 'https://images.reactbricks.com/original/ae2eea74-6e50-42cd-8dbe-9d17774a1643.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/ae2eea74-6e50-42cd-8dbe-9d17774a1643.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/ae2eea74-6e50-42cd-8dbe-9d17774a1643-720.webp 720w,\nhttps://images.reactbricks.com/src_set/ae2eea74-6e50-42cd-8dbe-9d17774a1643-600.webp 600w,\nhttps://images.reactbricks.com/src_set/ae2eea74-6e50-42cd-8dbe-9d17774a1643-300.webp 300w',
+    width: 720,
+    height: 720,
+    alt: 'boat on seashore',
+    seoName: 'seaside',
+    fallbackSrc:
+      'https://images.reactbricks.com/original/ae2eea74-6e50-42cd-8dbe-9d17774a1643.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/ae2eea74-6e50-42cd-8dbe-9d17774a1643-720.jpg 720w,\nhttps://images.reactbricks.com/src_set/ae2eea74-6e50-42cd-8dbe-9d17774a1643-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/ae2eea74-6e50-42cd-8dbe-9d17774a1643-300.jpg 300w',
+    fallbackType: 'image/jpeg',
+  },
+  CAROUSEL_SEA_2: {
+    src: 'https://images.reactbricks.com/original/807fd735-89a6-4f30-b2fe-6eaba36e3319.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/807fd735-89a6-4f30-b2fe-6eaba36e3319.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/807fd735-89a6-4f30-b2fe-6eaba36e3319-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/807fd735-89a6-4f30-b2fe-6eaba36e3319-600.webp 600w,\nhttps://images.reactbricks.com/src_set/807fd735-89a6-4f30-b2fe-6eaba36e3319-300.webp 300w',
+    width: 1080,
+    height: 1080,
+    alt: 'empty seashore',
+    seoName: 'sea',
+    fallbackSrc:
+      'https://images.reactbricks.com/original/807fd735-89a6-4f30-b2fe-6eaba36e3319.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/807fd735-89a6-4f30-b2fe-6eaba36e3319-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/807fd735-89a6-4f30-b2fe-6eaba36e3319-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/807fd735-89a6-4f30-b2fe-6eaba36e3319-300.jpg 300w',
+    fallbackType: 'image/jpeg',
+  },
+  CAROUSEL_SEA_3: {
+    src: 'https://images.reactbricks.com/original/a30ad110-b981-4aea-bdd4-8bd27319d319.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/a30ad110-b981-4aea-bdd4-8bd27319d319.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/a30ad110-b981-4aea-bdd4-8bd27319d319-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/a30ad110-b981-4aea-bdd4-8bd27319d319-600.webp 600w,\nhttps://images.reactbricks.com/src_set/a30ad110-b981-4aea-bdd4-8bd27319d319-300.webp 300w',
+    width: 1080,
+    height: 1080,
+    alt: 'aerial photography of large body of water and shoreline',
+    seoName: 'sea',
+    fallbackSrc:
+      'https://images.reactbricks.com/original/a30ad110-b981-4aea-bdd4-8bd27319d319.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/a30ad110-b981-4aea-bdd4-8bd27319d319-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/a30ad110-b981-4aea-bdd4-8bd27319d319-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/a30ad110-b981-4aea-bdd4-8bd27319d319-300.jpg 300w',
+    fallbackType: 'image/jpeg',
+  },
+  CAROUSEL_SEA_4: {
+    src: 'https://images.reactbricks.com/original/b87f99ed-7b67-467c-a747-7327546a0fee.webp',
+    placeholderSrc:
+      'https://images.reactbricks.com/placeholder/b87f99ed-7b67-467c-a747-7327546a0fee.jpg',
+    srcSet:
+      'https://images.reactbricks.com/src_set/b87f99ed-7b67-467c-a747-7327546a0fee-1080.webp 1080w,\nhttps://images.reactbricks.com/src_set/b87f99ed-7b67-467c-a747-7327546a0fee-600.webp 600w,\nhttps://images.reactbricks.com/src_set/b87f99ed-7b67-467c-a747-7327546a0fee-300.webp 300w',
+    width: 1080,
+    height: 1080,
+    alt: 'crystal clear water near coconut trees under the sun',
+    seoName: 'sea',
+    fallbackSrc:
+      'https://images.reactbricks.com/original/b87f99ed-7b67-467c-a747-7327546a0fee.jpg',
+    fallbackSrcSet:
+      'https://images.reactbricks.com/src_set/b87f99ed-7b67-467c-a747-7327546a0fee-1080.jpg 1080w,\nhttps://images.reactbricks.com/src_set/b87f99ed-7b67-467c-a747-7327546a0fee-600.jpg 600w,\nhttps://images.reactbricks.com/src_set/b87f99ed-7b67-467c-a747-7327546a0fee-300.jpg 300w',
+    fallbackType: 'image/jpeg',
   },
 } as const satisfies Images

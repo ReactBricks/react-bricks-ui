@@ -158,6 +158,7 @@ HeroUnit.schema = {
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
         type: 'solid',
+        padding: 'normal',
       },
       {
         text: 'Learn more',
@@ -165,6 +166,7 @@ HeroUnit.schema = {
         isTargetBlank: false,
         buttonColor: buttonColors.SKY.value,
         type: 'outline',
+        padding: 'normal',
       },
     ],
   }),

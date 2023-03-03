@@ -55,7 +55,7 @@ const SingleColumnVideo: types.Brick<SingleColumnVideoProps> = ({
 SingleColumnVideo.schema = {
   name: blockNames.Video,
   label: 'Video',
-  category: 'single-column',
+  category: 'single column / blog',
   // tags: [],
 
   // Defaults when a new brick is added
@@ -84,7 +84,31 @@ SingleColumnVideo.schema = {
       ],
     },
     {
-      groupName: 'video',
+      groupName: 'Video type',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'videoType',
+          label: 'Video type',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Radio,
+            options: [
+              {
+                value: 'file',
+                label: 'File (.mp4)',
+              },
+              {
+                value: 'streaming',
+                label: 'YouTube or Vimeo',
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      groupName: 'Video source',
       defaultOpen: true,
       show: ({ videoType }) => videoType === 'streaming',
       props: [

@@ -28,7 +28,7 @@ const Customer: types.Brick<CustomerProps> = ({ grayscale = true }) => {
 Customer.schema = {
   name: blockNames.Customer,
   label: 'Customer',
-  category: 'rb-ui website',
+  category: 'logos',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:

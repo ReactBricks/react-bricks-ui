@@ -1,8 +1,10 @@
 enum blockNames {
   FeatureItem = 'feature-item',
   Features = 'features',
-  Thumbnails = 'thumbnails',
-  Thumbnail = 'thumbnail',
+  Cards = 'cards',
+  Card = 'card',
+  LinkCards = 'link-cards',
+  LinkCard = 'link-card',
   HeroUnit = 'hero-unit',
   HeroUnit2 = 'hero-unit-2',
   Separator = 'separator',
@@ -40,7 +42,7 @@ enum blockNames {
   Documents = 'documents',
   Document = 'document',
   ImageCarousel = 'image-carousel',
-  SingleImage = 'single-image',
+  ImageCarouselItem = 'image-carousel-item',
   HorizontalRule = 'horizontal-rule',
   Spacer = 'spacer',
   FormBuilder = 'form-builder',
@@ -63,6 +65,12 @@ enum blockNames {
   Video = 'video',
   Code = 'code',
   Paragraph = 'paragraph',
+  BigImage = 'big-image',
+  Tweet = 'tweet',
+  TweetLight = 'tweet-light',
+  Pricing = 'pricing',
+  PricingPlan = 'pricing-plan',
+  PlanFeature = 'pricing-plan-feature',
 }
 
 export default blockNames

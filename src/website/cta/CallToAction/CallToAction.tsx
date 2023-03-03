@@ -53,7 +53,7 @@ const CallToAction: types.Brick<CallToActionProps> = ({
           />
         </div>
         <div>
-          <Repeater propName="buttons" itemProps={{ padding: 'small' }} />
+          <Repeater propName="buttons" />
         </div>
       </Container>
     </Section>
@@ -80,7 +80,7 @@ CallToAction.schema = {
         buttonColor: buttonColors.SKY.value,
         href: 'https://reactbricks.com',
         isTargetBlank: true,
-        isBigButton: false,
+        padding: 'normal',
       },
     ],
   }),

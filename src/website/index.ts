@@ -28,8 +28,10 @@ import TextImageLogo from './contentSections/TextImage/TextImageLogo'
 import Features from './featureSections/Features/Features'
 import FeatureItem from './featureSections/Features/FeatureItem'
 import FeatureCallout from './featureSections/FeatureCallout/FeatureCallout'
-import Thumbnails from './featureSections/Thumbnails/Thumbnails'
-import Thumbnail from './featureSections/Thumbnails/Thumbnail'
+import Cards from './featureSections/Cards/Cards'
+import Card from './featureSections/Cards/Card'
+import LinkCards from './featureSections/LinkCards/LinkCards'
+import LinkCard from './featureSections/LinkCards/LinkCard'
 
 // CALL TO ACTION
 import CallToAction from './cta/CallToAction/CallToAction'
@@ -73,13 +75,16 @@ import Testimonial3ColsItem from './testimonials/Testimonial3Cols/Testimonial3Co
 import Video from './singleColumnContent/Video/Video'
 import Code from './singleColumnContent/Code/Code'
 import Paragraph from './singleColumnContent/Paragraph/Paragraph'
-import Table from './contentSections/TableBuilder/Table'
-import TableRow from './contentSections/TableBuilder/TableRow'
-import TableCell from './contentSections/TableBuilder/TableCell'
+import BigImage from './singleColumnContent/BigImage/BigImage'
+import Table from './singleColumnContent/Table/Table'
+import TableRow from './singleColumnContent/Table/TableRow'
+import TableCell from './singleColumnContent/Table/TableCell'
+import Tweet from './singleColumnContent/Tweet/Tweet'
+import TweetLight from './singleColumnContent/Tweet/TweetLight'
 
 // IMAGE CAROUSEL
-import ImageCarousel from './ImageCarousel/ImageCarousel'
-import SingleImage from './ImageCarousel/SingleImage'
+import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
+import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
 
 export {
   Header,
@@ -118,8 +123,10 @@ export {
   Team2ColsItem,
   Features,
   FeatureItem,
-  Thumbnails,
-  Thumbnail,
+  Cards,
+  Card,
+  LinkCards,
+  LinkCard,
   ImageCarousel,
   SingleImage,
   Video,
@@ -140,6 +147,9 @@ export {
   TableCell,
   Code,
   Paragraph,
+  BigImage,
+  Tweet,
+  TweetLight,
 }
 
 const allBricks = [
@@ -179,8 +189,10 @@ const allBricks = [
   Team2ColsItem,
   Features,
   FeatureItem,
-  Thumbnails,
-  Thumbnail,
+  Cards,
+  Card,
+  LinkCards,
+  LinkCard,
   ImageCarousel,
   SingleImage,
   Video,
@@ -201,6 +213,9 @@ const allBricks = [
   TableCell,
   Code,
   Paragraph,
+  BigImage,
+  Tweet,
+  TweetLight,
 ]
 
 export default allBricks

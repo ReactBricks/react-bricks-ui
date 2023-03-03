@@ -106,7 +106,7 @@ const Code: types.Brick<CodeProps> = ({
 Code.schema = {
   name: blockNames.Code,
   label: 'Code',
-  category: 'rb-ui blog',
+  category: 'single column / blog',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Code/Code.tsx',
