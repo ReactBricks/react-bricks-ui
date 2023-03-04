@@ -5,6 +5,7 @@ import {
   highlightBgColors,
   buttonColors,
   gradients,
+  pricingColors,
 } from './colors'
 import { Padding, Size } from './shared/components/Container'
 import { Border } from './shared/components/Section'
@@ -325,6 +326,36 @@ export const textGradientEditProps = {
       gradients.MINT_GREEN,
       gradients.FLASH_NEON,
       gradients.LIGHTHOUSE,
+    ],
+  },
+}
+
+export const pricingColorsEditProps: types.ISideEditProp = {
+  name: 'pricingColor',
+  label: 'Color',
+  type: types.SideEditPropType.Select,
+  shouldRefreshStyles: true,
+  selectOptions: {
+    display: types.OptionsDisplay.Color,
+    options: [
+      pricingColors.GRAY,
+      pricingColors.RED,
+      pricingColors.ORANGE,
+      pricingColors.AMBER,
+      pricingColors.YELLOW,
+      pricingColors.LIME,
+      pricingColors.GREEN,
+      pricingColors.EMERALD,
+      pricingColors.TEAL,
+      pricingColors.CYAN,
+      pricingColors.SKY,
+      pricingColors.BLUE,
+      pricingColors.INDIGO,
+      pricingColors.VIOLET,
+      pricingColors.PURPLE,
+      pricingColors.FUCHSIA,
+      pricingColors.PINK,
+      pricingColors.ROSE,
     ],
   },
 }

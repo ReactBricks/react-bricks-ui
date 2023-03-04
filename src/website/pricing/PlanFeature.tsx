@@ -3,15 +3,18 @@ import classNames from 'classnames'
 import { types, Plain } from 'react-bricks/frontend'
 import { Text } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
+import { pricingColors, PricingColorValue } from 'website/colors'
 
 interface PlanFeatureProps {
   withTag?: boolean
   featureText: any
+  pricingColor: PricingColorValue
 }
 
 const PlanFeature: types.Brick<PlanFeatureProps> = ({
   withTag,
   featureText,
+  pricingColor,
 }) => {
   const featureTextContent =
     typeof featureText === 'string' ? featureText : Plain.serialize(featureText)
@@ -45,7 +48,12 @@ const PlanFeature: types.Brick<PlanFeatureProps> = ({
       {withTag && featureTextContent !== '' ? (
         <Text
           renderBlock={(props) => (
-            <div className="ml-1.5 min-w-[30px] px-1 py-1 leading-none rounded bg-cyan-200 font-medium text-cyan-800 text-sm">
+            <div
+              className={classNames(
+                'ml-1.5 min-w-[30px] px-1 py-1 leading-none rounded font-medium text-sm',
+                pricingColor.featureTagClassName
+              )}
+            >
               {props.children}
             </div>
           )}
@@ -63,20 +71,15 @@ PlanFeature.schema = {
   category: 'pricing',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    featureText: 'Up to 5 users',
+    featureText: 'Up to 10 users',
     withTag: false,
     tag: 'Add-on',
   }),
   sideEditProps: [
     {
-      groupName: 'Feature',
-      props: [
-        {
-          name: 'withTag',
-          label: 'With tag',
-          type: types.SideEditPropType.Boolean,
-        },
-      ],
+      name: 'withTag',
+      label: 'With tag',
+      type: types.SideEditPropType.Boolean,
     },
   ],
 }
