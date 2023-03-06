@@ -2,13 +2,12 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
-  backgroundColorsEditProps,
-  backgroundImageEditProps,
   textGradientEditProps,
   highlightTextEditProps,
-  sectionBordersEditProps,
   sectionDefaults,
-  sectionPaddingsEditProps,
+  LayoutProps,
+  backgroundWithImageBgSideGroup,
+  paddingBordersSideGroup,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
 import {
@@ -17,17 +16,10 @@ import {
   highlightTextColors,
   textColors,
 } from '../../colors'
-import Container, { Padding } from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 
-export interface HeroUnitProps {
-  backgroundColor: { color: string; className: string }
-  backgroundImage?: types.IImageSource
-  backgroundImageDark?: types.IImageSource
-  paddingTop: Padding
-  paddingBottom: Padding
-  borderTop: Border
-  borderBottom: Border
+export interface HeroUnitProps extends LayoutProps {
   size: 'medium' | 'large'
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
@@ -37,12 +29,12 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({
   backgroundColor,
   backgroundImage,
   backgroundImageDark,
-  paddingTop,
-  paddingBottom,
   borderTop,
   borderBottom,
-  textGradient = gradients.NONE.value,
+  paddingTop,
+  paddingBottom,
   size = 'large',
+  textGradient = gradients.NONE.value,
   highlightTextColor = highlightTextColors.LIME.value,
 }: HeroUnitProps) => {
   const titleColor = textColors.GRAY_800
@@ -188,16 +180,6 @@ HeroUnit.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Background',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, ...backgroundImageEditProps],
-    },
-    {
-      groupName: 'Padding & Borders',
-      defaultOpen: false,
-      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
-    },
-    {
       groupName: 'Title',
       defaultOpen: true,
       props: [
@@ -217,6 +199,8 @@ HeroUnit.schema = {
         highlightTextEditProps,
       ],
     },
+    backgroundWithImageBgSideGroup,
+    paddingBordersSideGroup,
   ],
 }
 

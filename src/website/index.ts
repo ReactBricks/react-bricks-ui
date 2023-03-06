@@ -14,11 +14,8 @@ import Button from './shared/bricks/Button'
 // HERO UNITS
 import HeroUnit from './heroSections/Hero Unit/HeroUnit'
 import HeroUnit2 from './heroSections/HeroUnit2/HeroUnit2'
-import NewsletterSubscribe from './heroSections/NewsletterHero/NewsletterHero'
-
-// SEPARATORS
-import HorizontalRule from './separators/HorizontalRule/HorizontalRule'
-import Spacer from './separators/Spacer/Spacer'
+import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
+import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
 
 // MAIN CONTENT SECTIONS
 import TextImage from './mainContent/TextImage/TextImage'
@@ -33,6 +30,11 @@ import LinkCard from './mainContent/LinkCards/LinkCard'
 
 // CALL TO ACTION
 import CallToAction from './cta/CallToAction/CallToAction'
+import NewsletterSubscribe from './heroSections/NewsletterHero/NewsletterHero'
+
+// SEPARATORS
+import HorizontalRule from './separators/HorizontalRule/HorizontalRule'
+import Spacer from './separators/Spacer/Spacer'
 
 // TEAM
 import Team from './team/Team/Team'
@@ -69,15 +71,10 @@ import Testimonial from './testimonials/Testimonial/Testimonial'
 import Testimonial3Cols from './testimonials/Testimonial3Cols/Testimonial3Cols'
 import Testimonial3ColsItem from './testimonials/Testimonial3Cols/Testimonial3ColsItem'
 
-// IMAGE CAROUSEL
-import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
-import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
-
 // PRICING
 import Pricing from './pricing/Pricing'
 import PricingPlan from './pricing/PricingPlan'
 import PlanFeature from './pricing/PlanFeature'
-
 
 // SINGLE COLUMN
 import Title from './singleColumnContent/Title/Title'

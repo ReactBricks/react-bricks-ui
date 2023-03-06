@@ -4,7 +4,10 @@ import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   backgroundImageEditProps,
+  backgroundWithImageBgSideGroup,
   highlightTextEditProps,
+  LayoutProps,
+  paddingBordersSideGroup,
   sectionBordersEditProps,
   sectionDefaults,
   sectionPaddingsEditProps,
@@ -17,17 +20,10 @@ import {
   highlightTextColors,
   textColors,
 } from '../../colors'
-import Container, { Padding } from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 
-export interface HeroUnitProps {
-  backgroundColor: { color: string; className: string }
-  backgroundImage?: types.IImageSource
-  backgroundImageDark?: types.IImageSource
-  paddingTop: Padding
-  paddingBottom: Padding
-  borderTop: Border
-  borderBottom: Border
+export interface HeroUnitProps extends LayoutProps {
   textGradient: keyof typeof gradients
   highlightTextColor: { color: string; className: string }
 }
@@ -36,10 +32,10 @@ const HeroUnit2: types.Brick<HeroUnitProps> = ({
   backgroundColor,
   backgroundImage,
   backgroundImageDark,
-  paddingTop,
-  paddingBottom,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
   textGradient,
   highlightTextColor,
 }: HeroUnitProps) => {
@@ -183,20 +179,12 @@ HeroUnit2.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Background',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, ...backgroundImageEditProps],
-    },
-    {
-      groupName: 'Padding & Borders',
-      defaultOpen: false,
-      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
-    },
-    {
       groupName: 'Title',
       defaultOpen: true,
       props: [textGradientEditProps, highlightTextEditProps],
     },
+    backgroundWithImageBgSideGroup,
+    paddingBordersSideGroup,
   ],
 }
 

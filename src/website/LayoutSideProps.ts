@@ -12,6 +12,8 @@ import { Border } from './shared/components/Section'
 
 export interface LayoutProps {
   backgroundColor?: { color: string; className: string }
+  backgroundImage?: types.IImageSource
+  backgroundImageDark?: types.IImageSource
   borderTop: Border
   borderBottom: Border
   width?: Size
@@ -338,7 +340,7 @@ export const pricingColorsEditProps: types.ISideEditProp = {
   name: 'pricingColor',
   label: 'Color',
   type: types.SideEditPropType.Select,
-  shouldRefreshStyles: true,
+  shouldRefreshText: true,
   selectOptions: {
     display: types.OptionsDisplay.Color,
     options: [
@@ -362,4 +364,37 @@ export const pricingColorsEditProps: types.ISideEditProp = {
       pricingColors.ROSE,
     ],
   },
+}
+
+export const neutralBackgroundSideGroup: types.ISideGroup = {
+  groupName: 'Background',
+  props: [neutralBackgroundColorsEditProps],
+}
+
+export const backgroundSideGroup: types.ISideGroup = {
+  groupName: 'Background',
+  props: [backgroundColorsEditProps],
+}
+
+export const backgroundWithImageBgSideGroup: types.ISideGroup = {
+  groupName: 'Background',
+  props: [backgroundColorsEditProps, ...backgroundImageEditProps],
+}
+
+export const paddingBordersSideGroup: types.ISideGroup = {
+  groupName: 'Padding & Borders',
+  defaultOpen: false,
+  props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
+}
+
+export const containerWidthSideGroup: types.ISideGroup = {
+  groupName: 'Container width',
+  defaultOpen: false,
+  props: [containerSizeEditProps],
+}
+
+export const containerWidthSideGroupWithFull: types.ISideGroup = {
+  groupName: 'Container width',
+  defaultOpen: false,
+  props: [containerSizeEditPropsWithFull],
 }

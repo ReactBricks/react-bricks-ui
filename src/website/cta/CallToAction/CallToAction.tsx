@@ -2,24 +2,24 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, Text, types } from 'react-bricks/frontend'
 import {
-  backgroundColorsEditProps,
-  sectionBordersEditProps,
+  backgroundSideGroup,
+  LayoutProps,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
 import { bgColors, buttonColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section, { Border } from '../../shared/components/Section'
 
-export interface CallToActionProps {
-  backgroundColor?: { color: string; className: string }
-  borderTop: Border
-  borderBottom: Border
-}
+export interface CallToActionProps extends LayoutProps {}
 
 const CallToAction: types.Brick<CallToActionProps> = ({
-  backgroundColor = bgColors.WHITE.value,
+  backgroundColor,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
 }) => {
   return (
     <Section
@@ -29,8 +29,8 @@ const CallToAction: types.Brick<CallToActionProps> = ({
     >
       <Container
         size="small"
-        paddingTop="small"
-        paddingBottom="small"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
         className={classNames(
           'flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
@@ -69,9 +69,10 @@ CallToAction.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
+    ...sectionDefaults,
     borderTop: 'boxed',
-    borderBottom: 'none',
+    paddingTop: '12',
+    paddingBottom: '20',
     text: 'React Bricks is great for developers and marketing teams.',
     buttons: [
       {
@@ -93,13 +94,7 @@ CallToAction.schema = {
       max: 1,
     },
   ],
-  sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: true,
-      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
-    },
-  ],
+  sideEditProps: [backgroundSideGroup, paddingBordersSideGroup],
 }
 
 export default CallToAction

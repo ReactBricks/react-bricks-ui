@@ -3,18 +3,18 @@ import { types } from 'react-bricks/frontend'
 import { Map, Marker } from 'pigeon-maps'
 
 import blockNames from '../../blockNames'
-import Section, { Border } from '../../shared/components/Section'
-import Container, { Size } from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
+  containerWidthSideGroupWithFull,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { bgColors } from 'website/colors'
 
-export interface MapProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
-
+export interface MapProps extends LayoutProps {
   zoom: string
   lat: string
   lng: string
@@ -29,8 +29,12 @@ const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
 }
 
 export const MapBrick: types.Brick<MapProps> = ({
-  width,
   backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
   lat = '45.6782509',
   lng = '9.5669407',
   zoom = '10',
@@ -42,8 +46,16 @@ export const MapBrick: types.Brick<MapProps> = ({
     }
   }
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container size={width}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <Map
           center={[parseFloat(lat), parseFloat(lng)]}
           height={350}
@@ -69,22 +81,14 @@ MapBrick.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
-    borderTop: 'none',
-    borderBottom: 'none',
-    width: 'normal',
+    ...sectionDefaults,
     lat: 45.6782509,
     lng: 9.5669407,
     zoom: 6,
   }),
   sideEditProps: [
     {
-      groupName: 'Layout',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, containerSizeEditProps],
-    },
-    {
-      groupName: 'Coordinates',
+      groupName: 'Map',
       defaultOpen: true,
       props: [
         {
@@ -122,6 +126,9 @@ MapBrick.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroupWithFull,
   ],
 }
 export default MapBrick

@@ -4,22 +4,40 @@ import { Repeater, types } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   containerSizeEditProps,
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
   sectionBordersEditProps,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
 import { bgColors } from '../colors'
 import Container, { Size } from '../shared/components/Container'
 import Section from '../shared/components/Section'
 
-export interface FaqProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
-}
+export interface FaqProps extends LayoutProps {}
 
-const Faq: types.Brick<FaqProps> = ({ backgroundColor, width }) => {
+const Faq: types.Brick<FaqProps> = ({
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
+}) => {
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container size={width} className="flex flex-col space-y-12">
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        className="flex flex-col space-y-12"
+      >
         <Repeater propName="faqs" />
       </Container>
     </Section>
@@ -35,9 +53,8 @@ Faq.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
+    ...sectionDefaults,
     borderTop: 'full',
-    borderBottom: 'none',
     width: 'small',
     faqs: [
       {
@@ -55,15 +72,9 @@ Faq.schema = {
     },
   ],
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: true,
-      props: [
-        backgroundColorsEditProps,
-        containerSizeEditProps,
-        ...sectionBordersEditProps,
-      ],
-    },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 

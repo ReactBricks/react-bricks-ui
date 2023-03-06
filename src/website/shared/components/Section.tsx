@@ -59,8 +59,8 @@ const Section: React.FC<SectionProps> = ({
         {borderTop !== 'none' && (
           <Container
             size={borderTop === 'boxed' ? 'medium' : 'full'}
-            paddingBottom="none"
-            paddingTop="none"
+            paddingBottom="0"
+            paddingTop="0"
           >
             <hr className="border-black/10" />
           </Container>
@@ -69,8 +69,8 @@ const Section: React.FC<SectionProps> = ({
         {borderBottom !== 'none' && (
           <Container
             size={borderBottom === 'boxed' ? 'medium' : 'full'}
-            paddingBottom="none"
-            paddingTop="none"
+            paddingBottom="0"
+            paddingTop="0"
           >
             <hr className="border-black/10" />
           </Container>

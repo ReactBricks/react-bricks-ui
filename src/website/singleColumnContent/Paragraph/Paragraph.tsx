@@ -7,7 +7,7 @@ import Section from 'website/shared/components/Section'
 const Paragraph: types.Brick = () => {
   return (
     <Section>
-      <Container paddingTop='none' paddingBottom='none'>
+      <Container paddingTop="0" paddingBottom="0">
         <RichText
           propName="text"
           placeholder="Paragraph..."
