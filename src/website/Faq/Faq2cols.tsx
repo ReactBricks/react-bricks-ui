@@ -1,14 +1,10 @@
-import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
-  sectionBordersEditProps,
   sectionDefaults,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'

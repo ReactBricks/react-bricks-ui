@@ -2,15 +2,11 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, RichText, types } from 'react-bricks/frontend'
 import {
-  backgroundColorsEditProps,
-  backgroundImageEditProps,
   backgroundWithImageBgSideGroup,
   highlightTextEditProps,
   LayoutProps,
   paddingBordersSideGroup,
-  sectionBordersEditProps,
   sectionDefaults,
-  sectionPaddingsEditProps,
   textGradientEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
