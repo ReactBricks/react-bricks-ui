@@ -139,8 +139,8 @@ HeroUnit.schema = {
   getDefaultProps: () => ({
     ...sectionDefaults,
     size: 'large',
-    paddingTop: 'small',
-    paddingBottom: 'small',
+    paddingTop: '12',
+    paddingBottom: '12',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
     title: 'We develop beautiful web applications',

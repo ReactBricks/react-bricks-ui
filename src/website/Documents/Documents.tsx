@@ -23,7 +23,7 @@ const Documents: types.Brick<DocumentsProps> = ({ backgroundColor }) => {
         <Repeater
           propName="files"
           renderWrapper={(items) => (
-            <ul className="w-full p-6 grid grid-cols-3 gap-6 ">{items}</ul>
+            <ul className="w-full p-6 grid grid-cols-3 gap-6">{items}</ul>
           )}
           renderItemWrapper={(item) => <li>{item}</li>}
         />

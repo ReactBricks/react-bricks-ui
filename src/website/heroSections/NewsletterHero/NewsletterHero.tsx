@@ -43,8 +43,8 @@ const CallToAction: types.Brick<CallToActionProps> = ({
       borderBottom={borderBottom}
     >
       <Container
-        paddingTop="small"
-        paddingBottom="small"
+        paddingTop="12"
+        paddingBottom="12"
         className={classNames(
           'flex flex-col lg:flex-row lg:gap-20 items-start text-left'
         )}

@@ -22,10 +22,10 @@ const Team: types.Brick<TeamProps> = ({ backgroundColor, width }) => {
       <Container
         size={width}
         className={classNames(
-          'py-12 flex flex-wrap justify-center items-center'
+          'flex flex-wrap justify-center items-center'
         )}
       >
-        <div className="flex w-full mx-auto mt-10 flex-wrap justify-center mb-6 w- max-w-4xl">
+        <div className="flex w-full mx-auto mt-10 flex-wrap justify-center mb-6 max-w-4xl">
           <Repeater propName="teamItem" />
         </div>
       </Container>

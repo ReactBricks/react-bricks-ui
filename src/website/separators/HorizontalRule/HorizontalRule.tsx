@@ -43,8 +43,8 @@ HorizontalRule.schema = {
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
     width: 'medium',
-    paddingTop: 'medium',
-    paddingBottom: 'medium',
+    paddingTop: '16',
+    paddingBottom: '16',
   }),
   sideEditProps: [
     {

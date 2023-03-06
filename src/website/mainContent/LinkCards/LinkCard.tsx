@@ -62,7 +62,7 @@ const LinkCard: types.Brick<LinkCardProps> = ({
 LinkCard.schema = {
   name: blockNames.LinkCard,
   label: 'Card',
-  category: 'features',
+  category: 'main content',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
     withIcon: true,

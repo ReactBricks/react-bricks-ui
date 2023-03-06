@@ -14,6 +14,7 @@ import {
 } from 'website/LayoutSideProps'
 import classNames from 'classnames'
 import { icons } from 'website/shared/defaultImages'
+import TitleSubtitle from 'website/shared/components/TitleSubtitle'
 
 interface CardsProps {
   backgroundColor?: { color: string; className: string }
@@ -23,6 +24,8 @@ interface CardsProps {
   borderTop: Border
   borderBottom: Border
   colNumber: string
+  withTitle?: boolean
+  bigCenteredTitle?: boolean
 }
 
 const Cards: types.Brick<CardsProps> = ({
@@ -32,6 +35,8 @@ const Cards: types.Brick<CardsProps> = ({
   paddingBottom,
   borderTop,
   borderBottom,
+  withTitle,
+  bigCenteredTitle,
 }) => {
   return (
     <Section
@@ -43,12 +48,21 @@ const Cards: types.Brick<CardsProps> = ({
         size={width}
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
-        className={classNames(
-          'grid gap-[30px] grid-cols-1',
-          width === 'small' ? 'lg:grid-cols-2' : 'md:grid-cols-2'
-        )}
       >
-        <Repeater propName="cards" />
+        {withTitle && (
+          <TitleSubtitle
+            className={classNames(bigCenteredTitle ? 'mb-10' : 'mb-8')}
+            bigCentered={bigCenteredTitle}
+          />
+        )}
+        <div
+          className={classNames(
+            'grid gap-[30px] grid-cols-1',
+            width === 'small' ? 'lg:grid-cols-2' : 'md:grid-cols-2'
+          )}
+        >
+          <Repeater propName="cards" />
+        </div>
       </Container>
     </Section>
   )
@@ -57,9 +71,14 @@ const Cards: types.Brick<CardsProps> = ({
 Cards.schema = {
   name: blockNames.Cards,
   label: 'Cards',
-  category: 'features',
+  category: 'main content',
   getDefaultProps: () => ({
     ...sectionDefaults,
+    withTitle: true,
+    bigCenteredTitle: false,
+    title: 'Join our community',
+    subtitle:
+      "Join our community of over 6,500 React developers: let's change the way people edit websites!",
     cards: [
       {
         withIcon: true,
@@ -103,6 +122,23 @@ Cards.schema = {
         ...sectionPaddingsEditProps,
         ...sectionBordersEditProps,
         containerSizeEditProps,
+      ],
+    },
+    {
+      groupName: 'Title',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'withTitle',
+          label: 'With title',
+          type: types.SideEditPropType.Boolean,
+        },
+        {
+          name: 'bigCenteredTitle',
+          label: 'Big centered',
+          type: types.SideEditPropType.Boolean,
+          show: (props) => !!props.withTitle,
+        },
       ],
     },
   ],

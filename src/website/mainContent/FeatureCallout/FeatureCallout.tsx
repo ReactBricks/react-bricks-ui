@@ -32,8 +32,8 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
     >
       <Container
         size="small"
-        paddingTop="small"
-        paddingBottom="small"
+        paddingTop="12"
+        paddingBottom="12"
         className={classNames(
           'flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
@@ -83,7 +83,7 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
 FeatureCallout.schema = {
   name: blockNames.FeatureCallout,
   label: 'Feature callout',
-  category: 'features',
+  category: 'main content',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',

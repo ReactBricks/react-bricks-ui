@@ -4,18 +4,18 @@ import { Text } from 'react-bricks'
 import { textColors } from 'website/colors'
 
 interface TitleSubtitleProps {
-  withPaddingBottom?: boolean
   bigCentered?: boolean
   extraboldTitle?: boolean
+  className?: string
 }
 
 const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
-  withPaddingBottom = false,
   bigCentered = false,
   extraboldTitle = false,
+  className = '',
 }) => {
   return (
-    <div className={classNames({ 'pb-10': withPaddingBottom })}>
+    <div className={className}>
       <Text
         propName="title"
         placeholder="Title..."
@@ -38,7 +38,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
         renderBlock={({ children }) => (
           <p
             className={classNames(
-              { 'sm:text-xl leading-8': bigCentered },
+              { 'sm:text-lg leading-7': bigCentered },
               textColors.GRAY_600,
               bigCentered ? 'mt-3 text-center' : 'mt-2'
             )}

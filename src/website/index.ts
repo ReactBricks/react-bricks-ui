@@ -21,17 +21,15 @@ import HorizontalRule from './separators/HorizontalRule/HorizontalRule'
 import Spacer from './separators/Spacer/Spacer'
 
 // MAIN CONTENT SECTIONS
-import Title from './contentSections/Title/Title'
-import TextImage from './contentSections/TextImage/TextImage'
-import TextImageLogo from './contentSections/TextImage/TextImageLogo'
-
-import Features from './featureSections/Features/Features'
-import FeatureItem from './featureSections/Features/FeatureItem'
-import FeatureCallout from './featureSections/FeatureCallout/FeatureCallout'
-import Cards from './featureSections/Cards/Cards'
-import Card from './featureSections/Cards/Card'
-import LinkCards from './featureSections/LinkCards/LinkCards'
-import LinkCard from './featureSections/LinkCards/LinkCard'
+import TextImage from './mainContent/TextImage/TextImage'
+import TextImageLogo from './mainContent/TextImage/TextImageLogo'
+import Features from './mainContent/Features/Features'
+import FeatureItem from './mainContent/Features/FeatureItem'
+import FeatureCallout from './mainContent/FeatureCallout/FeatureCallout'
+import Cards from './mainContent/Cards/Cards'
+import Card from './mainContent/Cards/Card'
+import LinkCards from './mainContent/LinkCards/LinkCards'
+import LinkCard from './mainContent/LinkCards/LinkCard'
 
 // CALL TO ACTION
 import CallToAction from './cta/CallToAction/CallToAction'
@@ -71,17 +69,6 @@ import Testimonial from './testimonials/Testimonial/Testimonial'
 import Testimonial3Cols from './testimonials/Testimonial3Cols/Testimonial3Cols'
 import Testimonial3ColsItem from './testimonials/Testimonial3Cols/Testimonial3ColsItem'
 
-// SINGLE COLUMN
-import Video from './singleColumnContent/Video/Video'
-import Code from './singleColumnContent/Code/Code'
-import Paragraph from './singleColumnContent/Paragraph/Paragraph'
-import BigImage from './singleColumnContent/BigImage/BigImage'
-import Table from './singleColumnContent/Table/Table'
-import TableRow from './singleColumnContent/Table/TableRow'
-import TableCell from './singleColumnContent/Table/TableCell'
-import Tweet from './singleColumnContent/Tweet/Tweet'
-import TweetLight from './singleColumnContent/Tweet/TweetLight'
-
 // IMAGE CAROUSEL
 import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
 import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
@@ -90,6 +77,19 @@ import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
 import Pricing from './pricing/Pricing'
 import PricingPlan from './pricing/PricingPlan'
 import PlanFeature from './pricing/PlanFeature'
+
+
+// SINGLE COLUMN
+import Title from './singleColumnContent/Title/Title'
+import Paragraph from './singleColumnContent/Paragraph/Paragraph'
+import BigImage from './singleColumnContent/BigImage/BigImage'
+import Video from './singleColumnContent/Video/Video'
+import Code from './singleColumnContent/Code/Code'
+import Table from './singleColumnContent/Table/Table'
+import TableRow from './singleColumnContent/Table/TableRow'
+import TableCell from './singleColumnContent/Table/TableCell'
+import Tweet from './singleColumnContent/Tweet/Tweet'
+import TweetLight from './singleColumnContent/Tweet/TweetLight'
 
 export {
   Header,

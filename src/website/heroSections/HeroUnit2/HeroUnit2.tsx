@@ -140,8 +140,8 @@ HeroUnit2.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',
   getDefaultProps: () => ({
     ...sectionDefaults,
-    paddingTop: 'thick',
-    paddingBottom: 'medium',
+    paddingTop: '20',
+    paddingBottom: '16',
     textGradient: gradients.NONE.value,
     highlightTextColor: highlightTextColors.LIME.value,
     title: 'We develop beautiful web applications',

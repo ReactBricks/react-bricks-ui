@@ -1,18 +1,20 @@
+import classNames from 'classnames'
 import React from 'react'
 import { Text, Image, types, Plain } from 'react-bricks/frontend'
-import { FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import blockNames from 'website/blockNames'
 import { textColors } from 'website/colors'
+import { avatars } from 'website/shared/defaultImages'
 
 interface Props {
-  memberName?: any
+  name?: any
   twitter?: string
   linkedin?: string
   github?: string
 }
 
 const Team2ColsItem: types.Brick<Props> = ({
-  memberName,
+  name,
   twitter,
   linkedin,
   github,
@@ -20,7 +22,7 @@ const Team2ColsItem: types.Brick<Props> = ({
   return (
     <li className="flex space-x-4">
       <Image
-        alt={Plain.serialize(memberName)}
+        alt={Plain.serialize(name)}
         propName="avatarImage"
         aspectRatio={1}
         imageClassName="rounded-full w-12 h-12 object-contain"
@@ -34,7 +36,7 @@ const Team2ColsItem: types.Brick<Props> = ({
             </div>
           )}
           placeholder="Name..."
-          propName="memberName"
+          propName="name"
         />
         <Text
           renderBlock={(props) => (
@@ -43,40 +45,51 @@ const Team2ColsItem: types.Brick<Props> = ({
             </div>
           )}
           placeholder="Job title..."
-          propName="memberJobTitle"
+          propName="jobTitle"
         />
         <div className="flex flex-row items-center space-x-2">
           {twitter && (
             <div>
               <a
-                className="textColors.GRAY_600 hover:text-sky-600 transition-all ease-out duration-150 hover:-translate-y-0.5"
+                className={classNames(
+                  'hover:text-sky-600 transition-all ease-out duration-150 hover:-translate-y-0.5',
+                  textColors.GRAY_400
+                )}
                 href={`https://twitter.com/${twitter}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiTwitter />
+                <FaTwitter />
               </a>
             </div>
           )}
           {linkedin && (
             <div>
               <a
+                className={classNames(
+                  'hover:text-sky-600 transition-all ease-out duration-150 hover:-translate-y-0.5',
+                  textColors.GRAY_400
+                )}
                 href={`https://linkedin.com/${linkedin}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiLinkedin />
+                <FaLinkedin />
               </a>
             </div>
           )}
           {github && (
             <div>
               <a
+                className={classNames(
+                  'hover:text-sky-600 transition-all ease-out duration-150 hover:-translate-y-0.5',
+                  textColors.GRAY_400
+                )}
                 href={`https://github.com/${github}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiGithub />
+                <FaGithub />
               </a>
             </div>
           )}
@@ -88,7 +101,7 @@ const Team2ColsItem: types.Brick<Props> = ({
 
 Team2ColsItem.schema = {
   name: blockNames.Team2ColsItem,
-  label: 'Team2ColsItem',
+  label: 'Member',
   category: 'team',
   hideFromAddMenu: true,
   // tags: [],
@@ -96,6 +109,11 @@ Team2ColsItem.schema = {
   // Defaults when a new brick is added
   getDefaultProps: () => ({
     title: 'Thick as a brick',
+    name: 'Alvin Payne',
+    jobTitle: 'Frontend Developer',
+    twitter: 'alvin_payne',
+    linkedin: 'alvin_payne',
+    avatarImage: avatars.AVATAR_MALE,
   }),
 
   // Sidebar Edit controls for props

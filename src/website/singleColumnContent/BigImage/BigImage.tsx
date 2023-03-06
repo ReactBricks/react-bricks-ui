@@ -8,7 +8,7 @@ import { photos } from 'website/shared/defaultImages'
 const BigImage: types.Brick = () => {
   return (
     <Section>
-      <Container size="small" paddingTop="none" paddingBottom="none">
+      <Container size="small" paddingTop="0" paddingBottom="0">
         <Image propName="image" alt="Image" maxWidth={1200} />
       </Container>
     </Section>

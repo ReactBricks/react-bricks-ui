@@ -62,12 +62,14 @@ const Title: types.Brick<Props> = ({
 Title.schema = {
   name: blockNames.Title,
   label: 'Title',
-  category: 'content sections',
+  category: 'single column / blog',
   // tags: [],
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
     ...sectionDefaults,
+    paddingTop: '0',
+    paddingBottom: '0',
     title: 'Thick as a brick',
     subtitle: "All in all you're just another brick in the page",
     bigCentered: true,

@@ -91,11 +91,13 @@ export const sectionPaddingsEditProps: types.ISideEditProp[] = [
     selectOptions: {
       display: types.OptionsDisplay.Select,
       options: [
-        { value: 'thick', label: 'Thick' },
-        { value: 'medium', label: 'Medium' },
-        { value: 'small', label: 'Small' },
-        { value: 'thin', label: 'Thin' },
-        { value: 'none', label: 'None' },
+        { value: '20', label: '20' },
+        { value: '16', label: '16' },
+        { value: '12', label: '12' },
+        { value: '10', label: '10' },
+        { value: '8', label: '8' },
+        { value: '6', label: '6' },
+        { value: '0', label: 'None' },
       ],
     },
   },
@@ -106,11 +108,13 @@ export const sectionPaddingsEditProps: types.ISideEditProp[] = [
     selectOptions: {
       display: types.OptionsDisplay.Select,
       options: [
-        { value: 'thick', label: 'Thick' },
-        { value: 'medium', label: 'Medium' },
-        { value: 'small', label: 'Small' },
-        { value: 'thin', label: 'Thin' },
-        { value: 'none', label: 'None' },
+        { value: '20', label: '20' },
+        { value: '16', label: '16' },
+        { value: '12', label: '12' },
+        { value: '10', label: '10' },
+        { value: '8', label: '8' },
+        { value: '6', label: '6' },
+        { value: '0', label: 'None' },
       ],
     },
   },
@@ -151,8 +155,8 @@ export const sectionBordersEditProps: types.ISideEditProp[] = [
 
 export const sectionDefaults = {
   backgroundColor: bgColors.WHITE,
-  paddingTop: 'medium',
-  paddingBottom: 'medium',
+  paddingTop: '16',
+  paddingBottom: '16',
   borderTop: 'none',
   borderBottom: 'none',
 }

@@ -248,6 +248,26 @@ export const avatars = {
     width: 1249.24,
     height: 1249.24,
   },
+  AVATAR_MALE: {
+    src: 'https://images.reactbricks.com/original/2f84867e-3c4b-46b6-b64f-6c2f81b5232f.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/2f84867e-3c4b-46b6-b64f-6c2f81b5232f.svg',
+    srcSet: '',
+    alt: 'Alvin',
+    seoName: 'alvin',
+    width: 102.45,
+    height: 102.45,
+  },
+  AVATAR_FEMALE: {
+    src: 'https://images.reactbricks.com/original/24b26149-514a-40c4-9029-0dfaa22cbe3c.svg',
+    placeholderSrc:
+      'https://images.reactbricks.com/original/24b26149-514a-40c4-9029-0dfaa22cbe3c.svg',
+    srcSet: '',
+    alt: 'Catherine',
+    seoName: 'catherine',
+    width: 102.45,
+    height: 102.45,
+  },
 } as const satisfies Images
 
 export const icons = {

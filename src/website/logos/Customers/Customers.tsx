@@ -55,8 +55,8 @@ Customers.schema = {
 
   getDefaultProps: () => ({
     backgroundColor: bgColors.WHITE.value,
-    paddingTop: 'small',
-    paddingBottom: 'small',
+    paddingTop: '12',
+    paddingBottom: '12',
     borderTop: 'none',
     borderBottom: 'none',
     grayscale: true,

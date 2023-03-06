@@ -2,19 +2,23 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 export type Size = 'medium' | 'small' | 'full'
-export type Padding = 'thick' | 'medium' | 'small' | 'thin' | 'none'
+export type Padding = '0' | '6' | '8' | '10' | '12' | '16' | '20'
 
 const getPaddingTopClass = (padding: Padding): string => {
   switch (padding) {
-    case 'thick':
+    case '20':
       return 'pt-12 lg:pt-20'
-    case 'medium':
+    case '16':
       return 'pt-12 lg:pt-16'
-    case 'small':
+    case '12':
       return 'pt-12'
-    case 'thin':
+    case '10':
+      return 'pt-10'
+    case '8':
+      return 'pt-8'
+    case '6':
       return 'pt-6'
-    case 'none':
+    case '0':
       return 'pt-0'
     default:
       return 'pt-0'
@@ -23,15 +27,19 @@ const getPaddingTopClass = (padding: Padding): string => {
 
 const getPaddingBottomClass = (padding: Padding): string => {
   switch (padding) {
-    case 'thick':
+    case '20':
       return 'pb-12 lg:pb-20'
-    case 'medium':
+    case '16':
       return 'pb-12 lg:pb-16'
-    case 'small':
+    case '12':
       return 'pb-12'
-    case 'thin':
+    case '10':
+      return 'pb-10'
+    case '8':
+      return 'pb-8'
+    case '6':
       return 'pb-6'
-    case 'none':
+    case '0':
       return 'pb-0'
     default:
       return 'pb-0'
@@ -62,8 +70,8 @@ export interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({
   size = 'medium',
-  paddingTop = 'medium',
-  paddingBottom = 'medium',
+  paddingTop = '16',
+  paddingBottom = '16',
   className,
   children,
 }) => {
