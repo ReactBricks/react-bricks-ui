@@ -72,6 +72,7 @@ Cards.schema = {
   name: blockNames.Cards,
   label: 'Cards',
   category: 'main content',
+  tags: ['cards', 'thumbnails', 'features'],
   getDefaultProps: () => ({
     ...sectionDefaults,
     withTitle: true,

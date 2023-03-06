@@ -125,6 +125,7 @@ HeroUnit.schema = {
   name: blockNames.HeroUnit,
   label: 'Centered Hero',
   category: 'hero sections',
+  tags: ['hero unit', 'title'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',

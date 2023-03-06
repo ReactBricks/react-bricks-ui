@@ -2,30 +2,43 @@ import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 
 import classNames from 'classnames'
-import Container, { Size } from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import { bgColors, highlightTextColors } from '../../colors'
 import blockNames from '../../blockNames'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { logos } from 'website/shared/defaultImages'
 
-export interface LogoGridProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
+export interface LogoGridProps extends LayoutProps {
   targetBlank: boolean
 }
 
 const LogoGrid: types.Brick<LogoGridProps> = ({
   backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
   width,
   targetBlank,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container size={width}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <Repeater
           propName="badge"
           itemProps={{
@@ -50,15 +63,13 @@ LogoGrid.schema = {
   name: blockNames.LogoGrid,
   label: 'Logo Grid',
   category: 'logos',
+  tags: ['logo grid', 'logos', 'logo cloud', 'customers'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/LogoGrid/LogoGrid.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
-    borderTop: 'none',
-    borderBottom: 'none',
-    width: 'medium',
+    ...sectionDefaults,
     targetBlank: true,
     badge: [
       {
@@ -107,11 +118,6 @@ LogoGrid.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Layout',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, containerSizeEditProps],
-    },
-    {
       groupName: 'Links',
       defaultOpen: true,
       props: [
@@ -122,6 +128,9 @@ LogoGrid.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 export default LogoGrid

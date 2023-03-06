@@ -127,6 +127,7 @@ HeroUnit2.schema = {
   name: blockNames.HeroUnit2,
   label: 'Horizontal Hero',
   category: 'hero sections',
+  tags: ['hero unit', 'horizontal hero', 'title'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Hero%20Unit/HeroUnit.tsx',

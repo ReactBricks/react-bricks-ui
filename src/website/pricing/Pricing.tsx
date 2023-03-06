@@ -31,6 +31,7 @@ Pricing.schema = {
   name: blockNames.Pricing,
   label: 'Pricing',
   category: 'pricing',
+  tags: ['pricing', 'plans', 'price'],
   getDefaultProps: () => ({
     plans: [
       {

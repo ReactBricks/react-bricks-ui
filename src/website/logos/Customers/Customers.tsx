@@ -2,33 +2,37 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
-  sectionPaddingsEditProps,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
 } from 'website/LayoutSideProps'
 import { customers } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 import { bgColors } from '../../colors'
-import Container, { Size } from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 
-export interface CustomersProps {
-  backgroundColor?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
-  width?: Size
+export interface CustomersProps extends LayoutProps {
   grayscale?: boolean
   customers: any
 }
 
 const Customers: types.Brick<CustomersProps> = ({
   backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
   grayscale,
   customers,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
         <div
           className={classNames(
             'flex flex-wrap justify-center items-center -mx-4 md:-mx-5 -my-4',
@@ -49,6 +53,7 @@ Customers.schema = {
   name: blockNames.Customers,
   label: 'Customers',
   category: 'logos',
+  tags: ['customers', 'logos', 'logo cloud'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Customers/Customers.tsx',
@@ -83,18 +88,13 @@ Customers.schema = {
       name: 'customers',
       itemType: blockNames.Customer,
       itemLabel: 'Customer',
-      // addItemText: 'Add customer',
-      // removeItemText: 'Remove customer',
       min: 0,
       max: 12,
     },
   ],
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, ...sectionPaddingsEditProps],
-    },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
     {
       groupName: 'Logos',
       defaultOpen: true,

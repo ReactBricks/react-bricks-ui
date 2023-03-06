@@ -65,6 +65,7 @@ CallToAction.schema = {
   label: 'Call to action',
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
+  tags: ['cta', 'call to action'],
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 

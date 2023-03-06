@@ -50,6 +50,7 @@ Features.schema = {
   name: blockNames.Features,
   label: 'Features',
   category: 'main content',
+  tags: ['features'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',

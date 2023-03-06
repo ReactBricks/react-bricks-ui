@@ -1,24 +1,18 @@
 import React from 'react'
-import {
-  Text,
-  RichText,
-  Image,
-  File,
-  Repeater,
-  types,
-  Link,
-} from 'react-bricks/frontend'
+import { RichText, Image, Repeater, types, Link } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
 import { bgColors, textColors } from 'website/colors'
-import { sectionDefaults } from 'website/LayoutSideProps'
+import {
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
+} from 'website/LayoutSideProps'
 import { logos } from 'website/shared/defaultImages'
 import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
 
-interface FooterProps {
-  backgroundColor: any
-  borderTop: any
-  borderBottom: any
+interface FooterProps extends LayoutProps {
   siteUrl: string
 }
 
@@ -26,6 +20,8 @@ const Footer: types.Brick<FooterProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
   siteUrl,
 }) => {
   return (
@@ -35,7 +31,11 @@ const Footer: types.Brick<FooterProps> = ({
         borderTop={borderTop}
         borderBottom={borderBottom}
       >
-        <Container className="flex justify-between flex-wrap">
+        <Container
+          paddingTop={paddingTop}
+          paddingBottom={paddingBottom}
+          className="flex justify-between flex-wrap"
+        >
           <div className="w-full mb-12 lg:w-auto lg:mb-0 lg:mr-8">
             <Link href={siteUrl} className="block mb-4">
               <Image
@@ -73,7 +73,7 @@ Footer.schema = {
   name: blockNames.Footer,
   label: 'Footer',
   category: 'layout',
-  // tags: [],
+  tags: ['footer'],
 
   repeaterItems: [
     {
@@ -192,7 +192,7 @@ Footer.schema = {
   }),
 
   // Sidebar Edit controls for props
-  sideEditProps: [],
+  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup],
 }
 
 export default Footer

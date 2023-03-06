@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import Slider from 'react-slick'
-import Container, { Size } from 'website/shared/components/Container'
+import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
 import blockNames from 'website/blockNames'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditPropsWithFull,
+  containerWidthSideGroupWithFull,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { photos } from 'website/shared/defaultImages'
 
-interface ImageCarouselProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
+interface ImageCarouselProps extends LayoutProps {
   slidesToShow: string
   slidesToScroll: string
   adaptAspectRatio: boolean
@@ -26,6 +27,10 @@ interface ImageCarouselProps {
 
 const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
   width,
   slidesToShow,
   slidesToScroll,
@@ -65,8 +70,16 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   }
 
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container size={width}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <style>{`
         .dark div div ul li button:before {
           color: white
@@ -99,7 +112,7 @@ CarouselBrick.schema = {
   name: blockNames.ImageCarousel,
   label: 'Image Carousel',
   category: 'hero sections',
-
+  tags: ['carousel', 'image carousel', 'slider', 'photo slider'],
   repeaterItems: [
     {
       name: 'images',
@@ -110,11 +123,6 @@ CarouselBrick.schema = {
     },
   ],
   sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, containerSizeEditPropsWithFull],
-    },
     {
       groupName: 'Carousel',
       defaultOpen: true,
@@ -197,8 +205,12 @@ CarouselBrick.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroupWithFull,
   ],
   getDefaultProps: () => ({
+    ...sectionDefaults,
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptAspectRatio: true,

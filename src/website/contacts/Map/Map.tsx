@@ -12,14 +12,13 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from 'website/LayoutSideProps'
-import { bgColors } from 'website/colors'
 
 export interface MapProps extends LayoutProps {
   zoom: string
   lat: string
   lng: string
 }
-const MAPTILER_ACCESS_TOKEN = '' //'zGVHxdSZR3rlLBsL6hUv#0.5'
+const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
 const MAP_ID = 'streets'
 
 const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
@@ -76,6 +75,7 @@ MapBrick.schema = {
   name: blockNames.Map,
   label: 'Map',
   category: 'contact',
+  tags: ['contacts', 'map'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Map/Map.tsx',

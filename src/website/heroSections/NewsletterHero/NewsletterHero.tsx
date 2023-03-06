@@ -9,18 +9,17 @@ import {
 } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
+  LayoutProps,
   sectionBordersEditProps,
+  sectionDefaults,
   textGradientEditProps,
 } from 'website/LayoutSideProps'
 import blockNames from '../../blockNames'
-import { bgColors, gradients, textColors } from '../../colors'
+import { gradients, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Section from '../../shared/components/Section'
 
-export interface CallToActionProps {
-  backgroundColor?: { color: string; className: string }
-  borderTop: Border
-  borderBottom: Border
+export interface CallToActionProps extends LayoutProps {
   textGradient: keyof typeof gradients
 }
 
@@ -28,6 +27,8 @@ const CallToAction: types.Brick<CallToActionProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
   textGradient = gradients.NONE.value,
 }) => {
   const { isAdmin } = useAdminContext()
@@ -43,8 +44,8 @@ const CallToAction: types.Brick<CallToActionProps> = ({
       borderBottom={borderBottom}
     >
       <Container
-        paddingTop="12"
-        paddingBottom="12"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
         className={classNames(
           'flex flex-col lg:flex-row lg:gap-20 items-start text-left'
         )}
@@ -170,13 +171,14 @@ CallToAction.schema = {
   label: 'Newsletter subscribe',
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
+  tags: ['newsletter', 'subscribe', 'hero'],
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/CallToAction/CallToAction.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
-    borderTop: 'none',
-    borderBottom: 'none',
+    ...sectionDefaults,
+    paddingTop: '12',
+    paddingBottom: '12',
     title: 'Stay in the loop with our newsletter!',
     textGradient: gradients.NONE.value,
     description: [
@@ -220,14 +222,14 @@ CallToAction.schema = {
   }),
   sideEditProps: [
     {
-      groupName: 'Layout',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
-    },
-    {
       groupName: 'Title',
       defaultOpen: true,
       props: [textGradientEditProps],
+    },
+    {
+      groupName: 'Layout',
+      defaultOpen: false,
+      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
     },
   ],
 }

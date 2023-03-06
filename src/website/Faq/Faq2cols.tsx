@@ -8,8 +8,7 @@ import {
   sectionDefaults,
 } from 'website/LayoutSideProps'
 import blockNames from '../blockNames'
-import { bgColors } from '../colors'
-import Container, { Size } from '../shared/components/Container'
+import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
 
 export interface FaqProps extends LayoutProps {}
@@ -44,6 +43,7 @@ Faq2cols.schema = {
   name: blockNames.Faqs2cols,
   label: 'Faq 2 cols',
   category: 'faq',
+  tags: ['frequently asked questions', 'faq', '2 cols faq'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Faq/Faq.tsx',

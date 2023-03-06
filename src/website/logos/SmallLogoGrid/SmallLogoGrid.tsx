@@ -2,30 +2,43 @@ import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 
 import classNames from 'classnames'
-import Container, { Size } from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
-import { bgColors, highlightTextColors } from '../../colors'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
+import { highlightTextColors } from '../../colors'
 import blockNames from '../../blockNames'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { iconLogos } from 'website/shared/defaultImages'
 
-export interface SmallLogoGridProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
+export interface SmallLogoGridProps extends LayoutProps {
   targetBlank: boolean
 }
 
 const SmallLogoGrid: types.Brick<SmallLogoGridProps> = ({
   backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
   width,
   targetBlank,
 }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container size={width}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <Repeater
           propName="badge"
           itemProps={{
@@ -50,14 +63,13 @@ SmallLogoGrid.schema = {
   name: blockNames.SmallLogoGrid,
   label: 'Small Logo Grid',
   category: 'logos',
+  tags: ['logo grid', 'logos', 'logo cloud', 'customers'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/LogoGrid/LogoGrid.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
-    borderTop: 'none',
-    borderBottom: 'none',
+    ...sectionDefaults,
     width: 'small',
     targetBlank: true,
     badge: [
@@ -121,11 +133,6 @@ SmallLogoGrid.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Layout',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps, containerSizeEditProps],
-    },
-    {
       groupName: 'Links',
       defaultOpen: true,
       props: [
@@ -136,6 +143,9 @@ SmallLogoGrid.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 export default SmallLogoGrid

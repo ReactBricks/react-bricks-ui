@@ -57,6 +57,7 @@ LinkCards.schema = {
   name: blockNames.LinkCards,
   label: 'Link cards',
   category: 'main content',
+  tags: ['cards', 'links', 'thumbnails', 'features', 'banners'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Features/Features.tsx',

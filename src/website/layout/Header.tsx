@@ -6,13 +6,11 @@ import { bgColors, buttonColors } from 'website/colors'
 import {
   backgroundColorsEditProps,
   borderBottomEditProp,
+  LayoutProps,
 } from 'website/LayoutSideProps'
 import Section from '../shared/components/Section'
 
-interface HeaderProps {
-  backgroundColor: { color: string; className: string }
-  borderBottom: boolean
-}
+interface HeaderProps extends LayoutProps {}
 
 const Header: types.Brick<HeaderProps> = ({
   backgroundColor,
@@ -74,6 +72,7 @@ Header.schema = {
   name: blockNames.Header,
   label: 'Header',
   category: 'layout',
+  tags: ['header', 'menu'],
   repeaterItems: [
     {
       name: 'menuItems',
@@ -90,11 +89,10 @@ Header.schema = {
       max: 2,
     },
   ],
-
   sideEditProps: [
     {
       groupName: 'Layout',
-      defaultOpen: false,
+      defaultOpen: true,
       props: [backgroundColorsEditProps, borderBottomEditProp],
     },
   ],

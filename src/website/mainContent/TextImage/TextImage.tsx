@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Image, Link, Repeater, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
 import {
-  bgColors,
   buttonColors,
   highlightBgColors,
   highlightTextColors,
@@ -201,8 +200,9 @@ const TextImage: types.Brick<TextImageProps> = ({
 
 TextImage.schema = {
   name: blockNames.TextImage,
-  label: 'Text Image',
+  label: 'Text Media',
   category: 'main content',
+  tags: ['text media', 'text image', 'text video', 'text logos'],
   previewIcon: (
     <svg viewBox="0 0 10 10">
       <circle cx={5} cy={5} r={4} fill="red"></circle>
