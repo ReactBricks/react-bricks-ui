@@ -1,32 +1,94 @@
 import classNames from 'classnames'
 import React from 'react'
-import { File, types } from 'react-bricks/frontend'
-import { FiFile, FiFilePlus } from 'react-icons/fi'
-import blockNames from '../blockNames'
-
+import { File, types, Text, RichText } from 'react-bricks/frontend'
+//import blockNames from '../blockNames'
+import { AiOutlineFileAdd } from 'react-icons/ai'
+import { FcDownload } from 'react-icons/fc'
+import { FcDocument } from 'react-icons/fc'
+import blockNames from 'website/blockNames'
 export interface DocumentProps {
   color?: { color: string; className: string }
+  withSize?: boolean
 }
 
-const Document: types.Brick<DocumentProps> = ({ color }) => {
+function formatBytes(bytes: number) {
+  if (!bytes) return '0 Bytes'
+  const k = 1000
+  const dm = 1
+  const sizes = ['KB', 'MB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+}
+
+const Document: types.Brick<DocumentProps> = ({ withSize }) => {
   return (
-    <div
-      className={classNames(
-        'flex justify-center bg-gray-50 border border-gray-200 rounded items-center py-2',
-        color?.className
-      )}
-    >
+    <div className="p-7 flex border border-black/10 dark:border-white/10 bg-white dark:bg-white/10 rounded">
       <File
         propName="file"
+        allowedExtensions={['pdf']}
         renderBlock={(file) => {
           return file ? (
-            <div className="flex font-semibold h-full items-center">
-              <FiFile className="mr-2" />
-              {file.name} - {file.size.toFixed(2)}MB
+            <div className="flex">
+              <div className="text-center text-xs text-gray-600 font-semibold mr-4 pt-1 dark:text-white/60">
+                <FcDocument size={'40px'} />
+              </div>
+
+              <div className="w-full">
+                <Text
+                  propName="fileName"
+                  placeholder="file name..."
+                  renderBlock={(props) => (
+                    <div
+                      className="font-bold mb-1 text-gray-800 dark:text-white"
+                      {...props.attributes}
+                    >
+                      {props.children}
+                    </div>
+                  )}
+                />
+                <RichText
+                  renderBlock={(props) => (
+                    <div
+                      className="text-gray-600 font-normal dark:text-white/60"
+                      {...props.attributes}
+                    >
+                      {props.children}
+                    </div>
+                  )}
+                  placeholder="File description..."
+                  propName="fileDescription"
+                />
+
+                <a
+                  target="_blank"
+                  href={file.url}
+                  className={
+                    'w-full mt-2 flex items-center text-sky-500 hover:text-sky-600 dark:hover:text-sky-400 hover:-translate-y-px transition-all ease-out duration-150'
+                  }
+                >
+                  <Text
+                    renderBlock={(props) => (
+                      <span className="align-middle" {...props.attributes}>
+                        {props.children}
+                      </span>
+                    )}
+                    placeholder=""
+                    propName="linkText"
+                  />
+                  {withSize && (
+                    <span className="text-xs ml-1">
+                      ({formatBytes(file.size)})
+                    </span>
+                  )}
+                </a>
+              </div>
             </div>
           ) : (
-            <div className="flex font-semibold h-full items-center">
-              <FiFilePlus className="mr-2" />
+            <div className="flex font-semibold h-full items-center dark:text-white">
+              <AiOutlineFileAdd
+                className="mr-2 text-sky-500 dark:text-sky-400"
+                size={'40px'}
+              />
               Add document
             </div>
           )
@@ -39,36 +101,30 @@ const Document: types.Brick<DocumentProps> = ({ color }) => {
 Document.schema = {
   name: blockNames.Document,
   label: 'Document',
-  category: 'rb-ui website',
+  category: 'documents',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Documents/Document.tsx',
   getDefaultProps: () => ({
-    file: {
-      name: 'React Bricks Website.pdf',
-      size: 521.929,
-      url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
-    },
+    fileName: 'Document name',
+    fileDescription: 'Description of this document',
+    linkText: 'Download now',
+    withSize: true,
   }),
   sideEditProps: [
     {
-      name: 'color',
-      label: 'Color',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Color,
-        options: [
-          {
-            value: {
-              color: '#c6f6d5',
-              className: 'bg-green-100 dark:bg-gray-800',
-            },
-            label: 'Green',
-          },
-        ],
-      },
+      name: 'withSize',
+      label: 'Show document size',
+      type: types.SideEditPropType.Boolean,
     },
+    { name: 'fileName', label: 'file name', type: types.SideEditPropType.Text },
+    {
+      name: 'fileDescription',
+      label: 'File description',
+      type: types.SideEditPropType.Textarea,
+    },
+    { name: 'linkText', label: 'Link text', type: types.SideEditPropType.Text },
   ],
 }
 export default Document

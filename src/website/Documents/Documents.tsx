@@ -1,32 +1,44 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
-} from 'website/LayoutSideProps'
-import blockNames from '../blockNames'
+//import blockNames from '../blockNames'
 import Container from '../shared/components/Container'
 import Section from '../shared/components/Section'
-export interface DocumentsProps {
-  backgroundColor?: { color: string; className: string }
-}
+import {
+  backgroundSideGroup,
+  containerSizeEditProps,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
+} from '../LayoutSideProps'
+import blockNames from 'website/blockNames'
+export interface DocumentsProps extends LayoutProps {}
 
-const Documents: types.Brick<DocumentsProps> = ({ backgroundColor }) => {
+const Documents: types.Brick<DocumentsProps> = ({
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
+}) => {
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
       <Container
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        size={width}
         className={classNames(
-          'py-12 flex flex-wrap justify-center items-center'
+          'grid gap-[30px] grid-cols-1',
+          width === 'small' ? 'lg:grid-cols-2' : 'md:grid-cols-2'
         )}
       >
-        <Repeater
-          propName="files"
-          renderWrapper={(items) => (
-            <ul className="w-full p-6 grid grid-cols-3 gap-6">{items}</ul>
-          )}
-          renderItemWrapper={(item) => <li>{item}</li>}
-        />
+        <Repeater propName="documents" />
       </Container>
     </Section>
   )
@@ -35,39 +47,45 @@ const Documents: types.Brick<DocumentsProps> = ({ backgroundColor }) => {
 Documents.schema = {
   name: blockNames.Documents,
   label: 'Documents',
-  category: 'rb-ui website',
+  category: 'documents',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Documents/Documents.tsx',
   getDefaultProps: () => ({
-    files: [
+    ...sectionDefaults,
+    documents: [
       {
+        fileName: 'React Bricks - Horizontal',
+        fileDescription: 'Vector horizontal logo of React Bricks in SVG format',
+        linkText: 'Download',
+        withSize: true,
         file: {
-          name: 'React Bricks Website.pdf',
-          size: 521.929,
-          url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
+          name: 'ReactBricks_Horizontal.svg',
+          size: 14.512,
+          url: 'https://files.reactbricks.com/a82666b7-c82e-47f0-a087-4e0063d8c07c/ReactBricks_Horizontal.svg',
         },
       },
       {
+        fileName: 'React Bricks - Vertical',
+        fileDescription: 'Vector vertical logo of React Bricks in SVG format',
+        linkText: 'Download',
+        withSize: true,
         file: {
-          name: 'React Bricks Website.pdf',
-          size: 521.929,
-          url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
-        },
-      },
-      {
-        file: {
-          name: 'React Bricks Website.pdf',
-          size: 521.929,
-          url: 'https://files.reactbricks.com/bcc1d1cd-3447-4489-8c66-26db41d96d17/React Bricks Website.pdf',
+          name: 'ReactBricks_Vertical.svg',
+          size: 14.318,
+          url: 'https://files.reactbricks.com/c6f5cb23-8e80-4af0-9108-63709505e079/ReactBricks_Vertical.svg',
         },
       },
     ],
   }),
-  sideEditProps: [backgroundColorsEditProps, containerSizeEditProps],
+  sideEditProps: [
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerSizeEditProps,
+  ],
   repeaterItems: [
     {
-      name: 'files',
+      name: 'documents',
       itemType: blockNames.Document,
       itemLabel: 'Document',
     },

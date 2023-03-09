@@ -89,6 +89,10 @@ import TableCell from './singleColumnContent/Table/TableCell'
 import Tweet from './singleColumnContent/Tweet/Tweet'
 import TweetLight from './singleColumnContent/Tweet/TweetLight'
 
+// DOCUMENTS
+import Documents from './Documents/Documents'
+import Document from './Documents/Document'
+
 export {
   Header,
   HeaderMenuItem,
@@ -157,6 +161,8 @@ export {
   Pricing,
   PricingPlan,
   PlanFeature,
+  Documents,
+  Document,
 }
 
 const allBricks = [
@@ -227,6 +233,8 @@ const allBricks = [
   Pricing,
   PricingPlan,
   PlanFeature,
+  Documents,
+  Document,
 ]
 
 export default allBricks
