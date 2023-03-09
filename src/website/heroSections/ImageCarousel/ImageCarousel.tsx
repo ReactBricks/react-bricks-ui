@@ -81,15 +81,15 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
         paddingBottom={paddingBottom}
       >
         <style>{`
-        .dark div div ul li button:before {
-          color: white
+        .dark .slick-dots li button:before {
+          color:white
         }
-        .dark div div ul li.slick-active button:before {
-          color: white
+        .dark .slick-dots li.slick-active button:before {
+          color:white
         }
-        .slick-track{
-          display: flex;
-          gap: ${gap};
+        .slick-track {
+          display:flex;
+          gap:${gap};
         }
     `}</style>
 
