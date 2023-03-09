@@ -1,19 +1,44 @@
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
+import {
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
+} from 'website/LayoutSideProps'
 import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
 
-export interface TableProps {
+export interface TableProps extends LayoutProps {
   striped: boolean
   withHeader: boolean
   borders: 'none' | 'horizontal' | 'all'
 }
 
-const Table: types.Brick<TableProps> = ({ striped, withHeader, borders }) => {
+const Table: types.Brick<TableProps> = ({
+  striped,
+  withHeader,
+  borders,
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
+}) => {
   return (
-    <Section>
-      <Container>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <table className="w-full border-collapse border-spacing-0.5 sm:overflow-x-auto">
           <Repeater
             propName="rows"
@@ -33,7 +58,7 @@ Table.schema = {
   name: blockNames.Table,
   label: 'Table',
   category: 'single column / blog',
-
+  tags: ['table'],
   repeaterItems: [
     {
       name: 'rows',
@@ -72,9 +97,14 @@ Table.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 
   getDefaultProps: () => ({
+    ...sectionDefaults,
+    width: 'small',
     striped: true,
     withHeader: true,
     borders: 'horizontal',

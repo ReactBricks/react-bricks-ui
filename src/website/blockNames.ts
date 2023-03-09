@@ -12,9 +12,8 @@ enum blockNames {
   Testimonial3Cols = 'testimonial-3-cols',
   Testimonial3ColsItem = 'testimonial-3-cols-item',
   Title = 'title',
-  TextImage = 'text-image',
-  TextLogoItem = 'text-logo-item',
-  TextLogos = 'text-logos',
+  TextMedia = 'text-image', // TODO
+  NewsletterHero = 'newsletter-hero',
   NewsletterSubscribe = 'newsletter-subscribe',
   Contacts = 'contacts',
   ContactItem = 'contact-item',
@@ -31,7 +30,7 @@ enum blockNames {
   Badge = 'badge',
   Button = 'button',
   BulletListItem = 'bullet-list-item',
-  TextImageLogo = 'text-image-logo',
+  TextMediaLogo = 'text-image-logo', // TODO
   Customers = 'customers',
   Customer = 'customer',
   Faqs = 'faqs',

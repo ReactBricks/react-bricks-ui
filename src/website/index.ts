@@ -18,8 +18,8 @@ import ImageCarousel from './heroSections/ImageCarousel/ImageCarousel'
 import SingleImage from './heroSections/ImageCarousel/ImageCarouselItem'
 
 // MAIN CONTENT SECTIONS
-import TextImage from './mainContent/TextImage/TextImage'
-import TextImageLogo from './mainContent/TextImage/TextImageLogo'
+import TextMedia from './mainContent/TextMedia/TextMedia'
+import TextMediaLogo from './mainContent/TextMedia/TextMediaLogo'
 import Features from './mainContent/Features/Features'
 import FeatureItem from './mainContent/Features/FeatureItem'
 import FeatureCallout from './mainContent/FeatureCallout/FeatureCallout'
@@ -30,7 +30,8 @@ import LinkCard from './mainContent/LinkCards/LinkCard'
 
 // CALL TO ACTION
 import CallToAction from './cta/CallToAction/CallToAction'
-import NewsletterSubscribe from './heroSections/NewsletterHero/NewsletterHero'
+import NewsletterHero from './cta/NewsletterHero/NewsletterHero'
+import NewsletterSubscribe from './cta/NewsletterSubscribe/NewsletterSubscribe'
 
 // SEPARATORS
 import HorizontalRule from './separators/HorizontalRule/HorizontalRule'
@@ -100,8 +101,8 @@ export {
   BulletListItem,
   HeroUnit,
   HeroUnit2,
-  TextImage,
-  TextImageLogo,
+  TextMedia,
+  TextMediaLogo,
   Title,
   Testimonial,
   Testimonial3Cols,
@@ -118,6 +119,7 @@ export {
   CallToAction,
   Map,
   FeatureCallout,
+  NewsletterHero,
   NewsletterSubscribe,
   Team,
   TeamItem,
@@ -169,8 +171,8 @@ const allBricks = [
   BulletListItem,
   HeroUnit,
   HeroUnit2,
-  TextImage,
-  TextImageLogo,
+  TextMedia,
+  TextMediaLogo,
   Title,
   Testimonial,
   Testimonial3Cols,
@@ -187,6 +189,7 @@ const allBricks = [
   CallToAction,
   Map,
   FeatureCallout,
+  NewsletterHero,
   NewsletterSubscribe,
   Team,
   TeamItem,

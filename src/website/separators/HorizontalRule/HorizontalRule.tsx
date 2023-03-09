@@ -6,20 +6,16 @@ import Section from 'website/shared/components/Section'
 import {
   backgroundColorsEditProps,
   containerSizeEditPropsWithFull,
+  LayoutProps,
   sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
 import { bgColors } from 'website/colors'
 
-interface HorizontalRuleProps {
-  width?: Size
-  backgroundColor?: { color: string; className: string }
-  paddingTop: Padding
-  paddingBottom: Padding
-}
+interface HorizontalRuleProps extends LayoutProps {}
 
 const HorizontalRule: types.Brick<HorizontalRuleProps> = ({
-  width,
   backgroundColor,
+  width,
   paddingTop,
   paddingBottom,
 }) => {

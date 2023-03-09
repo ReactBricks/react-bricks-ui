@@ -6,23 +6,17 @@ import Section, { Border } from 'website/shared/components/Section'
 
 import blockNames from 'website/blockNames'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditProps,
-  sectionBordersEditProps,
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
   sectionDefaults,
-  sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
 import classNames from 'classnames'
 import { icons } from 'website/shared/defaultImages'
 import TitleSubtitle from 'website/shared/components/TitleSubtitle'
 
-interface CardsProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
-  paddingTop: Padding
-  paddingBottom: Padding
-  borderTop: Border
-  borderBottom: Border
+interface CardsProps extends LayoutProps {
   colNumber: string
   withTitle?: boolean
   bigCenteredTitle?: boolean
@@ -30,11 +24,11 @@ interface CardsProps {
 
 const Cards: types.Brick<CardsProps> = ({
   backgroundColor,
-  width,
-  paddingTop,
-  paddingBottom,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
   withTitle,
   bigCenteredTitle,
 }) => {
@@ -112,20 +106,6 @@ Cards.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Background',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps],
-    },
-    {
-      groupName: 'Padding & Borders',
-      defaultOpen: false,
-      props: [
-        ...sectionPaddingsEditProps,
-        ...sectionBordersEditProps,
-        containerSizeEditProps,
-      ],
-    },
-    {
       groupName: 'Title',
       defaultOpen: true,
       props: [
@@ -142,6 +122,9 @@ Cards.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 

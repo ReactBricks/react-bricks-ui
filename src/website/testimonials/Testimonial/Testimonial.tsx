@@ -1,25 +1,23 @@
-import classNames from 'classnames'
 import * as React from 'react'
 import { Image, Plain, Text, types } from 'react-bricks/frontend'
 
 import {
-  backgroundColorsEditProps,
-  sectionBordersEditProps,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { avatars, iconLogos } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
-import { bgColors, textColors } from '../../colors'
+import { textColors } from '../../colors'
 import Container from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Section from '../../shared/components/Section'
 
-export interface TestimonialProps {
+export interface TestimonialProps extends LayoutProps {
   authorName: any
   authorJobTitle: any
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
-  backgroundColor?: { color: string; className: string }
-  borderTop: Border
-  borderBottom: Border
 }
 
 const Testimonial: types.Brick<TestimonialProps> = ({
@@ -28,6 +26,8 @@ const Testimonial: types.Brick<TestimonialProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
 }) => {
   return (
     <Section
@@ -37,7 +37,9 @@ const Testimonial: types.Brick<TestimonialProps> = ({
     >
       <Container
         size="small"
-        className="flex flex-col justify-center items-center pb-20"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        className="flex flex-col justify-center items-center"
       >
         <Text
           renderBlock={(props) => (
@@ -109,9 +111,9 @@ Testimonial.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE,
+    ...sectionDefaults,
     borderTop: 'boxed',
-    borderBottom: 'none',
+    paddingBottom: '20',
     quote:
       'React Bricks allowed us to quickly create a beautiful website that drives business goals and is easy to maintain. No one from the marketing team would ever go back!',
     authorName: 'Matteo Frana',
@@ -119,13 +121,7 @@ Testimonial.schema = {
     avatarImage: avatars.MATTEO_FRANA,
     logoImage: iconLogos.REACT_BRICKS,
   }),
-  sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: true,
-      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
-    },
-  ],
+  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup],
 }
 
 export default Testimonial

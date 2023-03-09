@@ -2,23 +2,42 @@ import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
+import {
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
+} from 'website/LayoutSideProps'
 import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
 import TitleSubtitle from 'website/shared/components/TitleSubtitle'
 import { avatars } from 'website/shared/defaultImages'
 
-interface Props {
+interface Team2ColsProps extends LayoutProps {
   withTitle?: boolean
   bigCenteredTitle?: boolean
 }
 
-const Team2Cols: types.Brick<Props> = ({
+const Team2Cols: types.Brick<Team2ColsProps> = ({
   withTitle = false,
   bigCenteredTitle = false,
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
 }) => {
   return (
-    <Section>
-      <Container size="small">
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size="small"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         {withTitle && (
           <TitleSubtitle
             className={classNames(bigCenteredTitle ? 'mb-12' : 'mb-8')}
@@ -39,6 +58,7 @@ Team2Cols.schema = {
   category: 'team',
   repeaterItems: [{ name: 'members', itemType: blockNames.Team2ColsItem }],
   getDefaultProps: () => ({
+    ...sectionDefaults,
     withTitle: true,
     bigCenteredTitle: false,
     title: 'Meet our team',
@@ -50,7 +70,7 @@ Team2Cols.schema = {
         jobTitle: 'Frontend Developer',
         twitter: 'alvin_payne',
         linkedin: 'alvin_payne',
-        avatarImage: avatars.AVATAR_MALE,
+        picture: avatars.AVATAR_MALE,
       },
       {
         name: 'Catherine White',
@@ -58,7 +78,7 @@ Team2Cols.schema = {
         twitter: 'catherine_white',
         linkedin: 'catherine_white',
         github: 'catherine_white',
-        avatarImage: avatars.AVATAR_FEMALE,
+        picture: avatars.AVATAR_FEMALE,
       },
     ],
   }),
@@ -66,16 +86,24 @@ Team2Cols.schema = {
   // Sidebar Edit controls for props
   sideEditProps: [
     {
-      name: 'withTitle',
-      label: 'With title',
-      type: types.SideEditPropType.Boolean,
+      groupName: 'Team',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'withTitle',
+          label: 'With title',
+          type: types.SideEditPropType.Boolean,
+        },
+        {
+          name: 'bigCenteredTitle',
+          label: 'Big centered',
+          type: types.SideEditPropType.Boolean,
+          show: (props) => !!props.withTitle,
+        },
+      ],
     },
-    {
-      name: 'bigCenteredTitle',
-      label: 'Big centered',
-      type: types.SideEditPropType.Boolean,
-      show: (props) => !!props.withTitle,
-    },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
   ],
 }
 

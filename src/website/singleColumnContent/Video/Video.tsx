@@ -2,23 +2,17 @@ import React from 'react'
 import { types } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
 import {
-  backgroundColorsEditProps,
-  containerSizeEditPropsWithFull,
-  sectionBordersEditProps,
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
   sectionDefaults,
-  sectionPaddingsEditProps,
 } from 'website/LayoutSideProps'
-import Container, { Padding, Size } from 'website/shared/components/Container'
-import Section, { Border } from 'website/shared/components/Section'
+import Container from 'website/shared/components/Container'
+import Section from 'website/shared/components/Section'
 import Video from 'website/shared/components/Video'
 
-interface SingleColumnVideoProps {
-  backgroundColor?: { color: string; className: string }
-  borderTop?: Border
-  borderBottom?: Border
-  paddingTop?: Padding
-  paddingBottom?: Padding
-  width?: Size
+interface SingleColumnVideoProps extends LayoutProps {
   videoType: 'file' | 'streaming'
   platform: 'youtube' | 'vimeo'
   videoId: string
@@ -56,7 +50,7 @@ SingleColumnVideo.schema = {
   name: blockNames.Video,
   label: 'Video',
   category: 'single column / blog',
-  // tags: [],
+  tags: ['blog', 'video'],
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
@@ -69,20 +63,6 @@ SingleColumnVideo.schema = {
 
   // Sidebar Edit controls for props
   sideEditProps: [
-    {
-      groupName: 'Background',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps],
-    },
-    {
-      groupName: 'Padding & Borders',
-      defaultOpen: false,
-      props: [
-        ...sectionPaddingsEditProps,
-        ...sectionBordersEditProps,
-        containerSizeEditPropsWithFull,
-      ],
-    },
     {
       groupName: 'Video type',
       defaultOpen: true,
@@ -131,6 +111,9 @@ SingleColumnVideo.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 

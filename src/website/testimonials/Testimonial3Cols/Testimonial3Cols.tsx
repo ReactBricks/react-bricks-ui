@@ -1,31 +1,30 @@
-import classNames from 'classnames'
 import * as React from 'react'
-import { Image, Plain, Repeater, Text, types } from 'react-bricks/frontend'
+import { Repeater, types } from 'react-bricks/frontend'
 
 import {
-  backgroundColorsEditProps,
-  sectionBordersEditProps,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { avatars } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
-import { bgColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'
-import Section, { Border } from '../../shared/components/Section'
+import Section from '../../shared/components/Section'
 
-export interface TestimonialProps {
+export interface TestimonialProps extends LayoutProps {
   authorName: any
   authorJobTitle: any
   avatarImage: types.IImageSource
   logoImage: types.IImageSource
-  backgroundColor?: { color: string; className: string }
-  borderTop: Border
-  borderBottom: Border
 }
 
 const Testimonial3Cols: types.Brick<TestimonialProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
 }) => {
   return (
     <Section
@@ -33,7 +32,11 @@ const Testimonial3Cols: types.Brick<TestimonialProps> = ({
       borderTop={borderTop}
       borderBottom={borderBottom}
     >
-      <Container className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-10">
+      <Container
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-10"
+      >
         <Repeater propName="testimonials" />
       </Container>
     </Section>
@@ -49,9 +52,8 @@ Testimonial3Cols.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Testimonial/Testimonial.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE,
+    ...sectionDefaults,
     borderTop: 'boxed',
-    borderBottom: 'none',
     testimonials: [
       {
         quote:
@@ -85,13 +87,7 @@ Testimonial3Cols.schema = {
       max: 3,
     },
   ],
-  sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: true,
-      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
-    },
-  ],
+  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup],
 }
 
 export default Testimonial3Cols

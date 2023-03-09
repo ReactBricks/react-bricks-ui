@@ -3,11 +3,10 @@ import { types } from 'react-bricks/frontend'
 import { bgColors } from 'website/colors'
 import blockNames from '../../blockNames'
 import Section from '../../shared/components/Section'
-import { backgroundColorsEditProps } from '../../LayoutSideProps'
+import { backgroundColorsEditProps, LayoutProps } from '../../LayoutSideProps'
 
-export interface SpacerProps {
+export interface SpacerProps extends LayoutProps {
   height: number
-  backgroundColor?: { color: string; className: string }
 }
 
 const getPadding = (height: string) => {
@@ -60,7 +59,6 @@ Spacer.schema = {
       groupName: 'Layout',
       defaultOpen: true,
       props: [
-        backgroundColorsEditProps,
         {
           name: 'height',
           label: 'Height',
@@ -72,6 +70,7 @@ Spacer.schema = {
             step: 1,
           },
         },
+        backgroundColorsEditProps,
       ],
     },
   ],

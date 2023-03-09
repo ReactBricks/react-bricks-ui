@@ -1,18 +1,26 @@
-import * as React from 'react'
 import jsonp from 'jsonp'
 import { validate } from 'email-validator'
+import React from 'react'
+import { types } from 'react-bricks/frontend'
+import { RichText, Text } from 'react-bricks/frontend'
+import blockNames from 'website/blockNames'
+
+import {
+  containerSizeEditProps,
+  LayoutProps,
+  neutralBackgroundColorsEditProps,
+  sectionDefaults,
+} from 'website/LayoutSideProps'
+import Section from 'website/shared/components/Section'
+import Container from 'website/shared/components/Container'
 import classNames from 'classnames'
-
-import { Text, types } from 'react-bricks/frontend'
-import blockNames from '../../blockNames'
-
+import { textColors } from 'website/colors'
 enum NewsletterProvider {
   MailChimp = 'MAILCHIMP',
   ConvertKit = 'CONVERTKIT',
 }
 
-export interface NewsletterSubscribeProps {
-  centered?: boolean
+export interface NewsletterProps extends LayoutProps {
   provider: NewsletterProvider
   mailchimpUrl: string
   buttonText: string
@@ -24,19 +32,18 @@ interface IStatus {
   message: string
 }
 
-const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
-  centered = false,
+const Newsletter: types.Brick<NewsletterProps> = ({
+  backgroundColor,
+  width = 'small',
   provider,
   mailchimpUrl,
-  buttonText,
-  resultOkText = `Thank you, we'll keep in touch with you!`,
+  resultOkText = `Thanks,you're all signed up!`,
 }) => {
   const [email, setEmail] = React.useState('')
   const [status, setStatus] = React.useState<IStatus>({
     status: 'IDLE',
     message: '',
   })
-
   const sendData = (url: string) => {
     setStatus({ status: 'SENDING', message: '' })
     jsonp(url, { param: 'c', timeout: 3500 }, (err: any, data: any) => {
@@ -57,9 +64,9 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
       }
     })
   }
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
+    /*
     if (provider !== NewsletterProvider.MailChimp) {
       setStatus({
         status: 'ERROR',
@@ -67,6 +74,7 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
       })
       return
     }
+    */
     const isEmailValid = validate(email)
 
     if (!isEmailValid) {
@@ -96,87 +104,139 @@ const NewsletterSubscribe: types.Brick<NewsletterSubscribeProps> = ({
   }
 
   return (
-    <section
-      className="py-12"
-      style={{ backgroundColor: '#deeffc', color: '#113d5f' }}
-    >
-      <div
-        className={classNames('max-w-xl mx-auto flex flex-col', {
-          'items-center': centered,
-        })}
-      >
-        <Text
-          renderBlock={(props) => (
-            <h1 className="text-2xl mb-4 font-extrabold" {...props.attributes}>
-              {props.children}
-            </h1>
-          )}
-          placeholder="Type a title..."
-          propName="title"
-        />
-        <Text
-          renderBlock={(props) => (
-            <p className="mb-2" {...props.attributes}>
-              {props.children}
-            </p>
-          )}
-          placeholder="Call to action..."
-          propName="description"
-        />
-        <form className="flex" onSubmit={handleSubmit}>
-          <input
-            className="bg-white focus:outline-none border-t-2 border-l-2 border-b-2 border-transparent focus:border-sky-500 rounded-l-lg py-2 px-4 appearance-none leading-normal"
-            type="text"
-            placeholder="jane@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button
-            type="submit"
-            disabled={status.status === 'SENDING'}
-            className="bg-sky-500 px-8 rounded-r-lg text-white font-bold py-2 hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5"
-          >
-            {buttonText}
-          </button>
-        </form>
-        {status.status === 'SUCCESS' && (
-          <div className="text-xl mt-4">{resultOkText}</div>
-        )}
-        {status.status === 'ERROR' && (
-          <div className="mt-4" style={{ color: '#c00' }}>
-            {status.message}
+    <Section backgroundColor={backgroundColor}>
+      <Container size={width}>
+        <div
+          className="p-[30px] rounded-[5px] bg-white dark:bg-white/10 dark:border dark:border-white/30"
+          style={{
+            boxShadow:
+              'rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 5%) 0px 5px 15px 0px',
+          }}
+        >
+          <div>
+            <Text
+              renderBlock={(props) => (
+                <h3
+                  className={classNames(
+                    'mb-1 font-bold leading-5',
+                    textColors.GRAY_800
+                  )}
+                  {...props.attributes}
+                >
+                  {props.children}
+                </h3>
+              )}
+              placeholder="type a title..."
+              propName="title"
+            />
+            <RichText
+              propName="text"
+              placeholder="Type a text..."
+              renderBlock={(props) => (
+                <span
+                  className="text-sm leading-6 dark:text-gray-300"
+                  {...props.attributes}
+                >
+                  {props.children}
+                </span>
+              )}
+            />
           </div>
-        )}
-      </div>
-    </section>
+          <div className="block items-center mt-3 sm:flex">
+            {(status.status === 'IDLE' || status.status == 'ERROR') && (
+              <form className="mr-5 sm:mb-0 mb-3 flex" onSubmit={handleSubmit}>
+                <div className="relative sm:w-full w-[200px]">
+                  <svg
+                    viewBox="0 0 14 14"
+                    width="14px"
+                    height="14px"
+                    className="absolute left-4 top-1/2 -mt-[7px] z-10"
+                  >
+                    <path
+                      fill="#9ca3af"
+                      d="M0 2.5c0-.27.22-.5.5-.5h13c.28 0 .5.23.5.5v9a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-9Zm1 1.02V11h12V3.52L7.31 7.89a.5.5 0 0 1-.52.07.5.5 0 0 1-.1-.07L1 3.52ZM12.03 3H1.97L7 6.87 12.03 3Z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your email"
+                      className="focus:outline-none dark:bg-black rounded-l-[5px] py-2.5 px-[15px] pl-10 text-sm dark:text-white border border-r-0 dark:border-white/50 focus:border-sky-500 dark:focus:border-sky-700"
+                    />
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  className="rounded-r-[5px] z-11 relative text-white text-center bg-sky-500 py-[9px] px-[20px] transition-all ease-out hover:-translate-y-[2px] hover:shadow-lg duration-150"
+                >
+                  <Text
+                    propName="buttonText"
+                    placeholder="Action"
+                    renderBlock={(props) => (
+                      <span
+                        className="text-center dark:text-white"
+                        {...props.attributes}
+                      >
+                        {props.children}
+                      </span>
+                    )}
+                  />
+                </button>
+              </form>
+            )}
+
+            {status.status === 'SUCCESS' && (
+              <div className="p-2.5 mr-5 text-sm text-center font-bold bg-green-200 rounded-[5px] min-w-[270px]">
+                👍
+                {resultOkText}
+              </div>
+            )}
+
+            <div>
+              <RichText
+                propName="text2"
+                placeholder="Type a text..."
+                renderBlock={({ children }) => (
+                  <p className="text-gray-500 dark:text-gray-300 text-sm leading-[18px] min-w-[100px]">
+                    {children}
+                  </p>
+                )}
+              />
+            </div>
+          </div>
+          {status.status === 'ERROR' && (
+            <div className="mt-4" style={{ color: '#c00' }}>
+              {status.message}
+            </div>
+          )}
+        </div>
+      </Container>
+    </Section>
   )
 }
 
-NewsletterSubscribe.schema = {
+Newsletter.schema = {
   name: blockNames.NewsletterSubscribe,
-  label: 'Newsletter Subscribe',
-  category: 'rb-ui website',
-  playgroundLinkLabel: 'View source code on Github',
-  playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/NewsletterSubscribe/NewsletterSubscribe.tsx',
-
+  label: 'Newsletter subscribe',
+  category: 'call to action',
+  hideFromAddMenu: false,
   getDefaultProps: () => ({
-    title: 'Want to receive updates from us?',
-    description: 'Leave your e-mail',
-    provider: NewsletterProvider.MailChimp,
-    buttonText: 'Keep me updated',
-    resultOkText: `Thank you, we'll keep in touch with you!`,
+    ...sectionDefaults,
+    width: 'small',
+    title: 'Join our newsletter',
+    text: 'Never miss our release and new blog articles.',
+    text2: '6,500 developers and counting',
+    buttonText: 'Join',
   }),
   sideEditProps: [
     {
       groupName: 'Newsletter',
       defaultOpen: true,
       props: [
-        {
-          name: 'centered',
-          label: 'Centered',
-          type: types.SideEditPropType.Boolean,
-        },
+        neutralBackgroundColorsEditProps,
+        containerSizeEditProps,
         {
           name: 'mailchimpUrl',
           label: 'Mailchimp Form URL',
@@ -185,19 +245,9 @@ NewsletterSubscribe.schema = {
             value && value.length > 10 && value.indexOf('https://') !== -1,
           //&& value.indexOf('list-manage.com/subscribe/post?') !== -1,
         },
-        {
-          name: 'buttonText',
-          label: 'Button text',
-          type: types.SideEditPropType.Text,
-        },
-        {
-          name: 'resultOkText',
-          label: 'Result OK text',
-          type: types.SideEditPropType.Text,
-        },
       ],
     },
   ],
 }
 
-export default NewsletterSubscribe
+export default Newsletter

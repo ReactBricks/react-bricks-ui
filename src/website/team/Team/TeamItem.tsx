@@ -1,10 +1,15 @@
+import classNames from 'classnames'
 import * as React from 'react'
 import { Image, types, Text } from 'react-bricks/frontend'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { FiTwitter, FiLinkedin, FiGithub } from 'react-icons/fi'
+import { textColors } from 'website/colors'
+import { LayoutProps } from 'website/LayoutSideProps'
+import { avatars } from 'website/shared/defaultImages'
 
 import blockNames from '../../blockNames'
 
-export interface TeamItemProps {
+export interface TeamItemProps extends LayoutProps {
   twitter?: string
   github?: string
   linkedin?: string
@@ -16,68 +21,72 @@ const TeamItem: types.Brick<TeamItemProps> = ({
   linkedin,
 }) => {
   return (
-    <div className="flex flex-col sm:w-1/3 w-1/2 p-6">
+    <div className="flex flex-col items-center">
       <Image
         propName="picture"
         alt="team-item"
-        // containerClassName="w-12 h-12 lg:w-16 lg:h-16 mx-4 mb-8 bg-white rounded-full p-2 shadow-md flex justify-center items-center"
-        // imageClassName="w-6 h-6 lg:w-10 lg:h-10"
-        imageClassName="w-24 h-24 rounded-full"
-        renderWrapper={({ children }) => (
-          <div className="w-24 h-24 mb-6 flex justify-center items-center bg-white rounded-full shadow-xl mx-auto">
-            {children}
-          </div>
+        aspectRatio={1}
+        imageClassName={classNames(
+          'block w-[72px] h-[72px] object-contain rounded-full mb-1'
         )}
       />
-      <div className="text-center dark:text-gray-200 text-gray-500">
-        <Text
-          renderBlock={(props) => (
-            <div className="text-sm font-bold">{props.children}</div>
-          )}
-          placeholder="Member name..."
-          propName="memberName"
-        />
-        <Text
-          renderBlock={(props) => (
-            <div className="text-xs">{props.children}</div>
-          )}
-          placeholder="Role"
-          propName="role"
-        />
-      </div>
+
+      <Text
+        renderBlock={(props) => (
+          <div
+            className={classNames(
+              'text-sm font-bold text-center min-w-[70px]',
+              textColors.GRAY_800
+            )}
+          >
+            {props.children}
+          </div>
+        )}
+        placeholder="Name..."
+        propName="memberName"
+      />
+      <Text
+        renderBlock={(props) => (
+          <div className="text-xs text-center text-gray-500 dark:text-white/70 min-w-[70px]">
+            {props.children}
+          </div>
+        )}
+        placeholder="Role..."
+        propName="jobTitle"
+      />
 
       {(twitter || linkedin || github) && (
-        <div className="flex flex-row justify-center space-x-2 mt-2 dark:text-sky-300 text-sky-400 ">
+        <div className="flex flex-row justify-center space-x-2 mt-2">
           {twitter && (
-            <div>
+            <div className="hover:text-sky-500 hover:-translate-y-px transition-all ease-out duration-150 text-gray-400 dark:text-gray-400 dark:hover:text-gray-200">
               <a
                 href={`https://twitter.com/${twitter}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiTwitter />
+                <FaTwitter />
               </a>
             </div>
           )}
           {linkedin && (
-            <div>
+            <div className="hover:text-sky-500 hover:-translate-y-px transition-all ease-out duration-150 text-gray-400 dark:text-gray-400 dark:hover:text-gray-200">
               <a
                 href={`https://linkedin.com/${linkedin}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiLinkedin />
+                <FaLinkedin />
               </a>
             </div>
           )}
           {github && (
-            <div>
+            <div className="hover:text-sky-500 hover:-translate-y-px transition-all ease-out duration-150 text-gray-400 dark:text-gray-400 dark:hover:text-gray-200">
               <a
                 href={`https://github.com/${github}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FiGithub />
+                <FaGithub />
               </a>
             </div>
           )}
@@ -89,37 +98,24 @@ const TeamItem: types.Brick<TeamItemProps> = ({
 
 TeamItem.schema = {
   name: blockNames.TeamItem,
-  label: 'Team Item',
-  category: 'rb-ui website',
+  label: 'Member',
+  category: 'team',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/Team/TeamItem.tsx',
 
   getDefaultProps: () => ({
-    bg: {
-      color: '#fff',
-      className: 'bg-white dark:bg-gray-900',
-    },
-    borderTop: 'none',
-    borderBottom: 'none',
-    width: 'lg',
     memberName: 'Matteo Frana',
-    role: 'Frontend Designer',
-    twitter: '',
+    jobTitle: 'Founder and CEO',
+    twitter: 'https://twitter.com/matfrana',
     github: '',
     linkedin: '',
-    picture: {
-      src: 'https://images.reactbricks.com/original/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
-      placeholderSrc:
-        'https://images.reactbricks.com/placeholder/7e7dcf49-04c8-4494-ab4a-bab1f88056aa.jpg',
-      srcSet:
-        'https://images.reactbricks.com/src_set/7e7dcf49-04c8-4494-ab4a-bab1f88056aa-400.jpg 400w,\nhttps://images.reactbricks.com/src_set/7e7dcf49-04c8-4494-ab4a-bab1f88056aa-200.jpg 200w',
-    },
+    picture: avatars.MATTEO_FRANA,
   }),
   sideEditProps: [
     {
-      groupName: 'Social Media',
+      groupName: 'Social Links',
       defaultOpen: true,
       props: [
         {

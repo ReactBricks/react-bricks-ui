@@ -3,7 +3,7 @@ import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { RichText, Text, Link, Repeater } from 'react-bricks/frontend'
 import blockNames from 'website/blockNames'
-import { pricingColors, PricingColorValue } from 'website/colors'
+import { pricingColors, PricingColorValue, textColors } from 'website/colors'
 import { pricingColorsEditProps } from 'website/LayoutSideProps'
 
 interface PricingPlanProps {
@@ -60,7 +60,9 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
 
         <RichText
           renderBlock={(props) => (
-            <p className="text-lg text-gray-600">{props.children}</p>
+            <p className={classNames('text-lg', textColors.GRAY_600)}>
+              {props.children}
+            </p>
           )}
           placeholder="Description..."
           propName="planDescription"
@@ -69,7 +71,12 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
       <div className="text-center mb-4">
         <Text
           renderBlock={(props) => (
-            <strong className="block text-3xl font-bold pt-4">
+            <strong
+              className={classNames(
+                'block text-3xl font-bold pt-4 text-black',
+                textColors.GRAY_900
+              )}
+            >
               {props.children}
             </strong>
           )}
@@ -79,7 +86,9 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
 
         <Text
           renderBlock={(props) => (
-            <p className="text-gray-500 mb-2">{props.children}</p>
+            <p className={classNames('mb-2', textColors.GRAY_500)}>
+              {props.children}
+            </p>
           )}
           placeholder="per user / per month..."
           propName="planConditions"
@@ -102,7 +111,12 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
       <div className="flex-1 flex flex-col ">
         <Text
           renderBlock={(props) => (
-            <p className="text-sm text-gray-500 text-left mb-4">
+            <p
+              className={classNames(
+                'text-sm text-left mb-4',
+                textColors.GRAY_500
+              )}
+            >
               {props.children}
             </p>
           )}
@@ -110,7 +124,7 @@ const PricingPlan: types.Brick<PricingPlanProps> = ({
           propName="featuresTitle"
         />
 
-        <ul className="text-lg text-gray-700 text-left">
+        <ul className={classNames('text-lg text-left', textColors.GRAY_700)}>
           <Repeater
             propName="features"
             itemProps={{ pricingColor }}

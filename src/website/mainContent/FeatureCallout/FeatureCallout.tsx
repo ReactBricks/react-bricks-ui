@@ -3,26 +3,26 @@ import classNames from 'classnames'
 
 import { Text, RichText, Image, types } from 'react-bricks/frontend'
 
-import { bgColors, textColors } from '../../colors'
-import Section, { Border } from '../../shared/components/Section'
+import { textColors } from '../../colors'
+import Section from '../../shared/components/Section'
 import Container from '../../shared/components/Container'
 import blockNames from '../../blockNames'
 import {
-  backgroundColorsEditProps,
-  sectionBordersEditProps,
+  backgroundSideGroup,
+  LayoutProps,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { icons } from 'website/shared/defaultImages'
 
-export interface FeatureCalloutProps {
-  backgroundColor?: { color: string; className: string }
-  borderTop: Border
-  borderBottom: Border
-}
+export interface FeatureCalloutProps extends LayoutProps {}
 
 const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
-  backgroundColor = bgColors.WHITE.value,
+  backgroundColor,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
 }) => {
   return (
     <Section
@@ -32,8 +32,8 @@ const FeatureCallout: types.Brick<FeatureCalloutProps> = ({
     >
       <Container
         size="small"
-        paddingTop="12"
-        paddingBottom="12"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
         className={classNames(
           'flex flex-col sm:flex-row items-center text-center sm:text-left'
         )}
@@ -90,20 +90,15 @@ FeatureCallout.schema = {
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/FeatureCallout/FeatureCallout.tsx',
 
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
+    ...sectionDefaults,
     borderTop: 'boxed',
-    borderBottom: 'none',
+    paddingTop: '12',
+    paddingBottom: '12',
     title: 'Easy like Wix, but your own.',
     text: 'A great user experience for Content creators, React components for Developers.',
     image: icons.PHOTOS,
   }),
-  sideEditProps: [
-    {
-      groupName: 'Layout',
-      defaultOpen: true,
-      props: [backgroundColorsEditProps, ...sectionBordersEditProps],
-    },
-  ],
+  sideEditProps: [backgroundSideGroup, paddingBordersSideGroup],
 }
 
 export default FeatureCallout

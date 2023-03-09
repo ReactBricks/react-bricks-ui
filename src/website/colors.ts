@@ -833,7 +833,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-gray-500',
       popularTagClassName: 'bg-gray-500',
       planNameClassName: 'text-gray-500',
-      buttonClassName: 'text-gray-600 border-gray-500 hover:bg-gray-500',
+      buttonClassName:
+        'text-gray-600 dark:text-gray-500 border-gray-500 hover:bg-gray-500',
       featureTagClassName: 'bg-gray-200 text-gray-800',
     },
   },
@@ -844,7 +845,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-red-500',
       popularTagClassName: 'bg-red-500',
       planNameClassName: 'text-red-500',
-      buttonClassName: 'text-red-600 border-red-500 hover:bg-red-500',
+      buttonClassName:
+        'text-red-600 dark:text-red-500 border-red-500 hover:bg-red-500',
       featureTagClassName: 'bg-red-200 text-red-800',
     },
   },
@@ -855,7 +857,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-orange-500',
       popularTagClassName: 'bg-orange-500',
       planNameClassName: 'text-orange-500',
-      buttonClassName: 'text-orange-600 border-orange-500 hover:bg-orange-500',
+      buttonClassName:
+        'text-orange-600 dark:text-orange-500 border-orange-500 hover:bg-orange-500',
       featureTagClassName: 'bg-orange-200 text-orange-800',
     },
   },
@@ -866,7 +869,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-amber-500',
       popularTagClassName: 'bg-amber-500',
       planNameClassName: 'text-amber-500',
-      buttonClassName: 'text-amber-600 border-amber-500 hover:bg-amber-500',
+      buttonClassName:
+        'text-amber-600 dark:text-amber-500 border-amber-500 hover:bg-amber-500',
       featureTagClassName: 'bg-amber-200 text-amber-800',
     },
   },
@@ -877,7 +881,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-yellow-500',
       popularTagClassName: 'bg-yellow-500',
       planNameClassName: 'text-yellow-500',
-      buttonClassName: 'text-yellow-600 border-yellow-500 hover:bg-yellow-500',
+      buttonClassName:
+        'text-yellow-600 dark:text-yellow-500 border-yellow-500 hover:bg-yellow-500',
       featureTagClassName: 'bg-yellow-200 text-yellow-800',
     },
   },
@@ -888,7 +893,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-lime-500',
       popularTagClassName: 'bg-lime-500',
       planNameClassName: 'text-lime-500',
-      buttonClassName: 'text-lime-600 border-lime-500 hover:bg-lime-500',
+      buttonClassName:
+        'text-lime-600 dark:text-lime-500 border-lime-500 hover:bg-lime-500',
       featureTagClassName: 'bg-lime-200 text-lime-800',
     },
   },
@@ -899,7 +905,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-green-500',
       popularTagClassName: 'bg-green-500',
       planNameClassName: 'text-green-500',
-      buttonClassName: 'text-green-600 border-green-500 hover:bg-green-500',
+      buttonClassName:
+        'text-green-600 dark:text-green-500 border-green-500 hover:bg-green-500',
       featureTagClassName: 'bg-green-200 text-green-800',
     },
   },
@@ -911,7 +918,7 @@ export const pricingColors = {
       popularTagClassName: 'bg-emerald-500',
       planNameClassName: 'text-emerald-500',
       buttonClassName:
-        'text-emerald-600 border-emerald-500 hover:bg-emerald-500',
+        'text-emerald-600 dark:text-emerald-500 border-emerald-500 hover:bg-emerald-500',
       featureTagClassName: 'bg-emerald-200 text-emerald-800',
     },
   },
@@ -922,7 +929,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-teal-500',
       popularTagClassName: 'bg-teal-500',
       planNameClassName: 'text-teal-500',
-      buttonClassName: 'text-teal-600 border-teal-500 hover:bg-teal-500',
+      buttonClassName:
+        'text-teal-600 dark:text-teal-500 border-teal-500 hover:bg-teal-500',
       featureTagClassName: 'bg-teal-200 text-teal-800',
     },
   },
@@ -933,7 +941,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-cyan-500',
       popularTagClassName: 'bg-cyan-500',
       planNameClassName: 'text-cyan-500',
-      buttonClassName: 'text-cyan-600 border-cyan-500 hover:bg-cyan-500',
+      buttonClassName:
+        'text-cyan-600 dark:text-cyan-500 border-cyan-500 hover:bg-cyan-500',
       featureTagClassName: 'bg-cyan-200 text-cyan-800',
     },
   },
@@ -944,7 +953,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-sky-500',
       popularTagClassName: 'bg-sky-500',
       planNameClassName: 'text-sky-500',
-      buttonClassName: 'text-sky-600 border-sky-500 hover:bg-sky-500',
+      buttonClassName:
+        'text-sky-600 dark:text-sky-500 border-sky-500 hover:bg-sky-500',
       featureTagClassName: 'bg-sky-200 text-sky-800',
     },
   },
@@ -955,7 +965,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-blue-500',
       popularTagClassName: 'bg-blue-500',
       planNameClassName: 'text-blue-500',
-      buttonClassName: 'text-blue-600 border-blue-500 hover:bg-blue-500',
+      buttonClassName:
+        'text-blue-600 dark:text-blue-500 border-blue-500 hover:bg-blue-500',
       featureTagClassName: 'bg-blue-200 text-blue-800',
     },
   },
@@ -966,7 +977,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-indigo-500',
       popularTagClassName: 'bg-indigo-500',
       planNameClassName: 'text-indigo-500',
-      buttonClassName: 'text-indigo-600 border-indigo-500 hover:bg-indigo-500',
+      buttonClassName:
+        'text-indigo-600 dark:text-indigo-500 border-indigo-500 hover:bg-indigo-500',
       featureTagClassName: 'bg-indigo-200 text-indigo-800',
     },
   },
@@ -977,7 +989,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-violet-500',
       popularTagClassName: 'bg-violet-500',
       planNameClassName: 'text-violet-500',
-      buttonClassName: 'text-violet-600 border-violet-500 hover:bg-violet-500',
+      buttonClassName:
+        'text-violet-600 dark:text-violet-500 border-violet-500 hover:bg-violet-500',
       featureTagClassName: 'bg-violet-200 text-violet-800',
     },
   },
@@ -988,7 +1001,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-purple-500',
       popularTagClassName: 'bg-purple-500',
       planNameClassName: 'text-purple-500',
-      buttonClassName: 'text-purple-600 border-purple-500 hover:bg-purple-500',
+      buttonClassName:
+        'text-purple-600 dark:text-purple-500 border-purple-500 hover:bg-purple-500',
       featureTagClassName: 'bg-purple-200 text-purple-800',
     },
   },
@@ -1000,7 +1014,7 @@ export const pricingColors = {
       popularTagClassName: 'bg-fuchsia-500',
       planNameClassName: 'text-fuchsia-500',
       buttonClassName:
-        'text-fuchsia-600 border-fuchsia-500 hover:bg-fuchsia-500',
+        'text-fuchsia-600 dark:text-fuchsia-500 border-fuchsia-500 hover:bg-fuchsia-500',
       featureTagClassName: 'bg-fuchsia-200 text-fuchsia-800',
     },
   },
@@ -1011,7 +1025,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-pink-500',
       popularTagClassName: 'bg-pink-500',
       planNameClassName: 'text-pink-500',
-      buttonClassName: 'text-pink-600 border-pink-500 hover:bg-pink-500',
+      buttonClassName:
+        'text-pink-600 dark:text-pink-500 border-pink-500 hover:bg-pink-500',
       featureTagClassName: 'bg-pink-200 text-pink-800',
     },
   },
@@ -1022,7 +1037,8 @@ export const pricingColors = {
       mainDivClassName: 'border-t-rose-500',
       popularTagClassName: 'bg-rose-500',
       planNameClassName: 'text-rose-500',
-      buttonClassName: 'text-rose-600 border-rose-500 hover:bg-rose-500',
+      buttonClassName:
+        'text-rose-600 dark:text-rose-500 border-rose-500 hover:bg-rose-500',
       featureTagClassName: 'bg-rose-200 text-rose-800',
     },
   },

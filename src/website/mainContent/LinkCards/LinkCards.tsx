@@ -5,11 +5,10 @@ import blockNames from '../../blockNames'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import {
-  neutralBackgroundColorsEditProps,
-  sectionBordersEditProps,
   sectionDefaults,
   LayoutProps,
-  sectionPaddingsEditProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
 } from 'website/LayoutSideProps'
 import { icons } from 'website/shared/defaultImages'
 import classNames from 'classnames'
@@ -109,16 +108,6 @@ LinkCards.schema = {
   ],
   sideEditProps: [
     {
-      groupName: 'Background',
-      defaultOpen: false,
-      props: [neutralBackgroundColorsEditProps],
-    },
-    {
-      groupName: 'Padding & Borders',
-      defaultOpen: false,
-      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
-    },
-    {
       groupName: 'Title',
       defaultOpen: true,
       props: [
@@ -135,6 +124,8 @@ LinkCards.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
   ],
 }
 export default LinkCards

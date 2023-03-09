@@ -23,7 +23,7 @@ const Team2ColsItem: types.Brick<Props> = ({
     <li className="flex space-x-4">
       <Image
         alt={Plain.serialize(name)}
-        propName="avatarImage"
+        propName="picture"
         aspectRatio={1}
         imageClassName="rounded-full w-12 h-12 object-contain"
       />
@@ -113,7 +113,7 @@ Team2ColsItem.schema = {
     jobTitle: 'Frontend Developer',
     twitter: 'alvin_payne',
     linkedin: 'alvin_payne',
-    avatarImage: avatars.AVATAR_MALE,
+    picture: avatars.AVATAR_MALE,
   }),
 
   // Sidebar Edit controls for props

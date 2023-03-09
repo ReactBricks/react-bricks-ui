@@ -1,24 +1,37 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { Repeater } from 'react-bricks/frontend'
-import Container, { Size } from 'website/shared/components/Container'
+import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
 import blockNames from 'website/blockNames'
 import {
-  containerSizeEditProps,
-  neutralBackgroundColorsEditProps,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
 } from 'website/LayoutSideProps'
 import { pricingColors } from 'website/colors'
 
-interface PricingProps {
-  backgroundColor?: { color: string; className: string }
-  width?: Size
-}
+interface PricingProps extends LayoutProps {}
 
-const Pricing: types.Brick<PricingProps> = ({ backgroundColor, width }) => {
+const Pricing: types.Brick<PricingProps> = ({
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+}) => {
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Container size={width}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size="medium"
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div className={`flex flex-wrap justify-center`}>
           <Repeater propName="plans" />
         </div>
@@ -33,6 +46,7 @@ Pricing.schema = {
   category: 'pricing',
   tags: ['pricing', 'plans', 'price'],
   getDefaultProps: () => ({
+    ...sectionDefaults,
     plans: [
       {
         popularTagText: 'Most popular',
@@ -62,7 +76,7 @@ Pricing.schema = {
       {
         popularTagText: 'Most popular',
         withPopularTag: true,
-        pricingColor: pricingColors.INDIGO.value,
+        pricingColor: pricingColors.PINK.value,
         planName: 'Professional',
         planDescription: 'For companies needing to scale their content.',
         planPrice: '$ 429',
@@ -95,12 +109,7 @@ Pricing.schema = {
       max: 6,
     },
   ],
-  sideEditProps: [
-    {
-      groupName: 'layout',
-      props: [neutralBackgroundColorsEditProps, containerSizeEditProps],
-    },
-  ],
+  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup],
 }
 
 export default Pricing

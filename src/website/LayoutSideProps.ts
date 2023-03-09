@@ -156,7 +156,7 @@ export const sectionBordersEditProps: types.ISideEditProp[] = [
 ]
 
 export const sectionDefaults = {
-  backgroundColor: bgColors.WHITE,
+  backgroundColor: bgColors.WHITE.value,
   paddingTop: '16',
   paddingBottom: '16',
   borderTop: 'none',

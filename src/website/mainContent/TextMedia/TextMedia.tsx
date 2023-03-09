@@ -8,10 +8,13 @@ import {
   highlightTextColors,
   textColors,
 } from '../../colors'
-import Container, { Size, Padding } from '../../shared/components/Container'
+import Container, { Padding } from '../../shared/components/Container'
 import Section, { Border } from '../../shared/components/Section'
 import {
   backgroundColorsEditProps,
+  backgroundSideGroup,
+  LayoutProps,
+  paddingBordersSideGroup,
   sectionBordersEditProps,
   sectionDefaults,
   sectionPaddingsEditProps,
@@ -19,12 +22,7 @@ import {
 import { photos } from 'website/shared/defaultImages'
 import Video from 'website/shared/components/Video'
 
-export interface TextImageProps {
-  backgroundColor: { color: string; className: string }
-  paddingTop: Padding
-  paddingBottom: Padding
-  borderTop: Border
-  borderBottom: Border
+export interface TextMediaProps extends LayoutProps {
   imageSide: 'left' | 'right'
   bigImage: boolean
   mobileImageTop: boolean
@@ -39,12 +37,12 @@ export interface TextImageProps {
   videoId: string
 }
 
-const TextImage: types.Brick<TextImageProps> = ({
+const TextMedia: types.Brick<TextMediaProps> = ({
   backgroundColor,
-  paddingTop,
-  paddingBottom,
   borderTop,
   borderBottom,
+  paddingTop,
+  paddingBottom,
   imageSide,
   bigImage,
   mobileImageTop,
@@ -198,8 +196,8 @@ const TextImage: types.Brick<TextImageProps> = ({
   )
 }
 
-TextImage.schema = {
-  name: blockNames.TextImage,
+TextMedia.schema = {
+  name: blockNames.TextMedia,
   label: 'Text Media',
   category: 'main content',
   tags: ['text media', 'text image', 'text video', 'text logos'],
@@ -212,7 +210,7 @@ TextImage.schema = {
     'https://images.reactbricks.com/original/2faa8447-7778-4b78-88f6-1d4290318fad.png',
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImage.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextMedia/TextMedia.tsx',
 
   getDefaultProps: () => ({
     ...sectionDefaults,
@@ -249,16 +247,6 @@ TextImage.schema = {
     ],
   }),
   sideEditProps: [
-    {
-      groupName: 'Background',
-      defaultOpen: false,
-      props: [backgroundColorsEditProps],
-    },
-    {
-      groupName: 'Padding & Borders',
-      defaultOpen: false,
-      props: [...sectionPaddingsEditProps, ...sectionBordersEditProps],
-    },
     {
       groupName: 'Media type',
       defaultOpen: true,
@@ -377,6 +365,8 @@ TextImage.schema = {
         },
       ],
     },
+    backgroundSideGroup,
+    paddingBordersSideGroup,
   ],
   repeaterItems: [
     {
@@ -402,7 +392,7 @@ TextImage.schema = {
     },
     {
       name: 'logos',
-      itemType: blockNames.TextImageLogo,
+      itemType: blockNames.TextMediaLogo,
       itemLabel: 'Logo',
       min: 0,
       max: 9,
@@ -470,4 +460,4 @@ TextImage.schema = {
   ],
 }
 
-export default TextImage
+export default TextMedia

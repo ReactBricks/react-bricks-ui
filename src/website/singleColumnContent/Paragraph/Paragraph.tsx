@@ -3,11 +3,35 @@ import { Link, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
 import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
+import {
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
+} from 'website/LayoutSideProps'
 
-const Paragraph: types.Brick = () => {
+interface ParagraphProps extends LayoutProps {}
+
+const Paragraph: types.Brick<ParagraphProps> = ({
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
+}) => {
   return (
-    <Section>
-      <Container paddingTop="0" paddingBottom="0">
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <RichText
           propName="text"
           placeholder="Paragraph..."
@@ -69,10 +93,15 @@ Paragraph.schema = {
   name: blockNames.Paragraph,
   label: 'Paragraph',
   category: 'single column / blog',
+  tags: ['blog', 'paragraph', 'text'],
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Paragraph/Paragraph.tsx',
   getDefaultProps: () => ({
+    ...sectionDefaults,
+    width: 'small',
+    paddingTop: '0',
+    paddingBottom: '0',
     text: [
       {
         type: 'h2',
@@ -92,6 +121,11 @@ Paragraph.schema = {
       },
     ],
   }),
+  sideEditProps: [
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
+  ],
 }
 
 export default Paragraph

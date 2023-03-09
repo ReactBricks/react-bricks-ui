@@ -7,8 +7,15 @@ import blockNames from 'website/blockNames'
 
 import Container from 'website/shared/components/Container'
 import Section from 'website/shared/components/Section'
+import {
+  containerWidthSideGroup,
+  LayoutProps,
+  neutralBackgroundSideGroup,
+  paddingBordersSideGroup,
+  sectionDefaults,
+} from 'website/LayoutSideProps'
 
-export interface TweetProps {
+export interface TweetProps extends LayoutProps {
   id: string
   placeholder: string
   align: string
@@ -24,6 +31,12 @@ const Tweet: types.Brick<TweetProps> = ({
   cards,
   conversation,
   theme,
+  backgroundColor,
+  borderTop,
+  borderBottom,
+  paddingTop,
+  paddingBottom,
+  width,
 }) => {
   const twitterEmbedRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -76,8 +89,16 @@ const Tweet: types.Brick<TweetProps> = ({
   ])
 
   return (
-    <Section>
-      <Container>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
         <div ref={twitterEmbedRef}>{isLoading && placeholder}</div>
       </Container>
     </Section>
@@ -92,7 +113,7 @@ Tweet.schema = {
   playgroundLinkUrl:
     'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/blog/Tweet/Tweet.tsx',
   getDefaultProps: () => ({
-    backgroundColor: bgColors.WHITE.value,
+    ...sectionDefaults,
     id: '1237840583982329857',
     placeholder: 'Loading Tweet',
     position: 'center',
@@ -173,6 +194,9 @@ Tweet.schema = {
         },
       ],
     },
+    neutralBackgroundSideGroup,
+    paddingBordersSideGroup,
+    containerWidthSideGroup,
   ],
 }
 

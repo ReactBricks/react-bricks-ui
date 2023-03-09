@@ -167,8 +167,8 @@ const CallToAction: types.Brick<CallToActionProps> = ({
 }
 
 CallToAction.schema = {
-  name: blockNames.NewsletterSubscribe,
-  label: 'Newsletter subscribe',
+  name: blockNames.NewsletterHero,
+  label: 'Newsletter hero',
   playgroundLinkLabel: 'View source code on Github',
   category: 'call to action',
   tags: ['newsletter', 'subscribe', 'hero'],

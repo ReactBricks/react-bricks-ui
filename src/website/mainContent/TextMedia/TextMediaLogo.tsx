@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { Image, types } from 'react-bricks/frontend'
-import { iconLogos } from 'website/shared/defaultImages'
 import blockNames from '../../blockNames'
 
-const TextImageLogo: types.Brick = () => {
+const TextMediaLogo: types.Brick = () => {
   return (
     <div>
       <Image
@@ -18,18 +17,16 @@ const TextImageLogo: types.Brick = () => {
   )
 }
 
-TextImageLogo.schema = {
-  name: blockNames.TextImageLogo,
+TextMediaLogo.schema = {
+  name: blockNames.TextMediaLogo,
   label: 'Logo',
   category: 'main content',
   hideFromAddMenu: true,
   playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextImageLogo.tsx',
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/TextImage/TextMediaLogo.tsx',
 
-  getDefaultProps: () => ({
-    //image: iconLogos.REACT_BRICKS,
-  }),
+  //getDefaultProps: () => ({}),
 }
 
-export default TextImageLogo
+export default TextMediaLogo

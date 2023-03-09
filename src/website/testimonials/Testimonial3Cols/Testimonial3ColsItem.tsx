@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import * as React from 'react'
 import { Image, Plain, Text, types } from 'react-bricks/frontend'
 
