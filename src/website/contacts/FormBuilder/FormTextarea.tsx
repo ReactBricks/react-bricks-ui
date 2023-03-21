@@ -73,7 +73,7 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
           'w-full px-[15px] py-[10px] bg-white dark:bg-gray-900 dark:text-white border rounded outline-none focus:ring focus:ring-opacity-50',
           errors[fieldName]
             ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
-            : 'border-gray-300 dark:border-white/20 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
+            : 'border-gray-300 dark:border-gray-500 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
         {...register(fieldName.toLowerCase() || key, {
           required: isRequired,

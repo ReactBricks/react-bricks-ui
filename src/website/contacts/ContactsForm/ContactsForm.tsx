@@ -8,7 +8,7 @@ import {
   FcVoicePresentation,
 } from 'react-icons/fc'
 import blockNames from 'website/blockNames'
-import { textColors } from 'website/colors'
+import { buttonColors, textColors } from 'website/colors'
 import {
   backgroundSideGroup,
   LayoutProps,
@@ -208,25 +208,11 @@ ContactsForm.schema = {
         ],
         'form-buttons': [
           {
-            type: blockNames.FormButton,
-            props: {
-              type: 'submit',
-              color: {
-                color: '#0ea5e9',
-                className:
-                  'bg-indigo-600 text-white hover:bg-indigo-500 hover:text-white',
-              },
-              buttonLabel: [
-                {
-                  type: 'paragraph',
-                  children: [
-                    {
-                      text: 'Send message',
-                    },
-                  ],
-                },
-              ],
-            },
+            type: 'button',
+            buttonType: 'submit',
+            buttonColor: buttonColors.SKY.value,
+            text: 'Send',
+            variant: 'solid',
           },
         ],
       },

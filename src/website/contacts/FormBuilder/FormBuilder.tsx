@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import blockNames from 'website/blockNames'
+import { buttonColors } from 'website/colors'
 import {
   backgroundSideGroup,
   containerSizeEditProps,
@@ -24,7 +25,6 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
-  width,
   buttonPosition,
 }) => {
   const {
@@ -42,14 +42,10 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
         borderTop={borderTop}
         borderBottom={borderBottom}
       >
-        <Container
-          paddingTop={paddingTop}
-          paddingBottom={paddingBottom}
-          size={width} /*p-12px*/
-        >
+        <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="max-w-2xl mx-auto grid grid-cols-2 gap-4 px-6 py-6"
+            className="max-w-2xl mx-auto grid grid-cols-2 gap-4 py-6"
           >
             <Repeater
               propName="form-elements"
@@ -79,7 +75,6 @@ FormBuilder.schema = {
   name: blockNames.FormBuilder,
   label: 'Form',
   category: 'contact',
-
   repeaterItems: [
     {
       name: 'form-elements',
@@ -94,17 +89,40 @@ FormBuilder.schema = {
     },
     {
       name: 'form-buttons',
-      itemLabel: 'Form Buttons',
-      items: [{ type: blockNames.Button }],
+      itemLabel: 'Button',
+      itemType: blockNames.Button,
       min: 1,
       max: 2,
     },
   ],
 
+  sideEditProps: [
+    {
+      groupName: 'Buttons',
+      defaultOpen: true,
+      props: [
+        {
+          name: 'buttonPosition',
+          label: 'Buttons position',
+          type: types.SideEditPropType.Select,
+          selectOptions: {
+            display: types.OptionsDisplay.Select,
+            options: [
+              { value: 'justify-start', label: 'Left' },
+              { value: 'justify-center', label: 'Center' },
+              { value: 'justify-end', label: 'Right' },
+            ],
+          },
+        },
+      ],
+    },
+    backgroundSideGroup,
+    paddingBordersSideGroup,
+  ],
+
   getDefaultProps: () => ({
     ...sectionDefaults,
     buttonPosition: 'justify-center',
-    formTitle: 'Form Title',
     'form-elements': [
       {
         type: blockNames.FormInput,
@@ -170,26 +188,16 @@ FormBuilder.schema = {
         },
       },
     ],
-  }),
-
-  sideEditProps: [
-    backgroundSideGroup,
-    paddingBordersSideGroup,
-    containerSizeEditProps,
-    {
-      name: 'buttonPosition',
-      label: 'Buttons position',
-      type: types.SideEditPropType.Select,
-      selectOptions: {
-        display: types.OptionsDisplay.Select,
-        options: [
-          { value: 'justify-start', label: 'Left' },
-          { value: 'justify-center', label: 'Center' },
-          { value: 'justify-end', label: 'Right' },
-        ],
+    'form-buttons': [
+      {
+        type: 'button',
+        buttonType: 'submit',
+        buttonColor: buttonColors.SKY.value,
+        text: 'Send',
+        variant: 'solid',
       },
-    },
-  ],
+    ],
+  }),
 }
 
 export default FormBuilder

@@ -69,8 +69,8 @@ const Button: types.Brick<ButtonProps> = ({
 
   return (
     <button
-      type={buttonType}
-      disabled={isAdmin && !previewMode}
+      type={isAdmin && !previewMode ? 'button' : buttonType}
+      //disabled={isAdmin && !previewMode}
       className={classNames(
         'inline-block whitespace-nowrap text-center rounded-full font-bold leading-none hover:shadow-lg transition-all ease-out duration-150 hover:-translate-y-0.5',
         padding === 'small'
@@ -117,6 +117,7 @@ Button.schema = {
   sideEditProps: [
     {
       groupName: 'Button functionality',
+      defaultOpen: true,
       props: [
         {
           name: 'type',
@@ -150,7 +151,7 @@ Button.schema = {
             display: types.OptionsDisplay.Radio,
             options: [
               { value: 'submit', label: 'Form submit' },
-              { value: 'reset', label: 'Form cancel' },
+              { value: 'reset', label: 'Form reset' },
               { value: 'button', label: 'Button' },
             ],
           },

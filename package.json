@@ -65,6 +65,7 @@
     "prismjs": "^1.29.0",
     "react": ">=18",
     "react-bricks": "3.8.10",
+    "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.7.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
