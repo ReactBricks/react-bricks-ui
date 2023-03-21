@@ -1,23 +1,24 @@
 import * as React from 'react'
-import clsx from 'clsx'
-import { types } from 'react-bricks/frontend'
+import classNames from 'classnames'
+import { types, Plain, Text } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import blockNames from '../../blockNames'
-
+import { useAdminContext } from 'react-bricks/frontend'
+import { textColors } from 'website/colors'
 export interface FormInputProps {
   register: UseFormRegister<any>
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
   fieldName?: string
-  label?: string
+  label?: any
   isRequired: boolean
-  inputType: 'text' | 'number' | 'date'
+  inputType: 'text' | 'number' | 'date' | 'email'
   key: string
   pattern?: string
   patternError?: string
   requiredError?: string
-  columns: 'one' | 'two'
+  columns: '1' | '1'
 }
 
 const isRegex = (strRegex: string): boolean => {
@@ -51,61 +52,88 @@ const FormInput: types.Brick<FormInputProps> = ({
   requiredError,
   columns,
 }) => {
+  const labelTextContent =
+    typeof label === 'string' ? label : Plain.serialize(label)
+  const { isAdmin } = useAdminContext()
   return (
-    <label
-      className={clsx(
-        'px-2 py-1 group block',
-        columns === 'two' && 'col-span-2'
+    <div
+      className={classNames(
+        'px-2 py-1 group block col-span-2',
+        columns === '1' && 'sm:col-span-1'
       )}
     >
-      <>
-        <span className="block text-gray-600 text-sm mb-1">
-          {label}
-          {isRequired && <span className="text-red-600 ml-[5px]">*</span>}
-        </span>
-        <input
-          type={inputType}
-          className={clsx(
-            'w-full px-[15px] py-[10px] border rounded outline-none peer',
-            errors[fieldName]
-              ? 'border-red-500'
-              : 'border-gray-300 focus:border-sky-500'
+      <label
+        htmlFor={isAdmin ? '' : fieldName}
+        className={classNames(
+          isRequired
+            ? labelTextContent === ''
+              ? 'block w-full'
+              : 'flex items-center space-x-1'
+            : 'block w-full'
+        )}
+      >
+        <Text
+          propName="label"
+          placeholder="label..."
+          renderBlock={(props) => (
+            <span
+              className={classNames(textColors.GRAY_600, 'mb-1 text-sm')}
+              {...props.attributes}
+            >
+              {props.children}
+            </span>
           )}
-          {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
-            required: isRequired,
-            //@ts-ignore
-            valueAsNumber: inputType === 'number',
-            //@ts-ignore
-            valueAsDate: inputType === 'date',
-            //@ts-ignore
-            pattern: strToRegex(pattern),
-          })}
         />
 
-        {errors[fieldName] && (
-          <span className="block mt-1 text-xs text-red-500 font-bold">
-            {errors[fieldName]?.type === 'required' && requiredError}
-            {errors[fieldName]?.type === 'pattern' && patternError}
-          </span>
+        {isRequired &&
+          (labelTextContent === '' ? null : (
+            <span className="text-red-600">*</span>
+          ))}
+      </label>
+
+      <input
+        id={fieldName}
+        type={inputType}
+        className={classNames(
+          'w-full px-[15px] py-[10px] bg-white dark:bg-gray-900 dark:text-white border  rounded outline-none focus:ring focus:ring-opacity-50',
+          errors[fieldName]
+            ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
+            : 'border-gray-300 dark:border-white/20 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
-      </>
-    </label>
+        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
+          required: isRequired,
+          //@ts-ignore
+          valueAsNumber: inputType === 'number',
+          //@ts-ignore
+          valueAsDate: inputType === 'date',
+          //@ts-ignore
+          pattern: strToRegex(pattern),
+        })}
+      />
+
+      {errors[fieldName] && (
+        <div className="block mt-1 text-xs text-red-500 font-bold">
+          {errors[fieldName]?.type === 'required' && requiredError}
+          {errors[fieldName]?.type === 'pattern' && patternError}
+        </div>
+      )}
+    </div>
   )
 }
 
 FormInput.schema = {
   name: blockNames.FormInput,
-  label: 'Form Input',
-  category: 'Tailblock Form',
+  label: 'Input',
+  category: 'contact',
   hideFromAddMenu: true,
   // tags: [],
 
   getDefaultProps: () => ({
-    fieldName: 'inputField',
+    fieldName: 'firstname',
     isRequired: false,
     inputType: 'text',
-    columns: 'two',
-    label: 'Input Field Label',
+    columns: '2',
+    label: 'First Name',
     requiredError: '',
     pattern: '',
     patternError: '',
@@ -119,8 +147,8 @@ FormInput.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
+          { value: '1', label: 'One' },
+          { value: '2', label: 'Two' },
         ],
       },
     },
@@ -129,11 +157,7 @@ FormInput.schema = {
       type: types.SideEditPropType.Text,
       label: 'Field Name',
     },
-    {
-      name: 'label',
-      type: types.SideEditPropType.Text,
-      label: 'Label',
-    },
+
     {
       name: 'inputType',
       type: types.SideEditPropType.Select,
@@ -145,6 +169,7 @@ FormInput.schema = {
           { value: 'number', label: 'Number' },
           { value: 'date', label: 'Date' },
           { value: 'password', label: 'Password' },
+          { value: 'email', label: 'Email' },
         ],
       },
     },
@@ -156,18 +181,18 @@ FormInput.schema = {
     {
       name: 'requiredError',
       type: types.SideEditPropType.Text,
-      label: 'Error required',
+      label: 'Required error message',
     },
     {
       name: 'pattern',
       type: types.SideEditPropType.Text,
-      label: 'Pattern',
+      label: 'Pattern (RegEx)',
       validate: (value: string) => isRegex(value) || 'Invalid RegEx',
     },
     {
       name: 'patternError',
       type: types.SideEditPropType.Text,
-      label: 'Error pattern',
+      label: 'Pattern error message',
     },
   ],
 }

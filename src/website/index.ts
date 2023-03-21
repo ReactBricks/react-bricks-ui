@@ -58,6 +58,9 @@ import Faq from './Faq/FaqItem'
 
 // CONTACT
 import Map from './contacts/Map/Map'
+import Offices from './contacts/Offices/Offices'
+import Office from './contacts/Offices/Office'
+import ContactsForm from './contacts/ContactsForm/ContactsForm'
 import FormBuilder from './contacts/FormBuilder/FormBuilder'
 import FormButton from './contacts/FormBuilder/FormButton'
 import FormCheckbox from './contacts/FormBuilder/FormCheckbox'
@@ -122,6 +125,9 @@ export {
   Faqs2cols,
   CallToAction,
   Map,
+  Offices,
+  Office,
+  ContactsForm,
   FeatureCallout,
   NewsletterHero,
   NewsletterSubscribe,
@@ -140,8 +146,6 @@ export {
   Video,
   HorizontalRule,
   Spacer,
-  // Document,
-  // Documents,
   FormBuilder,
   FormButton,
   FormCheckbox,
@@ -194,6 +198,9 @@ const allBricks = [
   Faqs2cols,
   CallToAction,
   Map,
+  Offices,
+  Office,
+  ContactsForm,
   FeatureCallout,
   NewsletterHero,
   NewsletterSubscribe,
@@ -212,8 +219,6 @@ const allBricks = [
   Video,
   HorizontalRule,
   Spacer,
-  // Document,
-  // Documents,
   FormBuilder,
   FormButton,
   FormCheckbox,

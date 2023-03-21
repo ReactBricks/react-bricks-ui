@@ -70,6 +70,9 @@ enum blockNames {
   Pricing = 'pricing',
   PricingPlan = 'pricing-plan',
   PlanFeature = 'pricing-plan-feature',
+  Offices = 'contact-offices',
+  Office = 'contact-office',
+  ContactsForm = 'contact-form',
 }
 
 export default blockNames

@@ -1,58 +1,105 @@
-import clsx from 'clsx'
+import classNames from 'classnames'
 import * as React from 'react'
-import { Repeater, types } from 'react-bricks/frontend'
-import { UseFormRegister } from 'react-hook-form'
+import { Repeater, types, Plain, Text } from 'react-bricks/frontend'
+import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
+import { textColors } from 'website/colors'
 import blockNames from '../../blockNames'
 
 export interface FormRadiobuttonsProps {
   register?: UseFormRegister<any>
-  fieldName?: string
-  fieldLabel?: string
+  fieldName: string
+  label: string
   isRequired: boolean
-  columns: 'one' | 'two'
+  requiredError?: string
+  columns: '1' | '2'
+  errors: FieldErrorsImpl<{
+    [x: string]: any
+  }>
 }
 
 const FormRadiobuttons: types.Brick<FormRadiobuttonsProps> = ({
   register,
   fieldName,
-  fieldLabel,
+  label,
   isRequired,
+  requiredError,
   columns,
+  errors,
 }) => {
+  const labelTextContent =
+    typeof label === 'string' ? label : Plain.serialize(label)
   return (
     <div
-      className={clsx('w-full px-2 py-1', columns === 'two' && 'col-span-2')}
+      className={classNames(
+        'w-full px-2 py-1 col-span-2',
+        columns === '1' && 'sm:col-span-1'
+      )}
     >
-      <span className="block text-gray-400 group-hover:text-indigo-600 font-medium uppercase tracking-widest text-sm peer-focus:text-indigo-700 mb-2">
-        {fieldLabel}
-      </span>
+      <div
+        className={classNames(
+          'mb-1',
+          isRequired
+            ? labelTextContent === ''
+              ? 'block w-full'
+              : 'flex items-center space-x-1'
+            : 'block w-full'
+        )}
+      >
+        <Text
+          propName="label"
+          placeholder="label..."
+          renderBlock={(props) => (
+            <span
+              className={classNames(textColors.GRAY_600, 'mb-1 text-sm')}
+              {...props.attributes}
+            >
+              {props.children}
+            </span>
+          )}
+        />
+
+        {isRequired &&
+          (labelTextContent === '' ? null : (
+            <span className="text-red-600">*</span>
+          ))}
+      </div>
       <Repeater
         propName="radiobuttons"
         itemProps={{
           fieldName,
           register,
           isRequired,
+          errors,
         }}
       />
+      {errors[fieldName] && (
+        <div className="block mt-1 text-xs text-red-500 font-bold">
+          {errors[fieldName]?.type === 'required' && requiredError}
+        </div>
+      )}
     </div>
   )
 }
 
 FormRadiobuttons.schema = {
   name: blockNames.FormRadiobuttons,
-  label: 'Form Radiobuttons',
-  category: 'Tailblock Form',
+  label: 'Radio buttons',
+  category: 'contact',
   hideFromAddMenu: true,
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
-    columns: 'one',
-    fieldName: 'radiobuttonsField',
-    fieldLabel: 'Radiobuttons Label',
+    columns: '2',
+    fieldName: 'color',
+    label: 'Choose a color',
     radiobuttons: [
       {
-        label: 'Label single radio',
-        value: 'value',
+        label: 'Blue',
+        value: 'blue',
+      },
+      {
+        label: 'Green',
+        value: 'green',
       },
     ],
     isRequired: false,
@@ -75,8 +122,8 @@ FormRadiobuttons.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
+          { value: '1', label: 'One' },
+          { value: '2', label: 'Two' },
         ],
       },
     },
@@ -85,11 +132,7 @@ FormRadiobuttons.schema = {
       type: types.SideEditPropType.Text,
       label: 'Field Name',
     },
-    {
-      name: 'fieldLabel',
-      type: types.SideEditPropType.Text,
-      label: 'Field label',
-    },
+
     {
       name: 'isRequired',
       type: types.SideEditPropType.Boolean,
@@ -98,7 +141,7 @@ FormRadiobuttons.schema = {
     {
       name: 'requiredError',
       type: types.SideEditPropType.Text,
-      label: 'Error required',
+      label: 'Required error message',
     },
   ],
 }

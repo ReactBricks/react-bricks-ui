@@ -1,9 +1,7 @@
 import * as React from 'react'
-import clsx from 'clsx'
-
+import classNames from 'classnames'
 import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-
 export interface FormButtonProps {
   type: 'submit' | 'reset'
   color?: { color: string; className: string }
@@ -13,7 +11,7 @@ const FormButton: types.Brick<FormButtonProps> = ({ type, color }) => {
   return (
     <button
       type={type}
-      className={clsx(
+      className={classNames(
         'py-3 px-5 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150',
         color?.className
       )}
@@ -32,8 +30,8 @@ const FormButton: types.Brick<FormButtonProps> = ({ type, color }) => {
 
 FormButton.schema = {
   name: blockNames.FormButton,
-  label: 'Form Button',
-  category: 'rb-ui website',
+  label: 'Button',
+  category: 'contact',
   hideFromAddMenu: true,
 
   getDefaultProps: () => ({

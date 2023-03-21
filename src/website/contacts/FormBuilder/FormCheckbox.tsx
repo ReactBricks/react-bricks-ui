@@ -1,9 +1,10 @@
-import clsx from 'clsx'
+import classNames from 'classnames'
 import * as React from 'react'
-import { types } from 'react-bricks/frontend'
+import { types, Text, Plain } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import blockNames from '../../blockNames'
-
+import { useAdminContext } from 'react-bricks/frontend'
+import { textColors } from 'website/colors'
 export interface FormCheckboxProps {
   register: UseFormRegister<any>
   fieldName: string
@@ -14,7 +15,7 @@ export interface FormCheckboxProps {
     [x: string]: any
   }>
   requiredError?: string
-  columns: 'one' | 'two'
+  columns: '1' | '2'
 }
 
 const FormCheckbox: types.Brick<FormCheckboxProps> = ({
@@ -27,39 +28,80 @@ const FormCheckbox: types.Brick<FormCheckboxProps> = ({
   key,
   columns,
 }) => {
+  const labelTextContent =
+    typeof label === 'string' ? label : Plain.serialize(label)
+  const { isAdmin } = useAdminContext()
   return (
-    <div className={columns === 'two' ? 'col-span-2' : ''}>
-      <label className="px-2 py-1 flex items-center">
+    <div
+      className={classNames(
+        'col-span-2 px-2 py-1',
+        columns === '1' && 'sm:col-span-1'
+      )}
+    >
+      <div className="inline-flex items-center">
         <input
+          id={fieldName}
           type="checkbox"
-          className="rounded border-gray-300 accent-sky-500 shadow-sm focus:border-sky-300 focus:-0 focus:ring-offset-0"
+          className={classNames(
+            'border-gray-300 focus:border-sky-300 focus:ring focus:ring-opacity-50 text-sm rounded-sm text-sky-500 focus:ring-offset-0',
+            errors[fieldName]
+              ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
+              : 'border-gray-300 dark:border-white/20 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
+          )}
           {...register(fieldName?.replace(/\s/g, '') || key, {
             required: isRequired,
           })}
         />
-        <span className="ml-2 text-gray-600 dark:text-gray-50 font-medium">
-          {label}
-          {isRequired && <span className="text-red-600 ml-2">*</span>}
-        </span>
-      </label>
-      <span className="block px-2 mt-2 text-xs text-red-500 font-bold">
-        {errors[fieldName]?.type === 'required' && requiredError}
-      </span>
+        <label
+          htmlFor={isAdmin ? '' : fieldName}
+          className={classNames(
+            'ml-2',
+            isRequired
+              ? labelTextContent === ''
+                ? 'block w-full'
+                : 'flex items-center space-x-1'
+              : 'block w-full'
+          )}
+        >
+          <Text
+            propName="label"
+            placeholder="label..."
+            renderBlock={(props) => (
+              <span
+                className={classNames(textColors.GRAY_800)}
+                {...props.attributes}
+              >
+                {props.children}
+              </span>
+            )}
+          />
+
+          {isRequired &&
+            (labelTextContent === '' ? null : (
+              <span className="text-red-600">*</span>
+            ))}
+        </label>
+      </div>
+      {errors[fieldName] && (
+        <div className="block mt-1 text-xs text-red-500 font-bold">
+          {errors[fieldName]?.type === 'required' && requiredError}
+        </div>
+      )}
     </div>
   )
 }
 
 FormCheckbox.schema = {
   name: blockNames.FormCheckbox,
-  label: 'Form Checkbox',
-  category: 'Tailblock Form',
+  label: 'Checkbox',
+  category: 'contact',
   hideFromAddMenu: true,
 
   getDefaultProps: () => ({
-    label: 'Checkbox Field',
-    columns: 'two',
-    isRequired: false,
-    fieldName: 'checkboxField',
+    label: 'I accept the processing of my data',
+    columns: '2',
+    isRequired: true,
+    fieldName: 'privacy',
   }),
 
   sideEditProps: [
@@ -70,8 +112,8 @@ FormCheckbox.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
+          { value: '1', label: 'One' },
+          { value: '2', label: 'Two' },
         ],
       },
     },
@@ -80,11 +122,7 @@ FormCheckbox.schema = {
       type: types.SideEditPropType.Text,
       label: 'Field Name',
     },
-    {
-      name: 'label',
-      type: types.SideEditPropType.Text,
-      label: 'Label',
-    },
+
     {
       name: 'isRequired',
       type: types.SideEditPropType.Boolean,
@@ -93,7 +131,7 @@ FormCheckbox.schema = {
     {
       name: 'requiredError',
       type: types.SideEditPropType.Text,
-      label: 'Error required',
+      label: 'Required error message',
     },
   ],
 }

@@ -165,7 +165,7 @@ CarouselBrick.schema = {
           label: 'Adapt aspect ratio',
           type: types.SideEditPropType.Boolean,
           helperText:
-            'Adapt aspect ratio to the number od slides to show (4:1 for 1 image, 2:1 for 2 images, square for more)',
+            'Adapt aspect ratio to the number of slides to show (4:1 for 1 image, 2:1 for 2 images, square for more)',
         },
         {
           name: 'autoplay',

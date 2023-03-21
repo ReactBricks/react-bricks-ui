@@ -1,47 +1,79 @@
-import clsx from 'clsx'
+import classNames from 'classnames'
 import * as React from 'react'
-import { types } from 'react-bricks/frontend'
+import { types, Text, Plain } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import blockNames from '../../blockNames'
-
+import { useAdminContext } from 'react-bricks/frontend'
+import { textColors } from 'website/colors'
 export interface FormTextareaProps {
   register: UseFormRegister<any>
   isRequired: boolean
   fieldName?: string
-  label: string
   key: string
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
   requiredError?: string
-  columns: 'one' | 'two'
+  columns: '1' | '2'
+  label: any
 }
 
 const FormTextarea: types.Brick<FormTextareaProps> = ({
   fieldName = 'text area',
-  label,
   isRequired = true,
   key,
+  label,
   register,
   errors,
   requiredError,
   columns,
 }) => {
+  const labelTextContent =
+    typeof label === 'string' ? label : Plain.serialize(label)
+  const { isAdmin } = useAdminContext()
   return (
-    <label
-      className={clsx(
-        'px-2 py-1 group block',
-        columns === 'two' ? 'col-span-2' : ''
+    <div
+      className={classNames(
+        'px-2 py-1 group block col-span-2',
+        columns === '1' && 'sm:col-span-1'
       )}
     >
-      <span className="block text-gray-400 group-hover:text-sky-600 dark:group-hover:text-sky-300 font-medium uppercase tracking-widest text-sm peer-focus:text-sky-700">
-        {label} {isRequired && <span className="text-red-600">*</span>}
-      </span>
+      <label
+        htmlFor={isAdmin ? '' : fieldName}
+        className={classNames(
+          isRequired
+            ? labelTextContent === ''
+              ? 'block w-full'
+              : 'flex items-center space-x-1'
+            : 'block w-full'
+        )}
+      >
+        <Text
+          propName="label"
+          placeholder="label..."
+          renderBlock={(props) => (
+            <span
+              className={classNames(textColors.GRAY_600, 'mb-1 text-sm')}
+              {...props.attributes}
+            >
+              {props.children}
+            </span>
+          )}
+        />
+
+        {isRequired &&
+          (labelTextContent === '' ? null : (
+            <span className="text-red-600">*</span>
+          ))}
+      </label>
 
       <textarea
-        className={clsx(
-          'w-full px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:shadow-sky-200 dark:focus:shadow-sky-900 focus:shadow-lg peer',
-          errors[fieldName] ? 'ring-1 ring-red-400' : 'ring-sky-500'
+        id={fieldName}
+        className={classNames(
+          'w-full px-[15px] py-[10px] bg-white dark:bg-gray-900 dark:text-white border rounded outline-none focus:ring focus:ring-opacity-50',
+          errors[fieldName]
+            ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
+            : 'border-gray-300 dark:border-white/20 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
         )}
         {...register(fieldName.toLowerCase() || key, {
           required: isRequired,
@@ -49,24 +81,24 @@ const FormTextarea: types.Brick<FormTextareaProps> = ({
       />
 
       {errors[fieldName] && (
-        <span className="block mt-2 text-xs text-red-500 font-bold">
+        <span className="block mt-1 text-xs text-red-500 font-bold">
           {errors[fieldName]?.type === 'required' && requiredError}
         </span>
       )}
-    </label>
+    </div>
   )
 }
 
 FormTextarea.schema = {
   name: blockNames.FormTextArea,
-  label: 'Form Textarea',
-  category: 'Tailblock Form',
+  label: 'Textarea',
+  category: 'contact',
   hideFromAddMenu: true,
 
   getDefaultProps: () => ({
-    columns: 'two',
-    fieldName: 'textareaField',
-    label: 'Textarea Field',
+    columns: '2',
+    fieldName: 'message',
+    label: 'Message',
     isRequired: false,
     requiredError: '',
   }),
@@ -79,8 +111,8 @@ FormTextarea.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
+          { value: '1', label: 'One' },
+          { value: '2', label: 'Two' },
         ],
       },
     },
@@ -89,11 +121,7 @@ FormTextarea.schema = {
       type: types.SideEditPropType.Text,
       label: 'Field Name',
     },
-    {
-      name: 'label',
-      type: types.SideEditPropType.Text,
-      label: 'Label',
-    },
+
     {
       name: 'isRequired',
       type: types.SideEditPropType.Boolean,
@@ -102,7 +130,7 @@ FormTextarea.schema = {
     {
       name: 'requiredError',
       type: types.SideEditPropType.Text,
-      label: 'Error required',
+      label: 'Required error message',
     },
   ],
 }

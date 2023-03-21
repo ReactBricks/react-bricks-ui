@@ -1,15 +1,21 @@
 import * as React from 'react'
-import { types } from 'react-bricks/frontend'
-import { UseFormRegister } from 'react-hook-form'
+import classNames from 'classnames'
+import { types, Text, Plain } from 'react-bricks/frontend'
+import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import blockNames from '../../blockNames'
-
+import { useAdminContext } from 'react-bricks/frontend'
+import { textColors } from 'website/colors'
 export interface FormSingleRadioProps {
+  index: number
   register: UseFormRegister<any>
-  fieldName?: string
+  fieldName: string
   label: string
   value: string
-  isRequired: boolean
   key: string
+  isRequired: boolean
+  errors: FieldErrorsImpl<{
+    [x: string]: any
+  }>
 }
 
 const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
@@ -17,38 +23,66 @@ const FormSingleRadio: types.Brick<FormSingleRadioProps> = ({
   fieldName,
   label,
   value,
-  isRequired,
   key,
+  isRequired,
+  errors,
 }) => {
+  const labelTextContent =
+    typeof label === 'string' ? label : Plain.serialize(label)
+  const { isAdmin } = useAdminContext()
+
   return (
-    <label className="block">
+    <div className="flex items-center">
       <input
-        className="h-4 w-4 border-gray-300 text-sky-500 focus:ring-sky-500"
-        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key)}
+        id={value}
+        className={classNames(
+          'border-gray-300 focus:border-sky-300 focus:ring focus:ring-opacity-50 text-sm rounded-full text-sky-500 focus:ring-offset-0',
+          errors[fieldName]
+            ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
+            : 'border-gray-300 dark:border-white/20 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
+        )}
+        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
+          required: isRequired,
+        })}
         type="radio"
         value={value}
       />
-      <span className="ml-2 text-gray-800 dark:text-gray-50">{label}</span>
-    </label>
+      <label
+        htmlFor={isAdmin ? '' : value}
+        className={classNames('ml-2 block w-full min-w-[70px]')}
+      >
+        <Text
+          propName="label"
+          placeholder="label..."
+          renderBlock={(props) => (
+            <span
+              className={classNames(textColors.GRAY_900)}
+              {...props.attributes}
+            >
+              {props.children}
+            </span>
+          )}
+        />
+      </label>
+    </div>
   )
 }
 
 FormSingleRadio.schema = {
   name: blockNames.FormSingleRadio,
-  label: 'Form Single Radio',
-  category: 'Tailblock Form',
+  label: 'Radio option',
+  category: 'contact',
   hideFromAddMenu: true,
   // tags: [],
 
   // Defaults when a new brick is added
   getDefaultProps: () => ({
-    label: 'Label single radio',
-    value: 'value',
+    label: 'New option',
+    value: 'new-option',
   }),
 
   // Sidebar Edit controls for props
   sideEditProps: [
-    { name: 'label', type: types.SideEditPropType.Text, label: 'Label' },
     { name: 'value', type: types.SideEditPropType.Text, label: 'Value' },
   ],
 }

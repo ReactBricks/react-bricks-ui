@@ -1,6 +1,10 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { Map, Marker } from 'pigeon-maps'
+import { maptiler } from 'pigeon-maps/providers'
+
+const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
+const mapTilerProvider = maptiler(MAPTILER_ACCESS_TOKEN, 'streets')
 
 import blockNames from '../../blockNames'
 import Section from '../../shared/components/Section'
@@ -18,14 +22,12 @@ export interface MapProps extends LayoutProps {
   lat: string
   lng: string
 }
-const MAPTILER_ACCESS_TOKEN = 'zGVHxdSZR3rlLBsL6hUv#0.5'
-const MAP_ID = 'streets'
 
-const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
-  return `https://api.maptiler.com/maps/${MAP_ID}/256/${z}/${x}/${y}${
-    dpr && dpr >= 2 ? '@2x' : ''
-  }.png?key=${MAPTILER_ACCESS_TOKEN}`
-}
+// const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
+//   return `https://api.maptiler.com/maps/${MAP_ID}/256/${z}/${x}/${y}${
+//     dpr && dpr >= 2 ? '@2x' : ''
+//   }.png?key=${MAPTILER_ACCESS_TOKEN}`
+// }
 
 export const MapBrick: types.Brick<MapProps> = ({
   backgroundColor,
@@ -63,6 +65,8 @@ export const MapBrick: types.Brick<MapProps> = ({
           {...mapTilerProviderProp}
           dprs={[1, 2]}
           metaWheelZoomWarning="Use ctrl + wheel to zoom!"
+          attribution={false}
+          //attributionPrefix=""
         >
           <Marker anchor={[parseFloat(lat), parseFloat(lng)]} />
         </Map>

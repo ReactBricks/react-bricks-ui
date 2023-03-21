@@ -1,25 +1,27 @@
 import * as React from 'react'
-import { types } from 'react-bricks/frontend'
+import { types, Plain, Text } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
-import clsx from 'clsx'
+import classNames from 'classnames'
 import blockNames from '../../blockNames'
+import { useAdminContext } from 'react-bricks/frontend'
+import { textColors } from 'website/colors'
 
 export interface FormSelectProps {
   register: UseFormRegister<any>
   fieldName?: string
   label: string
-  values?: string
+  options?: string
   isRequired: boolean
   key: string
   errors: FieldErrorsImpl<{
     [x: string]: any
   }>
   requiredError?: string
-  columns: 'one' | 'two'
+  columns: '1' | '2'
 }
 
 const FormSelect: types.Brick<FormSelectProps> = ({
-  values,
+  options,
   isRequired,
   register,
   fieldName = 'select',
@@ -29,22 +31,57 @@ const FormSelect: types.Brick<FormSelectProps> = ({
   requiredError,
   columns,
 }) => {
+  const labelTextContent =
+    typeof label === 'string' ? label : Plain.serialize(label)
+  const { isAdmin } = useAdminContext()
   return (
-    <label
-      className={clsx(
-        'px-2 py-1 group block',
-        columns === 'two' && 'col-span-2'
+    <div
+      className={classNames(
+        'px-2 py-1 group block col-span-2',
+        columns === '1' && 'sm:col-span-1'
       )}
     >
-      <span className="block text-gray-400 group-hover:text-sky-600 dark:group-hover:text-sky-300 font-medium uppercase tracking-widest text-sm peer-focus:text-sky-700">
-        {label}
-        {isRequired && <span className="text-red-600 ml-2">*</span>}
-      </span>
-      <select
-        className="block w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-1 ring-sky-500 focus:shadow-sky-200 dark:focus:shadow-sky-900 focus:shadow-lg"
-        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key)}
+      <label
+        htmlFor={isAdmin ? '' : fieldName}
+        className={classNames(
+          isRequired
+            ? labelTextContent === ''
+              ? 'block w-full'
+              : 'flex items-center space-x-1'
+            : 'block w-full'
+        )}
       >
-        {values?.split('\n').map((valuelabel, index) => {
+        <Text
+          propName="label"
+          placeholder="label..."
+          renderBlock={(props) => (
+            <span
+              className={classNames(textColors.GRAY_600, ' mb-1 text-sm')}
+              {...props.attributes}
+            >
+              {props.children}
+            </span>
+          )}
+        />
+
+        {isRequired &&
+          (labelTextContent === '' ? null : (
+            <span className="text-red-600">*</span>
+          ))}
+      </label>
+      <select
+        id={fieldName}
+        className={classNames(
+          'block w-full mt-1 px-4 py-2 bg-white dark:bg-gray-900 dark:text-white border border-gray-300 rounded outline-none focus:ring focus:ring-opacity-50',
+          errors[fieldName]
+            ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
+            : 'border-gray-300 dark:border-white/20 focus:border-sky-500 dark:focus:border-white focus:ring-sky-200 dark:focus:ring-white/20'
+        )}
+        {...register(fieldName?.replace(/\s/g, '').toLowerCase() || key, {
+          required: isRequired,
+        })}
+      >
+        {options?.split('\n').map((valuelabel, index) => {
           const [value, label] = valuelabel.trim().split(':')
           if (label) {
             return (
@@ -65,21 +102,21 @@ const FormSelect: types.Brick<FormSelectProps> = ({
           {errors[fieldName]?.type === 'required' && requiredError}
         </span>
       )}
-    </label>
+    </div>
   )
 }
 
 FormSelect.schema = {
   name: blockNames.FormSelect,
-  label: 'Form Select',
-  category: 'Tailblock Select',
+  label: 'Select',
+  category: 'contact',
   hideFromAddMenu: true,
 
   getDefaultProps: () => ({
-    fieldName: 'selectField',
-    label: 'Select Field Label',
-    columns: 'two',
-    values: 'value : Value',
+    fieldName: 'select',
+    label: 'Choose a fruit',
+    columns: '2',
+    options: 'orange: Orange\napple: Apple',
     isRequired: false,
   }),
 
@@ -91,8 +128,8 @@ FormSelect.schema = {
       selectOptions: {
         display: types.OptionsDisplay.Radio,
         options: [
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
+          { value: '1', label: 'One' },
+          { value: '2', label: 'Two' },
         ],
       },
     },
@@ -101,15 +138,12 @@ FormSelect.schema = {
       type: types.SideEditPropType.Text,
       label: 'Field Name',
     },
+
     {
-      name: 'label',
-      type: types.SideEditPropType.Text,
-      label: 'Label',
-    },
-    {
-      name: 'values',
-      label: 'Value : Label',
+      name: 'options',
+      label: 'Options',
       type: types.SideEditPropType.Textarea,
+      helperText: 'Each line should have "value:label"',
     },
     {
       name: 'isRequired',
@@ -119,7 +153,7 @@ FormSelect.schema = {
     {
       name: 'requiredError',
       type: types.SideEditPropType.Text,
-      label: 'Error required',
+      label: 'Required error message',
     },
   ],
 }
