@@ -3,9 +3,9 @@ import * as React from 'react'
 import { Image, types, Text } from 'react-bricks/frontend'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { FiTwitter, FiLinkedin, FiGithub } from 'react-icons/fi'
-import { textColors } from 'website/colors'
-import { LayoutProps } from 'website/LayoutSideProps'
-import { avatars } from 'website/shared/defaultImages'
+import { textColors } from '../../colors'
+import { LayoutProps } from '../../LayoutSideProps'
+import { avatars } from '../../shared/defaultImages'
 
 import blockNames from '../../blockNames'
 

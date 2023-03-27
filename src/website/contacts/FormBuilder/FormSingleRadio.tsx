@@ -4,7 +4,7 @@ import { types, Text, Plain } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import blockNames from '../../blockNames'
 import { useAdminContext } from 'react-bricks/frontend'
-import { textColors } from 'website/colors'
+import { textColors } from '../../colors'
 export interface FormSingleRadioProps {
   index: number
   register: UseFormRegister<any>

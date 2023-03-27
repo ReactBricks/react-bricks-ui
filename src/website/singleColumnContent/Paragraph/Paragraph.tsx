@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link, RichText, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 
 interface ParagraphProps extends LayoutProps {}
 

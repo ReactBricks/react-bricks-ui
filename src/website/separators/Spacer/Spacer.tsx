@@ -1,6 +1,6 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
-import { bgColors } from 'website/colors'
+import { bgColors } from '../../colors'
 import blockNames from '../../blockNames'
 import Section from '../../shared/components/Section'
 import { backgroundColorsEditProps, LayoutProps } from '../../LayoutSideProps'

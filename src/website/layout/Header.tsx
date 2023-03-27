@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Image, Repeater, types, Link } from 'react-bricks/frontend'
 import { FiMenu, FiX } from 'react-icons/fi'
-import blockNames from 'website/blockNames'
-import { bgColors, buttonColors } from 'website/colors'
+import blockNames from '../blockNames'
+import { bgColors, buttonColors } from '../colors'
 import {
   backgroundColorsEditProps,
   borderBottomEditProp,
   LayoutProps,
-} from 'website/LayoutSideProps'
+} from '../LayoutSideProps'
 import Section from '../shared/components/Section'
 
 interface HeaderProps extends LayoutProps {}

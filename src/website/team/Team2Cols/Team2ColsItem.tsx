@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import React from 'react'
 import { Text, Image, types, Plain } from 'react-bricks/frontend'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
-import blockNames from 'website/blockNames'
-import { textColors } from 'website/colors'
-import { avatars } from 'website/shared/defaultImages'
+import blockNames from '../../blockNames'
+import { textColors } from '../../colors'
+import { avatars } from '../../shared/defaultImages'
 
 interface Props {
   name?: any

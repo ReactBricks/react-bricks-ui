@@ -1,20 +1,20 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { Repeater } from 'react-bricks/frontend'
-import Container, { Padding, Size } from 'website/shared/components/Container'
-import Section, { Border } from 'website/shared/components/Section'
+import Container, { Padding, Size } from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
 
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 import classNames from 'classnames'
-import { icons } from 'website/shared/defaultImages'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
+import { icons } from '../../shared/defaultImages'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 interface CardsProps extends LayoutProps {
   colNumber: string

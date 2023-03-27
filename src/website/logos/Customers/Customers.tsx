@@ -5,8 +5,8 @@ import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
-} from 'website/LayoutSideProps'
-import { customers } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { customers } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 import { bgColors } from '../../colors'
 import Container from '../../shared/components/Container'

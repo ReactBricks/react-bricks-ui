@@ -12,8 +12,8 @@ import {
   LayoutProps,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { icons } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { icons } from '../../shared/defaultImages'
 
 export interface FeatureCalloutProps extends LayoutProps {}
 

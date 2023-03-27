@@ -6,8 +6,8 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { avatars, iconLogos } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { avatars, iconLogos } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 import Container from '../../shared/components/Container'

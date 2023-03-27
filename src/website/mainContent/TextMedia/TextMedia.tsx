@@ -19,8 +19,8 @@ import {
   sectionDefaults,
   sectionPaddingsEditProps,
 } from '../../LayoutSideProps'
-import { photos } from 'website/shared/defaultImages'
-import Video from 'website/shared/components/Video'
+import { photos } from '../../shared/defaultImages'
+import Video from '../../shared/components/Video'
 
 export interface TextMediaProps extends LayoutProps {
   imageSide: 'left' | 'right'

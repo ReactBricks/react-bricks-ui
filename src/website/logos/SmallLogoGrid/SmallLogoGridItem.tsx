@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Image, Link, types } from 'react-bricks/frontend'
-import { iconLogos } from 'website/shared/defaultImages'
+import { iconLogos } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 
 export interface SmallLogoGridItemProps {

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Text } from 'react-bricks'
-import { textColors } from 'website/colors'
+import { textColors } from '../../colors'
 
 interface TitleSubtitleProps {
   bigCentered?: boolean

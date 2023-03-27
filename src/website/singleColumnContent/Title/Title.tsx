@@ -1,16 +1,16 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import Container, { Padding, Size } from 'website/shared/components/Container'
-import Section, { Border } from 'website/shared/components/Section'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
+} from '../../LayoutSideProps'
+import Container, { Padding, Size } from '../../shared/components/Container'
+import Section, { Border } from '../../shared/components/Section'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 interface TitleProps extends LayoutProps {
   backgroundColor: { color: string; className: string }

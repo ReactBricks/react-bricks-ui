@@ -1,19 +1,19 @@
 import * as React from 'react'
 import { useEffect, useRef, useState, useContext } from 'react'
 import { types, ReactBricksContext } from 'react-bricks/frontend'
-import { bgColors } from 'website/colors'
+import { bgColors } from '../../colors'
 
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 
 export interface TweetProps extends LayoutProps {
   id: string

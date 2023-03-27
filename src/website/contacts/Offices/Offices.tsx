@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types, Text } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
+} from '../../LayoutSideProps'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 export interface OfficesProps extends LayoutProps {
   withTitle: boolean

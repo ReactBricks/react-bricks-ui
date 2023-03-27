@@ -1,8 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 import { Text, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import { textColors } from 'website/colors'
+import blockNames from '../../blockNames'
+import { textColors } from '../../colors'
 
 type TextAlign = 'left' | 'center' | 'right'
 

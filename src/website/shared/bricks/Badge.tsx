@@ -4,7 +4,7 @@ import { highlightTextColors } from '../../colors'
 
 import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import { badgeColorsEditProps } from 'website/LayoutSideProps'
+import { badgeColorsEditProps } from '../../LayoutSideProps'
 
 export interface BadgeProps {
   badgeColor: { color: string; className: string }

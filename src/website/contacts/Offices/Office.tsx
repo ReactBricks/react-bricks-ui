@@ -1,6 +1,6 @@
 import React from 'react'
 import { types, Text } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 
 export interface OfficeProps {}
 

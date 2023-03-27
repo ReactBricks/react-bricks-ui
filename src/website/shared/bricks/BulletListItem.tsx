@@ -4,7 +4,7 @@ import { FiCheck } from 'react-icons/fi'
 import { Text, types } from 'react-bricks/frontend'
 import { highlightBgColors } from '../../colors'
 import blockNames from '../../blockNames'
-import { bulletColorsEditProps } from 'website/LayoutSideProps'
+import { bulletColorsEditProps } from '../../LayoutSideProps'
 
 export interface BulletListItemProps {
   bulletColor: { color: string; className: string }

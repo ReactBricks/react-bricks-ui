@@ -7,17 +7,17 @@ import {
   FcPhone,
   FcVoicePresentation,
 } from 'react-icons/fc'
-import blockNames from 'website/blockNames'
-import { buttonColors, textColors } from 'website/colors'
+import blockNames from '../../blockNames'
+import { buttonColors, textColors } from '../../colors'
 import {
   backgroundSideGroup,
   LayoutProps,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
+} from '../../LayoutSideProps'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 export interface ContactsFormProps extends LayoutProps {
   phoneNumber: string

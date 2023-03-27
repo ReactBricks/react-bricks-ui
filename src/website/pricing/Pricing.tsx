@@ -1,16 +1,16 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { Repeater } from 'react-bricks/frontend'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
-import blockNames from 'website/blockNames'
+import Container from '../shared/components/Container'
+import Section from '../shared/components/Section'
+import blockNames from '../blockNames'
 import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { pricingColors } from 'website/colors'
+} from '../LayoutSideProps'
+import { pricingColors } from '../colors'
 
 interface PricingProps extends LayoutProps {}
 

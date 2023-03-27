@@ -8,7 +8,7 @@ import {
   LayoutProps,
   backgroundWithImageBgSideGroup,
   paddingBordersSideGroup,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
 import {
   buttonColors,

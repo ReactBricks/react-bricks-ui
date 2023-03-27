@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Image, types, Text, Link, Plain } from 'react-bricks/frontend'
 import classNames from 'classnames'
 import blockNames from '../../blockNames'
-import { textColors } from 'website/colors'
+import { textColors } from '../../colors'
 import { ColsNumber } from './Features'
-import { icons } from 'website/shared/defaultImages'
+import { icons } from '../../shared/defaultImages'
 
 export interface FeatureItemProps {
   colsNumber: ColsNumber

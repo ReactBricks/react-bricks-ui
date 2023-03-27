@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 
 export interface TableRowProps {
   index: number

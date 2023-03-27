@@ -1,16 +1,16 @@
 import React from 'react'
 import { RichText, Image, Repeater, types, Link } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import { bgColors, textColors } from 'website/colors'
+import blockNames from '../blockNames'
+import { bgColors, textColors } from '../colors'
 import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { logos } from 'website/shared/defaultImages'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
+} from '../LayoutSideProps'
+import { logos } from '../shared/defaultImages'
+import Container from '../shared/components/Container'
+import Section from '../shared/components/Section'
 
 interface FooterProps extends LayoutProps {
   siteUrl: string

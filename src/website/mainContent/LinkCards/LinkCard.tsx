@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { Text, Image, Link } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import { textColors } from 'website/colors'
-import { icons } from 'website/shared/defaultImages'
+import blockNames from '../../blockNames'
+import { textColors } from '../../colors'
+import { icons } from '../../shared/defaultImages'
 
 interface LinkCardProps {
   withIcon: boolean

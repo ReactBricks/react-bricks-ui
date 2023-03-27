@@ -7,8 +7,8 @@ import {
   Repeater,
   types,
 } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import { textColors } from 'website/colors'
+import blockNames from '../blockNames'
+import { textColors } from '../colors'
 
 interface FooterColumnProps {}
 

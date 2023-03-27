@@ -12,8 +12,8 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { iconLogos } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { iconLogos } from '../../shared/defaultImages'
 
 export interface SmallLogoGridProps extends LayoutProps {
   targetBlank: boolean

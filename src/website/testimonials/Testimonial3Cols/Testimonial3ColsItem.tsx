@@ -4,8 +4,8 @@ import { Image, Plain, Text, types } from 'react-bricks/frontend'
 import {
   backgroundColorsEditProps,
   sectionBordersEditProps,
-} from 'website/LayoutSideProps'
-import { avatars } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { avatars } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 import { textColors } from '../../colors'
 

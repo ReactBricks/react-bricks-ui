@@ -10,8 +10,8 @@ import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
-} from 'website/LayoutSideProps'
-import { icons } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { icons } from '../../shared/defaultImages'
 
 export type ColsNumber = '2' | '3' | '4'
 

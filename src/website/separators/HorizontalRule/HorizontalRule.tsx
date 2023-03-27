@@ -1,15 +1,15 @@
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
-import Container, { Padding, Size } from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
+import Container, { Padding, Size } from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import {
   backgroundColorsEditProps,
   containerSizeEditPropsWithFull,
   LayoutProps,
   sectionPaddingsEditProps,
-} from 'website/LayoutSideProps'
-import { bgColors } from 'website/colors'
+} from '../../LayoutSideProps'
+import { bgColors } from '../../colors'
 
 interface HorizontalRuleProps extends LayoutProps {}
 

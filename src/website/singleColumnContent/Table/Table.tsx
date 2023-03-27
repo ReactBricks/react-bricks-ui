@@ -1,15 +1,15 @@
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
+} from '../../LayoutSideProps'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 
 export interface TableProps extends LayoutProps {
   striped: boolean

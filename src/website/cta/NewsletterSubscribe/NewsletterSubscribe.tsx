@@ -3,18 +3,18 @@ import { validate } from 'email-validator'
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { RichText, Text } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 
 import {
   containerSizeEditProps,
   LayoutProps,
   neutralBackgroundColorsEditProps,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import Section from 'website/shared/components/Section'
-import Container from 'website/shared/components/Container'
+} from '../../LayoutSideProps'
+import Section from '../../shared/components/Section'
+import Container from '../../shared/components/Container'
 import classNames from 'classnames'
-import { textColors } from 'website/colors'
+import { textColors } from '../../colors'
 enum NewsletterProvider {
   MailChimp = 'MAILCHIMP',
   ConvertKit = 'CONVERTKIT',

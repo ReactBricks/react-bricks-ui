@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import React from 'react'
 import { types } from 'react-bricks/frontend'
 import { RichText, Text, Link, Repeater } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import { pricingColors, PricingColorValue, textColors } from 'website/colors'
-import { pricingColorsEditProps } from 'website/LayoutSideProps'
+import blockNames from '../blockNames'
+import { pricingColors, PricingColorValue, textColors } from '../colors'
+import { pricingColorsEditProps } from '../LayoutSideProps'
 
 interface PricingPlanProps {
   pricingColor: PricingColorValue

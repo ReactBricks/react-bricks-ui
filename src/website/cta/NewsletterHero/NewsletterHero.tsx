@@ -13,7 +13,7 @@ import {
   sectionBordersEditProps,
   sectionDefaults,
   textGradientEditProps,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
 import { gradients, textColors } from '../../colors'
 import Container from '../../shared/components/Container'

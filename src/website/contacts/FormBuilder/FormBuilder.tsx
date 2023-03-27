@@ -2,8 +2,8 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
-import blockNames from 'website/blockNames'
-import { buttonColors } from 'website/colors'
+import blockNames from '../../blockNames'
+import { buttonColors } from '../../colors'
 import {
   backgroundSideGroup,
   containerSizeEditProps,
@@ -11,7 +11,7 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 

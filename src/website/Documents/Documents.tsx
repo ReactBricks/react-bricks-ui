@@ -12,7 +12,7 @@ import {
   paddingBordersSideGroup,
   sectionDefaults,
 } from '../LayoutSideProps'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 export interface DocumentsProps extends LayoutProps {}
 
 const Documents: types.Brick<DocumentsProps> = ({

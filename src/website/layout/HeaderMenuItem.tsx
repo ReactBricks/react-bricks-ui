@@ -1,9 +1,9 @@
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 import classNames from 'classnames'
 import React, { useRef, useState } from 'react'
 import { Text, Repeater, types, Link, Plain } from 'react-bricks/frontend'
 import useOnClickOutside from './useClickOutside'
-import { textColors } from 'website/colors'
+import { textColors } from '../colors'
 
 interface HeaderMenuItemProps {
   linkPath: string

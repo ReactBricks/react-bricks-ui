@@ -8,16 +8,16 @@ import {
   Link,
 } from 'react-bricks/frontend'
 import { FaTwitter } from 'react-icons/fa'
-import Section from 'website/shared/components/Section'
-import blockNames from 'website/blockNames'
-import Container from 'website/shared/components/Container'
+import Section from '../../shared/components/Section'
+import blockNames from '../../blockNames'
+import Container from '../../shared/components/Container'
 import {
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 
 export interface TweetLightProps extends LayoutProps {
   tweetLink: string

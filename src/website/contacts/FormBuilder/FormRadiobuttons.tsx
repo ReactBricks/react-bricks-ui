@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { Repeater, types, Plain, Text } from 'react-bricks/frontend'
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
-import { textColors } from 'website/colors'
+import { textColors } from '../../colors'
 import blockNames from '../../blockNames'
 
 export interface FormRadiobuttonsProps {

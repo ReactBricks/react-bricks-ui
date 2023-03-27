@@ -4,7 +4,7 @@ import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 import classNames from 'classnames'
 import blockNames from '../../blockNames'
 import { useAdminContext } from 'react-bricks/frontend'
-import { textColors } from 'website/colors'
+import { textColors } from '../../colors'
 
 export interface FormSelectProps {
   register: UseFormRegister<any>

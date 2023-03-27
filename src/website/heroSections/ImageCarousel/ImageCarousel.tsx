@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import Slider from 'react-slick'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
-import blockNames from 'website/blockNames'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
+import blockNames from '../../blockNames'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {
@@ -12,8 +12,8 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { photos } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { photos } from '../../shared/defaultImages'
 
 interface ImageCarouselProps extends LayoutProps {
   slidesToShow: string

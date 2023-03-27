@@ -5,7 +5,7 @@ import { File, types, Text, RichText } from 'react-bricks/frontend'
 import { AiOutlineFileAdd } from 'react-icons/ai'
 import { FcDownload } from 'react-icons/fc'
 import { FcDocument } from 'react-icons/fc'
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 export interface DocumentProps {
   color?: { color: string; className: string }
   withSize?: boolean

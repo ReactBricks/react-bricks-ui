@@ -3,8 +3,8 @@ import * as React from 'react'
 import { types, useVisualEdit } from 'react-bricks/frontend'
 import Editor from './SimpleCodeEditor'
 import blockNames from '../../blockNames'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
 import PrismCode from './PrismCode'
 import Styles from './Styles'
 import {
@@ -13,7 +13,7 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 
 require('prismjs/components/prism-typescript')
 require('prismjs/components/prism-bash')

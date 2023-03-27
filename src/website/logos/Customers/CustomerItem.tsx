@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import * as React from 'react'
 import { Image, types } from 'react-bricks/frontend'
-import { logos } from 'website/shared/defaultImages'
+import { logos } from '../../shared/defaultImages'
 import blockNames from '../../blockNames'
 
 export interface CustomerProps {

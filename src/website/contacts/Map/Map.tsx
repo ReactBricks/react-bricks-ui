@@ -15,7 +15,7 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 
 export interface MapProps extends LayoutProps {
   zoom: string

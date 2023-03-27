@@ -9,10 +9,10 @@ import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
-} from 'website/LayoutSideProps'
-import { icons } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import { icons } from '../../shared/defaultImages'
 import classNames from 'classnames'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 interface LinkCardsProps extends LayoutProps {
   withTitle?: boolean

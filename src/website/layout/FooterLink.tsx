@@ -1,4 +1,4 @@
-import blockNames from 'website/blockNames'
+import blockNames from '../blockNames'
 import React from 'react'
 import {
   Text,
@@ -9,7 +9,7 @@ import {
   types,
   Link,
 } from 'react-bricks/frontend'
-import { textColors } from 'website/colors'
+import { textColors } from '../colors'
 
 interface FooterLinkProps {
   linkPath: string

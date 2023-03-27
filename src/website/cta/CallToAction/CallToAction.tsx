@@ -6,7 +6,7 @@ import {
   LayoutProps,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
+} from '../../LayoutSideProps'
 import blockNames from '../../blockNames'
 import { bgColors, buttonColors, textColors } from '../../colors'
 import Container from '../../shared/components/Container'

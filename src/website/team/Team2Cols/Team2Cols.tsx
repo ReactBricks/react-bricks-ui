@@ -1,17 +1,17 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
+import blockNames from '../../blockNames'
 import {
   LayoutProps,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import Container from 'website/shared/components/Container'
-import Section from 'website/shared/components/Section'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
-import { avatars } from 'website/shared/defaultImages'
+} from '../../LayoutSideProps'
+import Container from '../../shared/components/Container'
+import Section from '../../shared/components/Section'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
+import { avatars } from '../../shared/defaultImages'
 
 interface Team2ColsProps extends LayoutProps {
   withTitle?: boolean

@@ -2,8 +2,8 @@ import React from 'react'
 import classNames from 'classnames'
 import { types, Plain } from 'react-bricks/frontend'
 import { Text } from 'react-bricks/frontend'
-import blockNames from 'website/blockNames'
-import { pricingColors, PricingColorValue } from 'website/colors'
+import blockNames from '../blockNames'
+import { pricingColors, PricingColorValue } from '../colors'
 
 interface PlanFeatureProps {
   withTag?: boolean

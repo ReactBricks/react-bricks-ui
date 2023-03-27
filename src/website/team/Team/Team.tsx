@@ -11,9 +11,9 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from 'website/LayoutSideProps'
-import { avatars } from 'website/shared/defaultImages'
-import TitleSubtitle from 'website/shared/components/TitleSubtitle'
+} from '../../LayoutSideProps'
+import { avatars } from '../../shared/defaultImages'
+import TitleSubtitle from '../../shared/components/TitleSubtitle'
 
 export interface TeamProps extends LayoutProps {
   withTitle?: boolean
