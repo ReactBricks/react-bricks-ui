@@ -62,7 +62,6 @@ import Offices from './contacts/Offices/Offices'
 import Office from './contacts/Offices/Office'
 import ContactsForm from './contacts/ContactsForm/ContactsForm'
 import FormBuilder from './contacts/FormBuilder/FormBuilder'
-import FormButton from './contacts/FormBuilder/FormButton'
 import FormCheckbox from './contacts/FormBuilder/FormCheckbox'
 import FormInput from './contacts/FormBuilder/FormInput'
 import FormSelect from './contacts/FormBuilder/FormSelect'
@@ -147,7 +146,6 @@ export {
   HorizontalRule,
   Spacer,
   FormBuilder,
-  FormButton,
   FormCheckbox,
   FormInput,
   FormSelect,
@@ -220,7 +218,6 @@ const allBricks = [
   HorizontalRule,
   Spacer,
   FormBuilder,
-  FormButton,
   FormCheckbox,
   FormInput,
   FormSelect,
